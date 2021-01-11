@@ -1,0 +1,260 @@
+// main
+.main
+	margin-top: 90px
+
+	&-wrapper
+		position: relative
+
+	&-circle-wrapper
+		position: absolute
+		right: -250px
+		top: 50%
+		transform: translateY(-50%)
+
+	&-circle1
+		width: 450px
+		height: 450px
+
+	&-circle2
+		position: absolute
+		bottom: 0
+		left: -50px
+		width: 150px
+		height: 150px
+
+	&__title
+		font-size: 72px
+		max-width: 1200px
+		& > span
+			color: $mainColor
+
+	&__description
+		font-size: 24px
+		margin-top: 25px
+		max-width: 800px
+
+	&__btn
+		margin-top: 50px
+
+// categories
+.categories
+	margin-top: 140px
+
+	&-content
+		display: flex
+		justify-content: space-between
+
+	&-item-wrapper
+		width: 50%
+		padding: 50px 0
+
+	&-item
+		width: 100%
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 50px 0
+		border-bottom: 1px solid $gray
+		&:first-child
+			border-top: 1px solid $gray
+
+		&:hover &__title
+			color: $mainColor
+
+		&:hover &__subtitle
+			color: $mainColor
+
+		&:hover &-arrow
+			opacity: 1
+
+		&-text
+			max-width: 400px
+
+		&__title
+			font-size: 36px
+			+transition
+
+		&__subtitle
+			margin-top: 15px
+			font-size: 24px
+			color: $gray
+			+transition
+
+		&-arrow
+			fill: $mainColor
+			opacity: 0
+			+transition
+
+	&-thumb
+		border-radius: 2px
+		height: auto
+		width: 45%
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: center;
+		+transition
+
+// event
+.event
+	margin-top: 140px
+
+	&-item
+		z-index: 1000
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+		&-text
+			max-width: 600px
+			margin-right: 100px
+
+		&__type
+			&_gray
+				font-size: 18px
+				display: inline-block
+				border-radius: 100px
+				background-color: $lightGray
+				color: $black
+				padding: 7px 17px
+
+			&_color
+				font-size: 18px
+				margin-right: 10px
+				display: inline-block
+				border-radius: 100px
+				background-color: $mainColor
+				color: $white
+				padding: 7px 17px
+
+		&__title
+			font-size: 36px
+			margin-top: 50px
+
+		&__description
+			font-size: 24px
+			margin-top: 15px
+
+		&__date
+			display: block
+			font-size: 24px
+			margin-top: 50px
+			+bold
+
+		&-auth-wrapper
+			margin-top: 50px
+
+		&-auth
+			margin-bottom: 5px
+
+		&-thumb
+			position: relative
+			margin-right: -100px
+
+		&-btn-wrapper
+			margin-top: 50px
+
+		&__btn
+			width: 100%
+
+		&-img
+			border-radius: 50%
+			width: 520px
+			height: 520px
+			background-size: cover
+			background-repeat: no-repeat
+
+		&-circle1
+			position: absolute
+			bottom: 0
+			left: -25px
+			width: 160px
+			height: 160px
+
+	&-arrow
+		margin-top: 100px
+		display: flex
+		justify-content: center
+
+// services
+.services
+	position: relative
+	margin-top: 140px
+
+	&-block-wrapper
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+	&-block
+		margin-bottom: 50px
+		border-radius: 2px
+		position: relative
+		padding: 50px
+		border: 1px solid $gray
+		+transition
+		&:hover
+			color: $white
+			background-color: $mainColor
+			border: 1px solid $mainColor
+
+		&_small
+			width: 49%
+
+		&__number
+			position: absolute
+			top: 20px
+			left: 20px
+			font-size: 18px
+			color: $gray
+
+		&__title
+			font-size: 36px
+			margin-bottom: 25px
+
+		&__description
+			font-size: 24px
+
+	&-circle1, &-circle2
+		width: 480px
+		height: 480px
+		position: absolute
+
+	&-circle1
+		left: -50px
+
+	&-circle2
+		right: -50px
+		top: 50%
+		transform: translateY(-50%)
+
+// about
+.about
+	margin-top: 140px
+
+	&-block-wrapper
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-wrap: wrap
+
+	&-block
+		width: 400px
+		height: 400px
+		background-color: $lightMainColor
+		border-radius: 50%
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		+transition
+		&:hover
+			transform: scale(1.2)
+
+		&__title
+			font-size: 64px
+			color: $mainColor
+
+		&__subtitle
+			font-size: 20px
+			margin-top: 15px

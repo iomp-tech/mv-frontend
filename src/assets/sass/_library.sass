@@ -1,0 +1,84 @@
+// library
+.library
+	margin: 100px 0
+
+	&-block-top
+		display: flex
+		position: relative
+
+	&__title
+		margin-bottom: 50px
+
+	&__subtitle
+		padding-top: 5px
+		padding-left: 10px
+		font-size: 24px
+		color: $gray
+		+light
+
+	&-block
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 30px
+		box-shadow: 0 0 50px rgba(0, 0, 0, 0.05)
+		border-radius: 5px
+		margin-bottom: 25px
+		&:hover &__btn
+			color: #969696
+			fill: #969696
+
+		&-left
+			display: flex
+			align-items: center
+
+		&-thumb
+			width: 120px
+			height: 120px
+			border-radius: 50%
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center center
+
+		&-text
+			max-width: 600px
+			padding-left: 50px
+
+		&__subtitle
+			display: block
+			font-size: 18px
+			margin-bottom: 15px
+			color: $gray
+		
+		&__title
+			font-size: 28px
+
+		&__btn
+			color: $gray
+			fill: $gray
+			display: flex
+			align-items: center
+			+transition
+
+			& > span
+				display: block
+				margin-left: 15px
+
+	&-block-plus
+		border-radius: 2px
+		display: flex
+		justify-content: center
+		margin-top: 50px
+		stroke: $gray
+		+transition
+		&:hover
+			stroke: #969696
+
+	&-null
+		text-align: center
+		margin-top: 25px
+		margin-bottom: 75px
+
+		&__title
+			font-size: 24px
+			color: $gray

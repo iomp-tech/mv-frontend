@@ -1,0 +1,774 @@
+// media - adaptive system
+@media screen and (max-width: 1250px)
+	// timetable
+	.timetable
+		&-filters
+			flex-direction: column
+			align-items: flex-start
+
+		&-checkbox-block
+			width: 100%
+			margin-top: 50px
+
+	// directions
+	.directions
+		width: 100%
+
+	// magazine
+	.magazine
+		&-filters
+			width: 100%
+			align-items: flex-start
+			justify-content: space-between
+			display: flex
+			padding-bottom: 25px
+			margin-bottom: 100px
+			border-bottom: 1px solid $gray
+
+			&-block
+				padding: 0
+				margin: 0
+				height: 200px
+				overflow-y: auto
+				width: 45%
+				border: none
+				&::-webkit-scrollbar
+					width: 4px
+					height: 8px
+					background-color: #F0F0F0
+
+				&::-webkit-scrollbar-thumb
+					background-color: #E2E2E2
+					border-radius: 3px
+
+				&::-webkit-scrollbar-thumb:hover
+					background-color: #E2E2E2
+
+			&-types
+				flex-direction: row
+				flex-wrap: wrap
+
+		&-catalog
+			width: 100%
+
+			&__btn
+				width: 100%
+
+		&-bottom
+			flex-direction: column
+
+	// shop
+	.shop
+		&-filters
+			&-block-wrapper
+				margin-bottom: 25px
+				width: 50%
+				border-right: 1px solid $gray
+
+			&-block-wrapper:nth-child(2n+1) &-block
+				border-left: 1px solid $gray
+
+@media screen and (max-width: 1150px)
+	// header
+	.header
+		&-menu-hidden
+			display: none
+
+		&-menu-burger
+			display: block
+
+	// event
+	.event
+		&-item
+			&-img
+				width: 400px
+				height: 400px
+
+	// shop
+	.shop
+		&-block
+			&-right
+				flex-direction: column
+				align-items: flex-start
+				width: auto
+
+			&-left
+				width: auto
+
+			&-price
+				margin-bottom: 25px
+
+	// cart
+	.cart
+		&-block
+			flex-direction: column
+			align-items: flex-start
+
+			&-left
+				align-items: flex-start
+				flex-direction: column
+				width: 100%
+
+			&-thumb
+				width: 100%
+
+			&__img
+				border-radius: 10px
+				width: 100%
+				height: 300px
+
+			&-text
+				margin-top: 50px
+				margin-left: 0
+
+			&-right
+				width: 100%
+				margin-top: 50px
+				align-items: center
+
+	// timetable
+	.timetable
+		&-block-wrapper
+			padding: 0
+
+		&-block-container
+			width: 50%
+
+		&-block-container:nth-of-type(4n+3) &-block
+			padding-left: 0
+
+	// services
+	.services
+		&-block-wrapper
+			flex-direction: column
+
+		&-block
+			&_small
+				width: 100%
+
+	// about
+	.about
+		&-block-wrapper
+			flex-direction: column
+			align-items: center
+			justify-content: flex-start
+
+		&-block
+			width: 400px
+			height: 400px
+
+	// teacher
+	.teacher
+		&-block-wrapper
+			flex-direction: column
+
+		&-block
+			width: 100%
+
+			&__title
+				font-size: 36px
+
+			&__subtitle
+				font-size: 21px
+
+	// email-form
+	.email-form
+		&-wrapper
+			flex-direction: column
+
+		&-left, &-right
+			width: 100%
+
+		&-right
+			margin-top: 100px
+
+	// library
+	.library
+		&-block
+			&__btn
+				& > span
+					display: none
+
+@media screen and (max-width: 1000px)
+	// shop
+	.shop
+		&-block-top
+			flex-direction: column
+			align-items: center
+
+		&-input, &-filters__btn, &-filters-clear__btn
+			width: 100%
+
+		&-filters-clear__btn
+			margin-top: 50px
+
+		&-filters__btn
+			margin-top: 25px
+
+		&-filters-btn
+			width: 100%
+
+		&-block
+			width: 100%
+			flex-direction: column
+			align-items: flex-start
+
+			&-left, &-right
+				width: 100%
+				flex-direction: column
+				align-items: center
+
+			&-right
+				margin-top: 75px
+
+			&-thumb
+				width: 100%
+
+			&__img
+				border-radius: 10px
+				width: 100%
+				height: 250px
+
+			&__sale
+				width: 70px
+				height: 70px
+				font-size: 24px
+				top: -15px
+				left: -15px
+
+			&-text
+				width: 100%
+				margin-top: 50px
+				margin-left: 0
+
+			&-price
+				width: 100%
+				display: flex
+				justify-content: space-between
+				align-items: center
+				margin-bottom: 15px
+
+			&__price
+				margin-top: 0
+
+			&__subprice
+				font-size: 21px
+
+			&__btn
+				width: 100%
+
+	// timetable-page
+	.timetable-page
+		&-wrapper
+			flex-direction: column
+
+		&-text, &-form
+			width: 100%
+
+		&-form
+			margin-top: 75px
+
+		&-checkbox
+			display: flex
+			justify-content: center
+
+	// teacher
+	.teacher
+		&-modal
+			&-content
+				margin: 80px 1em
+				flex-direction: column
+
+			&-close
+				stroke: $white
+				top: -60px
+
+			&-text
+				padding: 50px
+				min-width: 100%
+
+			&-thumb
+				align-items: center
+
+	// cabinet
+	.cabinet
+		&-block
+			&-setting
+				width: 100%
+
+			&__btn
+				width: 100%
+
+	// post
+	.post
+		margin: 50px 0
+		&-cover
+			flex-direction: column
+			align-items: flex-start
+
+			&-text
+				width: 100%
+				padding: 0
+
+			&-thumb
+				margin-top: 50px
+				width: 100%
+				height: 300px
+
+@media screen and (max-width: 920px)
+	// library
+	.library
+		&-block
+			&-left
+				width: 100%
+				align-items: flex-start
+				flex-direction: column
+
+			&-text
+				max-width: 100%
+				padding-top: 50px
+				padding-left: 0
+
+			&-thumb
+				border-radius: 10px
+				width: 100%
+				height: 200px
+
+			&__title
+				font-size: 24px
+
+			&__btn
+				display: none
+
+@media screen and (max-width: 900px)
+	// timetable
+	.timetable
+		margin-top: 100px
+
+	// footer
+	.footer
+		&-media
+			display: flex
+			justify-content: space-between
+
+		&-middle
+			margin-top: 0
+
+		&-nav
+			display: none
+
+		&-email-form
+			display: none
+
+	// reglog
+	.reglog
+		&-circle
+			display: none
+
+@media screen and (max-width: 820px)
+	// header
+	.header
+		&__btn, &-right
+			display: none
+
+		&-cart-mobile
+			display: block
+
+	// main
+	.main
+		&__title
+			font-size: 56px
+			max-width: 100%
+
+	// categories
+	.categories
+		&-item-wrapper
+			padding: 0
+			width: 100%
+
+		&-thumb
+			display: none
+
+	// event
+	.event
+		&-item
+			display: flex
+			flex-direction: column
+
+			&-text
+				margin-bottom: 100px
+				margin-right: 0
+				max-width: 100%
+
+			&__title
+				margin-top: 25px
+
+			&__description
+				margin-top: 25px
+
+			&-thumb
+				margin-right: 0
+
+			&-img
+				width: 300px
+				height: 300px
+
+	// teacher
+	.teacher
+		&-block
+			&__title
+				font-size: 24px
+
+			&__subtitle
+				font-size: 18px
+
+	// magazine
+	.magazine
+		&-block-wrapper
+			flex-direction: column
+
+		&-block
+			width: 100%
+
+			&-types
+				flex-direction: column
+				justify-content: flex-start
+				align-items: flex-start
+				padding: 25px 15px
+
+			&-types-left
+				margin-bottom: 10px
+
+@media screen and (max-width: 750px)
+	// cabinet
+	.cabinet
+		&-block-info
+			flex-direction: column
+
+			&-img
+				width: 150px
+				height: 150px
+
+			&-text
+				text-align: center
+				padding-left: 0
+				padding-top: 50px
+
+			&__title
+				max-width: 100%
+
+@media screen and (max-width: 640px)
+	// shop
+	.shop
+		margin: 100px 0
+		&-filters
+			flex-direction: column
+
+			&-block-wrapper
+				width: 100%
+				border-left: 1px solid $gray
+				border-right: 1px solid $gray
+
+			&-block-wrapper:nth-child(2n+1) &-block
+				border: none
+
+		&-block
+			&:first-child
+				border-top: none
+
+	// cart
+	.cart
+		&-block-bottom
+			padding: 50px 0
+			flex-direction: column
+			align-items: flex-start
+
+		&__btn
+			width: 100%
+			margin-top: 25px
+
+	// timetable
+	.timetable
+		&-block-wrapper
+			padding: 0
+			padding-top: 55px
+
+		&-block-container
+			width: 100%
+
+		&-block
+			padding: 0
+			border-right: none
+
+	// teacher
+	.teacher
+		&-block
+			flex-direction: column
+			align-items: center
+			&::before
+				width: 550px
+				height: 550px
+
+			&:hover::before
+				width: 600px
+				height: 600px
+
+			&-text
+				margin: 50px
+
+	// next-post
+	.next-post
+		padding: 50px 0
+		&:hover &-media
+			transform: scale(1)
+
+		&-wrapper
+			text-align: center
+			display: flex
+			justify-content: center
+
+		&-media
+			align-items: center
+			flex-direction: column
+
+		&-arrow
+			margin-top: 50px
+			& > svg
+				width: 80px
+
+	// footer
+	.footer
+		&-bottom-right
+			align-items: flex-start
+			display: flex
+			flex-direction: column
+
+		&-bottom
+			align-items: flex-start
+			&__link
+				margin-left: 0
+				&:first-child
+					margin-bottom: 25px
+
+	// error
+	.error
+		margin: 100px 0
+		&__title
+			font-size: 48px
+
+@media screen and (max-width: 540px)
+	// interface
+	.title
+		font-size: 36px
+		margin-bottom: 50px
+
+	// header
+	.header
+		&-modal
+			&-content
+				padding-left: 25px
+				padding-top: 50px
+				padding-right: 50px
+
+			&-logo__img
+				width: 200px
+
+			&__link
+				font-size: 36px
+
+	// services
+	.services
+		&-circle1, &-circle2
+			width: 400px
+			height: 400px
+
+		&-block
+			padding: 25px
+			&__title
+				font-size: 24px
+
+			&__description
+				font-size: 18px
+
+			&__number
+				left: 5px
+				top: 5px
+
+	// teacher
+	.teacher
+		&-modal
+			&-text
+				padding: 25px
+
+			&-thumb
+				margin-top: 25px
+
+			&__img
+				width: 300px
+
+	// email-form
+	.email-form
+		&__title
+			font-size: 32px
+
+		&__subtitle
+			margin-top: 25px
+			font-size: 18px
+
+	// cart
+	.cart
+		margin: 50px 0
+
+		&-null
+			&__title
+				font-size: 36px
+
+	// footer
+	.footer
+		&-media
+			flex-direction: column
+
+		&-middle
+			&-left
+				margin-top: 50px
+
+		&-wrapper
+			flex-direction: column
+
+	// success-add-cart
+	.success-add-cart
+		text-align: center
+		max-width: 250px
+
+@media screen and (max-width: 480px)
+	// post
+	.post
+		&-cover
+			&-block-top
+				align-items: flex-start
+				flex-direction: column
+
+			&__date
+				padding-top: 25px
+				padding-left: 0
+				color: $black
+
+	// reglog
+	.reglog
+		&__title
+			font-size: 28px
+
+@media screen and (max-width: 460px)
+	// interface
+	.title
+		font-size: 32px
+
+	// main
+	.main
+		&__title
+			font-size: 48px
+
+	// categories
+	.categories
+		&-item
+			&__title
+				font-size: 28px
+
+	// timetable
+	.timetable
+		&-modal
+			&-text
+				width: 230px
+
+	// footer
+	.footer
+		&-bottom
+			flex-direction: column
+
+			&-right
+				margin-top: 25px
+
+@media screen and (max-width: 420px)
+	// interface
+	.checkbox-label_white
+		font-size: 12px
+
+	// header
+	.header
+		&-logo__img
+			width: 180px
+
+	// main
+	.main
+		margin-top: 70px
+
+	// about
+	.about
+		&-block
+			width: 350px
+			height: 350px
+
+			&__title
+				font-size: 54px
+
+			&__subtitle
+				font-size: 18px
+
+	// teacher
+	.teacher
+		&-block
+			&-text
+				margin: 25px
+
+		&-modal
+			&__description
+				font-size: 18px
+
+			&__img
+				width: 250px
+
+	// email-form
+	.email-form
+		&-wrapper
+			padding: 50px 25px
+
+		&__title
+			font-size: 24px
+
+		&__subtitle
+			margin-top: 25px
+			font-size: 18px
+
+	// magazine
+	.magazine
+		&-block
+			&_big-types
+				flex-direction: column
+				align-items: flex-start
+
+			&_big-types-left
+				margin-bottom: 10px
+
+@media screen and (max-width: 390px)
+	// header
+	.header
+		&-modal
+			&__link
+				font-size: 30px
+
+	// main
+	.main
+		&__title
+			font-size: 40px
+
+	// event
+	.event
+		&-item
+			&__title
+				font-size: 32px
+
+			&__description
+				font-size: 18px
+
+			&__date
+				font-size: 18px

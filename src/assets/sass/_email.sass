@@ -1,0 +1,54 @@
+// email
+.email-form
+	margin: 140px 0
+
+	&-wrapper
+		border-radius: 2px
+		color: $white
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 75px 50px
+		background-color: $mainColor
+
+	&-left
+		width: 50%
+	
+	&-right
+		width: 40%
+	
+	&__title
+		font-size: 36px
+
+	&__subtitle
+		font-size: 24px
+		margin-top: 50px
+
+	&-input
+		position: relative
+
+		&__field
+			background-color: transparent
+			border: none
+			border-bottom: 1px solid $white
+			width: 100%
+			padding: 10px 0
+			font-size: 16px
+			color: $white
+
+			&::placeholder
+				font-size: 16px
+				color: $white
+
+	&-checkbox
+		margin-top: 25px
+
+	&__btn
+		cursor: pointer
+		position: absolute
+		top: 50%
+		right: 0
+		transform: translateY(-50%)
+		border: none
+		padding: 0
+		background-color: transparent

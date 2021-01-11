@@ -1,0 +1,149 @@
+// cart
+.cart
+	margin: 100px 0
+
+	&-block-top
+		display: flex
+		align-items: flex-start
+		border-bottom: 1px solid $gray
+
+	&__number
+		padding-left: 10px
+		padding-top: 5px
+		font-size: 24px
+		color: $gray
+
+	&-block
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 50px 0
+		border-bottom: 1px solid $gray
+
+		&-left
+			width: 50%
+			display: flex
+			align-items: center
+
+		&-right
+			width: 40%
+			display: flex
+			justify-content: space-between
+			align-items: center
+
+		&-thumb
+			position: relative
+
+		&__img
+			width: 150px
+			height: 150px
+			border-radius: 50%
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center center
+
+		&__sale
+			display: flex
+			align-items: center
+			justify-content: center
+			border-radius: 50%
+			position: absolute
+			top: 0
+			left: 0
+			color: $white
+			width: 50px
+			height: 50px
+			background-color: $mainColor
+			font-size: 14px
+
+		&-text
+			margin-left: 50px
+
+		&-type-wrapper
+			flex-wrap: wrap
+			display: flex
+			align-items: center
+
+		&__type
+			&_gray
+				white-space: nowrap
+				margin: 0 2.5px
+				margin-bottom: 5px
+				display: inline-block
+				border-radius: 100px
+				background-color: $lightGray
+				color: $black
+				font-size: 16px
+				padding: 5px 15px
+
+			&_color
+				white-space: nowrap
+				margin-right: 2.5px
+				margin-bottom: 5px
+				display: inline-block
+				border-radius: 100px
+				background-color: $mainColor
+				color: $white
+				font-size: 16px
+				padding: 5px 15px
+
+		&__title
+			font-size: 32px
+			margin: 15px 0
+
+		&__time
+			font-size: 18px
+
+		&__subprice
+			font-size: 18px
+			color: $gray
+			text-decoration: line-through
+
+		&__price
+			font-size: 32px
+			margin-top: 5px
+
+		&-delete
+			cursor: pointer
+			& > svg
+				stroke: $gray
+				+transition
+				&:hover
+					stroke: #FB3F42
+
+	&-block-bottom
+		padding: 100px 0
+		border-bottom: 1px solid $gray
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+	&__total
+		display: flex
+		align-items: center
+		font-size: 36px
+
+		& > span
+			padding-right: 15px
+			font-size: 24px
+			+light
+
+	// null
+	&-null
+		margin: 150px 0
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: center
+		text-align: center
+
+		&-bg
+			position: absolute
+			top: 50%
+			transform: translateY(-20%)
+			width: 700px
+			height: 700px
+
+		&__title
+			font-size: 48px
+			margin-bottom: 50px

@@ -1,0 +1,98 @@
+// footer
+.footer
+	background-color: #2E2E2E
+	color: $white
+	padding: 50px 0
+
+	&-top, &-middle, &-bottom
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+	&-middle
+		margin-top: 75px
+
+		&__link
+			margin-top: 25px
+			display: block
+			font-size: 18px
+
+	&-bottom
+		margin-top: 75px
+		padding-top: 25px
+		align-items: center
+		border-top: 1px solid $gray
+
+		&__link
+			display: inline-block
+			font-size: 15px
+			margin-left: 25px
+			color: $white
+
+	&-nav
+		align-items: flex-start
+		display: flex
+
+		&-block
+			margin-left: 50px
+
+		&__link
+			display: block
+			color: $white
+			margin-bottom: 25px
+
+		&__btn
+			display: inline-block
+			border-radius: 2px
+			border: 1px solid $white
+			background-color: tranparent
+			color: $white
+			padding: 20px 40px
+
+	&-social
+		display: flex
+		align-items: center
+
+		&__link
+			margin-right: 25px
+
+	&__adres
+		font-size: 18px
+		margin-top: 25px
+
+	&__link
+		color: $white
+
+	&-email-form
+		&__title
+			font-size: 24px
+			margin-bottom: 50px
+
+		&-input
+			position: relative
+
+			&__field
+				background-color: transparent
+				border: none
+				border-bottom: 1px solid $white
+				width: 100%
+				padding: 10px 0
+				font-size: 16px
+				color: $white
+
+				&::placeholder
+					font-size: 16px
+					color: $white
+
+		&-checkbox
+			margin-top: 25px
+
+		&__btn
+			cursor: pointer
+			position: absolute
+			top: 50%
+			right: 0
+			transform: translateY(-50%)
+			border: none
+			padding: 0
+			background-color: transparent

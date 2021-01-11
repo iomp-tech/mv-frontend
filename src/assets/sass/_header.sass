@@ -1,0 +1,241 @@
+// header
+.header
+	margin: 50px 0
+
+	&-wrapper
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+	&-menu-hidden
+		display: flex
+		align-items: center
+
+	&-menu-burger
+		cursor: pointer
+		display: none
+		fill: $black
+		+transition
+		&:hover
+			fill: $mainColor
+
+	&-nav
+		display: flex
+		align-items: center
+
+	&__link
+		font-size: 18px
+		margin-right: 40px
+		stroke: $black
+		+transition
+		&:last-child
+			margin-right: 0
+
+		&:hover
+			color: $mainColor
+			stroke: $mainColor
+
+		& > svg
+			margin-left: 10px
+
+		&_active
+			color: $mainColor
+
+	&__btn
+		margin-right: 50px
+
+	&-right
+		display: flex
+		align-items: center
+
+	&-cart
+		position: relative
+		padding-right: 25px
+		border-right: 1px solid $gray
+		&:hover
+			fill: $mainColor
+
+		& > svg
+			+transition
+
+		&__number
+			display: flex
+			align-items: center
+			justify-content: center
+			border-radius: 50%
+			width: 21px
+			height: 21px
+			color: $white
+			background-color: $mainColor
+			top: -5px
+			right: 15px
+			position: absolute
+			font-size: 11px
+
+	&-cart-mobile
+		display: none
+		padding-right: 25px
+		position: relative
+		&:hover
+			fill: $mainColor
+
+		& > svg
+			+transition
+
+		&__number
+			display: flex
+			align-items: center
+			justify-content: center
+			border-radius: 50%
+			width: 21px
+			height: 21px
+			color: $white
+			background-color: $mainColor
+			top: -5px
+			right: -10px
+			position: absolute
+			font-size: 11px
+
+	&-login
+		padding-left: 25px
+		display: flex
+		align-items: center
+		&:hover
+			fill: $mainColor
+			color: $mainColor
+
+		&__text
+			padding-left: 15px
+			font-size: 18px
+			+transition
+
+		& > svg
+			+transition
+
+	&-user
+		position: relative
+		cursor: pointer
+		padding-left: 25px
+		display: flex
+		align-items: center
+		&:hover &-menu
+			opacity: 1
+			z-index: 10
+
+		&__img-wrapper
+			position: relative
+			border-radius: 50%
+			overflow: hidden
+			margin-right: 15px
+
+		&-img
+			width: 120px
+			height: 120px
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center center
+
+		&__img
+			width: 50px
+			height: 50px
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center center
+
+		&-menu
+			opacity: 0
+			position: absolute
+			z-index: -10
+			right: 0
+			bottom: -195px
+			background-color: #fff
+			box-shadow: 0 0 50px rgba(0, 0, 0, 0.1)
+			width: 180px
+			border-radius: 5px
+			+transition
+
+			&__link
+				display: flex
+				align-items: center
+				padding: 20px 25px
+				+transition
+				&:hover
+					background-color: #F9F9F9
+
+				&:last-child
+					border-top: 1px solid $gray
+
+				& > img
+					width: 20px
+					height: 20px
+					margin-right: 15px
+
+	//modal
+	&-modal
+		&-wrapper
+			opacity: 0
+			z-index: -1000
+			position: fixed
+			top: 0
+			left: 0
+			width: 100%
+			height: 100%
+			background-color: rgba(0,0,0, 0.4)
+			transition: opacity .4s ease, z-index 1.1s ease
+
+			&_active
+				animation: .4s activeModalWrapper
+				z-index: 1000
+				opacity: 1
+				transition: none
+
+		&-content
+			position: relative
+			display: inline-flex
+			flex-direction: column
+			justify-content: space-between
+			padding: 50px
+			padding-right: 100px
+			height: 100%
+			background-color: $white
+			overflow-y: auto
+
+			&::-webkit-scrollbar
+				width: 6px
+				height: 8px
+				background-color: #F0F0F0
+
+			&::-webkit-scrollbar-thumb
+				background-color: $gray
+				border-radius: 3px
+
+			&::-webkit-scrollbar-thumb:hover
+				background-color: #E2E2E2
+
+			&_active
+				animation: .4s activeModalContent
+
+		&-close
+			cursor: pointer
+			position: absolute
+			right: 30px
+			top: 30px
+
+		&-logo__img
+			width: 250px
+
+		&-nav
+			padding-top: 100px
+
+		&__link
+			display: block
+			font-size: 42px
+			margin-bottom: 30px
+			+bold
+			+transition
+			&:hover
+				color: $mainColor
+
+			&_active
+				text-decoration: underline
+				color: $mainColor

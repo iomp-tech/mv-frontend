@@ -1,0 +1,1 @@
+export const API_DOMEN = "https://imeninik.ru/api/public/api";
