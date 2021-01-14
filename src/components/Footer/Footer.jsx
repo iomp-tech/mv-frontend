@@ -47,8 +47,8 @@ const Footer = () => {
                                 <div className="footer-top">
                                     <Link to="/" className="footer-logo__link">
                                         <img
-                                            src="http://127.0.0.1:8000/storage/all/logo-white.svg"
-                                            alt="MasterVision"
+                                            src="https://iomp.ru/api/public/storage/all/logo-white.svg"
+                                            alt="IOMP"
                                             className="footer-logo__img"
                                         />
                                     </Link>
@@ -57,7 +57,7 @@ const Footer = () => {
                                 </div>
                                 <div className="footer-middle">
                                     <div className="footer-middle-left">
-                                        <div className="footer-social">
+                                        {/* <div className="footer-social">
                                             <a
                                                 href={contact.facebook}
                                                 className="footer-social__link"
@@ -118,7 +118,8 @@ const Footer = () => {
                                                     className="footer-social__img"
                                                 />
                                             </a>
-                                        </div>
+                                        </div> */}
+
                                         <div className="footer-contact">
                                             <p className="footer__adres">
                                                 {contact.adres}
@@ -137,24 +138,23 @@ const Footer = () => {
                                             </a>
                                         </div>
                                     </div>
-                                    <div className="footer-middle-right">
+                                    {/* <div className="footer-middle-right">
                                         <FooterForm
                                             onSubmit={onSubmit}
                                             stateForm={stateForm}
                                         />
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
 
                             <div className="footer-bottom">
                                 <div className="footer-bottom-left">
-                                    <p className="footer__comp">
-                                        © MasterVision{" "}
-                                        {new Date().getFullYear()}
-                                    </p>
+                                    ООО «ИСП» 1197746615736 ИНН 7727431274 КПП
+                                    772701001 Расчетный
+                                    счет:40702810510000593883
                                 </div>
-                                {/* <div className="footer-bottom-right">
-                            {footer.footerLink &&
+                                <div className="footer-bottom-right">
+                                    {/* {footer.footerLink &&
                                 footer.footerLink.map((obj, index) => (
                                     <a
                                         href={obj.href}
@@ -165,8 +165,11 @@ const Footer = () => {
                                     >
                                         {obj.title}
                                     </a>
-                                ))}
-                        </div> */}
+                                ))} */}
+                                    <p className="footer__comp">
+                                        © IOMP {new Date().getFullYear()}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

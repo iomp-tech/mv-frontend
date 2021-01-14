@@ -57,7 +57,7 @@ const Teacher = () => {
     return (
         <>
             <Helmet>
-                <title>Преподаватели - MasterVision</title>
+                <title>Преподаватели - IOMP</title>
             </Helmet>
             <section className="teacher">
                 <div className="container">
@@ -99,9 +99,9 @@ const Teacher = () => {
                 </div>
             </section>
 
-            <ShopSection />
+            <ShopSection style={{marginBottom: "50px"}} />
             {/* <MagazineSection /> */}
-            <EmailFormWrapper />
+            {/* <EmailFormWrapper /> */}
         </>
     );
 };

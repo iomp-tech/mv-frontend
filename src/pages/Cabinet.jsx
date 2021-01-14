@@ -36,7 +36,7 @@ const Cabinet = () => {
     return (
         <>
             <Helmet>
-                <title>Личный кабинет - MasterVision</title>
+                <title>Личный кабинет - IOMP</title>
             </Helmet>
             {isLoaded ? (
                 <>

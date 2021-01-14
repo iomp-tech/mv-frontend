@@ -10,7 +10,7 @@ const Er404 = () => {
     return (
         <>
             <Helmet>
-                <title>404 - MasterVision</title>
+                <title>404 - IOMP</title>
             </Helmet>
             <section className="error">
                 <div className="container">

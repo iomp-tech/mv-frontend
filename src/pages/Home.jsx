@@ -34,7 +34,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Главная - MasterVision</title>
+                <title>Главная - IOMP</title>
             </Helmet>
 
 			<MainSection />
@@ -48,7 +48,7 @@ const Home = () => {
 
             <TeacherSection />
             {/* <MagazineSection /> */}
-            <EmailFormWrapper />
+            {/* <EmailFormWrapper /> */}
         </>
     );
 };

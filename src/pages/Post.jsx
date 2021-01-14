@@ -55,14 +55,14 @@ const Post = (props) => {
     return (
         <>
             <Helmet>
-                <title>MasterVision</title>
+                <title>IOMP</title>
             </Helmet>
             {isLoaded ? (
                 <>
                     {Object.keys(item).length ? (
                         <>
                             <Helmet>
-                                <title>{item.title} - MasterVision</title>
+                                <title>{item.title} - IOMP</title>
                             </Helmet>
                             <section className="post">
                                 <div className="container">

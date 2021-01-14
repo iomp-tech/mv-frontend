@@ -106,7 +106,7 @@ const Magazine = (props) => {
     return (
         <>
             <Helmet>
-                <title>Журнал - MasterVision</title>
+                <title>Журнал - IOMP</title>
             </Helmet>
             <section className="magazine">
                 <div className="container">

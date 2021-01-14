@@ -8,9 +8,10 @@ const TeacherBlock = React.memo(({name, type, avatar, onClick}) => {
                 <h3 className="teacher-block__title">{name}</h3>
                 <p className="teacher-block__subtitle">{type}</p>
             </div>
-            <div className="teacher-block-img">
-                <img src={avatar} alt={name} className="teacher-block__img" />
-            </div>
+            <div
+                className="teacher-block-img"
+                style={{backgroundImage: `url(${avatar})`}}
+            ></div>
         </div>
     );
 });

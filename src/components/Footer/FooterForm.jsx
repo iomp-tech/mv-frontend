@@ -7,7 +7,7 @@ let FooterForm = React.memo(({handleSubmit, stateForm}) => {
     return (
         <form className="footer-email-form" onSubmit={handleSubmit}>
             <h4 className="footer-email-form__title">
-                Подпишитесь на рассылку MasterVision
+                Подпишитесь на рассылку IOMP
             </h4>
             {stateForm ? (
                 <p className="footer-email-form__title">

@@ -341,6 +341,15 @@
 				display: none
 
 @media screen and (max-width: 900px)
+	//header
+	.header
+		&-modal
+			&-nav
+				padding-top: 50px
+
+			&-content
+				justify-content: flex-start
+
 	// timetable
 	.timetable
 		margin-top: 100px
@@ -353,6 +362,10 @@
 
 		&-middle
 			margin-top: 0
+			justify-content: flex-end
+
+			&-left
+				width: 80%
 
 		&-nav
 			display: none
@@ -447,7 +460,7 @@
 		&-text
 			margin-bottom: 50px
 			width: 100%
-		
+
 		&-doc
 			width: 100%
 
@@ -643,6 +656,7 @@
 		&-middle
 			&-left
 				margin-top: 50px
+				width: 100%
 
 		&-wrapper
 			flex-direction: column

@@ -28,7 +28,7 @@ const Library = () => {
     return (
         <>
             <Helmet>
-                <title>Мои курсы - MasterVision</title>
+                <title>Мои курсы - IOMP</title>
             </Helmet>
 
             {isLoadedCourse ? (

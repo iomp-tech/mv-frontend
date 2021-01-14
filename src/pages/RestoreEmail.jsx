@@ -24,7 +24,7 @@ const RestoreEmail = () => {
     return (
         <>
             <Helmet>
-                <title>Забыли пароль? - MasterVision</title>
+                <title>Забыли пароль? - IOMP</title>
             </Helmet>
             {isLoaded ? (
                 <>

@@ -71,7 +71,7 @@ const TimetableSubs = (props) => {
                     {Object.keys(itemOne).length ? (
                         <>
                             <Helmet>
-                                <title>{itemOne.title} - MasterVision</title>
+                                <title>{itemOne.title} - IOMP</title>
                             </Helmet>
                             <section className="timetable-page">
                                 <div className="container">

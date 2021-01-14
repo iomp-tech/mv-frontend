@@ -25,7 +25,7 @@ const Register = () => {
     return (
         <>
             <Helmet>
-                <title>Регистрация - MasterVision</title>
+                <title>Регистрация - IOMP</title>
             </Helmet>
             {isLoaded ? (
                 <>

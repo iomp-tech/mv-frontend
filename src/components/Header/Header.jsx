@@ -63,8 +63,8 @@ const Header = React.memo(() => {
                     <div className="header-wrapper">
                         <Link to="/">
                             <img
-                                src="http://127.0.0.1:8000/storage/all/logo.svg"
-                                alt="MasterVision"
+                                src="https://iomp.ru/api/public/storage/all/logo.svg"
+                                alt="IOMP"
                                 className="header-logo__img"
                             />
                         </Link>

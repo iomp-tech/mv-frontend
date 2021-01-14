@@ -1,7 +1,7 @@
 import React from "react";
 
 const LibraryBlock = ({training, image}) => {
-    const url = "https://shop.mastervision.su/personal/auth/login?lg=ru";
+    const url = "https://shop.IOMP.su/personal/auth/login?lg=ru";
 
     return (
         <a href={url} target="_blank" className="library-block">
@@ -11,7 +11,7 @@ const LibraryBlock = ({training, image}) => {
                     style={{
                         backgroundImage: `url(${
                             image !== ""
-                                ? `https://shop.mastervision.su/userdata/aleksandrkudryashov1/training/${image}`
+                                ? `https://shop.IOMP.su/userdata/aleksandrkudryashov1/training/${image}`
                                 : "https://imeninik.ru/api/public/storage/all/default_avatar.svg"
                         })`,
                     }}

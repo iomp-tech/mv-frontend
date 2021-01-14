@@ -203,7 +203,7 @@ const Shop = (props) => {
     return (
         <>
             <Helmet>
-                <title>Магазин курсов - MasterVision</title>
+                <title>Магазин курсов - IOMP</title>
             </Helmet>
             <section className="shop">
                 <div className="container">

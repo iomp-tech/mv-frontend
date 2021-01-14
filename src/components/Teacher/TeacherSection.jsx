@@ -46,7 +46,7 @@ const TeacherSection = () => {
     }, []);
 
     return (
-        <section className="teacher">
+        <section className="teacher" style={{marginBottom: "50px"}}>
             <div className="container">
                 <div className="teacher-wrapper">
                     <h2 className="title teacher__title">Наши преподаватели</h2>
@@ -70,7 +70,10 @@ const TeacherSection = () => {
                             : Array(4)
                                   .fill(0)
                                   .map((_, index) => (
-                                      <div className="teacher-block" key={index}>
+                                      <div
+                                          className="teacher-block"
+                                          key={index}
+                                      >
                                           <TeacherBlockLoading />
                                       </div>
                                   ))}

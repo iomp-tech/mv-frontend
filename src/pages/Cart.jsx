@@ -34,7 +34,7 @@ const Cart = () => {
     return (
         <>
             <Helmet>
-                <title>Корзина - MasterVision</title>
+                <title>Корзина - IOMP</title>
             </Helmet>
             <section className="cart">
                 <div className="container">

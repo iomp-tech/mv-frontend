@@ -26,7 +26,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Войти - MasterVision</title>
+                <title>Войти - IOMP</title>
             </Helmet>
             {isLoaded ? (
                 <>
