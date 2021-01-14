@@ -75,3 +75,6 @@ export { default as CabinetError } from "./Cabinet/CabinetError";
 
 // Library
 export { default as LibraryBlock } from "./Library/LibraryBlock";
+
+// Institute
+export { default as InstituteItem } from "./Institute/InstituteItem";

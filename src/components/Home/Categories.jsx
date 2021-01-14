@@ -49,7 +49,7 @@ const Categories = React.memo(() => {
             <div className="container">
                 <div className="categories-wrapper">
                     <h2 className="title categories__title">
-                        Наши направления
+                        Наши факультеты
                     </h2>
 
                     <div className="categories-content">

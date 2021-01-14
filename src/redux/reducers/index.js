@@ -18,6 +18,7 @@ import user from './user';
 import cabinet from './cabinet';
 import restore from './restore';
 import main from './main';
+import institute from './institute';
 
 const rootReducer = combineReducers({
 	categories,
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
 	restore,
 	main,
 	cabinet,
+	institute,
 	form: formReducer,
 });
 

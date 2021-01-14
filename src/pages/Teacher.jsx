@@ -100,7 +100,7 @@ const Teacher = () => {
             </section>
 
             <ShopSection />
-            <MagazineSection />
+            {/* <MagazineSection /> */}
             <EmailFormWrapper />
         </>
     );

@@ -9,6 +9,7 @@ const TimetableSubs = React.lazy(() => import('./pages/TimetableSubs'));
 const Timetable = React.lazy(() => import('./pages/Timetable'));
 const Teacher = React.lazy(() => import('./pages/Teacher'));
 const Magazine = React.lazy(() => import('./pages/Magazine'));
+const Institute = React.lazy(() => import('./pages/Institute'));
 const Cart = React.lazy(() => import('./pages/Cart'));
 const Shop = React.lazy(() => import('./pages/Shop'));
 const Login = React.lazy(() => import('./pages/Login'));
@@ -31,14 +32,15 @@ function App() {
 				<Switch>
 					<Route path="/" render={() => <Home />} exact />
 					<Route path='/shop/:filters?' render={(props) => <Shop {...props} />} />
-					<Route path='/timetable' render={(props) => <Timetable {...props} />} exact />
+					{/* <Route path='/timetable' render={(props) => <Timetable {...props} />} exact />
 					<Route path='/timetable/:cat?' render={(props) => <Timetable {...props} />} exact />
-					<Route path='/timetable/pages/:id' render={(props) => <TimetableSubs {...props} />} exact />
+					<Route path='/timetable/pages/:id' render={(props) => <TimetableSubs {...props} />} exact /> */}
 					<Route path='/teachers' render={() => <Teacher />} exact />
-					<Route path='/post/:id' render={(props) => <Post {...props} />} exact />
+					<Route path='/institute' render={() => <Institute />} exact />
+					{/* <Route path='/post/:id' render={(props) => <Post {...props} />} exact />
 					<Route path='/magazine/:cat?' render={(props) => <Magazine {...props} />} />
-					<Route path='/cart' render={() => <Cart />} exact />
-
+					<Route path='/cart' render={() => <Cart />} exact /> */}
+{/* 
 					<Route path='/register' render={() => <Register />} exact />
 					<Route path='/login' render={() => <Login />} exact />
 
@@ -52,7 +54,7 @@ function App() {
 					<Route path='/cabinet' render={() => <Cabinet />} />
 					<Route path='/library' render={() => <Library />} />
 
-					<Route path='/logout' render={() => <Logout />} />
+					<Route path='/logout' render={() => <Logout />} /> */}
 
 					<Route render={() => <Er404 />} />
 				</Switch>

@@ -47,7 +47,7 @@ const Footer = () => {
                                 <div className="footer-top">
                                     <Link to="/" className="footer-logo__link">
                                         <img
-                                            src="https://imeninik.ru/api/public/storage/all/logo-white.svg"
+                                            src="http://127.0.0.1:8000/storage/all/logo-white.svg"
                                             alt="MasterVision"
                                             className="footer-logo__img"
                                         />

@@ -39,15 +39,15 @@ const Home = () => {
 
 			<MainSection />
             <Categories />
-            <EventSection />
+            {/* <EventSection /> */}
 
             <ShopSection />
-            <TimetableSection />
+            {/* <TimetableSection /> */}
             <ServicesSection />
             <AboutSection />
 
             <TeacherSection />
-            <MagazineSection />
+            {/* <MagazineSection /> */}
             <EmailFormWrapper />
         </>
     );

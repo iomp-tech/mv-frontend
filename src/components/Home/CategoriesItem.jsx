@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 const CategoriesItem = React.memo(
     ({onMouseEnter, title, keyId, checkDeclension}) => {
-
         return (
             <>
                 <Link

@@ -63,7 +63,7 @@ const Header = React.memo(() => {
                     <div className="header-wrapper">
                         <Link to="/">
                             <img
-                                src="https://imeninik.ru/api/public/storage/all/logo.svg"
+                                src="http://127.0.0.1:8000/storage/all/logo.svg"
                                 alt="MasterVision"
                                 className="header-logo__img"
                             />
@@ -78,13 +78,13 @@ const Header = React.memo(() => {
                             </Link>
 
                             <div className="header-menu-hidden">
-                                <NavLink
+                                {/* <NavLink
                                     to="/timetable"
                                     className="header__link"
                                     activeClassName="header__link_active"
                                 >
                                     Расписание
-                                </NavLink>
+                                </NavLink> */}
                                 <NavLink
                                     to="/teachers"
                                     className="header__link"
@@ -93,20 +93,27 @@ const Header = React.memo(() => {
                                     Преподаватели
                                 </NavLink>
                                 <NavLink
+                                    to="/institute"
+                                    className="header__link"
+                                    activeClassName="header__link_active"
+                                >
+                                    Об образовательном учреждении
+                                </NavLink>
+                                {/* <NavLink
                                     to="/magazine"
                                     className="header__link"
                                     activeClassName="header__link_active"
                                 >
                                     Журнал
-                                </NavLink>
+                                </NavLink> */}
                             </div>
 
-                            <HeaderCart headerMobail={true} />
+                            {/* <HeaderCart headerMobail={true} /> */}
 
                             <HeaderModal isLogin={isLogin} />
                         </nav>
 
-                        <div className="header-right">
+                        {/* <div className="header-right">
                             <HeaderCart headerMobail={false} />
 
                             <>
@@ -208,7 +215,7 @@ const Header = React.memo(() => {
                                     <></>
                                 )}
                             </>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </header>
