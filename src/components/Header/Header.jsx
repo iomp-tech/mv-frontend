@@ -97,7 +97,7 @@ const Header = React.memo(() => {
                                     className="header__link"
                                     activeClassName="header__link_active"
                                 >
-                                    Об образовательном учреждении
+                                    Сведения об образовательной организации
                                 </NavLink>
                                 {/* <NavLink
                                     to="/magazine"

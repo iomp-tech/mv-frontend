@@ -7,8 +7,8 @@ const HeaderModal = React.memo(({isLogin}) => {
 
     const toggleVisibleHeaderModal = () => {
         setVisibleHeaderModal(!visibleHeaderModal);
-	};
-	
+    };
+
     if (visibleHeaderModal === true) {
         document.body.style.overflow = "hidden";
     } else {
@@ -17,7 +17,7 @@ const HeaderModal = React.memo(({isLogin}) => {
 
     const handHeaderModal = (e) => {
         if (e.target <= HeaderRef.current) {
-			setVisibleHeaderModal(false);
+            setVisibleHeaderModal(false);
         }
     };
 
@@ -115,7 +115,7 @@ const HeaderModal = React.memo(({isLogin}) => {
                             className="header-modal__link"
                             activeClassName="header-modal__link_active"
                         >
-                            Об образовательном учреждении
+                            Сведения об образовательной организации
                         </NavLink>
                         {/* <NavLink
                             onClick={toggleVisibleHeaderModal}

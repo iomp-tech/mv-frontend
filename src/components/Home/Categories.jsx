@@ -48,9 +48,7 @@ const Categories = React.memo(() => {
         <section className="categories">
             <div className="container">
                 <div className="categories-wrapper">
-                    <h2 className="title categories__title">
-                        Наши факультеты
-                    </h2>
+                    <h2 className="title categories__title">Образовательные программы</h2>
 
                     <div className="categories-content">
                         <div className="categories-item-wrapper">

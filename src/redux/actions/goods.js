@@ -44,8 +44,8 @@ export const fetchGoodsType = () => (dispatch) => {
 
 export const fetchGoodsMinMaxPrice = () => (dispatch) => {
 	axios.get(`${API_DOMEN}/goods?_sort=price&_order=desc`).then(({ data }) => {
-		dispatch(setGoodsMaxPrice(data[0].price));
-		dispatch(setGoodsMinPrice(data[data.length - 1].price));
+		dispatch(setGoodsMinPrice(data[0].price));
+		dispatch(setGoodsMaxPrice(data[data.length - 1].price));
 	});
 };
 

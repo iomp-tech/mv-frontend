@@ -149,9 +149,11 @@ const Footer = () => {
 
                             <div className="footer-bottom">
                                 <div className="footer-bottom-left">
-                                    ООО «ИСП» 1197746615736 ИНН 7727431274 КПП
-                                    772701001 Расчетный
-                                    счет:40702810510000593883
+                                    ООО «ИСП» ОГРН 1197746615736
+                                    <br />
+                                    ИНН 7727431274
+                                    <br />
+                                    КПП 772701001
                                 </div>
                                 <div className="footer-bottom-right">
                                     {/* {footer.footerLink &&
