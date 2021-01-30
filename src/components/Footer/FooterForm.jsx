@@ -3,14 +3,14 @@ import {Field, reduxForm} from "redux-form";
 
 import validate from "./validate";
 
-let FooterForm = React.memo(({handleSubmit, stateForm}) => {
+let FooterForm = React.memo(({handleSubmit, stateForm, size}) => {
     return (
         <form className="footer-email-form" onSubmit={handleSubmit}>
-            <h4 className="footer-email-form__title">
+            <h4 className={`footer-email-form__title ${size}`}>
                 Подпишитесь на рассылку IOMP
             </h4>
             {stateForm ? (
-                <p className="footer-email-form__title">
+                <p className={`footer-email-form__title ${size}`}>
                     Спасибо, вы успешно подписаны
                 </p>
             ) : (
@@ -38,7 +38,7 @@ let FooterForm = React.memo(({handleSubmit, stateForm}) => {
                         <Field
                             type="email"
                             name="email"
-                            className="footer-email-form-input__field"
+                            className={`footer-email-form-input__field ${size}`}
                             placeholder="Email"
                             component="input"
                         />
@@ -48,11 +48,11 @@ let FooterForm = React.memo(({handleSubmit, stateForm}) => {
                             component="input"
                             name="confirmation"
                             type="checkbox"
-                            className="checkbox_white footer-email-form__checkbox"
+                            className={`checkbox_white ${size} footer-email-form__checkbox`}
                             id="footer-email-form__checkbox"
                         />
                         <label
-                            className="checkbox-label_white footer-email-form__label"
+                            className={`checkbox-label_white ${size} footer-email-form__label`}
                             htmlFor="footer-email-form__checkbox"
                         >
                             Я согласен с условиями обработки персональных данных
@@ -66,6 +66,7 @@ let FooterForm = React.memo(({handleSubmit, stateForm}) => {
 
 FooterForm = reduxForm({
     form: "emailFormSmall",
+    initialValues: {confirmation: true},
     validate,
 })(FooterForm);
 

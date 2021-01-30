@@ -10,6 +10,7 @@ const MainSection = () => {
     const dispatch = useDispatch();
 
     const {isLoaded, content} = useSelector(({main}) => main);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(fetchMain());
@@ -21,23 +22,25 @@ const MainSection = () => {
                 {isLoaded ? (
                     <div className="main-wrapper">
                         <h1
-                            className="main__title"
+                            className={`main__title ${size}`}
                             dangerouslySetInnerHTML={{__html: content.title}}
                         ></h1>
-                        <p className="main__description">
+                        <p className={`main__description ${size}`}>
                             {content.description}
                         </p>
 
                         <Link
                             to={content.buttonHref}
-                            className="btn-bold_color main__btn"
+                            className={`btn-bold_color main__btn ${size}`}
                         >
                             {content.buttonText}
                         </Link>
 
                         <div className="circle-wrapper main-circle-wrapper">
                             <div className="circle-regular main-circle1"></div>
-                            <div className="circle-bold main-circle2"></div>
+                            <div
+                                className={`circle-bold ${size} main-circle2`}
+                            ></div>
                         </div>
                     </div>
                 ) : (

@@ -6,7 +6,7 @@ import {Helmet} from "react-helmet";
 import {fetchCategories} from ".././redux/actions/categories";
 
 import {
-	MainSection,
+    MainSection,
     Categories,
     EventSection,
     ShopSection,
@@ -37,18 +37,18 @@ const Home = () => {
                 <title>Главная - IOMP</title>
             </Helmet>
 
-			<MainSection />
+            <MainSection />
             <Categories />
-            {/* <EventSection /> */}
+            <EventSection />
 
             <ShopSection />
-            {/* <TimetableSection /> */}
+            <TimetableSection />
             <ServicesSection />
             <AboutSection />
 
             <TeacherSection />
-            {/* <MagazineSection /> */}
-            {/* <EmailFormWrapper /> */}
+            <MagazineSection />
+            <EmailFormWrapper />
         </>
     );
 };

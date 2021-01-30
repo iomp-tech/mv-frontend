@@ -1,5 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
+import {connect} from "react-redux";
 
 import EventSliderItems from "./EventSliderItems";
 import EventSliderLoading from "./EventSliderLoading";
@@ -29,7 +30,7 @@ class EventSlider extends React.Component {
             arrows: false,
             cssEase: "linear",
             focusOnSelect: true,
-        };
+		};
 
         return (
             <>
@@ -40,6 +41,8 @@ class EventSlider extends React.Component {
                                 <EventSliderItems
                                     key={obj.id}
                                     {...obj}
+                                    color={this.props.visually.color}
+                                    size={this.props.visually.size}
                                     eventsType={this.props.eventsType[obj.type]}
                                     auths={this.props.auths}
                                     categories={
@@ -82,4 +85,6 @@ class EventSlider extends React.Component {
     }
 }
 
-export default EventSlider;
+const mapStateToProps = ({visually}) => ({visually});
+
+export default connect(mapStateToProps)(EventSlider);

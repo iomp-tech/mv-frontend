@@ -13,6 +13,7 @@ const RestorePass = (props) => {
 
     const {message} = useSelector(({restore}) => restore);
     const {isLoaded, isLogin} = useSelector(({user}) => user);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -41,19 +42,26 @@ const RestorePass = (props) => {
                         <section className="reglog">
                             <div className="container">
                                 <div className="reglog-wrapper">
-                                    <div className="circle-bold reglog-circle"></div>
+                                    <div
+                                        className={`circle-bold ${size} reglog-circle`}
+                                    ></div>
                                     <div className="reglog-form">
-                                        <h2 className="reglog__title">
+                                        <h2 className={`reglog__title ${size}`}>
                                             Введите новый пароль
                                         </h2>
 
                                         {message && (
-                                            <p className="reglog-form__error">
+                                            <p
+                                                className={`reglog-form__error ${size}`}
+                                            >
                                                 {message}
                                             </p>
                                         )}
 
-                                        <RestorePassForm onSubmit={onSubmit} />
+                                        <RestorePassForm
+                                            onSubmit={onSubmit}
+                                            size={size}
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -13,6 +13,7 @@ const TeacherSection = () => {
 
     const teacherItems = useSelector(({teacher}) => teacher.itemsMain);
     const isLoaded = useSelector(({teacher}) => teacher.isLoaded);
+    const {size} = useSelector(({visually}) => visually);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
     const [activeTeacherItems, setActiveTeacherItems] = React.useState();
@@ -49,7 +50,9 @@ const TeacherSection = () => {
         <section className="teacher" style={{marginBottom: "50px"}}>
             <div className="container">
                 <div className="teacher-wrapper">
-                    <h2 className="title teacher__title">Наши преподаватели</h2>
+                    <h2 className={`title ${size} teacher__title`}>
+                        Наши преподаватели
+                    </h2>
 
                     <TeacherModal
                         state={TeacherModalBool}
@@ -60,11 +63,12 @@ const TeacherSection = () => {
 
                     <div className="teacher-block-wrapper">
                         {isLoaded
-                            ? teacherItems.map((obj, index) => (
+                            ? teacherItems.map((obj) => (
                                   <TeacherBlock
                                       key={`teacher-block-${obj.id}`}
-                                      {...obj}
+                                      size={size}
                                       onClick={() => toggleTeacherModal(obj.id)}
+                                      {...obj}
                                   />
                               ))
                             : Array(4)
@@ -82,7 +86,7 @@ const TeacherSection = () => {
                     <div className="teacher-btn-wrapper">
                         <Link
                             to="/teachers"
-                            className="btn-bold_gray teacher__btn"
+                            className={`btn-bold_gray teacher__btn ${size}`}
                         >
                             Покащать еще
                         </Link>

@@ -26,7 +26,7 @@ const goods = (state = initialState, action) => {
 		const newItems = {};
 
 		action.payload.data.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`good-${obj.id}`] = obj
 		));
 
 		return {
@@ -40,7 +40,7 @@ const goods = (state = initialState, action) => {
 		const newItems = {};
 
 		action.payload.data.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`good-${obj.id}`] = obj
 		));
 
 		return {
@@ -54,7 +54,7 @@ const goods = (state = initialState, action) => {
 		const newItems = {};
 
 		action.payload.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`good-${obj.id}`] = obj
 		));
 
 		return {

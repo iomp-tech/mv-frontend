@@ -78,12 +78,14 @@ const PostItem = React.memo(
                                 dangerouslySetInnerHTML={{__html: obj.body}}
                             ></div>
 
-                            <div
-                                className="post-block-thumb"
-                                style={{
-                                    backgroundImage: `url(${obj.thumbBlock})`,
-                                }}
-                            ></div>
+                            {obj.thumbBlock && (
+                                <div
+                                    className="post-block-thumb"
+                                    style={{
+                                        backgroundImage: `url(${obj.thumbBlock})`,
+                                    }}
+                                ></div>
+                            )}
                         </div>
                     ))}
             </div>

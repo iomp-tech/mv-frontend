@@ -31,12 +31,9 @@ const ShopTime = React.memo(() => {
                         <input
                             type="checkbox"
                             id={`${times[key].title}_${times[key].key}`}
-                            onChange={() =>
-                                setGoodsTime(times[key].key)
-                            }
+                            onChange={() => setGoodsTime(times[key].key)}
                             checked={
-                                times[key].key ===
-                                filters.time[times[key].key]
+                                times[key].key === filters.time[times[key].key]
                                     ? true
                                     : false
                             }

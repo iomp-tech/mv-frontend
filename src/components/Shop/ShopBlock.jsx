@@ -12,7 +12,7 @@ const ShopBlock = React.memo(
         expensive,
         priceOld,
         price,
-        priceMonth,
+        expensiveText,
         id,
         href,
         auth,
@@ -23,6 +23,7 @@ const ShopBlock = React.memo(
         auths,
         idAwo,
         isLoadedLimit = true,
+        size,
     }) => {
         const authArr = [];
 
@@ -58,8 +59,8 @@ const ShopBlock = React.memo(
                 className="shop-block"
                 style={{opacity: isLoadedLimit ? "" : "0.3"}}
             >
-                <div className="shop-block-left">
-                    <div className="shop-block-thumb">
+                <div className={`shop-block-left ${size}`}>
+                    <div className={`shop-block-thumb ${size}`}>
                         <div
                             className="shop-block__img"
                             style={{
@@ -80,11 +81,13 @@ const ShopBlock = React.memo(
                             <span className="shop-block__sale">-{sale}%</span>
                         ) : null}
                     </div>
-                    <div className="shop-block-text">
+                    <div className={`shop-block-text ${size}`}>
                         <div className="shop-block-type-wrapper">
                             {Object.keys(categories).length
                                 ? categories[category] && (
-                                      <span className="shop-block__type_color">
+                                      <span
+                                          className={`shop-block__type_color ${size}`}
+                                      >
                                           {categories[category].title}
                                       </span>
                                   )
@@ -92,7 +95,9 @@ const ShopBlock = React.memo(
 
                             {Object.keys(types).length
                                 ? types[type] && (
-                                      <span className="shop-block__type_gray">
+                                      <span
+                                          className={`shop-block__type_gray ${size}`}
+                                      >
                                           {types[type].title}
                                       </span>
                                   )
@@ -103,7 +108,7 @@ const ShopBlock = React.memo(
                                       (key) =>
                                           auths[key] && (
                                               <span
-                                                  className="shop-block__type_gray"
+                                                  className={`shop-block__type_gray ${size}`}
                                                   key={`${auths[key].name}_${key}`}
                                               >
                                                   {auths[key].name}
@@ -112,36 +117,34 @@ const ShopBlock = React.memo(
                                   )
                                 : null}
                         </div>
-                        <h3 className="shop-block__title">{title}</h3>
-                        <span className="shop-block__time">{time}</span>
+                        <h3 className={`shop-block__title ${size}`}>{title}</h3>
+                        <span className={`shop-block__time ${size}`}>
+                            {time}
+                        </span>
                     </div>
                 </div>
 
-                <div className="shop-block-right">
-                    <div className="shop-block-price">
+                <div className={`shop-block-right ${size}`}>
+                    <div className={`shop-block-price ${size}`}>
                         {expensive ? (
                             <>
                                 <span
-                                    className="shop-block__subprice"
+                                    className={`shop-block__subprice ${size}`}
                                     style={{textDecoration: "none"}}
                                 >
                                     Цена:
                                 </span>
-                                <h3 className="shop-block__price">
-                                    от{" "}
-                                    <NumberFormat
-                                        value={priceMonth}
-                                        displayType={"text"}
-                                        thousandSeparator={" "}
-                                    />
-                                    ₽ в мес.
+                                <h3 className={`shop-block__price ${size}`}>
+                                    {expensiveText}
                                 </h3>
                             </>
                         ) : (
                             <>
                                 {sale ? (
                                     <>
-                                        <span className="shop-block__subprice">
+                                        <span
+                                            className={`shop-block__subprice ${size}`}
+                                        >
                                             <NumberFormat
                                                 value={priceOld}
                                                 displayType={"text"}
@@ -149,7 +152,9 @@ const ShopBlock = React.memo(
                                             />
                                             ₽
                                         </span>
-                                        <h3 className="shop-block__price">
+                                        <h3
+                                            className={`shop-block__subprice ${size}`}
+                                        >
                                             <NumberFormat
                                                 value={price}
                                                 displayType={"text"}
@@ -161,12 +166,14 @@ const ShopBlock = React.memo(
                                 ) : (
                                     <>
                                         <span
-                                            className="shop-block__subprice"
+                                            className={`shop-block__subprice ${size}`}
                                             style={{textDecoration: "none"}}
                                         >
                                             Цена:
                                         </span>
-                                        <h3 className="shop-block__price">
+                                        <h3
+                                            className={`shop-block__price ${size}`}
+                                        >
                                             <NumberFormat
                                                 value={price}
                                                 displayType={"text"}
@@ -183,13 +190,13 @@ const ShopBlock = React.memo(
                         <a
                             href={href}
                             target="_blank"
-                            className="btn-bold_color shop-block__btn"
+                            className={`btn-bold_color shop-block__btn ${size}`}
                         >
                             Подробнее
                         </a>
                     ) : (
                         <button
-                            className="btn-bold_color shop-block__btn"
+                            className={`btn-bold_color shop-block__btn ${size}`}
                             onClick={setUpdateGoods}
                         >
                             Добавить в корзину

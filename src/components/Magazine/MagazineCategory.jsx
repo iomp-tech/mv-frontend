@@ -11,6 +11,7 @@ const MagazineCategory = React.memo(({filters}) => {
     const dispatch = useDispatch();
 
     const categories = useSelector(({categories}) => categories.items);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (Object.keys(categories).length) {
@@ -44,7 +45,7 @@ const MagazineCategory = React.memo(({filters}) => {
                 <div className="directions-span">
                     <span
                         id="directions__span"
-                        className="directions__span directions__span_active"
+                        className={`directions__span ${size} directions__span_active`}
                         onClick={() => toggleDirections(0, "")}
                     >
                         Все направления
@@ -52,6 +53,7 @@ const MagazineCategory = React.memo(({filters}) => {
                     {Object.keys(categories).map((key) => (
                         <MagazineCategoryItems
                             keyId={categories[key].key}
+                            size={size}
                             key={`${categories[key].key}_${categories[key].id}`}
                             toggleDirections={toggleDirections}
                             {...categories[key]}

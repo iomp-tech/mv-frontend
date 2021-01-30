@@ -8,7 +8,7 @@ export const fetchPosts = (cat = "", query = null) => (dispatch) => {
 		payload: false,
 	});
 
-	axios.get(`${API_DOMEN}/posts?${cat !== "" ? `category=${cat}&` : ""}${query}`).then(({ data }) => {
+	axios.get(`${API_DOMEN}/posts?_sort=id&_order=desc&${cat !== "" ? `category=${cat}&` : ""}${query}`).then(({ data }) => {
 		dispatch(setPosts(data));
 	}).catch(() => {
 		dispatch({

@@ -14,11 +14,13 @@ const CartBlock = React.memo(
         href,
         id,
         RemoveCartItem,
+        size,
+        color,
     }) => {
         return (
             <div className="cart-block">
                 <a href={href} className="cart-block-left">
-                    <div className="cart-block-thumb">
+                    <div className={`cart-block-thumb ${size}`}>
                         <div
                             className="cart-block__img"
                             style={{
@@ -41,27 +43,43 @@ const CartBlock = React.memo(
                             <></>
                         )}
                     </div>
-                    <div className="cart-block-text">
+                    <div className={`cart-block-text ${size}`}>
                         <div className="cart-block-type-wrapper">
                             {category && (
-                                <span className="cart-block__type_color">
+                                <span
+                                    className={`cart-block__type_color ${size}`}
+                                >
                                     {category}
                                 </span>
                             )}
                             {type && (
-                                <span className="cart-block__type_gray">
+                                <span
+                                    className={`cart-block__type_gray ${size}`}
+                                >
                                     {type}
                                 </span>
                             )}
                             {auth &&
                                 auth.map((arr) => (
-                                    <span className="cart-block__type_gray">
+                                    <span
+                                        className={`cart-block__type_gray ${size}`}
+                                    >
                                         {arr}
                                     </span>
                                 ))}
                         </div>
-                        <h3 className="cart-block__title">{title}</h3>
-                        <span className="cart-block__time">{time}</span>
+                        <h3
+                            className={`cart-block__title ${size}`}
+                            style={{color: color}}
+                        >
+                            {title}
+                        </h3>
+                        <span
+                            className={`cart-block__time ${size}`}
+                            style={{color: color}}
+                        >
+                            {time}
+                        </span>
                     </div>
                 </a>
 
@@ -69,20 +87,26 @@ const CartBlock = React.memo(
                     <div className="cart-block-price">
                         {sale ? (
                             <>
-                                <span className="shop-block__subprice">
+                                <span
+                                    className={`shop-block__subprice ${size}`}
+                                >
                                     {priceOld}₽
                                 </span>
-                                <h3 className="shop-block__price">{price}₽</h3>
+                                <h3 className={`shop-block__price ${size}`}>
+                                    {price}₽
+                                </h3>
                             </>
                         ) : (
                             <>
                                 <span
-                                    className="shop-block__subprice"
+                                    className={`shop-block__subprice ${size}`}
                                     style={{textDecoration: "none"}}
                                 >
                                     Цена:
                                 </span>
-                                <h3 className="shop-block__price">{price}₽</h3>
+                                <h3 className={`shop-block__price ${size}`}>
+                                    {price}₽
+                                </h3>
                             </>
                         )}
                     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const FooterMenu = ({footerMenu}) => {
+const FooterMenu = ({footerMenu, size}) => {
     let footerMenuLn;
     let footerMenuBlock;
 
@@ -16,7 +16,7 @@ const FooterMenu = ({footerMenu}) => {
 
     return (
         <nav className="footer-nav">
-            <Link to="/shop" className="footer-nav__btn">
+            <Link to="/shop" className={`footer-nav__btn ${size}`}>
                 Магазин курсов
             </Link>
             {footerMenuBlock &&
@@ -28,14 +28,14 @@ const FooterMenu = ({footerMenu}) => {
                                     {obj.local ? (
                                         <Link
                                             to={`/${obj.href}`}
-                                            className="footer-nav__link"
+                                            className={`footer-nav__link ${size}`}
                                         >
                                             {obj.title}
                                         </Link>
                                     ) : (
                                         <a
                                             href={obj.href}
-                                            className="footer-nav__link"
+                                            className={`footer-nav__link ${size}`}
                                             target="_blank"
                                         >
                                             {obj.title}

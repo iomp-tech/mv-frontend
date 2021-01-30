@@ -15,6 +15,7 @@ let CabinetEditInfoForm = React.memo(
         invalid,
         submitting,
         pristine,
+        size,
     }) => {
         const selector = formValueSelector("cabinetEditInfoForm");
 
@@ -36,14 +37,17 @@ let CabinetEditInfoForm = React.memo(
 
         return (
             <form onSubmit={handleSubmit} className="cabinet-block">
-                <h3 className="cabinet-block__title">Редактировать данные</h3>
-                <div className="cabinet-block-setting">
+                <h3 className={`cabinet-block__title ${size}`}>
+                    Редактировать данные
+                </h3>
+                <div className={`cabinet-block-setting ${size}`}>
                     <div className="cabinet-input">
                         <Field
                             component={CabinetInputRender}
                             type="name"
                             name="first_name"
                             label="Имя"
+                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -52,12 +56,13 @@ let CabinetEditInfoForm = React.memo(
                             type="name"
                             name="last_name"
                             label="Фамилия"
+                            size={size}
                         />
                     </div>
                 </div>
                 <button
                     type="submit"
-                    className={`btn-bold_color cabinet-block__btn ${
+                    className={`btn-bold_color cabinet-block__btn ${size} ${
                         (firstNameValue !== first_name ||
                             lastNameValue !== last_name) &&
                         !invalid

@@ -1,6 +1,9 @@
 // timetable
 .timetable
-	margin-top: 140px
+	margin-top: 100px
+
+	&__title
+		margin-bottom: 75px
 
 	&-catalog
 		display: flex
@@ -18,7 +21,7 @@
 
 	&-checkbox-block
 		display: flex
-		padding-bottom: 25px
+		padding: 25px 0
 		overflow-x: auto
 		overflow-y: hidden
 		position: relative
@@ -26,7 +29,7 @@
 
 		&::-webkit-scrollbar
 			width: 4px
-			height: 4px
+			height: 7px
 			background-color: #F0F0F0
 
 		&::-webkit-scrollbar-thumb
@@ -62,6 +65,12 @@
 		&:nth-of-type(-n+4)
 			border-top: 1px solid $gray
 
+		&.X1-5
+			width: 100%
+
+		&.X2
+			width: 100%
+
 	&-block-container-page:nth-of-type(-n+4)
 		border-top: none
 
@@ -76,6 +85,12 @@
 		justify-content: space-between
 		padding: 0 25px
 		border-right: 1px solid $gray
+
+		&.X1-5
+			padding-left: 0
+
+		&.X2
+			padding-left: 0
 
 		&:hover &__title
 			color: $mainColor
@@ -98,6 +113,12 @@
 				font-size: 16px
 				padding: 5px 15px
 
+				&.X1-5
+					font-size: 25px
+
+				&.X2
+					font-size: 34px
+
 			&_color
 				margin-right: 5px
 				display: inline-block
@@ -107,10 +128,24 @@
 				font-size: 16px
 				padding: 5px 15px
 
+				&.X1-5
+					font-size: 25px
+					margin-bottom: 5px
+
+				&.X2
+					font-size: 34px
+					margin-bottom: 5px
+
 		&__title
 			font-size: 24px
 			margin-top: 25px
 			+transition
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
 
 		&-date
 			margin-top: 25px
@@ -120,13 +155,19 @@
 		&__date
 			padding-left: 15px
 
+			&.X1-5
+				font-size: 18px
+
+			&.X2
+				font-size: 24px
+
 		&-auth
 			margin-top: 5px
 			+transition
 
 			&:first-child
 				margin-top: 50px
-				
+
 		&-btn
 			opacity: 0
 			position: absolute
@@ -137,10 +178,23 @@
 		&__btn
 			padding: 15px 40px
 
+			&.X1-5
+				font-size: 22px
+
+			&.X2
+				font-size: 30px
+
 	&-btn-wrapper
 		margin-top: 100px
 		display: flex
 		justify-content: center
+
+	&__btn
+		&.X1-5
+			font-size: 22px
+
+		&.X2
+			font-size: 30px
 
 	&-bottom
 		display: flex

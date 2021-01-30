@@ -30,6 +30,12 @@
 			border: none
 			border-bottom: 1px solid $gray
 
+			&.X1-5
+				font-size: 24px
+
+			&.X2
+				font-size: 32px
+
 		&__label
 			color: $gray
 			font-size: 16px
@@ -38,12 +44,24 @@
 			top: 15px
 			+transition
 
+			&.X1-5
+				font-size: 24px
+
+			&.X2
+				font-size: 32px
+
 		&__input
 			&:focus ~ label,
 			&:valid ~ label
 				top: -15px
 				font-size: 14px
 				color: $mainColor
+
+			&.X1-5:focus ~ label
+				font-size: 21px
+
+			&.X2:focus ~ label
+				font-size: 28px
 
 		&__span
 			position: relative
@@ -145,12 +163,25 @@
 			max-width: 400px
 			font-size: 24px
 
+			&.X1-5
+				max-width: 100%
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
 		&__subtitle
 			margin-top: 15px
 			font-size: 18px
 
 			& > span
 				color: $gray
+
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
 
 	&-block
 		padding: 35px
@@ -162,12 +193,30 @@
 			margin-bottom: 50px
 			font-size: 24px
 
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
 		&-setting
 			width: 50%
+
+			&.X1-5,&.X2
+				width: 100%
 
 		&__btn
 			width: 50%
 			margin-top: 15px
+
+			&.X1-5,&.X2
+				width: 100%
+
+			&.X1-5
+				font-size: 22px
+
+			&.X2
+				font-size: 30px
 
 @keyframes inputLabelTopCabinet
 	0%

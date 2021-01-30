@@ -6,13 +6,14 @@ import {fetchTeacher} from "../.././redux/actions/teacher";
 
 import EventSlider from "./EventSlider";
 
-const EvenrSection = () => {
+const EventSection = () => {
     const dispatch = useDispatch();
 
     const {items, isLoaded} = useSelector(({events}) => events);
     const {timetableType} = useSelector(({timetable}) => timetable);
     const categories = useSelector(({categories}) => categories.items);
     const teachers = useSelector(({teacher}) => teacher.items);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (!Object.keys(teachers).length) {
@@ -26,7 +27,7 @@ const EvenrSection = () => {
         <section className="event">
             <div className="container">
                 <div className="event-wrapper">
-                    <h2 className="title event__title">
+                    <h2 className={`title ${size} event__title`}>
                         Ближайшие мероприятия
                     </h2>
 
@@ -43,4 +44,4 @@ const EvenrSection = () => {
     );
 };
 
-export default EvenrSection;
+export default EventSection;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {fetchServices} from "../../redux/actions/services";
@@ -7,22 +7,23 @@ import ServicesBlock from "./ServicesBlock";
 import ServicesBlockLoading from "./ServicesBlockLoading";
 
 const ServicesSection = () => {
-	const dispatch = useDispatch();
-	const servicesItems = useSelector(({services}) => services.items);
-    const isLoaded = useSelector(({services}) => services.isLoaded);
+    const dispatch = useDispatch();
+    const servicesItems = useSelector(({services}) => services.items);
+    const {isLoaded} = useSelector(({services}) => services);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(fetchServices());
     }, []);
 
-	return (
+    return (
         <section className="services">
             <div className="container">
                 <div className="services-wrapper">
-                    <div className="circle-bold services-circle1"></div>
-                    <div className="circle-bold services-circle2"></div>
+                    <div className={`circle-bold ${size} services-circle1`}></div>
+                    <div className={`circle-bold ${size} services-circle2`}></div>
 
-                    <h2 className="title services__title">
+                    <h2 className={`title ${size} services__title`}>
                         Раскройте свои сильные стороны
                     </h2>
 
@@ -30,8 +31,9 @@ const ServicesSection = () => {
                         {isLoaded
                             ? servicesItems.map((obj, index) => (
                                   <ServicesBlock
-									  key={`${obj.title}_${index}`}
-									  index={++index}
+                                      key={`${obj.title}_${index}`}
+                                      size={size}
+                                      index={++index}
                                       {...obj}
                                   />
                               ))
@@ -45,6 +47,6 @@ const ServicesSection = () => {
             </div>
         </section>
     );
-}
+};
 
 export default ServicesSection;

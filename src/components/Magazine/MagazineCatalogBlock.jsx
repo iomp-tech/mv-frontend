@@ -6,11 +6,14 @@ import {setPostsFilters} from "../.././redux/actions/posts";
 
 const MagazineCatalogBlock = React.memo(({title, keyId}) => {
     const dispatch = useDispatch();
-	const itemsClear = [];
-	
-	const {isLoadedLimit, items, postsType, filters} = useSelector(({posts}) => posts);
+    const itemsClear = [];
+
+    const {isLoadedLimit, items, postsType, filters} = useSelector(
+        ({posts}) => posts
+    );
     const categories = useSelector(({categories}) => categories.items);
     const teachers = useSelector(({teacher}) => teacher.items);
+    const {size, color} = useSelector(({visually}) => visually);
 
     for (let key in items) {
         if (items[key].type === keyId) {
@@ -34,10 +37,12 @@ const MagazineCatalogBlock = React.memo(({title, keyId}) => {
                 >
                     <div className="magazine-catalog-top">
                         <div className="magazine-catalog-top-left">
-                            <h4 className="magazine-catalog__title">{title}</h4>
+                            <h4 className={`magazine-catalog__title ${size}`}>
+                                {title}
+                            </h4>
                         </div>
                         <div className="magazine-catalog-top-right">
-                            <p className="magazine-catalog__number">
+                            <p className={`magazine-catalog__number ${size}`}>
                                 Всего: <span>{itemsClear.length}</span>
                             </p>
                         </div>
@@ -51,6 +56,8 @@ const MagazineCatalogBlock = React.memo(({title, keyId}) => {
                                         key={obj.id}
                                         num={num}
                                         auths={teachers}
+                                        size={size}
+                                        color={color}
                                         postsType={postsType[obj.type]}
                                         categories={categories[obj.category]}
                                         {...obj}
@@ -60,7 +67,7 @@ const MagazineCatalogBlock = React.memo(({title, keyId}) => {
                     <div className="magazine-catalog-bottom">
                         <button
                             onClick={windowAndSetType}
-                            className="btn-bold_gray magazine-catalog__btn"
+                            className={`btn-bold_gray magazine-catalog__btn ${size}`}
                         >
                             Загрузить еще
                         </button>

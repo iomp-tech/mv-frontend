@@ -17,6 +17,7 @@ const Teacher = () => {
     const dispatch = useDispatch();
 
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
+    const {size} = useSelector(({visually}) => visually);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
     const [activeTeacherItems, setActiveTeacherItems] = React.useState();
@@ -62,7 +63,7 @@ const Teacher = () => {
             <section className="teacher">
                 <div className="container">
                     <div className="teacher-wrapper">
-                        <h2 className="title teacher__title">
+                        <h2 className={`title ${size} teacher__title`}>
                             Наши преподаватели
                         </h2>
 
@@ -78,6 +79,7 @@ const Teacher = () => {
                                 ? itemsMain.map((obj, index) => (
                                       <TeacherBlock
                                           key={`teacher-block-${obj.id}`}
+                                          size={size}
                                           onClick={() =>
                                               toggleTeacherModal(obj.id)
                                           }
@@ -100,8 +102,8 @@ const Teacher = () => {
             </section>
 
             <ShopSection style={{marginBottom: "50px"}} />
-            {/* <MagazineSection /> */}
-            {/* <EmailFormWrapper /> */}
+            <MagazineSection />
+            <EmailFormWrapper />
         </>
     );
 };

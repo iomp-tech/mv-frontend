@@ -32,9 +32,7 @@ const ShopTeachers = React.memo(() => {
                         <input
                             type="checkbox"
                             id={`${teachers[key].name}_${teachers[key].id}`}
-                            onChange={() =>
-                                setGoodsAuth(teachers[key].id)
-                            }
+                            onChange={() => setGoodsAuth(teachers[key].id)}
                             checked={
                                 teachers[key].id ===
                                 filters.auth[teachers[key].id]

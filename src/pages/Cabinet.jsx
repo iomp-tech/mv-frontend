@@ -20,6 +20,7 @@ const Cabinet = () => {
     const history = useHistory();
 
     const {isLogin, isLoaded, user} = useSelector(({user}) => user);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -46,18 +47,25 @@ const Cabinet = () => {
                                 <section className="cabinet">
                                     <div className="container">
                                         <div className="cabinet-wrapper">
-                                            <h2 className="title cabinet__title">
+                                            <h2
+                                                className={`title ${size} cabinet__title`}
+                                            >
                                                 Личный кабинет
                                             </h2>
 
-                                            <CabinetCartUser {...user} />
+                                            <CabinetCartUser
+                                                size={size}
+                                                {...user}
+                                            />
 
                                             <CabinetEditInfoForm
+                                                size={size}
                                                 onSubmit={onSubmitEditInfo}
                                                 {...user}
                                             />
 
                                             <CabinetEditPasswordForm
+                                                size={size}
                                                 onSubmit={onSubmitEditPassword}
                                             />
                                         </div>
@@ -67,11 +75,15 @@ const Cabinet = () => {
                                 <section className="error">
                                     <div className="container">
                                         <div className="error-wrapper">
-                                            <h2 className="error__title">
+                                            <h2
+                                                className={`error__title ${size}`}
+                                            >
                                                 <span>Подтвердите</span> ваш
                                                 email
                                             </h2>
-                                            <p className="error__subtitle">
+                                            <p
+                                                className={`error__subtitle ${size}`}
+                                            >
                                                 На ваш email было отправлено
                                                 письмо с ссылкой на
                                                 подтверждение аккаунта. Если
@@ -83,7 +95,7 @@ const Cabinet = () => {
                                             </p>
                                             <Link
                                                 to="/"
-                                                className="btn-bold_color error__btn"
+                                                className={`btn-bold_color error__btn ${size}`}
                                             >
                                                 На главную страницу
                                             </Link>

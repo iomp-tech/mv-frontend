@@ -11,6 +11,7 @@ const Institute = () => {
     const dispatch = useDispatch();
 
     const {items, isLoaded} = useSelector(({institute}) => institute);
+    const {size} = useSelector(({visually}) => visually);
 
     const [itemContent, setItemContent] = React.useState([]);
     const [open, setOpen] = React.useState(false);
@@ -44,17 +45,18 @@ const Institute = () => {
                 <section className="institute">
                     <div className="container">
                         <div className="institute-wrapper">
-                            <h2 className="title institute__title">
+                            <h2 className={`title ${size} institute__title`}>
                                 Сведения об образовательной организации
                             </h2>
 
-                            <div className="institute-content">
+                            <div className={`institute-content ${size}`}>
                                 <div className="institute-text">
                                     {items.map((arr, index) => (
                                         <InstituteItem
                                             toggleItemContent={
                                                 toggleItemContent
                                             }
+                                            size={size}
                                             toScrollDoc={toScrollDoc}
                                             key={`institute-items-${index}`}
                                             {...arr}
@@ -101,7 +103,7 @@ const Institute = () => {
                                                 <iframe
                                                     className="institute-iframe"
                                                     src={itemContent.file}
-                                                    frameborder="0"
+                                                    frameBorder="0"
                                                 >
                                                     Ваш браузер не поддерживает
                                                     фреймы
@@ -111,7 +113,6 @@ const Institute = () => {
                                     ) : (
                                         <p
                                             className="institute-iframe-text"
-                                            ref={refDoc}
                                             dangerouslySetInnerHTML={{
                                                 __html: itemContent.text,
                                             }}

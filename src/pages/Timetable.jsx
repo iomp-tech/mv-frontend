@@ -40,6 +40,7 @@ const Timetable = (props) => {
         itemsLength,
     } = useSelector(({timetable}) => timetable);
     const teachers = useSelector(({teacher}) => teacher.items);
+    const {size, color} = useSelector(({visually}) => visually);
 
     const cat = props.match.params.cat;
     const queryGet = props.location.search;
@@ -117,7 +118,9 @@ const Timetable = (props) => {
             <section className="timetable">
                 <div className="container">
                     <div className="timetable-wrapper">
-                        <h2 className="title timetable__title">Расписание</h2>
+                        <h2 className={`title ${size} timetable__title`}>
+                            Расписание
+                        </h2>
 
                         <TimetableFilters categories={categories} />
 
@@ -131,6 +134,8 @@ const Timetable = (props) => {
                                                 categories={categories}
                                                 timetableType={timetableType}
                                                 auths={teachers}
+                                                size={size}
+                                                color={color}
                                                 isLoadedLimit={isLoadedLimit}
                                                 key={items[key].id}
                                                 {...items[key]}

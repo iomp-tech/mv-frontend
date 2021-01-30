@@ -6,7 +6,7 @@ import validate from "./validate";
 
 import {BtnLoaded, RenderInput} from ".././";
 
-let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine}) => {
+let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine, size}) => {
     const {isLoaded} = useSelector(({login}) => login);
 
 	const [statePassowrd, setStatePassword] = React.useState({
@@ -21,6 +21,7 @@ let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine}) => {
                     type="text"
                     name="email"
                     label="Email"
+                    size={size}
                 />
             </div>
 
@@ -31,6 +32,7 @@ let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine}) => {
                     statePassowrd={statePassowrd}
                     typeConst="password"
                     keyInput="password"
+                    size={size}
                     type={statePassowrd.password ? "text" : "password"}
                     name="password"
                     label="Пароль"
@@ -39,7 +41,7 @@ let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine}) => {
 
             <button
                 type="submit"
-                className="btn-bold_color reglog__btn"
+                className={`btn-bold_color reglog__btn ${size}`}
                 style={{pointerEvents: `${isLoaded ? "none" : "auto"}`}}
                 disabled={invalid || submitting || pristine}
             >

@@ -8,7 +8,8 @@ const CabinetInputRender = ({
     statePassowrd,
     typeConst,
     func,
-    keyInput,
+	keyInput,
+	size
 }) => {
     const funcSetStatePassword = () => {
         const statepass = {
@@ -26,17 +27,22 @@ const CabinetInputRender = ({
                 <input
                     {...input}
                     type={type}
-                    className="cabinet-input__input"
+                    className={`cabinet-input__input ${size}`}
                     required
                 />
                 <span
                     className={`${
                         touched && error
-                            ? "cabinet-input__span__error"
-                            : "cabinet-input__span"
+                            ? `cabinet-input__span__error ${size}`
+                            : `cabinet-input__span ${size}`
                     }`}
                 ></span>
-                <label className="cabinet-input__label" style={{color: `${touched && error ? "#FD5754" : ""}`}}>{label}</label>
+                <label
+                    className={`cabinet-input__label ${size}`}
+                    style={{color: `${touched && error ? "#FD5754" : ""}`}}
+                >
+                    {label}
+                </label>
                 {typeConst === "password" ? (
                     <div
                         onClick={funcSetStatePassword}
@@ -88,7 +94,9 @@ const CabinetInputRender = ({
             </div>
             <div>
                 {touched && error && (
-                    <span className="cabinet-input__label__error">{error}</span>
+                    <span className={`cabinet-input__label__error ${size}`}>
+                        {error}
+                    </span>
                 )}
             </div>
         </>

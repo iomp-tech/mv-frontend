@@ -17,9 +17,8 @@ const initialState = {
 const posts = (state = initialState, action) => {
 	if (action.type === 'SET_POSTS') {
 		const newItems = {};
-
 		action.payload.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`post-${obj.id}`] = obj
 		));
 
 		return {
@@ -32,7 +31,7 @@ const posts = (state = initialState, action) => {
 		const newItems = {};
 
 		action.payload.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`post-${obj.id}`] = obj
 		));
 
 		return {
@@ -45,7 +44,7 @@ const posts = (state = initialState, action) => {
 		const newItems = {};
 
 		action.payload.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`post-${obj.id}`] = obj
 		));
 
 		return {

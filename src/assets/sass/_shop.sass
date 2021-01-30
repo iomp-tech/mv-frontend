@@ -36,7 +36,7 @@
 
 			&::-webkit-scrollbar
 				width: 4px
-				height: 8px
+				height: 7px
 				background-color: #F0F0F0
 
 			&::-webkit-scrollbar-thumb
@@ -44,6 +44,18 @@
 				border-radius: 3px
 
 			&::-webkit-scrollbar-thumb:hover
+				background-color: #E2E2E2
+
+			&::-ms-scrollbar
+				width: 4px
+				height: 8px
+				background-color: #F0F0F0
+
+			&::-ms-scrollbar-thumb
+				background-color: #E2E2E2
+				border-radius: 3px
+
+			&::-ms-scrollbar-thumb:hover
 				background-color: #E2E2E2
 
 		&__title
@@ -111,13 +123,19 @@
 			align-items: center
 
 		&-right
-			width: 43%
+			width: 45%
 			display: flex
 			justify-content: space-between
 			align-items: center
 
+			&.X1-5, &.X2
+				width: 80%
+
 		&-thumb
 			position: relative
+
+			&.X1-5, &.X2
+				display: none
 
 		&__img
 			width: 150px
@@ -144,6 +162,9 @@
 		&-text
 			margin-left: 50px
 
+			&.X1-5, &.X2
+				margin-left: 0
+
 		&-type-wrapper
 			display: flex
 			flex-wrap: wrap
@@ -161,6 +182,12 @@
 				font-size: 16px
 				padding: 5px 15px
 
+				&.X1-5
+					font-size: 24px
+
+				&.X2
+					font-size: 32px
+
 			&_color
 				white-space: nowrap
 				margin-right: 2.5px
@@ -172,26 +199,70 @@
 				font-size: 16px
 				padding: 5px 15px
 
+				&.X1-5
+					font-size: 24px
+
+				&.X2
+					font-size: 32px
+
 		&__title
 			font-size: 32px
 			margin: 10px 0
 
+			&.X1-5
+				font-size: 48px
+
+			&.X2
+				font-size: 64px
+
 		&__time
 			font-size: 18px
+
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
 
 		&__subprice
 			font-size: 24px
 			color: $gray
 			text-decoration: line-through
 
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
 		&__price
 			font-size: 32px
 			margin-top: 5px
+
+			&.X1-5
+				font-size: 38px
+
+			&.X2
+				font-size: 48px
+
+		&__btn
+			&.X1-5
+				font-size: 22px
+
+			&.X2
+				font-size: 30px
 
 	&-btn-wrapper
 		margin-top: 100px
 		display: flex
 		justify-content: center
+
+	&__btn
+		&.X1-5
+			font-size: 22px
+
+		&.X2
+			font-size: 30px
 
 	&-bottom
 		display: flex

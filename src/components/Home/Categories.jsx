@@ -11,6 +11,7 @@ const Categories = React.memo(() => {
 
     const goods = useSelector(({goods}) => goods.items);
     const {items, isLoaded} = useSelector(({categories}) => categories);
+    const {color, size} = useSelector(({visually}) => visually);
 
     const [activeThumb, setActiveThumb] = React.useState("");
 
@@ -30,7 +31,7 @@ const Categories = React.memo(() => {
         let result;
 
         if (num % 100 >= 5 && num % 100 <= 20) {
-            result = num + " " + title["2"];
+            result = num + " " + title[2];
         } else {
             if (num % 10 == 1) {
                 result = num + " " + title[0];
@@ -48,16 +49,20 @@ const Categories = React.memo(() => {
         <section className="categories">
             <div className="container">
                 <div className="categories-wrapper">
-                    <h2 className="title categories__title">Образовательные программы</h2>
+                    <h2 className={`title ${size} categories__title`}>
+                        Образовательные программы
+                    </h2>
 
                     <div className="categories-content">
-                        <div className="categories-item-wrapper">
+                        <div className={`categories-item-wrapper ${size}`}>
                             {isLoaded
                                 ? Object.keys(items).map((key) => (
                                       <CategoriesItem
                                           key={`${items[key].key}_${items[key].id}`}
                                           onMouseEnter={onSelectItem}
                                           keyId={items[key].key}
+                                          color={color}
+                                          size={size}
                                           checkDeclension={
                                               Object.keys(goods).length
                                                   ? checkDeclension(
@@ -91,12 +96,14 @@ const Categories = React.memo(() => {
                                           </div>
                                       ))}
                         </div>
-                        <div
-                            className="categories-thumb"
-                            style={{
-                                backgroundImage: `url(${activeThumb})`,
-                            }}
-                        ></div>
+                        {size !== "X1" ? null : (
+                            <div
+                                className="categories-thumb"
+                                style={{
+                                    backgroundImage: `url(${activeThumb})`,
+                                }}
+                            ></div>
+                        )}
                     </div>
                 </div>
             </div>

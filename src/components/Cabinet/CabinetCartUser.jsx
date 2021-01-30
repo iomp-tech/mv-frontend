@@ -8,7 +8,7 @@ import {
     setMessageCabinetAvatar,
 } from "../../redux/actions/cabinet";
 
-const CabinetCartUser = React.memo(({avatar, first_name, last_name, email}) => {
+const CabinetCartUser = React.memo(({avatar, first_name, last_name, email, size}) => {
     const dispatch = useDispatch();
 
     const {messageAvatar} = useSelector(({cabinet}) => cabinet);
@@ -79,10 +79,10 @@ const CabinetCartUser = React.memo(({avatar, first_name, last_name, email}) => {
                     </label>
                 </div>
                 <div className="cabinet-block-info-text">
-                    <h3 className="cabinet-block-info__title">
+                    <h3 className={`cabinet-block-info__title ${size}`}>
                         Здравствуйте, {`${first_name} ${last_name}`}!
                     </h3>
-                    <p className="cabinet-block-info__subtitle">
+                    <p className={`cabinet-block-info__subtitle ${size}`}>
                         <span>Email:</span> {email}
                     </p>
                 </div>

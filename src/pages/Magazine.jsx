@@ -29,6 +29,7 @@ const Magazine = (props) => {
     );
     const teachers = useSelector(({teacher}) => teacher.items);
     const categories = useSelector(({categories}) => categories.items);
+    const {size} = useSelector(({visually}) => visually);
 
     const cat = props.match.params.cat;
     const queryGet = props.location.search;
@@ -111,7 +112,9 @@ const Magazine = (props) => {
             <section className="magazine">
                 <div className="container">
                     <div className="magazine-wrapper">
-                        <h2 className="title magazine__title">Журнал</h2>
+                        <h2 className={`title ${size} magazine__title`}>
+                            Журнал
+                        </h2>
 
                         <MagazineCategory filters={filters} />
 

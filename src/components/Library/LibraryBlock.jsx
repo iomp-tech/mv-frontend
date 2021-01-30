@@ -1,13 +1,13 @@
 import React from "react";
 
-const LibraryBlock = ({training, image}) => {
+const LibraryBlock = ({training, image, size, color}) => {
     const url = "https://shop.IOMP.su/personal/auth/login?lg=ru";
 
     return (
         <a href={url} target="_blank" className="library-block">
             <div className="library-block-left">
                 <div
-                    className="library-block-thumb"
+                    className={`library-block-thumb ${size}`}
                     style={{
                         backgroundImage: `url(${
                             image !== ""
@@ -16,13 +16,23 @@ const LibraryBlock = ({training, image}) => {
                         })`,
                     }}
                 ></div>
-                <div className="library-block-text">
-                    <span className="library-block__subtitle">Курс</span>
-                    <h3 className="library-block__title">{training}</h3>
+                <div className={`library-block-text ${size}`}>
+                    <span
+                        className={`library-block__subtitle ${size}`}
+                        style={{color: color}}
+                    >
+                        Курс
+                    </span>
+                    <h3
+                        className={`library-block__title ${size}`}
+                        style={{color: color}}
+                    >
+                        {training}
+                    </h3>
                 </div>
             </div>
             <div className="library-block-right">
-                <div className="library-block__btn">
+                <div className={`library-block__btn ${size}`}>
                     <svg
                         width="22"
                         height="22"

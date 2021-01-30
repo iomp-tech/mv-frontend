@@ -16,6 +16,7 @@ const Library = () => {
     const dispatch = useDispatch();
 
     const {course, isLoadedCourse, isLogin} = useSelector(({user}) => user);
+    const {size, color} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -37,10 +38,14 @@ const Library = () => {
                         <div className="container">
                             <div className="library-wrapper">
                                 <div className="library-block-top">
-                                    <h2 className="title library__title">
+                                    <h2
+                                        className={`title ${size} library__title`}
+                                    >
                                         Мои курсы
                                     </h2>
-                                    <span className="library__subtitle">
+                                    <span
+                                        className={`library__subtitle ${size}`}
+                                    >
                                         {course ? course.length : 0}
                                     </span>
                                 </div>
@@ -51,12 +56,16 @@ const Library = () => {
                                           course.map((arr) => (
                                               <LibraryBlock
                                                   key={`id-training-${arr.id_training}`}
+                                                  size={size}
+                                                  color={color}
                                                   {...arr}
                                               />
                                           ))
                                       ) : (
                                           <div className="library-null">
-                                              <p className="library-null__title">
+                                              <p
+                                                  className={`library-null__title ${size}`}
+                                              >
                                                   К сожелению у вас нет курсов
                                               </p>
                                           </div>

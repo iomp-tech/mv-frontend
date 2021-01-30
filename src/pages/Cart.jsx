@@ -13,12 +13,13 @@ import {
 import {removeCartItem} from "../redux/actions/cart";
 
 const Cart = () => {
-	const history = useHistory();
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const cartItems = useSelector(({cart}) => cart.cart);
     const {totalPrice} = useSelector(({cart}) => cart);
     const {user, isLoaded, isLogin} = useSelector(({user}) => user);
+    const {size, color} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -42,10 +43,10 @@ const Cart = () => {
                         {Object.keys(cartItems).length ? (
                             <>
                                 <div className="cart-block-top">
-                                    <h2 className="title cart__title">
+                                    <h2 className={`title ${size} cart__title`}>
                                         Корзина
                                     </h2>
-                                    <span className="cart__number">
+                                    <span className={`cart__number ${size}`}>
                                         {Object.keys(cartItems).length}
                                     </span>
                                 </div>
@@ -54,6 +55,8 @@ const Cart = () => {
                                     {Object.keys(cartItems).map((index) => (
                                         <CartBlock
                                             key={cartItems[index].id}
+                                            size={size}
+                                            color={color}
                                             RemoveCartItem={clickRemoveCartItem}
                                             {...cartItems[index]}
                                         />
@@ -69,7 +72,9 @@ const Cart = () => {
                                                 acceptCharset="UTF-8"
                                             >
                                                 <div className="cart-block-bottom">
-                                                    <h3 className="cart__total">
+                                                    <h3
+                                                        className={`cart__total ${size}`}
+                                                    >
                                                         <span>Итого:</span>{" "}
                                                         {totalPrice}₽
                                                     </h3>
@@ -106,7 +111,7 @@ const Cart = () => {
 
                                                     <button
                                                         type="submit"
-                                                        className="btn-bold_color cart__btn"
+                                                        className={`btn-bold_color cart__btn ${size}`}
                                                     >
                                                         Оформить заказ
                                                     </button>
@@ -118,13 +123,13 @@ const Cart = () => {
                                     </>
                                 ) : (
                                     <div className="cart-block-bottom">
-                                        <h3 className="cart__total">
+                                        <h3 className={`cart__total ${size}`}>
                                             <span>Итого:</span> {totalPrice}₽
                                         </h3>
 
                                         <Link
                                             to="/login"
-                                            className="btn-bold_color cart__btn"
+                                            className={`btn-bold_color cart__btn ${size}`}
                                         >
                                             Войдите в аккаунт или создайте его
                                         </Link>
@@ -134,15 +139,17 @@ const Cart = () => {
                         ) : (
                             <>
                                 <div className="cart-null">
-                                    <div className="circle-bold cart-null-bg"></div>
+                                    <div
+                                        className={`circle-bold cart-null-bg ${size}`}
+                                    ></div>
 
-                                    <h2 className="cart-null__title">
+                                    <h2 className={`cart-null__title ${size}`}>
                                         Ваша корзина пуста
                                     </h2>
 
                                     <Link
                                         to="/shop"
-                                        className="btn-bold_color cart-null__btn"
+                                        className={`btn-bold_color cart-null__btn ${size}`}
                                     >
                                         Перейти в магазин курсов
                                     </Link>

@@ -14,6 +14,7 @@ const Login = () => {
 
     const {message} = useSelector(({login}) => login);
     const {isLogin, isLoaded} = useSelector(({user}) => user);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -34,27 +35,36 @@ const Login = () => {
                         <section className="reglog">
                             <div className="container">
                                 <div className="reglog-wrapper">
-                                    <div className="circle-bold reglog-circle"></div>
+                                    <div
+                                        className={`circle-bold ${size} reglog-circle`}
+                                    ></div>
                                     <div className="reglog-form">
-                                        <h2 className="reglog__title">Войти</h2>
+                                        <h2 className={`reglog__title ${size}`}>
+                                            Войти
+                                        </h2>
                                         <Link
                                             to="/register"
-                                            className="reglog__link"
+                                            className={`reglog__link ${size}`}
                                         >
                                             Зapeгиcтpиpoвaтьcя
                                         </Link>
 
                                         {message && (
-                                            <p className="reglog-form__error">
+                                            <p
+                                                className={`reglog-form__error ${size}`}
+                                            >
                                                 {message}
                                             </p>
                                         )}
 
-                                        <LoginForm onSubmit={onSubmit} />
+                                        <LoginForm
+                                            onSubmit={onSubmit}
+                                            size={size}
+                                        />
 
                                         <Link
                                             to="/restoreemail"
-                                            className="reglog__link_gray"
+                                            className={`reglog__link_gray ${size}`}
                                         >
                                             Забыли пароль?
                                         </Link>

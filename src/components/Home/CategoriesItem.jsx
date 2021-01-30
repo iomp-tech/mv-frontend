@@ -2,17 +2,20 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const CategoriesItem = React.memo(
-    ({onMouseEnter, title, keyId, checkDeclension}) => {
+    ({onMouseEnter, title, keyId, checkDeclension, color, size}) => {
         return (
             <>
                 <Link
                     to={`/shop/?category=${keyId}`}
                     className="categories-item"
+                    style={{color: color}}
                     onMouseEnter={() => onMouseEnter(keyId)}
                 >
-                    <div className="categories-item-text">
-                        <h3 className="categories-item__title">{title}</h3>
-                        <p className="categories-item__subtitle">
+                    <div className={`categories-item-text ${size}`}>
+                        <h3 className={`categories-item__title ${size}`}>
+                            {title}
+                        </h3>
+                        <p className={`categories-item__subtitle ${size}`}>
                             {checkDeclension}
                         </p>
                     </div>

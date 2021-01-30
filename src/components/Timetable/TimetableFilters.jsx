@@ -11,14 +11,18 @@ const TimetableFilters = React.memo(({categories}) => {
     const dispatch = useDispatch();
 
     const {filters, timetableType} = useSelector(({timetable}) => timetable);
+    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (Object.keys(categories).length) {
             if (filters.cat !== "") {
                 if (categories[filters.cat]) {
-                    directions(categories[filters.cat].id, categories[filters.cat].key);
+                    directions(
+                        categories[filters.cat].id,
+                        categories[filters.cat].key
+                    );
                 } else {
-					directions(0);
+                    directions(0);
                 }
             } else {
                 directions(0);
@@ -51,7 +55,7 @@ const TimetableFilters = React.memo(({categories}) => {
                 <div className="directions-span">
                     <span
                         id="directions__span"
-                        className="directions__span directions__span_active"
+                        className={`directions__span ${size} directions__span_active`}
                         onClick={() => toggleDirections(0, "")}
                     >
                         Все направления
@@ -60,6 +64,7 @@ const TimetableFilters = React.memo(({categories}) => {
                         <TimetableCategoriesItems
                             filters={filters}
                             keyId={categories[key].key}
+                            size={size}
                             toggleDirections={toggleDirections}
                             key={`${categories[key].key}_${categories[key].id}`}
                             {...categories[key]}
@@ -77,7 +82,7 @@ const TimetableFilters = React.memo(({categories}) => {
                     >
                         <input
                             type="checkbox"
-                            className="checkbox"
+                            className={`checkbox ${size}`}
                             onChange={() =>
                                 clickCheckbox(timetableType[key].key)
                             }
@@ -91,7 +96,7 @@ const TimetableFilters = React.memo(({categories}) => {
                         />
 
                         <label
-                            className="checkbox-label"
+                            className={`checkbox-label ${size}`}
                             htmlFor={`checkbox-timetable${timetableType[key].id}`}
                         >
                             {timetableType[key].title}

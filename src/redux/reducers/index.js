@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form'
 
+import visually from './visually';
 import categories from './categories';
 import goods from './goods';
 import timetable from './timetable';
@@ -21,6 +22,7 @@ import main from './main';
 import institute from './institute';
 
 const rootReducer = combineReducers({
+	visually,
 	categories,
 	goods,
 	timetable,

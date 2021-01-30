@@ -32,9 +32,10 @@
 				overflow-y: auto
 				width: 45%
 				border: none
+
 				&::-webkit-scrollbar
 					width: 4px
-					height: 8px
+					height: 7px
 					background-color: #F0F0F0
 
 				&::-webkit-scrollbar-thumb
@@ -42,6 +43,18 @@
 					border-radius: 3px
 
 				&::-webkit-scrollbar-thumb:hover
+					background-color: #E2E2E2
+
+				&::-ms-scrollbar
+					width: 4px
+					height: 8px
+					background-color: #F0F0F0
+
+				&::-ms-scrollbar-thumb
+					background-color: #E2E2E2
+					border-radius: 3px
+
+				&::-ms-scrollbar-thumb:hover
 					background-color: #E2E2E2
 
 			&-types
@@ -362,6 +375,9 @@
 
 			&-content
 				justify-content: flex-start
+
+		&-wrapper-top
+			display: none
 
 	// timetable
 	.timetable
@@ -803,3 +819,9 @@
 
 			&__date
 				font-size: 18px
+
+	// about
+	.about
+		&-block
+			width: 280px
+			height: 280px

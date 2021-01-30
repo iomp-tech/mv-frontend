@@ -8,7 +8,7 @@ export const fetchTimetable = (limit = null, cat = "", query = "") => (dispatch)
 		payload: false,
 	});
 
-	axios.get(`${API_DOMEN}/timetable?${limit !== null ? `_limit=${limit}&` : ""}${cat !== "" ? `category=${cat}&` : ""}${query !== "" ? query : ""}`).then((response) => {
+	axios.get(`${API_DOMEN}/timetable?visibility=true&${limit !== null ? `_limit=${limit}&` : ""}${cat !== "" ? `category=${cat}&` : ""}${query !== "" ? query : ""}`).then((response) => {
 		dispatch(setTimetable(response));
 	});
 };
@@ -19,7 +19,7 @@ export const fetchLimitTimetable = (limit = null, cat = "", query = "") => (disp
 		payload: false,
 	});
 
-	axios.get(`${API_DOMEN}/timetable?${limit !== null ? `_limit=${limit}&` : ""}${cat !== "" ? `category=${cat}&` : ""}${query !== "" ? query : ""}`).then((response) => {
+	axios.get(`${API_DOMEN}/timetable?visibility=true&${limit !== null ? `_limit=${limit}&` : ""}${cat !== "" ? `category=${cat}&` : ""}${query !== "" ? query : ""}`).then((response) => {
 		dispatch(setLimitTimetable(response));
 	});
 };

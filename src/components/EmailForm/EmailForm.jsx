@@ -1,24 +1,27 @@
 import React from "react";
 import {Field, reduxForm} from "redux-form";
+import {useSelector} from "react-redux";
 
 import validate from "./validate";
 
 let EmailForm = React.memo(({handleSubmit, stateForm}) => {
+    const {size} = useSelector(({visually}) => visually);
+
     return (
         <form className="email-form" onSubmit={handleSubmit}>
             <div className="container">
-                <div className="email-form-wrapper">
-                    <div className="email-form-left">
-                        <h2 className="email-form__title">
+                <div className={`email-form-wrapper ${size}`}>
+                    <div className={`email-form-left ${size}`}>
+                        <h2 className={`email-form__title ${size}`}>
                             Хотите получать лучшие статьи от IOMP?
                         </h2>
-                        <p className="email-form__subtitle">
+                        <p className={`email-form__subtitle ${size}`}>
                             Подпишитесь на рассылку IOMP
                         </p>
                     </div>
-                    <div className="email-form-right">
+                    <div className={`email-form-right ${size}`}>
                         {stateForm ? (
-                            <p className="email-form__subtitle">
+                            <p className={`email-form__subtitle ${size}`}>
                                 Спасибо, вы успешно подписаны
                             </p>
                         ) : (
@@ -47,7 +50,7 @@ let EmailForm = React.memo(({handleSubmit, stateForm}) => {
                                         type="email"
                                         name="email"
                                         component="input"
-                                        className="email-form-input__field"
+                                        className={`email-form-input__field ${size}`}
                                         placeholder="Email"
                                     />
                                 </div>
@@ -60,7 +63,7 @@ let EmailForm = React.memo(({handleSubmit, stateForm}) => {
                                         component="input"
                                     />
                                     <label
-                                        className="checkbox-label_white email-form__label"
+                                        className={`checkbox-label_white ${size} email-form__labe`}
                                         htmlFor="email-form__checkbox"
                                     >
                                         Я согласен с условиями обработки
@@ -78,6 +81,7 @@ let EmailForm = React.memo(({handleSubmit, stateForm}) => {
 
 EmailForm = reduxForm({
     form: "emailFormBig",
+    initialValues: {confirmation: true},
     validate,
 })(EmailForm);
 

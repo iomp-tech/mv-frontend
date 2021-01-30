@@ -16,8 +16,8 @@ const ShopSection = React.memo(({style}) => {
     const categories = useSelector(({categories}) => categories.items);
     const {isLoaded, types} = useSelector(({goods}) => goods);
     const teachers = useSelector(({teacher}) => teacher.items);
-
     const items = useSelector(({goods}) => goods.itemsSection);
+    const {size} = useSelector(({visually}) => visually);
 
     const {push} = useSelector(({cart}) => cart);
 
@@ -54,7 +54,9 @@ const ShopSection = React.memo(({style}) => {
         <section className="shop" style={style && style}>
             <div className="container">
                 <div className="shop-wrapper">
-                    <h2 className="title shop__title">Начать учиться</h2>
+                    <h2 className={`title ${size} shop__title`}>
+                        Начать учиться
+                    </h2>
 
                     <div className="shop-block-wrapper">
                         {isLoaded
@@ -64,6 +66,7 @@ const ShopSection = React.memo(({style}) => {
                                       onClickAddGoods={setAddGoods}
                                       onClickPush={toggleSuccessAddCart}
                                       types={types}
+                                      size={size}
                                       categories={categories}
                                       auths={teachers}
                                       idAwo={items[key].id_awo}
@@ -79,7 +82,7 @@ const ShopSection = React.memo(({style}) => {
                                   ))}
                     </div>
 
-                    <ShopSectionBtn />
+                    <ShopSectionBtn size={size} />
                 </div>
             </div>
         </section>

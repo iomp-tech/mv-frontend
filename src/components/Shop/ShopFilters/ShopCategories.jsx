@@ -1,10 +1,11 @@
 import React from "react";
+import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 
 import {setGoodsFilters} from "../../.././redux/actions/goods";
 
 const ShopCategories = React.memo(() => {
-	const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const {filters} = useSelector(({goods}) => goods);
     const categories = useSelector(({categories}) => categories.items);

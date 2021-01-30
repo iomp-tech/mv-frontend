@@ -49,6 +49,7 @@ const Shop = (props) => {
     const teachers = useSelector(({teacher}) => teacher.items);
 
     const {push} = useSelector(({cart}) => cart);
+    const {size} = useSelector(({visually}) => visually);
 
     const queryGet = props.location.search;
 
@@ -208,7 +209,9 @@ const Shop = (props) => {
             <section className="shop">
                 <div className="container">
                     <div className="shop-wrapper">
-                        <h2 className="title shop__title">Магазин курсов</h2>
+                        <h2 className={`title ${size} shop__title`}>
+                            Магазин курсов
+                        </h2>
                         <div className="shop-block-top">
                             <ShopSearch />
 
@@ -295,6 +298,7 @@ const Shop = (props) => {
                                             types={types}
                                             categories={categories}
                                             auths={teachers}
+                                            size={size}
                                             onClickAddGoods={setAddGoods}
                                             onClickPush={toggleSuccessAddCart}
                                             idAwo={items[key].id_awo}

@@ -20,6 +20,12 @@
 			font-size: 24px
 			margin-bottom: 25px
 
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
 		&-block
 			padding-bottom: 50px
 			margin-bottom: 50px
@@ -56,6 +62,12 @@
 				border: 1px solid $mainColor
 				+transition
 
+			&.X1-5
+				font-size: 22px
+
+			&.X2
+				font-size: 30px
+
 		&-checkbox
 			margin-bottom: 15px
 
@@ -87,10 +99,29 @@
 		&__title
 			font-size: 36px
 
+			&.X1-5
+				font-size: 54px
+
+			&.X2
+				font-size: 72px
+
 		&__number
 			font-size: 18px
 			& > span
 				+bold
+
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
+
+		&__btn
+			&.X1-5
+				font-size: 22px
+
+			&.X2
+				font-size: 30px
 
 	&-block
 		width: 49%
@@ -100,6 +131,9 @@
 		margin-bottom: 50px
 		padding-bottom: 50px
 		border-bottom: 1px solid $gray
+
+		&.X1-5, &.X2
+			width: 100%
 
 		&:hover &-img
 			transform: scale(1.1)
@@ -130,9 +164,16 @@
 			&_gray
 				display: inline-block
 				border-radius: 100px
+				color: $black
 				background-color: $lightGray
 				padding: 5px 15px
 				font-size: 17px
+
+				&.X1-5
+					font-size: 25px
+
+				&.X2
+					font-size: 34px
 
 			&_color
 				display: inline-block
@@ -142,19 +183,43 @@
 				padding: 5px 15px
 				font-size: 17px
 
+				&.X1-5
+					font-size: 25px
+
+				&.X2
+					font-size: 34px
+
 		&__date
 			font-size: 18px
 			display: block
 			margin-top: 25px
 			color: $black
 
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
+
 		&__title
 			font-size: 32px
 			margin-top: 25px
 
+			&.X1-5
+				font-size: 48px
+
+			&.X2
+				font-size: 62px
+
 		&__description
 			margin-top: 25px
 			font-size: 24px
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
 
 		&-bottom
 			flex-direction: column
@@ -175,6 +240,9 @@
 		border-bottom: 1px solid $gray
 		&:hover &-img
 			transform: scale(1.1)
+
+		&.X1-5, &.X2
+			width: 100%
 
 		&-thumb
 			position: relative
@@ -202,9 +270,16 @@
 			&_gray
 				display: inline-block
 				border-radius: 100px
+				color: $black
 				background-color: $lightGray
 				padding: 10px 15px
 				font-size: 18px
+
+				&.X1-5
+					font-size: 25px
+
+				&.X2
+					font-size: 34px
 
 			&_color
 				display: inline-block
@@ -214,19 +289,43 @@
 				padding: 10px 15px
 				font-size: 18px
 
+				&.X1-5
+					font-size: 25px
+
+				&.X2
+					font-size: 34px
+
 		&__date
 			font-size: 24px
 			display: block
 			margin-top: 25px
 			color: $black
 
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
+
 		&__title
 			font-size: 36px
 			margin-top: 25px
 
+			&.X1-5
+				font-size: 48px
+
+			&.X2
+				font-size: 62px
+
 		&__description
 			margin-top: 25px
 			font-size: 24px
+
+			&.X1-5
+				font-size: 36x
+
+			&.X2
+				font-size: 48px
 
 		&-auth-wrapper
 			margin-top: 50px
@@ -249,3 +348,10 @@
 		margin-top: 50px
 		display: flex
 		justify-content: center
+
+	&__btn
+		&.X1-5
+			font-size: 22px
+
+		&.X2
+			font-size: 30px

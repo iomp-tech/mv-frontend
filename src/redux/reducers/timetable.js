@@ -22,7 +22,7 @@ const timetable = (state = initialState, action) => {
 			moment(b.date, "DD.MM.YYYY, HH:mm"));
 
 		sortItmes.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`timetable-${obj.id}`] = obj
 		));
 		
 		return {
@@ -39,7 +39,7 @@ const timetable = (state = initialState, action) => {
 			moment(b.date, "DD.MM.YYYY, HH:mm"));
 
 		sortItmes.map(obj => (
-			newItems[obj.id] = obj
+			newItems[`timetable-${obj.id}`] = obj
 		));
 
 		return {

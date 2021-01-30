@@ -9,7 +9,8 @@ import AboutBlockLoading from "./AboutBlockLoading";
 const AboutSection = () => {
     const dispatch = useDispatch();
     const aboutItems = useSelector(({about}) => about.items);
-    const isLoaded = useSelector(({about}) => about.isLoaded);
+    const {isLoaded} = useSelector(({about}) => about);
+    const {color, bgColor, size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(fetchAbout());
@@ -19,12 +20,15 @@ const AboutSection = () => {
         <section className="about">
             <div className="container">
                 <div className="about-wrapper">
-                    <h2 className="title about__title">О нас</h2>
+                    <h2 className={`title ${size} about__title`}>О нас</h2>
 
                     <div className="about-block-wrapper">
                         {isLoaded
                             ? aboutItems.map((obj, index) => (
                                   <AboutBlock
+                                      color={color}
+                                      bgColor={bgColor}
+                                      size={size}
                                       key={`${obj.id}_${index}`}
                                       {...obj}
                                   />

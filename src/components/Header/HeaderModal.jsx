@@ -93,14 +93,14 @@ const HeaderModal = React.memo(({isLogin}) => {
                         >
                             Магазин курсов
                         </NavLink>
-                        {/* <NavLink
+                        <NavLink
                             onClick={toggleVisibleHeaderModal}
                             to="/timetable"
                             className="header-modal__link"
                             activeClassName="header-modal__link_active"
                         >
                             Расписание
-                        </NavLink> */}
+                        </NavLink>
                         <NavLink
                             onClick={toggleVisibleHeaderModal}
                             to="/teachers"
@@ -117,15 +117,15 @@ const HeaderModal = React.memo(({isLogin}) => {
                         >
                             Сведения об образовательной организации
                         </NavLink>
-                        {/* <NavLink
+                        <NavLink
                             onClick={toggleVisibleHeaderModal}
                             to="/magazine"
                             className="header-modal__link"
                             activeClassName="header-modal__link_active"
                         >
                             Журнал
-                        </NavLink> */}
-                        {/* {isLogin ? (
+                        </NavLink>
+                        {isLogin ? (
                             <>
                                 <NavLink
                                     onClick={toggleVisibleHeaderModal}
@@ -171,7 +171,7 @@ const HeaderModal = React.memo(({isLogin}) => {
                                     Зарегистрироваться
                                 </NavLink>
                             </>
-                        )} */}
+                        )}
                     </nav>
                 </div>
             </div>

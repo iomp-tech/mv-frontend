@@ -13,10 +13,10 @@ const MagazineSection = () => {
 
     const categories = useSelector(({categories}) => categories.items);
     const teachers = useSelector(({teacher}) => teacher.items);
-
     const {oldItems, postsAuth, isLoaded, postsType} = useSelector(
         ({posts}) => posts
     );
+    const {color, size} = useSelector(({visually}) => visually);
 
     const items = useSelector(({posts}) => posts.oldItems);
 
@@ -34,7 +34,7 @@ const MagazineSection = () => {
         <section className="magazine">
             <div className="container">
                 <div className="magazine-wrapper">
-                    <h2 className="title magazine__title">Журнал</h2>
+                    <h2 className={`title ${size} magazine__title`}>Журнал</h2>
 
                     <div className="magazine-block-wrapper">
                         {isLoaded
@@ -43,6 +43,8 @@ const MagazineSection = () => {
                                       key={`magazine-block-${items[key].id}`}
                                       {...items[key]}
                                       auths={teachers}
+                                      color={color}
+                                      size={size}
                                       categories={
                                           categories[items[key].category]
                                       }
@@ -64,7 +66,7 @@ const MagazineSection = () => {
                     <div className="magazine-btn-wrapper">
                         <Link
                             to="/magazine"
-                            className="btn-bold_gray magazine__btn"
+                            className={`btn-bold_gray magazine__btn ${size}`}
                         >
                             Показать еще
                         </Link>

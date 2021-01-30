@@ -29,7 +29,7 @@
 				z-index: 1000
 				opacity: 1
 				transition: none
-			
+
 		&-content
 			position: relative
 			display: inline-flex
@@ -60,7 +60,7 @@
 			padding-top: 100px
 			padding-bottom: 100px
 			min-width: 500px
-		
+
 		&__title
 			font-size: 36px
 
@@ -118,6 +118,7 @@
 		justify-content: space-between
 		align-items: flex-end
 		width: 49%
+		height: 300px
 		border: 1px solid $gray
 		border-radius: 2px
 		margin-bottom: 25px
@@ -130,38 +131,56 @@
 			height: 400px
 			width: 400px
 			background-color: $lightMainColor
-			z-index: -1
+			z-index: 1
 			border-radius: 50%
 			+transition
 
 		&:hover &-left-top
 			width: 210px
 			height: 210px
-			
+
 		&:hover::before
 			width: 450px
 			height: 450px
 
+		&.X1-5, &.X2
+			height: 500px
+			width: 100%
+
 		&-img
-			height: 300px
+			position: relative
+			z-index: 2
+			height: 100%
 			width: 50%
 			background-size: cover
 			background-repeat: no-repeat
 			background-position: center center
-		
+
 		&-text
 			margin-bottom: 30px
 			margin-left: 30px
 
 		&__title
 			font-size: 24px
-		
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
 		&__subtitle
 			font-size: 18px
 			margin-top: 15px
 
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
+
 		&-left-top
-			z-index: -1
+			z-index: 1
 			position: absolute
 			width: 200px
 			height: 200px
@@ -175,3 +194,10 @@
 		margin-top: 100px
 		display: flex
 		justify-content: center
+
+	&__btn
+		&.X1-5
+			font-size: 22px
+
+		&.X2
+			font-size: 30px
