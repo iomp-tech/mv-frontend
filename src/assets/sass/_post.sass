@@ -10,6 +10,9 @@
 			padding: 50px 0
 			width: 50%
 
+			&.X1-5,	&.X2
+				width: 100%
+			
 		&-block-top
 			display: flex
 			align-items: center
@@ -23,6 +26,12 @@
 				font-size: 18px
 				padding: 5px 15px
 
+				&.X1-5
+					font-size: 27px
+
+				&.X2
+					font-size: 36px
+
 			&_color
 				margin-bottom: 5px
 				margin-right: 10px
@@ -33,18 +42,42 @@
 				font-size: 18px
 				padding: 5px 15px
 
+				&.X1-5
+					font-size: 27px
+
+				&.X2
+					font-size: 36px
+
 		&__date
 			padding-left: 25px
 			font-size: 18px
 			color: $black
 
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
+
 		&__title
 			margin-top: 25px
 			font-size: 36px
 
+			&.X1-5
+				font-size: 54px
+
+			&.X2
+				font-size: 72px
+
 		&__description
 			margin-top: 25px
 			font-size: 24px
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
 
 		&-auth-wrapper
 			margin-top: 50px
@@ -60,14 +93,30 @@
 			background-repeat: no-repeat
 			background-position: center center
 
+			&.X1-5,	&.X2
+				display: none
+
 	&-block
 		margin: 100px 0
+
 		&__title
 			font-size: 36px
+
+			&.X1-5
+				font-size: 54px
+
+			&.X2
+				font-size: 72px
 
 		&__description
 			margin-top: 50px
 			font-size: 22px
+
+			&.X1-5
+				font-size: 33px
+
+			&.X2
+				font-size: 44px
 
 			& > h1,h2,h3,h4,h5,h6
 				margin-bottom: 25px
@@ -75,6 +124,12 @@
 			& > p
 				font-size: 24px
 				margin-bottom: 25px
+
+			&.X1-5 > p
+				font-size: 36px
+
+			&.X2 > p
+				font-size: 48px
 
 			& > ul > li
 				display: block
@@ -95,6 +150,12 @@
 
 				&:last-child
 					margin-bottom: 25px
+
+			&.X1-5 > ul > li
+				font-size: 36px
+
+			&.X2 > ul > li
+				font-size: 48px
 
 		&-thumb
 			margin-top: 50px
@@ -122,9 +183,21 @@
 	&__subtitle
 		font-size: 24px
 
+		&.X1-5
+			font-size: 36px
+
+		&.X2
+			font-size: 48px
+
 	&__title
 		margin-top: 25px
 		font-size: 36px
+
+		&.X1-5
+			font-size: 54px
+
+		&.X2
+			font-size: 72px
 
 	&-arrow
 		& > svg

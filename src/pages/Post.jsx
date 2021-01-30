@@ -22,6 +22,7 @@ const Post = (props) => {
     const categories = useSelector(({categories}) => categories.items);
     const {postsType, isLoaded} = useSelector(({posts}) => posts);
     const teachers = useSelector(({teacher}) => teacher.items);
+    const {size} = useSelector(({visually}) => visually);
 
     const item = useSelector(({posts}) => posts.oneItem);
     const nextItem = useSelector(({posts}) => posts.nextOneItem);
@@ -67,6 +68,7 @@ const Post = (props) => {
                             <section className="post">
                                 <div className="container">
                                     <PostItem
+                                        size={size}
                                         auths={teachers}
                                         categories={categories[item.category]}
                                         postsType={postsType[item.type]}
@@ -87,10 +89,14 @@ const Post = (props) => {
                                         <div className="next-post-wrapper">
                                             <div className="next-post-media">
                                                 <div className="next-post-text">
-                                                    <p className="next-post__subtitle">
+                                                    <p
+                                                        className={`next-post__subtitle ${size}`}
+                                                    >
                                                         К следующей статье
                                                     </p>
-                                                    <h4 className="next-post__title">
+                                                    <h4
+                                                        className={`next-post__title ${size}`}
+                                                    >
                                                         {nextItem.title}
                                                     </h4>
                                                 </div>

@@ -204,13 +204,21 @@
 // timetable-page
 .timetable-page
 	margin-top: 100px
+
 	&-wrapper
 		display: flex
 		justify-content: space-between
 		align-items: center
 
+		&.X1-5, &.X2
+			flex-direction: column
+
 	&-text
 		width: 50%
+
+		&.X1-5, &.X2
+			margin-bottom: 75px
+			width: 100%
 
 	&-type
 		margin-bottom: 25px
@@ -224,6 +232,12 @@
 			font-size: 18px
 			padding: 5px 15px
 
+			&.X1-5
+				font-size: 25px
+
+			&.X2
+				font-size: 34px
+
 		&_color
 			margin-right: 5px
 			display: inline-block
@@ -233,12 +247,30 @@
 			font-size: 18px
 			padding: 5px 15px
 
+			&.X1-5
+				font-size: 25px
+
+			&.X2
+				font-size: 34px
+
 	&__title
 		font-size: 42px
+
+		&.X1-5
+			font-size: 63px
+
+		&.X2
+			font-size: 84px
 
 	&__description
 		margin-top: 25px
 		font-size: 24px
+
+		&.X1-5
+			font-size: 36px
+
+		&.X2
+			font-size: 48px
 
 	&-auth-wrapper
 		margin-top: 45px
@@ -250,9 +282,18 @@
 		text-align: center
 		width: 40%
 
+		&.X1-5,&.X2
+			width: 75%
+
 		&__title
 			margin-bottom: 35px
 			font-size: 36px
+
+			&.X1-5
+				font-size: 54px
+
+			&.X2
+				font-size: 72px
 
 		&-link
 			margin-bottom: 35px
@@ -264,10 +305,22 @@
 			margin-top: 15px
 			width: 100%
 
+			&.X1-5
+				font-size: 22px
+
+			&.X2
+				font-size: 30px
+
 		&__success
 			height: 100%
 			font-size: 32px
 			color: $mainColor
+
+			&.X1-5
+				font-size: 48px
+
+			&.X2
+				font-size: 64px
 
 	&-checkbox
 		margin-top: 25px

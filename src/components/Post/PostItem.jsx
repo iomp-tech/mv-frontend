@@ -13,28 +13,33 @@ const PostItem = React.memo(
         auth,
         categories,
         postsType,
+        size,
     }) => {
         return (
             <div className="post-wrapper">
                 <div className="post-cover">
-                    <div className="post-cover-text">
+                    <div className={`post-cover-text ${size}`}>
                         <div className="post-cover-block-top">
                             <div className="post-cover-types">
-                                <span className="post-cover__type_color">
+                                <span
+                                    className={`post-cover__type_color ${size}`}
+                                >
                                     {categories && categories.title}
                                 </span>
-                                <span className="post-cover__type_gray">
+                                <span
+                                    className={`post-cover__type_gray ${size}`}
+                                >
                                     {postsType && postsType.title}
                                 </span>
                             </div>
-                            <span className="post-cover__date">
+                            <span className={`post-cover__date ${size}`}>
                                 {moment(date, "DD.MM.YYYY HH:mm")
                                     .locale("ru")
                                     .format("DD MMMM, HH:mm")}
                             </span>
                         </div>
-                        <h2 className="post-cover__title">{title}</h2>
-                        <p className="post-cover__description">
+                        <h2 className={`post-cover__title ${size}`}>{title}</h2>
+                        <p className={`post-cover__description ${size}`}>
                             {smallDescription}
                         </p>
                         <div className="post-cover-auth-wrapper">
@@ -49,9 +54,11 @@ const PostItem = React.memo(
                                             style={{
                                                 backgroundImage: `url(${auths[key].avatar})`,
                                             }}
-                                            className="auth__img post-cover-auth__img"
+                                            className={`auth__img ${size} post-cover-auth__img`}
                                         ></div>
-                                        <span className="auth__name post-cover-auth__name">
+                                        <span
+                                            className={`auth__name ${size} post-cover-auth__name`}
+                                        >
                                             {auths[key].name}
                                         </span>
                                     </div>
@@ -59,7 +66,7 @@ const PostItem = React.memo(
                         </div>
                     </div>
                     <div
-                        className="post-cover-thumb"
+                        className={`post-cover-thumb ${size}`}
                         style={{
                             backgroundImage: `url(${thumb})`,
                         }}
@@ -72,9 +79,11 @@ const PostItem = React.memo(
                             className="post-block"
                             key={`${obj.title}_${index}`}
                         >
-                            <h3 className="post-block__title">{obj.title}</h3>
+                            <h3 className={`post-block__title ${size}`}>
+                                {obj.title}
+                            </h3>
                             <div
-                                className="post-block__description"
+                                className={`post-block__description ${size}`}
                                 dangerouslySetInnerHTML={{__html: obj.body}}
                             ></div>
 

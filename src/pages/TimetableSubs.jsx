@@ -28,6 +28,7 @@ const TimetableSubs = (props) => {
         ({timetable}) => timetable
     );
     const teachers = useSelector(({teacher}) => teacher.items);
+    const {size} = useSelector(({visually}) => visually);
 
     const timetableName = props.match.params.id;
 
@@ -75,12 +76,18 @@ const TimetableSubs = (props) => {
                             </Helmet>
                             <section className="timetable-page">
                                 <div className="container">
-                                    <div className="timetable-page-wrapper">
-                                        <div className="timetable-page-text">
+                                    <div
+                                        className={`timetable-page-wrapper ${size}`}
+                                    >
+                                        <div
+                                            className={`timetable-page-text ${size}`}
+                                        >
                                             <div className="timetable-page-type">
                                                 {Object.keys(categories)
                                                     .length ? (
-                                                    <span className="timetable-page__type_color">
+                                                    <span
+                                                        className={`timetable-page__type_color ${size}`}
+                                                    >
                                                         {
                                                             categories[
                                                                 itemOne.category
@@ -92,7 +99,9 @@ const TimetableSubs = (props) => {
                                                 )}
                                                 {Object.keys(timetableType)
                                                     .length ? (
-                                                    <span className="timetable-page__type_gray">
+                                                    <span
+                                                        className={`timetable-page__type_gray ${size}`}
+                                                    >
                                                         {
                                                             timetableType[
                                                                 itemOne.type
@@ -103,10 +112,14 @@ const TimetableSubs = (props) => {
                                                     <></>
                                                 )}
                                             </div>
-                                            <h2 className="timetable-page__title">
+                                            <h2
+                                                className={`timetable-page__title ${size}`}
+                                            >
                                                 {itemOne.title}
                                             </h2>
-                                            <p className="timetable-page__description">
+                                            <p
+                                                className={`timetable-page__description ${size}`}
+                                            >
                                                 {itemOne.description}
                                             </p>
                                             <div className="timetable-page-auth-wrapper">
@@ -121,9 +134,11 @@ const TimetableSubs = (props) => {
                                                                       style={{
                                                                           backgroundImage: `url(${teachers[key].avatar})`,
                                                                       }}
-                                                                      className="auth__img timetable-page-auth__img"
+                                                                      className={`auth__img ${size} timetable-page-auth__img`}
                                                                   ></div>
-                                                                  <span className="auth__name timetable-page-auth__name">
+                                                                  <span
+                                                                      className={`auth__name ${size} timetable-page-auth__name`}
+                                                                  >
                                                                       {
                                                                           teachers[
                                                                               key
@@ -138,12 +153,15 @@ const TimetableSubs = (props) => {
                                         </div>
                                         {!stateForm ? (
                                             <TimetableSubsForm
+                                                size={size}
                                                 onSubmit={onSubmit}
                                                 {...itemOne}
                                             />
                                         ) : (
                                             <div className="timetable-page-form">
-                                                <p className="timetable-page-form__success">
+                                                <p
+                                                    className={`timetable-page-form__success ${size}`}
+                                                >
                                                     Спасибо, вы успешно
                                                     зарегистрированы
                                                 </p>

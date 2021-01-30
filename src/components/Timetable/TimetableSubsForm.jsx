@@ -10,11 +10,12 @@ let TimetableSubsForm = ({
     vk,
     vkUrl,
     telegram,
-    telegramUrl,
+	telegramUrl,
+	size
 }) => {
     return (
-        <form className="timetable-page-form" onSubmit={handleSubmit}>
-            <h3 className="timetable-page-form__title">Записаться</h3>
+        <form className={`timetable-page-form ${size}`} onSubmit={handleSubmit}>
+            <h3 className={`timetable-page-form__title ${size}`}>Записаться</h3>
             <div className="timetable-page-form-link">
                 {vk ? (
                     <a
@@ -69,20 +70,23 @@ let TimetableSubsForm = ({
                     type="text"
                     name="email"
                     label="Email"
+                    size={size}
                 />
             </div>
-            <button className="btn-bold_color timetable-page-form__btn">
+            <button
+                className={`btn-bold_color timetable-page-form__btn ${size}`}
+            >
                 Записаться
             </button>
             <div className="checkbox-wrapper timetable-page-checkbox">
                 <input
                     type="checkbox"
-                    className="checkbox timetable-page__checkbox"
+                    className={`checkbox ${size} timetable-page__checkbox`}
                     defaultChecked={true}
                     id="timetable-page__checkbox-1"
                 />
                 <label
-                    className="checkbox-label timetable-page__label"
+                    className={`checkbox-label ${size} timetable-page__label`}
                     htmlFor="timetable-page__checkbox-1"
                 >
                     Я согласен с условиями обработки персональных данных
