@@ -76,7 +76,7 @@ const EventSliderItems = React.memo(
                         </button>
                     </div>
                 </div>
-                {size !== "X1" ? null : (
+                {/* {size !== "X1" ? null : (
                     <div className="event-item-thumb">
                         <div
                             className="event-item-img"
@@ -86,7 +86,7 @@ const EventSliderItems = React.memo(
                         ></div>
                         <div className="circle-bold event-item-circle1"></div>
                     </div>
-                )}
+                )} */}
             </Link>
         );
     }

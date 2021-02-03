@@ -13,9 +13,11 @@ const validate = values => {
 	} else if (values.email.length < defaultMin) {
 		errors.email = `Не менее ${defaultMin} символов`;
 	}
+
 	if (!values.confirmation) {
-		errors.confirmation = 'Required';
+		errors.confirmation = 'Поставьте галочку';
 	}
+
 	return errors;
 };
 

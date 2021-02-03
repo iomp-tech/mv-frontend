@@ -30,7 +30,7 @@ class EventSlider extends React.Component {
             arrows: false,
             cssEase: "linear",
             focusOnSelect: true,
-		};
+        };
 
         return (
             <>

@@ -59,16 +59,25 @@
 			padding: 10px 0
 			font-size: 16px
 			color: $white
+			+transition
 
 			&::placeholder
 				font-size: 16px
 				color: $white
 
-			&.X1-5::placeholder
+			&.X1-5, &.X1-5::placeholder
 				font-size: 24px
-			
-			&.X2::placeholder
+
+			&.X2, &.X2::placeholder
 				font-size: 32px
+
+			&_error
+				color: $lightRed
+				border-bottom: 1px solid $lightRed
+
+				&::placeholder
+					font-size: 16px
+					color: $lightRed
 
 	&-checkbox
 		margin-top: 25px

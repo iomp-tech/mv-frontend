@@ -1,8 +1,12 @@
 import React from "react";
+
 import {Field, reduxForm} from "redux-form";
 import {useSelector} from "react-redux";
 
 import validate from "./validate";
+
+import EmailFormRenderCheckbox from "./EmailFormRenderCheckbox";
+import EmailFormRenderInput from "./EmailFormRenderInput";
 
 let EmailForm = React.memo(({handleSubmit, stateForm}) => {
     const {size} = useSelector(({visually}) => visually);
@@ -26,49 +30,21 @@ let EmailForm = React.memo(({handleSubmit, stateForm}) => {
                             </p>
                         ) : (
                             <>
-                                <div className="email-form-input">
-                                    <button
-                                        type="submit"
-                                        className="email-form__btn"
-                                    >
-                                        <svg
-                                            width="26"
-                                            height="8"
-                                            viewBox="0 0 26 8"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="email-form-input__svg"
-                                        >
-                                            <path
-                                                d="M25.3536 4.35355C25.5488 4.15829 25.5488 3.84171 25.3536 3.64645L22.1716 0.464466C21.9763 0.269204 21.6597 0.269204 21.4645 0.464466C21.2692 0.659728 21.2692 0.976311 21.4645 1.17157L24.2929 4L21.4645 6.82843C21.2692 7.02369 21.2692 7.34027 21.4645 7.53553C21.6597 7.7308 21.9763 7.7308 22.1716 7.53553L25.3536 4.35355ZM0 4.5L25 4.5V3.5L0 3.5L0 4.5Z"
-                                                fill="white"
-                                            />
-                                        </svg>
-                                    </button>
-
-                                    <Field
-                                        type="email"
-                                        name="email"
-                                        component="input"
-                                        className={`email-form-input__field ${size}`}
-                                        placeholder="Email"
-                                    />
-                                </div>
+                                <Field
+                                    component={EmailFormRenderInput}
+                                    type="email"
+                                    name="email"
+                                    size={size}
+                                    placeholder="Email"
+                                />
                                 <div className="checkbox-wrapper email-form-checkbox">
                                     <Field
+                                        component={EmailFormRenderCheckbox}
                                         type="checkbox"
                                         name="confirmation"
-                                        className="checkbox_white email-form__checkbox"
                                         id="email-form__checkbox"
-                                        component="input"
+                                        size={size}
                                     />
-                                    <label
-                                        className={`checkbox-label_white ${size} email-form__labe`}
-                                        htmlFor="email-form__checkbox"
-                                    >
-                                        Я согласен с условиями обработки
-                                        персональных данных
-                                    </label>
                                 </div>
                             </>
                         )}

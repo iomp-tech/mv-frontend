@@ -517,14 +517,32 @@ input
 	&:checked+label::before
 		background-image: url("https://imeninik.ru/api/public/storage/all/galka-white.svg")
 
+	&_error
+		&+label::before
+			content: ''
+			display: inline-block
+			width: 20px
+			height: 20px
+			border: 1px solid $lightRed
+			border-radius: 2px
+			background-repeat: no-repeat
+			background-position: center center
+			background-size: 50% 50%
+			margin-right: 15px
+			+transition
+
 .checkbox-label_white
 	color: $white
+	+transition
 
 	&.X1-5
 		font-size: 22px
 
 	&.X2
 		font-size: 30px
+
+	&_error
+		color: $lightRed
 
 // auth
 .auth

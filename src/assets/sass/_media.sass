@@ -367,11 +367,11 @@
 				display: none
 
 @media screen and (max-width: 900px)
-	//header
+	// header
 	.header
 		&-modal
 			&-nav
-				padding-top: 50px
+				padding-top: 100px
 
 			&-content
 				justify-content: flex-start
@@ -688,6 +688,20 @@
 		max-width: 250px
 
 @media screen and (max-width: 480px)
+	//header
+	.header
+		&-modal
+			&-close
+				left: 30px
+				top: 45px
+
+				& > svg
+					width: 50px
+					height: 50px
+
+			&-logo__img
+				display: none
+
 	// post
 	.post
 		&-cover
