@@ -17,12 +17,16 @@ const EventSliderItems = React.memo(
         categories,
         color,
         size,
+        range,
+        minDate,
+        maxDate,
     }) => {
         return (
-            <Link
-                to={`/timetable/pages/${id}`}
+            <div
                 className="event-item"
-                style={{color: color}}
+                style={{
+                    color: color,
+                }}
             >
                 <div className={`event-item-text ${size}`}>
                     {categories && (
@@ -39,12 +43,32 @@ const EventSliderItems = React.memo(
                     <p className={`event-item__description ${size}`}>
                         {description}
                     </p>
-                    <span className={`event-item__date ${size}`}>
-                        Дата старта:{" "}
-                        {moment(date, "DD.MM.YYYY HH:mm")
-                            .locale("ru")
-                            .format("DD MMMM, HH:mm")}
-                    </span>
+                    {range ? (
+                        <>
+                            <span className={`event-item__date-range ${size}`}>
+                                <b>Дата старта:</b>
+                            </span>
+                            <span className={`event-item__date-range ${size}`}>
+                                <b>с:</b>{" "}
+                                {moment(minDate, "YYYY-MM-DDTHH:mm")
+                                    .locale("ru")
+                                    .format("DD MMMM, HH:mm")}
+                            </span>
+                            <span className={`event-item__date-range ${size}`}>
+                                <b>до:</b>{" "}
+                                {moment(maxDate, "YYYY-MM-DDTHH:mm")
+                                    .locale("ru")
+                                    .format("DD MMMM, HH:mm")}
+                            </span>
+                        </>
+                    ) : (
+                        <span className={`event-item__date ${size}`}>
+                            <b>Дата старта:</b>{" "}
+                            {moment(date, "YYYY-MM-DDTHH:mm")
+                                .locale("ru")
+                                .format("DD MMMM, HH:mm")}
+                        </span>
+                    )}
 
                     <div className="event-item-auth-wrapper">
                         {Object.keys(auths).length &&
@@ -69,14 +93,15 @@ const EventSliderItems = React.memo(
                     </div>
 
                     <div className="event-item-btn-wrapper">
-                        <button
+                        <Link
+                            to={`/timetable/pages/${id}`}
                             className={`btn-bold_color event-item__btn ${size}`}
                         >
                             Записаться
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                {/* {size !== "X1" ? null : (
+                {size !== "X1" ? null : (
                     <div className="event-item-thumb">
                         <div
                             className="event-item-img"
@@ -86,8 +111,8 @@ const EventSliderItems = React.memo(
                         ></div>
                         <div className="circle-bold event-item-circle1"></div>
                     </div>
-                )} */}
-            </Link>
+                )}
+            </div>
         );
     }
 );

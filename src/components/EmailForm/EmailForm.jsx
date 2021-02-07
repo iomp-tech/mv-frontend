@@ -17,10 +17,10 @@ let EmailForm = React.memo(({handleSubmit, stateForm}) => {
                 <div className={`email-form-wrapper ${size}`}>
                     <div className={`email-form-left ${size}`}>
                         <h2 className={`email-form__title ${size}`}>
-                            Хотите получать лучшие статьи от IOMP?
+                            Хотите получать лучшие статьи от Института?
                         </h2>
                         <p className={`email-form__subtitle ${size}`}>
-                            Подпишитесь на рассылку IOMP
+                            Подпишитесь на рассылку Института
                         </p>
                     </div>
                     <div className={`email-form-right ${size}`}>

@@ -14,7 +14,7 @@ const HeaderCart = React.memo(({headerMobail}) => {
     if (push) {
         setTimeout(() => {
             dispatch(statusGoodsPush(false));
-        }, 700);
+        }, 1000);
     }
 
     return (

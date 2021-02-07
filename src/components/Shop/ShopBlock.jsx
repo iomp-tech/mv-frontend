@@ -153,7 +153,7 @@ const ShopBlock = React.memo(
                                             ₽
                                         </span>
                                         <h3
-                                            className={`shop-block__subprice ${size}`}
+                                            className={`shop-block__price ${size}`}
                                         >
                                             <NumberFormat
                                                 value={price}

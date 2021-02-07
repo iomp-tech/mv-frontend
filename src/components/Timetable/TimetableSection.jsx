@@ -32,48 +32,52 @@ const TimetableSection = () => {
     }, []);
 
     return (
-        <section className="timetable">
-            <div className="container">
-                <div className="timetable-wrapper">
-                    <h2 className={`title ${size} timetable__title`}>
-                        Ближайшие программы
-                    </h2>
-                    <div className="timetable-block-wrapper">
-                        {isLoaded
-                            ? Object.keys(items).map((key) => (
-                                  <TimetableBlock
-                                      key={items[key].id}
-                                      {...items[key]}
-                                      size={size}
-                                      categories={categories}
-                                      auths={teachers}
-                                      timetableType={timetableType}
-                                      color={color}
-                                  />
-                              ))
-                            : Array(4)
-                                  .fill(0)
-                                  .map((_, index) => (
-                                      <div
-                                          className="timetable-block-container"
-                                          key={`timetable-block-${index}`}
-                                      >
-                                          <TimetableBlockLoading />
-                                      </div>
-                                  ))}
-                    </div>
+        <>
+            {Object.keys(items).length ? (
+                <section className="timetable">
+                    <div className="container">
+                        <div className="timetable-wrapper">
+                            <h2 className={`title ${size} timetable__title`}>
+                                Ближайшие программы
+                            </h2>
+                            <div className="timetable-block-wrapper">
+                                {isLoaded
+                                    ? Object.keys(items).map((key) => (
+                                          <TimetableBlock
+                                              key={items[key].id}
+                                              {...items[key]}
+                                              size={size}
+                                              categories={categories}
+                                              auths={teachers}
+                                              timetableType={timetableType}
+                                              color={color}
+                                          />
+                                      ))
+                                    : Array(4)
+                                          .fill(0)
+                                          .map((_, index) => (
+                                              <div
+                                                  className="timetable-block-container"
+                                                  key={`timetable-block-${index}`}
+                                              >
+                                                  <TimetableBlockLoading />
+                                              </div>
+                                          ))}
+                            </div>
 
-                    <div className="timetable-btn-wrapper">
-                        <Link
-                            to="/timetable"
-                            className={`btn-bold_gray timetable__btn ${size}`}
-                        >
-                            Показать еще
-                        </Link>
+                            <div className="timetable-btn-wrapper">
+                                <Link
+                                    to="/timetable"
+                                    className={`btn-bold_gray timetable__btn ${size}`}
+                                >
+                                    Показать еще
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            ) : null}
+        </>
     );
 };
 

@@ -24,23 +24,27 @@ const EventSection = () => {
     }, []);
 
     return (
-        <section className="event">
-            <div className="container">
-                <div className="event-wrapper">
-                    <h2 className={`title ${size} event__title`}>
-                        Ближайшие мероприятия
-                    </h2>
+        <>
+            {Object.keys(items).length ? (
+                <section className="event">
+                    <div className="container">
+                        <div className="event-wrapper">
+                            <h2 className={`title ${size} event__title`}>
+                                Ближайшие мероприятия
+                            </h2>
 
-                    <EventSlider
-                        items={items}
-                        auths={teachers}
-                        eventsType={timetableType}
-                        categories={categories}
-                        isLoaded={isLoaded}
-                    />
-                </div>
-            </div>
-        </section>
+                            <EventSlider
+                                items={items}
+                                auths={teachers}
+                                eventsType={timetableType}
+                                categories={categories}
+                                isLoaded={isLoaded}
+                            />
+                        </div>
+                    </div>
+                </section>
+            ) : null}
+        </>
     );
 };
 

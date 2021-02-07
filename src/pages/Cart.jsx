@@ -19,7 +19,7 @@ const Cart = () => {
     const cartItems = useSelector(({cart}) => cart.cart);
     const {totalPrice} = useSelector(({cart}) => cart);
     const {user, isLoaded, isLogin} = useSelector(({user}) => user);
-    const {size, color} = useSelector(({visually}) => visually);
+    const {size, color, type} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -66,7 +66,7 @@ const Cart = () => {
                                     <>
                                         {parseInt(user.confirmed) ? (
                                             <form
-                                                action="https://aleksandrkudryashov1.autoweboffice.ru/?r=ordering/cart/s1&lg=ru"
+                                                action="https://shop.mastervision.su/?r=ordering/cart/s1&lg=ru"
                                                 method="post"
                                                 encType="application/x-www-form-urlencoded"
                                                 acceptCharset="UTF-8"
@@ -139,9 +139,11 @@ const Cart = () => {
                         ) : (
                             <>
                                 <div className="cart-null">
-                                    <div
-                                        className={`circle-bold cart-null-bg ${size}`}
-                                    ></div>
+                                    {type === "blackWhite" ? (
+                                        <div
+                                            className={`circle-bold cart-null-bg ${size}`}
+                                        ></div>
+                                    ) : null}
 
                                     <h2 className={`cart-null__title ${size}`}>
                                         Ваша корзина пуста

@@ -133,6 +133,7 @@
 	margin-top: 140px
 
 	&-item
+		width: 100%
 		z-index: 1000
 		position: relative
 		display: flex
@@ -141,7 +142,6 @@
 
 		&-text
 			max-width: 50%
-			margin-right: 100px
 
 			&.X1-5, &.X2
 				max-width: 100%
@@ -200,13 +200,18 @@
 			display: block
 			font-size: 24px
 			margin-top: 50px
-			+bold
 
 			&.X1-5
 				font-size: 36px
 
 			&.X2
 				font-size: 48px
+
+			&-range
+				display: inline-block
+				margin-top: 50px
+				font-size: 24px
+				margin-right: 10px
 
 		&-auth-wrapper
 			margin-top: 50px
@@ -216,7 +221,6 @@
 
 		&-thumb
 			position: relative
-			margin-right: -100px
 
 		&-btn-wrapper
 			margin-top: 50px

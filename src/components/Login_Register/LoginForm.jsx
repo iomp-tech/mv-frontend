@@ -42,8 +42,6 @@ let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine, size})
             <button
                 type="submit"
                 className={`btn-bold_color reglog__btn ${size}`}
-                style={{pointerEvents: `${isLoaded ? "none" : "auto"}`}}
-                disabled={invalid || submitting || pristine}
             >
                 {isLoaded ? <BtnLoaded /> : "Войти"}
             </button>

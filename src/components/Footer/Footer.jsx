@@ -10,6 +10,7 @@ import FooterMenu from "./FooterMenu";
 import {
     fetchFooterMenu,
     fetchFooterContact,
+    fetchFooterSocial,
 } from "../.././redux/actions/footer";
 
 import {API_DOMEN} from "../.././api";
@@ -18,7 +19,7 @@ const Footer = () => {
     const dispatch = useDispatch();
 
     const [stateForm, setStateForm] = React.useState(false);
-    const {menu, contact, isLoaded} = useSelector(({footer}) => footer);
+    const {menu, contact, social, isLoaded} = useSelector(({footer}) => footer);
     const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
@@ -28,14 +29,15 @@ const Footer = () => {
         if (!contact.length) {
             dispatch(fetchFooterContact());
         }
+        if (!social.length) {
+            dispatch(fetchFooterSocial());
+        }
     }, []);
 
     const onSubmit = (formData) => {
-        axios
-            .post(`${API_DOMEN}/subscribe/mailing`, formData)
-            .then((response) => {
-                setStateForm(true);
-            });
+        axios.post(`${API_DOMEN}/subscribe/mailing`, formData).then(() => {
+            setStateForm(true);
+        });
     };
 
     return (
@@ -59,66 +61,22 @@ const Footer = () => {
                                 <div className="footer-middle">
                                     <div className="footer-middle-left">
                                         <div className="footer-social">
-                                            <a
-                                                href={contact.facebook}
-                                                className="footer-social__link"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img
-                                                    src="https://imeninik.ru/api/public/storage/all/facebook.svg"
-                                                    alt="facebook"
-                                                    className="footer-social__img"
-                                                />
-                                            </a>
-                                            <a
-                                                href={contact.inst}
-                                                className="footer-social__link"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img
-                                                    src="https://imeninik.ru/api/public/storage/all/instagram.svg"
-                                                    alt="instagram"
-                                                    className="footer-social__img"
-                                                />
-                                            </a>
-                                            <a
-                                                href={contact.vk}
-                                                className="footer-social__link"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img
-                                                    src="https://imeninik.ru/api/public/storage/all/vk.svg"
-                                                    alt="vk"
-                                                    className="footer-social__img"
-                                                />
-                                            </a>
-                                            <a
-                                                href={contact.youtube}
-                                                className="footer-social__link"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img
-                                                    src="https://imeninik.ru/api/public/storage/all/youtube.svg"
-                                                    alt="youtube"
-                                                    className="footer-social__img"
-                                                />
-                                            </a>
-                                            <a
-                                                href={contact.telegram}
-                                                className="footer-social__link"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <img
-                                                    src="https://imeninik.ru/api/public/storage/all/telegram.svg"
-                                                    alt="telegram"
-                                                    className="footer-social__img"
-                                                />
-                                            </a>
+                                            {social &&
+                                                social.map((arr, index) => (
+													<a
+														key={`footer-social-${index}`}
+                                                        href={arr.href}
+                                                        className="footer-social__link"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                    >
+                                                        <img
+                                                            src={arr.icon}
+                                                            alt={arr.title}
+                                                            className="footer-social__img"
+                                                        />
+                                                    </a>
+                                                ))}
                                         </div>
 
                                         <div className={`footer-contact`}>

@@ -17,7 +17,7 @@ const Teacher = () => {
     const dispatch = useDispatch();
 
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
-    const {size} = useSelector(({visually}) => visually);
+    const {size, rgb, bgColor} = useSelector(({visually}) => visually);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
     const [activeTeacherItems, setActiveTeacherItems] = React.useState();
@@ -68,6 +68,8 @@ const Teacher = () => {
                         </h2>
 
                         <TeacherModal
+                            rgb={rgb}
+                            bgColor={bgColor}
                             state={TeacherModalBool}
                             onClick={toggleTeacherModal}
                             modalRef={TeacherModalRef}

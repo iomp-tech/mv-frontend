@@ -13,7 +13,7 @@ const TeacherSection = () => {
 
     const teacherItems = useSelector(({teacher}) => teacher.itemsMain);
     const isLoaded = useSelector(({teacher}) => teacher.isLoaded);
-    const {size} = useSelector(({visually}) => visually);
+    const {size, rgb, bgColor} = useSelector(({visually}) => visually);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
     const [activeTeacherItems, setActiveTeacherItems] = React.useState();
@@ -44,7 +44,7 @@ const TeacherSection = () => {
     React.useEffect(() => {
         dispatch(fetchTeacherMain(4));
         document.body.addEventListener("click", handTeacherModalBool);
-    }, []);
+	}, []);
 
     return (
         <section className="teacher" style={{marginBottom: "50px"}}>
@@ -55,6 +55,8 @@ const TeacherSection = () => {
                     </h2>
 
                     <TeacherModal
+                        rgb={rgb}
+                        bgColor={bgColor}
                         state={TeacherModalBool}
                         onClick={toggleTeacherModal}
                         modalRef={TeacherModalRef}

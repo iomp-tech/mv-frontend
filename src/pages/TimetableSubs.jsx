@@ -61,7 +61,9 @@ const TimetableSubs = (props) => {
                 id: itemOne.id_awo,
             })
             .then((response) => {
-                setStateForm(true);
+				setStateForm(true);
+				
+				window.location.href = itemOne.url;
             });
     };
 

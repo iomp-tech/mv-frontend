@@ -104,7 +104,7 @@ const MagazineBlock = React.memo(
                             }
                             style={{color: color}}
                         >
-                            {moment(date, "DD.MM.YYYY HH:mm")
+                            {moment(date, "YYYY-MM-DDTHH:mm")
                                 .locale("ru")
                                 .format("DD MMMM, HH:mm")}
                         </span>

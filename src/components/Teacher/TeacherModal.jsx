@@ -2,7 +2,18 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const TeacherModal = React.memo(
-    ({state, onClick, modalRef, id, name, type, description, avatar}) => {
+    ({
+        state,
+        onClick,
+        modalRef,
+        id,
+        name,
+        type,
+        description,
+        avatar,
+        bgColor,
+        rgb,
+    }) => {
         const toggleOverflow = () => {
             document.body.style.overflow = "visible";
         };
@@ -22,6 +33,10 @@ const TeacherModal = React.memo(
                             ? "teacher-modal-content teacher-modal-content_active"
                             : "teacher-modal-content"
                     }
+                    style={{
+                        backgroundColor: bgColor,
+                        boxShadow: `0 0 25px rgba(${rgb}, 0.1)`,
+                    }}
                 >
                     <span className="teacher-modal-close" onClick={onClick}>
                         <svg

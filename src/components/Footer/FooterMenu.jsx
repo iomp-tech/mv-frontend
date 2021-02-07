@@ -23,8 +23,8 @@ const FooterMenu = ({footerMenu, size}) => {
                 footerMenuBlock.map((objs, index) => (
                     <div className="footer-nav-block" key={index}>
                         {objs &&
-                            objs.map((obj) => (
-                                <span key={obj.href}>
+                            objs.map((obj, index) => (
+                                <span key={`footer-menu-${index}`}>
                                     {obj.local ? (
                                         <Link
                                             to={`/${obj.href}`}

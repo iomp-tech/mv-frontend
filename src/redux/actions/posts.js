@@ -24,7 +24,7 @@ export const fetchLimitPosts = (cat = "", query = null) => (dispatch) => {
 		payload: false,
 	});
 
-	axios.get(`${API_DOMEN}/posts?${cat !== "" ? `category=${cat}&` : ""}${query}`).then(({ data }) => {
+	axios.get(`${API_DOMEN}/posts?_sort=id&_order=desc&${cat !== "" ? `category=${cat}&` : ""}${query}`).then(({ data }) => {
 		dispatch(setLimitPosts(data));
 	}).catch(() => {
 		dispatch({

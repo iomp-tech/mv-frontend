@@ -53,8 +53,6 @@ let RegisterForm = React.memo(
                     className={`btn-bold_color ${size} reglog__btn ${
                         invalid ? "reglog__btn_disabled" : ""
                     }`}
-                    style={{pointerEvents: `${isLoaded ? "none" : ""}`}}
-                    disabled={invalid || submitting || pristine}
                 >
                     {isLoaded ? <BtnLoaded /> : "Зарегистрироваться"}
                 </button>
