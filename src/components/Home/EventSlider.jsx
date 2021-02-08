@@ -19,8 +19,8 @@ const EventSlider = ({items, auths, categories, eventsType, isLoaded}) => {
         mouseDrag: false,
         animateIn: "animate__fadeIn",
         animateOut: "animate__fadeOut",
-        autoplay: false,
-        autoplayTimeout: 3000,
+        autoplay: true,
+        autoplayTimeout: 4000,
         autoHeight: true,
     };
 

@@ -26,7 +26,7 @@ let EmailForm = React.memo(({handleSubmit, stateForm}) => {
                     <div className={`email-form-right ${size}`}>
                         {stateForm ? (
                             <p className={`email-form__subtitle ${size}`}>
-                                Спасибо, вы успешно подписаны
+                                {stateForm}
                             </p>
                         ) : (
                             <>
