@@ -89,13 +89,13 @@ const RenderInput = React.memo(
                         <></>
                     )}
                 </div>
-                <div>
-                    {touched && error && (
+                {touched && error && (
+                    <div>
                         <span className={`input__label__error_bottom ${size}`}>
                             {error}
                         </span>
-                    )}
-                </div>
+                    </div>
+                )}
             </>
         );
     }

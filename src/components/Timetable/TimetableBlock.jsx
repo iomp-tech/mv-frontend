@@ -80,7 +80,7 @@ const TimetableBlock = React.memo(
                                         className={`timetable-block__date ${size}`}
                                     >
                                         <b>с:</b>{" "}
-                                        {moment(minDate, "YYYY-MM-DDTHH:mm")
+                                        {moment(minDate, "YYYY-MM-DD, HH:mm")
                                             .locale("ru")
                                             .format("DD MMMM, HH:mm")}
                                     </span>
@@ -101,7 +101,7 @@ const TimetableBlock = React.memo(
                                         className={`timetable-block__date ${size}`}
                                     >
                                         <b>до:</b>{" "}
-                                        {moment(maxDate, "YYYY-MM-DDTHH:mm")
+                                        {moment(maxDate, "YYYY-MM-DD, HH:mm")
                                             .locale("ru")
                                             .format("DD MMMM, HH:mm")}
                                     </span>
@@ -123,7 +123,7 @@ const TimetableBlock = React.memo(
                                 <span
                                     className={`timetable-block__date ${size}`}
                                 >
-                                    {moment(date, "YYYY-MM-DDTHH:mm")
+                                    {moment(date, "YYYY-MM-DD, HH:mm")
                                         .locale("ru")
                                         .format("DD MMMM, HH:mm")}
                                 </span>

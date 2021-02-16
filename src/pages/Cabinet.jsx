@@ -43,7 +43,7 @@ const Cabinet = () => {
                 <>
                     {isLogin ? (
                         <>
-                            {parseInt(user.confirmed) ? (
+                            {user.confirmed ? (
                                 <section className="cabinet">
                                     <div className="container">
                                         <div className="cabinet-wrapper">

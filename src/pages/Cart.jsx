@@ -12,6 +12,8 @@ import {
 
 import {removeCartItem} from "../redux/actions/cart";
 
+import {CART_DOMEN} from ".././api";
+
 const Cart = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -66,7 +68,7 @@ const Cart = () => {
                                     <>
                                         {parseInt(user.confirmed) ? (
                                             <form
-                                                action="https://shop.mastervision.su/?r=ordering/cart/s1&lg=ru"
+                                                action={CART_DOMEN}
                                                 method="post"
                                                 encType="application/x-www-form-urlencoded"
                                                 acceptCharset="UTF-8"

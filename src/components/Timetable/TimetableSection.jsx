@@ -44,13 +44,13 @@ const TimetableSection = () => {
                                 {isLoaded
                                     ? Object.keys(items).map((key) => (
                                           <TimetableBlock
-                                              key={items[key].id}
-                                              {...items[key]}
                                               size={size}
                                               categories={categories}
                                               auths={teachers}
                                               timetableType={timetableType}
                                               color={color}
+                                              {...items[key]}
+                                              key={`timetable-block-${items[key].id}`}
                                           />
                                       ))
                                     : Array(4)

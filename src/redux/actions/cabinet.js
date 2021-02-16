@@ -70,6 +70,8 @@ export const fetchEditUserPassword = (data) => (dispatch) => {
 		},
 	}).then(() => {
 		dispatch(fetchUserInfo());
+
+		window.location.reload();
 	}).catch(({ response }) => {
 		if (response.status === 401) {
 			dispatch(setMessageCabinetPassword("Неверный пароль"));

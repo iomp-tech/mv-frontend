@@ -15,13 +15,19 @@ const EventSlider = ({items, auths, categories, eventsType, isLoaded}) => {
 
     const options = {
         items: 1,
-        loop: true,
+		loop: true,
+		margin: 10,
         mouseDrag: false,
         animateIn: "animate__fadeIn",
         animateOut: "animate__fadeOut",
-        autoplay: true,
+        autoplay: false,
         autoplayTimeout: 4000,
         autoHeight: true,
+        responsive: {
+            900: {
+                autoplay: true,
+            },
+        },
     };
 
     const prev = () => {

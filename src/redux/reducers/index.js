@@ -20,6 +20,7 @@ import cabinet from './cabinet';
 import restore from './restore';
 import main from './main';
 import institute from './institute';
+import emailForm from './emailForm';
 
 const rootReducer = combineReducers({
 	visually,
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
 	main,
 	cabinet,
 	institute,
+	emailForm,
 	form: formReducer,
 });
 

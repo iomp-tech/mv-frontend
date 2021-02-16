@@ -50,13 +50,13 @@ const EventSliderItems = React.memo(
                             </span>
                             <span className={`event-item__date-range ${size}`}>
                                 <b>с:</b>{" "}
-                                {moment(minDate, "YYYY-MM-DDTHH:mm")
+                                {moment(minDate, "YYYY-MM-DD, HH:mm")
                                     .locale("ru")
                                     .format("DD MMMM, HH:mm")}
                             </span>
                             <span className={`event-item__date-range ${size}`}>
                                 <b>до:</b>{" "}
-                                {moment(maxDate, "YYYY-MM-DDTHH:mm")
+                                {moment(maxDate, "YYYY-MM-DD, HH:mm")
                                     .locale("ru")
                                     .format("DD MMMM, HH:mm")}
                             </span>
@@ -64,7 +64,7 @@ const EventSliderItems = React.memo(
                     ) : (
                         <span className={`event-item__date ${size}`}>
                             <b>Дата старта:</b>{" "}
-                            {moment(date, "YYYY-MM-DDTHH:mm")
+                            {moment(date, "YYYY-MM-DD, HH:mm")
                                 .locale("ru")
                                 .format("DD MMMM, HH:mm")}
                         </span>

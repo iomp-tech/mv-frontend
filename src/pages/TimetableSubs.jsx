@@ -1,7 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
-import axios from "axios";
 
 import {fetchCategories} from ".././redux/actions/categories";
 import {
@@ -17,8 +16,6 @@ import {
 } from ".././components";
 
 import {Er404} from ".././pages/";
-
-import {API_DOMEN} from ".././api";
 
 const TimetableSubs = (props) => {
     const dispatch = useDispatch();
@@ -52,19 +49,45 @@ const TimetableSubs = (props) => {
         dispatch(fetchByIdTimetable(timetableName));
     }, [timetableName]);
 
-    const [stateForm, setStateForm] = React.useState(false);
+    const [errorForm, setErrorForm] = React.useState({});
 
-    const onSubmit = (formData) => {
-        axios
-            .post(`${API_DOMEN}/subscribe/timetable`, {
-                ...formData,
-                id: itemOne.id_awo,
-            })
-            .then((response) => {
-				setStateForm(true);
-				
-				window.location.href = itemOne.url;
-            });
+    const checkInput = (e) => {
+        const value = e.target.value;
+
+        const errors = {};
+
+        const defaultMin = 2;
+        const defaultMax = 255;
+
+        if (!value) {
+            errors.email = "Поле не может быть пустым";
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+            errors.email = "Неверный email";
+        } else if (value.length > defaultMax) {
+            errors.email = `Не более ${defaultMax} символов`;
+        } else if (value.length < defaultMin) {
+            errors.email = `Не менее ${defaultMin} символов`;
+        }
+
+        setErrorForm({
+            email: errors.email,
+            confirmation: errorForm.confirmation,
+        });
+    };
+
+    const checkBox = (e) => {
+        const value = e.target.checked;
+
+        const errors = {};
+
+        if (!value) {
+            errors.confirmation = "Поставьте галочку";
+        }
+
+        setErrorForm({
+            confirmation: errors.confirmation,
+            email: errorForm.email,
+        });
     };
 
     return (
@@ -153,22 +176,13 @@ const TimetableSubs = (props) => {
                                                     : null}
                                             </div>
                                         </div>
-                                        {!stateForm ? (
-                                            <TimetableSubsForm
-                                                size={size}
-                                                onSubmit={onSubmit}
-                                                {...itemOne}
-                                            />
-                                        ) : (
-                                            <div className="timetable-page-form">
-                                                <p
-                                                    className={`timetable-page-form__success ${size}`}
-                                                >
-                                                    Спасибо, вы успешно
-                                                    зарегистрированы
-                                                </p>
-                                            </div>
-                                        )}
+                                        <TimetableSubsForm
+                                            size={size}
+                                            checkInput={checkInput}
+                                            errorForm={errorForm}
+                                            checkBox={checkBox}
+                                            {...itemOne}
+                                        />
                                     </div>
                                 </div>
                             </section>

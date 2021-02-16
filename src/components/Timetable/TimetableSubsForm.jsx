@@ -1,20 +1,25 @@
 import React from "react";
-import {Field, reduxForm} from "redux-form";
 
-import validate from "./validate";
-
-import {BtnLoaded, RenderInput} from ".././";
-
-let TimetableSubsForm = ({
-    handleSubmit,
+const TimetableSubsForm = ({
     vk,
     vkUrl,
     telegram,
-	telegramUrl,
-	size
+    telegramUrl,
+    id_awo,
+    action,
+    formId,
+    formVc,
+    size,
+    checkBox,
+    checkInput,
+    errorForm,
 }) => {
     return (
-        <form className={`timetable-page-form ${size}`} onSubmit={handleSubmit}>
+        <form
+            className={`timetable-page-form ${size}`}
+            action={action}
+            method="POST"
+        >
             <h3 className={`timetable-page-form__title ${size}`}>Записаться</h3>
             <div className="timetable-page-form-link">
                 {vk ? (
@@ -37,9 +42,7 @@ let TimetableSubsForm = ({
                             />
                         </svg>
                     </a>
-                ) : (
-                    <></>
-                )}
+                ) : null}
                 {telegram ? (
                     <a
                         href={telegramUrl}
@@ -60,33 +63,86 @@ let TimetableSubsForm = ({
                             />
                         </svg>
                     </a>
-                ) : (
-                    <></>
-                )}
+                ) : null}
             </div>
             <div className="input timetable-page-input">
-                <Field
-                    component={RenderInput}
-                    type="text"
-                    name="email"
-                    label="Email"
-                    size={size}
+                <input
+                    type="hidden"
+                    value={id_awo}
+                    id="form_newsletter_id_newsletter"
+                    name="Contact[id_newsletter]"
                 />
+                <input
+                    type="hidden"
+                    value="1"
+                    id="required_fields_email"
+                    name="required_fields[email]"
+                />
+                <div style={{position: "relative"}}>
+                    <input
+                        type="text"
+                        className={`input__field ${size} reglog-input__field ${
+                            errorForm.email ? "input__field__error" : ""
+                        }`}
+                        name="Contact[email]"
+                        required
+                        onBlur={checkInput}
+                        onChange={checkInput}
+                    />
+                    <label
+                        className={`input__label ${size} reglog-input__label ${
+                            errorForm.email ? "input__label__error" : ""
+                        }
+                    `}
+                    >
+                        Email
+                    </label>
+                </div>
+
+                {errorForm.email ? (
+                    <div>
+                        <span className={`input__label__error_bottom ${size}`}>
+                            {errorForm.email}
+                        </span>
+                    </div>
+                ) : null}
+
+                {/* канал рекламы */}
+                <input
+                    type="hidden"
+                    value="0"
+                    id="form_newsletter_id_advertising_channel_page"
+                    name="Contact[id_advertising_channel_page]"
+                />
+                <input type="hidden" name="formId" value={formId} />
+                <input type="hidden" name="formVc" value={formVc} />
+                <input type="hidden" name="_aid" value="" />
+                <input type="hidden" name="_vcaid" value="" />
             </div>
             <button
                 className={`btn-bold_color timetable-page-form__btn ${size}`}
+                disabled={
+                    errorForm.email || errorForm.confirmation ? true : false
+                }
             >
                 Записаться
             </button>
             <div className="checkbox-wrapper timetable-page-checkbox">
                 <input
                     type="checkbox"
-                    className={`checkbox ${size} timetable-page__checkbox`}
+                    className={`${size} timetable-page__checkbox ${
+                        errorForm.confirmation ? "checkbox_error" : "checkbox"
+                    }`}
                     defaultChecked={true}
                     id="timetable-page__checkbox-1"
+                    onChange={checkBox}
                 />
                 <label
-                    className={`checkbox-label ${size} timetable-page__label`}
+                    className={`${size} timetable-page__label ${
+                        errorForm.confirmation
+                            ? "checkbox-label_error"
+                            : "checkbox-label"
+                    }`}
                     htmlFor="timetable-page__checkbox-1"
                 >
                     Я согласен с условиями обработки персональных данных
@@ -95,10 +151,5 @@ let TimetableSubsForm = ({
         </form>
     );
 };
-
-TimetableSubsForm = reduxForm({
-    form: "timetableForm",
-    validate,
-})(TimetableSubsForm);
 
 export default TimetableSubsForm;

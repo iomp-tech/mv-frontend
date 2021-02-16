@@ -127,21 +127,19 @@ const Timetable = (props) => {
                         <div className="timetable-block-wrapper">
                             {isLoaded ? (
                                 Object.keys(items).length ? (
-                                    Object.keys(items)
-                                        .slice(0, limit)
-                                        .map((key) => (
-                                            <TimetableBlock
-                                                categories={categories}
-                                                timetableType={timetableType}
-                                                auths={teachers}
-                                                size={size}
-                                                color={color}
-                                                isLoadedLimit={isLoadedLimit}
-                                                key={items[key].id}
-                                                {...items[key]}
-                                                ClassTimetablePage="timetable-block-container-page"
-                                            />
-                                        ))
+                                    Object.keys(items).map((key) => (
+                                        <TimetableBlock
+                                            categories={categories}
+                                            timetableType={timetableType}
+                                            auths={teachers}
+                                            size={size}
+                                            color={color}
+                                            isLoadedLimit={isLoadedLimit}
+                                            ClassTimetablePage="timetable-block-container-page"
+                                            {...items[key]}
+                                            key={`timetable-block-${items[key].id}`}
+                                        />
+                                    ))
                                 ) : (
                                     <NoSearch />
                                 )

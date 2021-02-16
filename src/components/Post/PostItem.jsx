@@ -33,7 +33,7 @@ const PostItem = React.memo(
                                 </span>
                             </div>
                             <span className={`post-cover__date ${size}`}>
-                                {moment(date, "YYYY-MM-DDTHH:mm")
+                                {moment(date, "YYYY-MM-DD, HH:mm")
                                     .locale("ru")
                                     .format("DD MMMM, HH:mm")}
                             </span>
