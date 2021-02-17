@@ -44,58 +44,64 @@ const TeacherSection = () => {
     React.useEffect(() => {
         dispatch(fetchTeacherMain(4));
         document.body.addEventListener("click", handTeacherModalBool);
-	}, []);
+    }, []);
 
     return (
-        <section className="teacher" style={{marginBottom: "50px"}}>
-            <div className="container">
-                <div className="teacher-wrapper">
-                    <h2 className={`title ${size} teacher__title`}>
-                        Наши преподаватели
-                    </h2>
+        <>
+            {teacherItems.length ? (
+                <section className="teacher" style={{marginBottom: "50px"}}>
+                    <div className="container">
+                        <div className="teacher-wrapper">
+                            <h2 className={`title ${size} teacher__title`}>
+                                Наши преподаватели
+                            </h2>
 
-                    <TeacherModal
-                        rgb={rgb}
-                        bgColor={bgColor}
-                        state={TeacherModalBool}
-                        onClick={toggleTeacherModal}
-                        modalRef={TeacherModalRef}
-                        {...findTeacherActiveItem}
-                    />
+                            <TeacherModal
+                                rgb={rgb}
+                                bgColor={bgColor}
+                                state={TeacherModalBool}
+                                onClick={toggleTeacherModal}
+                                modalRef={TeacherModalRef}
+                                {...findTeacherActiveItem}
+                            />
 
-                    <div className="teacher-block-wrapper">
-                        {isLoaded
-                            ? teacherItems.map((obj) => (
-                                  <TeacherBlock
-                                      key={`teacher-block-${obj.id}`}
-                                      size={size}
-                                      onClick={() => toggleTeacherModal(obj.id)}
-                                      {...obj}
-                                  />
-                              ))
-                            : Array(4)
-                                  .fill(0)
-                                  .map((_, index) => (
-                                      <div
-                                          className="teacher-block"
-                                          key={index}
-                                      >
-                                          <TeacherBlockLoading />
-                                      </div>
-                                  ))}
+                            <div className="teacher-block-wrapper">
+                                {isLoaded
+                                    ? teacherItems.map((obj) => (
+                                          <TeacherBlock
+                                              key={`teacher-block-${obj.id}`}
+                                              size={size}
+                                              onClick={() =>
+                                                  toggleTeacherModal(obj.id)
+                                              }
+                                              {...obj}
+                                          />
+                                      ))
+                                    : Array(4)
+                                          .fill(0)
+                                          .map((_, index) => (
+                                              <div
+                                                  className="teacher-block"
+                                                  key={index}
+                                              >
+                                                  <TeacherBlockLoading />
+                                              </div>
+                                          ))}
+                            </div>
+
+                            <div className="teacher-btn-wrapper">
+                                <Link
+                                    to="/teachers"
+                                    className={`btn-bold_gray teacher__btn ${size}`}
+                                >
+                                    Покащать еще
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-
-                    <div className="teacher-btn-wrapper">
-                        <Link
-                            to="/teachers"
-                            className={`btn-bold_gray teacher__btn ${size}`}
-                        >
-                            Покащать еще
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            ) : null}
+        </>
     );
 };
 

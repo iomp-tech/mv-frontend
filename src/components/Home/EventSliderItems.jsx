@@ -44,52 +44,73 @@ const EventSliderItems = React.memo(
                         {description}
                     </p>
                     {range ? (
-                        <>
-                            <span className={`event-item__date-range ${size}`}>
-                                <b>Дата старта:</b>
-                            </span>
-                            <span className={`event-item__date-range ${size}`}>
-                                <b>с:</b>{" "}
-                                {moment(minDate, "YYYY-MM-DD, HH:mm")
-                                    .locale("ru")
-                                    .format("DD MMMM, HH:mm")}
-                            </span>
-                            <span className={`event-item__date-range ${size}`}>
-                                <b>до:</b>{" "}
-                                {moment(maxDate, "YYYY-MM-DD, HH:mm")
-                                    .locale("ru")
-                                    .format("DD MMMM, HH:mm")}
-                            </span>
-                        </>
+                        <div className="event-item-date">
+                            <div className="event-item-date-left">
+                                <span
+                                    className={`event-item__date-range ${size}`}
+                                >
+                                    <b>Дата старта:</b>
+                                </span>
+                            </div>
+                            <div className="event-item-date-right">
+                                <span
+                                    className={`event-item__date-range ${size}`}
+                                >
+                                    <b>с:</b>{" "}
+                                    {moment(minDate, "YYYY-MM-DD, HH:mm")
+                                        .locale("ru")
+                                        .format("DD MMMM, HH:mm")}
+                                </span>
+                                <span
+                                    className={`event-item__date-range ${size}`}
+                                >
+                                    <b>до:</b>{" "}
+                                    {moment(maxDate, "YYYY-MM-DD, HH:mm")
+                                        .locale("ru")
+                                        .format("DD MMMM, HH:mm")}
+                                </span>
+                            </div>
+                        </div>
                     ) : (
-                        <span className={`event-item__date ${size}`}>
-                            <b>Дата старта:</b>{" "}
-                            {moment(date, "YYYY-MM-DD, HH:mm")
-                                .locale("ru")
-                                .format("DD MMMM, HH:mm")}
-                        </span>
+                        <div className="event-item-date">
+                            <div className="event-item-date-left">
+                                <span className={`event-item__date ${size}`}>
+                                    <b>Дата старта:</b>
+                                </span>
+                            </div>
+                            <div className="event-item-date-right">
+                                <span className={`event-item__date ${size}`}>
+                                    {moment(date, "YYYY-MM-DD, HH:mm")
+                                        .locale("ru")
+                                        .format("DD MMMM, HH:mm")}
+                                </span>
+                            </div>
+                        </div>
                     )}
 
                     <div className="event-item-auth-wrapper">
                         {Object.keys(auths).length &&
-                            auth.map((key) => (
-                                <div
-                                    className="auth event-item-auth"
-                                    key={`event-item-auth-${key}`}
-                                >
-                                    <div
-                                        style={{
-                                            backgroundImage: `url(${auths[key].avatar})`,
-                                        }}
-                                        className={`auth__img ${size} event-item-auth__img`}
-                                    ></div>
-                                    <span
-                                        className={`auth__name ${size} event-item-auth__name`}
-                                    >
-                                        {auths[key].name}
-                                    </span>
-                                </div>
-                            ))}
+                            auth.map(
+                                (key) =>
+                                    auths[key] && (
+                                        <div
+                                            className="auth event-item-auth"
+                                            key={`event-item-auth-${key}`}
+                                        >
+                                            <div
+                                                style={{
+                                                    backgroundImage: `url(${auths[key].avatar})`,
+                                                }}
+                                                className={`auth__img ${size} event-item-auth__img`}
+                                            ></div>
+                                            <span
+                                                className={`auth__name ${size} event-item-auth__name`}
+                                            >
+                                                {auths[key].name}
+                                            </span>
+                                        </div>
+                                    )
+                            )}
                     </div>
 
                     <div className="event-item-btn-wrapper">

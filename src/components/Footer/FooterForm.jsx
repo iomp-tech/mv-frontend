@@ -14,7 +14,7 @@ const FooterForm = React.memo(
         return (
             <form className="footer-email-form" action={action} method="POST">
                 <h4 className={`footer-email-form__title ${size}`}>
-                    Подпишитесь на рассылку IOMP
+                    Подпишитесь на рассылку Института
                 </h4>
                 <>
                     <div className="footer-email-form-input">

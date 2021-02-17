@@ -1,10 +1,30 @@
 const initialState = {
 	cart: !JSON.parse(localStorage.getItem("cart")) ? {} : JSON.parse(localStorage.getItem("cart")),
-	totalPrice: !JSON.parse(localStorage.getItem("totalPrice")) ? 0 : JSON.parse(localStorage.getItem("totalPrice")),
-	push: false
+	push: false,
+	items: {},
+	isLoaded: false,
 };
 
 const cart = (state = initialState, action) => {
+	if (action.type === 'SET_CART_GOODS') {
+		const newItems = {};
+
+		action.payload.data.map(obj => (
+			newItems[`good-${obj.id}`] = obj
+		));
+
+		return {
+			...state,
+			items: newItems,
+			isLoaded: true,
+		};
+	}
+	if (action.type === 'SET_LOADED_CART_GOODS') {
+		return {
+			...state,
+			isLoaded: action.payload,
+		};
+	}
 	if (action.type === 'ADD_GOODS_CART') {
 		const newItem = {
 			...state.cart,
@@ -13,19 +33,11 @@ const cart = (state = initialState, action) => {
 			}
 		};
 
-		let newPrice = state.totalPrice;
-
-		if (state.cart[action.payload.id] === undefined) {
-			newPrice = state.totalPrice + action.payload.price;
-		}
-
-		localStorage.setItem("totalPrice", JSON.stringify(newPrice));
 		localStorage.setItem("cart", JSON.stringify(newItem));
 
 		return {
 			...state,
 			cart: newItem,
-			totalPrice: newPrice,
 		};
 	}
 
@@ -34,18 +46,13 @@ const cart = (state = initialState, action) => {
 			...state.cart
 		};
 
-		let newPrice = state.totalPrice;
-		newPrice = parseFloat(state.totalPrice - newItem[action.payload].price);
-
 		delete newItem[action.payload];
 
-		localStorage.setItem("totalPrice", JSON.stringify(newPrice));
 		localStorage.setItem("cart", JSON.stringify(newItem));
 
 		return {
 			...state,
 			cart: newItem,
-			totalPrice: newPrice,
 		};
 	}
 

@@ -133,24 +133,27 @@ const TimetableBlock = React.memo(
                     <div className="timetable-block-bottom">
                         <div className="timetable-block-auth">
                             {Object.keys(auths).length
-                                ? auth.map((key) => (
-                                      <div
-                                          className="auth timetable-block-auth"
-                                          key={`timetable-block-auth-${key}`}
-                                      >
-                                          <div
-                                              style={{
-                                                  backgroundImage: `url(${auths[key].avatar})`,
-                                              }}
-                                              className={`auth__img ${size} timetable-block-auth__img`}
-                                          ></div>
-                                          <span
-                                              className={`auth__name ${size} timetable-block-auth__name`}
-                                          >
-                                              {auths[key].name}
-                                          </span>
-                                      </div>
-                                  ))
+                                ? auth.map(
+                                      (key) =>
+                                          auths[key] && (
+                                              <div
+                                                  className="auth timetable-block-auth"
+                                                  key={`timetable-block-auth-${key}`}
+                                              >
+                                                  <div
+                                                      style={{
+                                                          backgroundImage: `url(${auths[key].avatar})`,
+                                                      }}
+                                                      className={`auth__img ${size} timetable-block-auth__img`}
+                                                  ></div>
+                                                  <span
+                                                      className={`auth__name ${size} timetable-block-auth__name`}
+                                                  >
+                                                      {auths[key].name}
+                                                  </span>
+                                              </div>
+                                          )
+                                  )
                                 : null}
                         </div>
 

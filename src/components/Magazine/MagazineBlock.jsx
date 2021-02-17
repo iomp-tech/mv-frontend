@@ -137,36 +137,39 @@ const MagazineBlock = React.memo(
                     >
                         <div className="magazine-block-auth-wrapper">
                             {Object.keys(auths).length &&
-                                auth.map((key) => (
-                                    <div
-                                        key={`auth-${auths[key].id}`}
-                                        className={`auth ${
-                                            num === 0
-                                                ? "magazine-block_big-auth"
-                                                : "magazine-block-auth"
-                                        }`}
-                                    >
-                                        <div
-                                            style={{
-                                                backgroundImage: `url(${auths[key].avatar})`,
-                                            }}
-                                            className={`auth__img ${
-                                                num === 0
-                                                    ? `magazine-block_big-auth__img  ${size}`
-                                                    : `magazine-block-auth__img ${size}`
-                                            }`}
-                                        ></div>
-                                        <span
-                                            className={`auth__name ${
-                                                num === 0
-                                                    ? `magazine-block_big-auth__name ${size}`
-                                                    : `magazine-block-auth__name ${size}`
-                                            }`}
-                                        >
-                                            {auths[key].name}
-                                        </span>
-                                    </div>
-                                ))}
+                                auth.map(
+                                    (key) =>
+                                        auths[key] && (
+                                            <div
+                                                key={`auth-${auths[key].id}`}
+                                                className={`auth ${
+                                                    num === 0
+                                                        ? "magazine-block_big-auth"
+                                                        : "magazine-block-auth"
+                                                }`}
+                                            >
+                                                <div
+                                                    style={{
+                                                        backgroundImage: `url(${auths[key].avatar})`,
+                                                    }}
+                                                    className={`auth__img ${
+                                                        num === 0
+                                                            ? `magazine-block_big-auth__img  ${size}`
+                                                            : `magazine-block-auth__img ${size}`
+                                                    }`}
+                                                ></div>
+                                                <span
+                                                    className={`auth__name ${
+                                                        num === 0
+                                                            ? `magazine-block_big-auth__name ${size}`
+                                                            : `magazine-block-auth__name ${size}`
+                                                    }`}
+                                                >
+                                                    {auths[key].name}
+                                                </span>
+                                            </div>
+                                        )
+                                )}
                         </div>
                     </div>
                 </Link>

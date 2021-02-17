@@ -51,41 +51,48 @@ const ShopSection = React.memo(({style}) => {
     );
 
     return (
-        <section className="shop" style={style && style}>
-            <div className="container">
-                <div className="shop-wrapper">
-                    <h2 className={`title ${size} shop__title`}>
-                        Начать учиться
-                    </h2>
+        <>
+            {Object.keys(items).length ? (
+                <section className="shop" style={style && style}>
+                    <div className="container">
+                        <div className="shop-wrapper">
+                            <h2 className={`title ${size} shop__title`}>
+                                Начать учиться
+                            </h2>
 
-                    <div className="shop-block-wrapper">
-                        {isLoaded
-                            ? Object.keys(items).map((key) => (
-                                  <ShopBlock
-                                      key={`shop-block-${items[key].id}`}
-                                      onClickAddGoods={setAddGoods}
-                                      onClickPush={toggleSuccessAddCart}
-                                      types={types}
-                                      size={size}
-                                      categories={categories}
-                                      auths={teachers}
-                                      idAwo={items[key].id_awo}
-                                      {...items[key]}
-                                  />
-                              ))
-                            : Array(3)
-                                  .fill(0)
-                                  .map((_, index) => (
-                                      <div className="shop-block" key={index}>
-                                          <ShopBlockLoading />
-                                      </div>
-                                  ))}
+                            <div className="shop-block-wrapper">
+                                {isLoaded
+                                    ? Object.keys(items).map((key) => (
+                                          <ShopBlock
+                                              key={`shop-block-${items[key].id}`}
+                                              onClickAddGoods={setAddGoods}
+                                              onClickPush={toggleSuccessAddCart}
+                                              types={types}
+                                              size={size}
+                                              categories={categories}
+                                              auths={teachers}
+                                              idAwo={items[key].id_awo}
+                                              {...items[key]}
+                                          />
+                                      ))
+                                    : Array(3)
+                                          .fill(0)
+                                          .map((_, index) => (
+                                              <div
+                                                  className="shop-block"
+                                                  key={index}
+                                              >
+                                                  <ShopBlockLoading />
+                                              </div>
+                                          ))}
+                            </div>
+
+                            <ShopSectionBtn size={size} />
+                        </div>
                     </div>
-
-                    <ShopSectionBtn size={size} />
-                </div>
-            </div>
-        </section>
+                </section>
+            ) : null}
+        </>
     );
 });
 

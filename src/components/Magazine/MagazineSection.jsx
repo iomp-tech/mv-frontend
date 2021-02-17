@@ -31,49 +31,59 @@ const MagazineSection = () => {
     }, []);
 
     return (
-        <section className="magazine">
-            <div className="container">
-                <div className="magazine-wrapper">
-                    <h2 className={`title ${size} magazine__title`}>Журнал</h2>
+        <>
+            {Object.keys(items).length ? (
+                <section className="magazine">
+                    <div className="container">
+                        <div className="magazine-wrapper">
+                            <h2 className={`title ${size} magazine__title`}>
+                                Журнал
+                            </h2>
 
-                    <div className="magazine-block-wrapper">
-                        {isLoaded
-                            ? Object.keys(items).map((key) => (
-                                  <MagazineBlock
-                                      key={`magazine-block-${items[key].id}`}
-                                      {...items[key]}
-                                      auths={teachers}
-                                      color={color}
-                                      size={size}
-                                      categories={
-                                          categories[items[key].category]
-                                      }
-                                      postsType={postsType[items[key].type]}
-                                  />
-                              ))
-                            : Array(2)
-                                  .fill(0)
-                                  .map((_, index) => (
-                                      <div
-                                          className="magazine-block"
-                                          key={index}
-                                      >
-                                          <MagazineBlockLoading />
-                                      </div>
-                                  ))}
-                    </div>
+                            <div className="magazine-block-wrapper">
+                                {isLoaded
+                                    ? Object.keys(items).map((key) => (
+                                          <MagazineBlock
+                                              key={`magazine-block-${items[key].id}`}
+                                              {...items[key]}
+                                              auths={teachers}
+                                              color={color}
+                                              size={size}
+                                              categories={
+                                                  categories[
+                                                      items[key].category
+                                                  ]
+                                              }
+                                              postsType={
+                                                  postsType[items[key].type]
+                                              }
+                                          />
+                                      ))
+                                    : Array(2)
+                                          .fill(0)
+                                          .map((_, index) => (
+                                              <div
+                                                  className="magazine-block"
+                                                  key={index}
+                                              >
+                                                  <MagazineBlockLoading />
+                                              </div>
+                                          ))}
+                            </div>
 
-                    <div className="magazine-btn-wrapper">
-                        <Link
-                            to="/magazine"
-                            className={`btn-bold_gray magazine__btn ${size}`}
-                        >
-                            Показать еще
-                        </Link>
+                            <div className="magazine-btn-wrapper">
+                                <Link
+                                    to="/magazine"
+                                    className={`btn-bold_gray magazine__btn ${size}`}
+                                >
+                                    Показать еще
+                                </Link>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            ) : null}
+        </>
     );
 };
 

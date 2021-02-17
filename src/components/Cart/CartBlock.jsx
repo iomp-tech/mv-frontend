@@ -1,4 +1,5 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 
 const CartBlock = React.memo(
     ({
@@ -16,6 +17,9 @@ const CartBlock = React.memo(
         RemoveCartItem,
         size,
         color,
+        categories,
+        types,
+        teachers,
     }) => {
         return (
             <div className="cart-block">
@@ -49,24 +53,29 @@ const CartBlock = React.memo(
                                 <span
                                     className={`cart-block__type_color ${size}`}
                                 >
-                                    {category}
+                                    {categories[category] &&
+                                        categories[category].title}
                                 </span>
                             )}
                             {type && (
                                 <span
                                     className={`cart-block__type_gray ${size}`}
                                 >
-                                    {type}
+                                    {types[type] && types[type].title}
                                 </span>
                             )}
                             {auth &&
-                                auth.map((arr) => (
-                                    <span
-                                        className={`cart-block__type_gray ${size}`}
-                                    >
-                                        {arr}
-                                    </span>
-                                ))}
+                                auth.map(
+                                    (key) =>
+                                        teachers[key] && (
+                                            <span
+                                                key={`teacher-${teachers[key].id}`}
+                                                className={`cart-block__type_gray ${size}`}
+                                            >
+                                                {teachers[key].name}
+                                            </span>
+                                        )
+                                )}
                         </div>
                         <h3
                             className={`cart-block__title ${size}`}
@@ -90,10 +99,24 @@ const CartBlock = React.memo(
                                 <span
                                     className={`shop-block__subprice ${size}`}
                                 >
-                                    {priceOld}₽
+                                    {
+                                        <NumberFormat
+                                            value={priceOld}
+                                            displayType={"text"}
+                                            thousandSeparator={" "}
+                                        />
+                                    }
+                                    ₽
                                 </span>
                                 <h3 className={`shop-block__price ${size}`}>
-                                    {price}₽
+                                    {
+                                        <NumberFormat
+                                            value={price}
+                                            displayType={"text"}
+                                            thousandSeparator={" "}
+                                        />
+                                    }
+                                    ₽
                                 </h3>
                             </>
                         ) : (
@@ -105,7 +128,14 @@ const CartBlock = React.memo(
                                     Цена:
                                 </span>
                                 <h3 className={`shop-block__price ${size}`}>
-                                    {price}₽
+                                    {
+                                        <NumberFormat
+                                            value={price}
+                                            displayType={"text"}
+                                            thousandSeparator={" "}
+                                        />
+                                    }
+                                    ₽
                                 </h3>
                             </>
                         )}

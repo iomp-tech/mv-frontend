@@ -35,19 +35,7 @@ const ShopBlock = React.memo(
 
         const setUpdateGoods = () => {
             const obj = {
-                thumb,
-                category: categories[category]
-                    ? categories[category].title
-                    : "",
-                type: types[type] ? types[type].title : "",
-                title,
-                auth: authArr,
-                time,
-                sale: parseInt(sale),
-                priceOld: parseInt(priceOld),
-                price: parseInt(price),
                 id,
-                idAwo,
             };
 
             onClickAddGoods(obj);

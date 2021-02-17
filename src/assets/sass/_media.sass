@@ -438,7 +438,6 @@
 			flex-direction: column
 
 			&-text
-				margin-bottom: 100px
 				margin-right: 0
 				max-width: 100%
 
@@ -449,11 +448,7 @@
 				margin-top: 25px
 
 			&-thumb
-				margin-right: 0
-
-			&-img
-				width: 300px
-				height: 300px
+				display: none
 
 	// teacher
 	.teacher
@@ -480,6 +475,22 @@
 
 			&-types-left
 				margin-bottom: 10px
+
+	// timetable
+	.timetable
+		&-block
+			pointer-events: none
+			&:hover &-auth
+				opacity: 1
+
+			&-btn
+				pointer-events: auto
+				margin-top: 50px
+				position: static
+				opacity: 1
+
+			&__btn
+				width: 100%
 
 @media screen and (max-width: 750px)
 	// cabinet
@@ -533,7 +544,6 @@
 	.timetable
 		&-block-wrapper
 			padding: 0
-			padding-top: 55px
 
 		&-block-container
 			width: 100%
@@ -542,28 +552,38 @@
 			padding: 0
 			border-right: none
 
-		&__title
-			margin-bottom: 0
-
 	// teacher
 	.teacher
 		&-block
 			flex-direction: column
-			align-items: center
+			align-items: flex-start
+			height: 700px
 			&::before
-				width: 550px
-				height: 550px
+				width: 500px
+				height: 500px
+				left: 50%
+				transform: translateX(-50%)
+				right: 0
 
 			&:hover::before
-				width: 600px
-				height: 600px
+				width: 500px
+				height: 500px
+
+			&-left-top
+				display: none
 
 			&-text
 				margin: 50px
 
+			&__title
+				font-size: 36px
+
+			&__subtitle
+				font-size: 24px
+
 			&-img
 				width: 100%
-				height: 400px
+				height: 100%
 
 	// next-post
 	.next-post
@@ -610,11 +630,6 @@
 	.title
 		font-size: 36px
 		margin-bottom: 50px
-
-	// timetable
-	.timetable
-		&__title
-			margin-bottom: 0
 
 	// header
 	.header
@@ -695,6 +710,12 @@
 		text-align: center
 		max-width: 250px
 
+	//timetable page
+	.timetable
+		&-page
+			&__title
+				font-size: 32px
+
 @media screen and (max-width: 480px)
 	//header
 	.header
@@ -743,6 +764,20 @@
 			&__title
 				font-size: 28px
 
+	// event
+	.event
+		&-item
+			&__title
+				font-size: 30px
+
+			&-date
+				margin-top: 30px
+				display: flex
+				flex-direction: column
+
+			&__date-range
+				margin-top: 15px
+
 	// timetable
 	.timetable
 		&-modal
@@ -770,6 +805,18 @@
 	// main
 	.main
 		margin-top: 70px
+
+		&__description
+			font-size: 22px
+
+	// categories
+	.categories
+		&-item
+			&__title
+				font-size: 25px
+
+			&__subtitle
+				font-size: 22px
 
 	// event
 	.event
@@ -822,6 +869,19 @@
 			&_big-types-left
 				margin-bottom: 10px
 
+	//timetable page
+	.timetable
+		&-page
+			&__title
+				font-size: 26px
+
+			&__description
+				font-size: 21px
+
+			&__checkbox + label
+				white-space: normal
+				font-size: 14px
+
 @media screen and (max-width: 390px)
 	// interface
 	.title
@@ -842,10 +902,10 @@
 	.event
 		&-item
 			&__title
-				font-size: 32px
+				font-size: 28px
 
 			&__description
-				font-size: 18px
+				font-size: 21px
 
 			&__date
 				font-size: 18px

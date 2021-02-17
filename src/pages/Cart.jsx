@@ -2,15 +2,21 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet";
+import NumberFormat from "react-number-format";
 
 import {
     ShopSection,
     MagazineSection,
     EmailFormWrapper,
     CartBlock,
+    PreloaderPage,
 } from ".././components/";
 
-import {removeCartItem} from "../redux/actions/cart";
+import {removeCartItem, fetchCartGoods} from "../redux/actions/cart";
+
+import {fetchCategories} from ".././redux/actions/categories";
+import {fetchGoodsType} from ".././redux/actions/goods";
+import {fetchTeacher} from ".././redux/actions/teacher";
 
 import {CART_DOMEN} from ".././api";
 
@@ -18,14 +24,38 @@ const Cart = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
-    const cartItems = useSelector(({cart}) => cart.cart);
-    const {totalPrice} = useSelector(({cart}) => cart);
+    const cartItemsId = useSelector(({cart}) => cart.cart);
+    const {items} = useSelector(({cart}) => cart);
     const {user, isLoaded, isLogin} = useSelector(({user}) => user);
     const {size, color, type} = useSelector(({visually}) => visually);
 
+    const categories = useSelector(({categories}) => categories.items);
+    const {types} = useSelector(({goods}) => goods);
+    const teachers = useSelector(({teacher}) => teacher.items);
+
+    let totalPrice = 0;
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
+
+        if (!Object.keys(teachers).length) {
+            dispatch(fetchTeacher());
+        }
+
+        if (!Object.keys(categories).length) {
+            dispatch(fetchCategories());
+        }
+
+        if (!Object.keys(types).length) {
+            dispatch(fetchGoodsType());
+        }
     }, []);
+
+    React.useEffect(() => {
+        dispatch(
+            fetchCartGoods(`id=${Object.keys(cartItemsId).map((key) => key)}`)
+        );
+    }, [Object.keys(cartItemsId).length]);
 
     const clickRemoveCartItem = React.useCallback(
         (id) => {
@@ -39,130 +69,185 @@ const Cart = () => {
             <Helmet>
                 <title>Корзина - IOMP</title>
             </Helmet>
-            <section className="cart">
-                <div className="container">
-                    <div className="cart-wrapper">
-                        {Object.keys(cartItems).length ? (
-                            <>
-                                <div className="cart-block-top">
-                                    <h2 className={`title ${size} cart__title`}>
-                                        Корзина
-                                    </h2>
-                                    <span className={`cart__number ${size}`}>
-                                        {Object.keys(cartItems).length}
-                                    </span>
-                                </div>
+            {isLoaded ? (
+                <section className="cart">
+                    <div className="container">
+                        <div className="cart-wrapper">
+                            {Object.keys(cartItemsId).length ? (
+                                <>
+                                    <div className="cart-block-top">
+                                        <h2
+                                            className={`title ${size} cart__title`}
+                                        >
+                                            Корзина
+                                        </h2>
+                                        <span
+                                            className={`cart__number ${size}`}
+                                        >
+                                            {Object.keys(cartItemsId).length}
+                                        </span>
+                                    </div>
 
-                                <div className="cart-block-wrapper">
-                                    {Object.keys(cartItems).map((index) => (
-                                        <CartBlock
-                                            key={cartItems[index].id}
-                                            size={size}
-                                            color={color}
-                                            RemoveCartItem={clickRemoveCartItem}
-                                            {...cartItems[index]}
-                                        />
-                                    ))}
-                                </div>
-                                {isLogin ? (
-                                    <>
-                                        {parseInt(user.confirmed) ? (
-                                            <form
-                                                action={CART_DOMEN}
-                                                method="post"
-                                                encType="application/x-www-form-urlencoded"
-                                                acceptCharset="UTF-8"
+                                    <div className="cart-block-wrapper">
+                                        {Object.keys(items).map((key) => (
+                                            <CartBlock
+                                                size={size}
+                                                teachers={teachers}
+                                                categories={categories}
+                                                types={types}
+                                                color={color}
+                                                RemoveCartItem={
+                                                    clickRemoveCartItem
+                                                }
+                                                {...items[key]}
+                                                key={`cart-${items[key].id}`}
+                                            />
+                                        ))}
+                                    </div>
+                                    {isLogin ? (
+                                        <>
+                                            {parseInt(user.confirmed) ? (
+                                                <form
+                                                    action={CART_DOMEN}
+                                                    method="post"
+                                                    encType="application/x-www-form-urlencoded"
+                                                    acceptCharset="UTF-8"
+                                                >
+                                                    <div className="cart-block-bottom">
+                                                        <h3
+                                                            className={`cart__total ${size}`}
+                                                        >
+                                                            <span>Итого:</span>{" "}
+                                                            {Object.keys(
+                                                                items
+                                                            ).map((key) => {
+                                                                totalPrice +=
+                                                                    items[key]
+                                                                        .price;
+                                                            })}
+                                                            {
+                                                                <NumberFormat
+                                                                    value={
+                                                                        totalPrice
+                                                                    }
+                                                                    displayType={
+                                                                        "text"
+                                                                    }
+                                                                    thousandSeparator={
+                                                                        " "
+                                                                    }
+                                                                />
+                                                            }
+                                                            ₽
+                                                        </h3>
+
+                                                        {Object.keys(items)
+                                                            .length
+                                                            ? Object.keys(
+                                                                  items
+                                                              ).map((key) => (
+                                                                  <input
+                                                                      type="hidden"
+                                                                      value="1"
+                                                                      name={`Goods[${items[key].id_awo}]`}
+                                                                      key={`${items[key].id_awo}_${items[key].title}`}
+                                                                  />
+                                                              ))
+                                                            : null}
+
+                                                        <input
+                                                            name="CartAccount[name]"
+                                                            type="hidden"
+                                                            value={
+                                                                isLoaded
+                                                                    ? user.name
+                                                                    : ""
+                                                            }
+                                                        />
+                                                        <input
+                                                            name="CartAccount[email]"
+                                                            type="hidden"
+                                                            value={
+                                                                isLoaded
+                                                                    ? user.email
+                                                                    : ""
+                                                            }
+                                                        />
+
+                                                        <button
+                                                            type="submit"
+                                                            className={`btn-bold_color cart__btn ${size}`}
+                                                        >
+                                                            Оформить заказ
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            ) : (
+                                                history.push("/cabinet")
+                                            )}
+                                        </>
+                                    ) : (
+                                        <div className="cart-block-bottom">
+                                            <h3
+                                                className={`cart__total ${size}`}
                                             >
-                                                <div className="cart-block-bottom">
-                                                    <h3
-                                                        className={`cart__total ${size}`}
-                                                    >
-                                                        <span>Итого:</span>{" "}
-                                                        {totalPrice}₽
-                                                    </h3>
-
-                                                    {Object.keys(cartItems).map(
-                                                        (index) => (
-                                                            <input
-                                                                type="hidden"
-                                                                value="1"
-                                                                name={`Goods[${cartItems[index].idAwo}]`}
-                                                                key={`${cartItems[index].idAwo}_${cartItems[index].title}`}
-                                                            />
-                                                        )
-                                                    )}
-
-                                                    <input
-                                                        name="CartAccount[name]"
-                                                        type="hidden"
-                                                        value={
-                                                            isLoaded
-                                                                ? user.name
-                                                                : ""
-                                                        }
+                                                <span>Итого:</span>{" "}
+                                                {Object.keys(items).map(
+                                                    (key) => {
+                                                        totalPrice +=
+                                                            items[key].price;
+                                                    }
+                                                )}
+                                                {
+                                                    <NumberFormat
+                                                        value={totalPrice}
+                                                        displayType={"text"}
+                                                        thousandSeparator={" "}
                                                     />
-                                                    <input
-                                                        name="CartAccount[email]"
-                                                        type="hidden"
-                                                        value={
-                                                            isLoaded
-                                                                ? user.email
-                                                                : ""
-                                                        }
-                                                    />
+                                                }
+                                                ₽
+                                            </h3>
 
-                                                    <button
-                                                        type="submit"
-                                                        className={`btn-bold_color cart__btn ${size}`}
-                                                    >
-                                                        Оформить заказ
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        ) : (
-                                            history.push("/cabinet")
-                                        )}
-                                    </>
-                                ) : (
-                                    <div className="cart-block-bottom">
-                                        <h3 className={`cart__total ${size}`}>
-                                            <span>Итого:</span> {totalPrice}₽
-                                        </h3>
+                                            <Link
+                                                to="/login"
+                                                className={`btn-bold_color cart__btn ${size}`}
+                                            >
+                                                Войдите в аккаунт или создайте
+                                                его
+                                            </Link>
+                                        </div>
+                                    )}
+                                </>
+                            ) : (
+                                <>
+                                    <div className="cart-null">
+                                        {type === "blackWhite" || type === "null" ? (
+                                            <div
+                                                className={`circle-bold cart-null-bg ${size}`}
+                                            ></div>
+                                        ) : null}
+
+                                        <h2
+                                            className={`cart-null__title ${size}`}
+                                        >
+                                            Ваша корзина пуста
+                                        </h2>
 
                                         <Link
-                                            to="/login"
-                                            className={`btn-bold_color cart__btn ${size}`}
+                                            to="/shop"
+                                            className={`btn-bold_color cart-null__btn ${size}`}
                                         >
-                                            Войдите в аккаунт или создайте его
+                                            Перейти в магазин курсов
                                         </Link>
                                     </div>
-                                )}
-                            </>
-                        ) : (
-                            <>
-                                <div className="cart-null">
-                                    {type === "blackWhite" ? (
-                                        <div
-                                            className={`circle-bold cart-null-bg ${size}`}
-                                        ></div>
-                                    ) : null}
-
-                                    <h2 className={`cart-null__title ${size}`}>
-                                        Ваша корзина пуста
-                                    </h2>
-
-                                    <Link
-                                        to="/shop"
-                                        className={`btn-bold_color cart-null__btn ${size}`}
-                                    >
-                                        Перейти в магазин курсов
-                                    </Link>
-                                </div>
-                            </>
-                        )}
+                                </>
+                            )}
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            ) : (
+                <PreloaderPage />
+            )}
             <ShopSection />
             <MagazineSection />
             <EmailFormWrapper />
