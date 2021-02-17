@@ -21,7 +21,8 @@ const teacher = (state = initialState, action) => {
 
 		return {
 			...state,
-			items: newItems
+			items: newItems,
+			isLoaded: true
 		};
 	}
 	return state;

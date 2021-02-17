@@ -27,9 +27,7 @@ const Teacher = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
 
-        if (!Object.keys(itemsMain).length) {
-            dispatch(fetchTeacherMain());
-        }
+        dispatch(fetchTeacherMain());
 
         document.body.addEventListener("click", handTeacherModalBool);
     }, []);
