@@ -1,19 +1,27 @@
 ### Онлайн-институт психологии - Institute of Modern Psychology
 
-# Stack
+## Стек технологий
+
+* ReactJs + Hook
+* react-router-dom
+* Redux
+* Redux thunk
+* node-sass
+* axios
+
+## Установка
+Клонируйте репозиторий.
 ```
-- ReactJs + Hook
-- React Router
-- Redux
-- Redux thunk
-- json-server
-- axios
-- react-scroll-up
-- react-content-loader
+git clone https://github.com/iomp-tech/iomp-frontend.git
 ```
-"# iomp-frontend" 
-"# iomp-frontend" 
-"# iomp-frontend" 
-"# iomp-frontend" 
-"# iomp-frontend" 
-"# iomp-frontend" 
+
+Переход в рабочий каталог.
+```
+cd iomp-frontend
+```
+
+Установка зависимостей, запуск сборки.
+```
+npm install
+npm start
+```
