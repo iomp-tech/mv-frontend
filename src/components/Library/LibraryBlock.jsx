@@ -1,6 +1,6 @@
 import React from "react";
 
-const LibraryBlock = ({training, image, size, color}) => {
+const LibraryBlock = ({training, image, size, color, DOMEN}) => {
     const url = "https://shop.iomp.ru/personal/auth/login?lg=ru";
 
     return (
@@ -12,7 +12,7 @@ const LibraryBlock = ({training, image, size, color}) => {
                         backgroundImage: `url(${
                             image !== ""
                                 ? `https://shop.iomp.ru/userdata/iomp/training/${image}`
-                                : "https://imeninik.ru/api/public/storage/all/default_avatar.svg"
+                                : `${DOMEN}/public/storage/all/default_avatar.svg`
                         })`,
                     }}
                 ></div>

@@ -19,7 +19,8 @@ const CartBlock = React.memo(
         color,
         categories,
         types,
-        teachers,
+		teachers,
+		API_DOMEN
     }) => {
         return (
             <div className="cart-block">
@@ -31,7 +32,7 @@ const CartBlock = React.memo(
                                 backgroundImage: `url(${
                                     thumb !== "default"
                                         ? thumb
-                                        : "https://imeninik.ru/api/public/storage/all/default_avatar.svg"
+                                        : `${API_DOMEN}/public/storage/all/default_avatar.svg`
                                 })`,
 
                                 transform: `${

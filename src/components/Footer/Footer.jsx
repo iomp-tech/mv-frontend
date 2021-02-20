@@ -12,6 +12,8 @@ import {
 
 import {fetchEmailForm} from "../../redux/actions/emailForm";
 
+import {DOMEN} from "../../api";
+
 const Footer = () => {
     const dispatch = useDispatch();
 
@@ -89,7 +91,7 @@ const Footer = () => {
                                 <div className="footer-top">
                                     <Link to="/" className="footer-logo__link">
                                         <img
-                                            src="https://iomp.ru/api/public/storage/all/logo-white.svg"
+                                            src={`${DOMEN}/public/storage/all/logo-white.svg`}
                                             alt="IOMP"
                                             className="footer-logo__img"
                                         />

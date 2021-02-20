@@ -27,6 +27,8 @@ import {
     BtnLoaded,
 } from ".././components/";
 
+import {DOMEN} from ".././api";
+
 const Shop = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -303,6 +305,7 @@ const Shop = (props) => {
                                             onClickPush={toggleSuccessAddCart}
                                             idAwo={items[key].id_awo}
                                             isLoadedLimit={isLoadedLimit}
+                                            DOMEN={DOMEN}
                                             {...items[key]}
                                         />
                                     ))

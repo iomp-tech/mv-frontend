@@ -8,7 +8,7 @@ export const fetchGoods = (limit = null, query = "") => (dispatch) => {
 		payload: false,
 	});
 
-	axios.get(`${API_DOMEN}/goods?${limit !== null ? `_limit=${limit}&` : ""}${query}`).then((response) => {
+	axios.get(`${API_DOMEN}/goods?visibility=true&${limit !== null ? `_limit=${limit}&` : ""}${query}`).then((response) => {
 		dispatch(setGoods(response));
 	});
 };
@@ -19,13 +19,13 @@ export const fetchLimitGoods = (limit = null, query = "") => (dispatch) => {
 		payload: false,
 	});
 
-	axios.get(`${API_DOMEN}/goods?${limit !== null ? `_limit=${limit}&` : ""}${query}`).then((response) => {
+	axios.get(`${API_DOMEN}/goods?visibility=true&${limit !== null ? `_limit=${limit}&` : ""}${query}`).then((response) => {
 		dispatch(setLimitGoods(response));
 	});
 };
 
 export const fetchGoodsSection = () => (dispatch) => {
-	axios.get(`${API_DOMEN}/goods?section=true`).then(({ data }) => {
+	axios.get(`${API_DOMEN}/goods?visibility=true&section=true`).then(({ data }) => {
 		dispatch(setGoodsSection(data));
 	});
 };
@@ -43,9 +43,11 @@ export const fetchGoodsType = () => (dispatch) => {
 };
 
 export const fetchGoodsMinMaxPrice = () => (dispatch) => {
-	axios.get(`${API_DOMEN}/goods?_sort=price&_order=desc`).then(({ data }) => {
-		dispatch(setGoodsMaxPrice(data[0].price));
-		dispatch(setGoodsMinPrice(data[data.length - 1].price));
+	axios.get(`${API_DOMEN}/goods?visibility=true&_sort=price&_order=desc`).then(({ data }) => {
+		if (data.length) {
+			dispatch(setGoodsMaxPrice(data[0].price));
+			dispatch(setGoodsMinPrice(data[data.length - 1].price));
+		}
 	});
 };
 

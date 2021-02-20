@@ -1,8 +1,8 @@
 const initialState = {
 	type: "blackWhite",
-	color: "",
-	bgColor: "",
-	rgb: "",
+	color: "#000000",
+	bgColor: "#ffffff",
+	rgb: "0, 0, 0",
 	size: "1X",
 };
 

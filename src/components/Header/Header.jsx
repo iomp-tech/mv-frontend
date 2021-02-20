@@ -10,6 +10,8 @@ import HeaderCart from "./HeaderCart";
 import HeaderModal from "./HeaderModal";
 import HeaderTop from "./HeaderTop";
 
+import {DOMEN} from "../.././api";
+
 const Header = React.memo(() => {
     const dispatch = useDispatch();
 
@@ -67,7 +69,7 @@ const Header = React.memo(() => {
                     <div className="header-wrapper">
                         <Link to="/">
                             <img
-                                src="https://iomp.ru/api/public/storage/all/logo.svg"
+                                src={`${DOMEN}/public/storage/all/logo.svg`}
                                 alt="IOMP"
                                 className="header-logo__img"
                             />
@@ -128,7 +130,7 @@ const Header = React.memo(() => {
                                                                 user.avatar !==
                                                                 "default"
                                                                     ? user.avatar
-                                                                    : "https://imeninik.ru/api/public/storage/all/default_avatar.svg"
+                                                                    : `${DOMEN}/public/storage/all/default_avatar.svg`
                                                             })`,
                                                         }}
                                                         className="header-user__img"
@@ -170,7 +172,7 @@ const Header = React.memo(() => {
                                                         }}
                                                     >
                                                         <img
-                                                            src="https://imeninik.ru/api/public/storage/all/book.svg"
+                                                            src={`${DOMEN}/public/storage/all/book.svg`}
                                                             alt="Мои курсы"
                                                         />
                                                         Мои курсы
@@ -183,7 +185,7 @@ const Header = React.memo(() => {
                                                         }}
                                                     >
                                                         <img
-                                                            src="https://imeninik.ru/api/public/storage/all/setting.svg"
+                                                            src={`${DOMEN}/public/storage/all/setting.svg`}
                                                             alt="Настройки"
                                                         />
                                                         Настройки
@@ -196,7 +198,7 @@ const Header = React.memo(() => {
                                                         }}
                                                     >
                                                         <img
-                                                            src="https://imeninik.ru/api/public/storage/all/logout.svg"
+                                                            src={`${DOMEN}/public/storage/all/logout.svg`}
                                                             alt="Выйти"
                                                         />
                                                         Выйти

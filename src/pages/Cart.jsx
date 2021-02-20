@@ -18,7 +18,7 @@ import {fetchCategories} from ".././redux/actions/categories";
 import {fetchGoodsType} from ".././redux/actions/goods";
 import {fetchTeacher} from ".././redux/actions/teacher";
 
-import {CART_DOMEN} from ".././api";
+import {CART_DOMEN, API_DOMEN} from ".././api";
 
 const Cart = () => {
     const history = useHistory();
@@ -99,6 +99,7 @@ const Cart = () => {
                                                 RemoveCartItem={
                                                     clickRemoveCartItem
                                                 }
+												API_DOMEN={API_DOMEN}
                                                 {...items[key]}
                                                 key={`cart-${items[key].id}`}
                                             />

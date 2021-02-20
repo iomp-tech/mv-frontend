@@ -24,6 +24,7 @@ const ShopBlock = React.memo(
         idAwo,
         isLoadedLimit = true,
         size,
+        DOMEN,
     }) => {
         const authArr = [];
 
@@ -55,7 +56,7 @@ const ShopBlock = React.memo(
                                 backgroundImage: `url(${
                                     thumb !== "default"
                                         ? thumb
-                                        : "https://imeninik.ru/api/public/storage/all/default_avatar.svg"
+                                        : `${DOMEN}/public/storage/all/default_avatar.svg`
                                 })`,
 
                                 transform: `${

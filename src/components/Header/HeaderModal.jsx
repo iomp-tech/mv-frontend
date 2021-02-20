@@ -1,6 +1,8 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 
+import {DOMEN} from "../../api";
+
 const HeaderModal = React.memo(({isLogin}) => {
     const [visibleHeaderModal, setVisibleHeaderModal] = React.useState(false);
     const HeaderRef = React.useRef();
@@ -78,7 +80,7 @@ const HeaderModal = React.memo(({isLogin}) => {
                         onClick={toggleVisibleHeaderModal}
                     >
                         <img
-                            src="https://iomp.ru/api/public/storage/all/logo.svg"
+                            src={`${DOMEN}/public/storage/all/logo.svg`}
                             alt="IOMP"
                             className="header-modal-logo__img"
                         />

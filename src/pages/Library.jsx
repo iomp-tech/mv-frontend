@@ -9,7 +9,10 @@ import {
     ShopSection,
     PreloaderPage,
 } from ".././components/";
+
 import {fetchUserCourse} from ".././redux/actions/user";
+
+import {DOMEN} from ".././api";
 
 const Library = () => {
     const history = useHistory();
@@ -62,6 +65,7 @@ const Library = () => {
                                                           key={`id-training-${arr.id_training}`}
                                                           size={size}
                                                           color={color}
+                                                          DOMEN={DOMEN}
                                                           {...arr}
                                                       />
                                                   ))
