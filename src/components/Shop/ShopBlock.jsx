@@ -82,27 +82,26 @@ const ShopBlock = React.memo(
                                   )
                                 : null}
 
-                            {Object.keys(types).length
-                                ? types[type] && (
-                                      <span
-                                          className={`shop-block__type_gray ${size}`}
-                                      >
-                                          {types[type].title}
-                                      </span>
-                                  )
-                                : null}
+                            {Object.keys(types).length ? (
+                                types[type] ? (
+                                    <span
+                                        className={`shop-block__type_gray ${size}`}
+                                    >
+                                        {types[type].title}
+                                    </span>
+                                ) : null
+                            ) : null}
 
                             {Object.keys(auths).length
-                                ? auth.map(
-                                      (key) =>
-                                          auths[key] && (
-                                              <span
-                                                  className={`shop-block__type_gray ${size}`}
-                                                  key={`${auths[key].name}_${key}`}
-                                              >
-                                                  {auths[key].name}
-                                              </span>
-                                          )
+                                ? auth.map((key) =>
+                                      auths[key] ? (
+                                          <span
+                                              className={`shop-block__type_gray ${size}`}
+                                              key={`${auths[key].name}_${key}`}
+                                          >
+                                              {auths[key].name}
+                                          </span>
+                                      ) : null
                                   )
                                 : null}
                         </div>

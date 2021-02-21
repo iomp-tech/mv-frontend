@@ -34,30 +34,32 @@ const TimetableBlock = React.memo(
                 >
                     <div className="timetable-block-top">
                         <div className="timetable-block-type">
-                            {Object.keys(categories).length && (
-                                <span
-                                    className={`timetable-block__type_color ${size}`}
-                                >
-                                    {categories[category].title.length > 10
-                                        ? `${categories[category].title.substr(
-                                              0,
-                                              10
-                                          )}...`
-                                        : categories[category].title}
-                                </span>
-                            )}
-                            {Object.keys(timetableType).length && (
-                                <span
-                                    className={`timetable-block__type_gray ${size}`}
-                                >
-                                    {timetableType[type].title.length > 10
-                                        ? `${timetableType[type].title.substr(
-                                              0,
-                                              10
-                                          )}...`
-                                        : timetableType[type].title}
-                                </span>
-                            )}
+                            {Object.keys(categories).length ? (
+                                categories[category] ? (
+                                    <span
+                                        className={`timetable-block__type_color ${size}`}
+                                    >
+                                        {categories[category].title.length > 10
+                                            ? `${categories[
+                                                  category
+                                              ].title.substr(0, 10)}...`
+                                            : categories[category].title}
+                                    </span>
+                                ) : null
+                            ) : null}
+                            {Object.keys(timetableType).length ? (
+                                timetableType[type] ? (
+                                    <span
+                                        className={`timetable-block__type_gray ${size}`}
+                                    >
+                                        {timetableType[type].title.length > 10
+                                            ? `${timetableType[
+                                                  type
+                                              ].title.substr(0, 10)}...`
+                                            : timetableType[type].title}
+                                    </span>
+                                ) : null
+                            ) : null}
                         </div>
                         <h3 className={`timetable-block__title ${size}`}>
                             {title}
@@ -133,26 +135,25 @@ const TimetableBlock = React.memo(
                     <div className="timetable-block-bottom">
                         <div className="timetable-block-auth">
                             {Object.keys(auths).length
-                                ? auth.map(
-                                      (key) =>
-                                          auths[key] && (
+                                ? auth.map((key) =>
+                                      auths[key] ? (
+                                          <div
+                                              className="auth timetable-block-auth"
+                                              key={`timetable-block-auth-${key}`}
+                                          >
                                               <div
-                                                  className="auth timetable-block-auth"
-                                                  key={`timetable-block-auth-${key}`}
+                                                  style={{
+                                                      backgroundImage: `url(${auths[key].avatar})`,
+                                                  }}
+                                                  className={`auth__img ${size} timetable-block-auth__img`}
+                                              ></div>
+                                              <span
+                                                  className={`auth__name ${size} timetable-block-auth__name`}
                                               >
-                                                  <div
-                                                      style={{
-                                                          backgroundImage: `url(${auths[key].avatar})`,
-                                                      }}
-                                                      className={`auth__img ${size} timetable-block-auth__img`}
-                                                  ></div>
-                                                  <span
-                                                      className={`auth__name ${size} timetable-block-auth__name`}
-                                                  >
-                                                      {auths[key].name}
-                                                  </span>
-                                              </div>
-                                          )
+                                                  {auths[key].name}
+                                              </span>
+                                          </div>
+                                      ) : null
                                   )
                                 : null}
                         </div>

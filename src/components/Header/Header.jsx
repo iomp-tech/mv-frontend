@@ -16,7 +16,7 @@ const Header = React.memo(() => {
     const dispatch = useDispatch();
 
     const {user, isLoaded, isLogin} = useSelector(({user}) => user);
-    const {color, bgColor} = useSelector(({visually}) => visually);
+    const {color, bgColor, type} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(fetchUser());
@@ -86,25 +86,22 @@ const Header = React.memo(() => {
                             <div className="header-menu-hidden">
                                 <NavLink
                                     to="/timetable"
-                                    className="header__link"
-                                    activeClassName="header__link_active"
-                                    style={{color: color}}
+                                    className={`header__link ${type}`}
+                                    activeClassName={`header__link_active ${type}`}
                                 >
                                     Расписание
                                 </NavLink>
                                 <NavLink
                                     to="/teachers"
-                                    className="header__link"
-                                    activeClassName="header__link_active"
-                                    style={{color: color}}
+                                    className={`header__link ${type}`}
+                                    activeClassName={`header__link_active ${type}`}
                                 >
                                     Преподаватели
                                 </NavLink>
                                 <NavLink
                                     to="/magazine"
-                                    className="header__link"
-                                    activeClassName="header__link_active"
-                                    style={{color: color}}
+                                    className={`header__link ${type}`}
+                                    activeClassName={`header__link_active ${type}`}
                                 >
                                     Журнал
                                 </NavLink>

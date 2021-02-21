@@ -68,6 +68,7 @@
 				width: 100%
 
 		&-bottom
+			margin-top: 50px
 			flex-direction: column
 
 	// shop
@@ -606,6 +607,12 @@
 			& > svg
 				width: 80px
 
+	// post
+	.post
+		&-block
+			&__title
+				font-size: 28px
+
 	// footer
 	.footer
 		&-bottom-right
@@ -625,6 +632,23 @@
 		margin: 100px 0
 		&__title
 			font-size: 48px
+
+@media screen and (max-width: 580px)
+	// magazine
+	.magazine
+		&-filters
+			flex-direction: column
+			border-bottom: none
+			margin-bottom: 50px
+
+			&-block
+				padding: 25px 0
+				width: 100%
+				height: auto
+				border-bottom: 1px solid $gray
+
+		&-bottom
+			margin-top: 25px
 
 @media screen and (max-width: 540px)
 	// interface
@@ -755,6 +779,15 @@
 			&__price
 				font-size: 28px
 
+	// post
+	.post
+		&-block
+			&__description
+				font-size: 20px
+
+				& > p
+					font-size: 20px
+
 @media screen and (max-width: 460px)
 	// interface
 	.title
@@ -798,6 +831,32 @@
 
 			&-right
 				margin-top: 25px
+
+@media screen and (max-width: 440px)
+	// event
+	.event
+		&-item
+			&__type
+				&_gray, &_color
+					font-size: 16px
+
+	// post
+	.post
+		&-cover
+			&__type
+				&_gray, &_color
+					font-size: 16px
+
+			&__title
+				font-size: 28px
+
+			&__description
+				font-size: 20px
+
+		&-block
+			margin: 50px 0
+			&__title
+				font-size: 24px
 
 @media screen and (max-width: 420px)
 	// interface
@@ -858,10 +917,13 @@
 
 		&-modal
 			&__description
-				font-size: 18px
+				font-size: 16px
 
 			&__img
 				width: 250px
+
+			&__btn
+				margin-top: 25px
 
 	// email-form
 	.email-form
