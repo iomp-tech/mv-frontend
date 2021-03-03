@@ -99,7 +99,7 @@ const Cart = () => {
                                                 RemoveCartItem={
                                                     clickRemoveCartItem
                                                 }
-												API_DOMEN={API_DOMEN}
+                                                API_DOMEN={API_DOMEN}
                                                 {...items[key]}
                                                 key={`cart-${items[key].id}`}
                                             />
@@ -222,7 +222,9 @@ const Cart = () => {
                             ) : (
                                 <>
                                     <div className="cart-null">
-                                        {type === "blackWhite" || type === "null" ? (
+                                        {type === "blackWhite" ||
+                                        type === "null" ||
+                                        type === null ? (
                                             <div
                                                 className={`circle-bold cart-null-bg ${size}`}
                                             ></div>

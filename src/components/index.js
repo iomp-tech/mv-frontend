@@ -6,6 +6,7 @@ export { default as MainSection } from './Home/MainSection';
 export { default as Categories } from './Home/Categories';
 export { default as EventSection } from './Home/EventSection';
 export { default as ServicesSection } from './Home/ServicesSection';
+export { default as ServicesBlock } from './Home/ServicesBlock';
 export { default as AboutSection } from './Home/AboutSection';
 
 // Shop
@@ -14,6 +15,17 @@ export { default as ShopFilters } from './Shop/ShopFilters/ShopFilters';
 export { default as ShopSearch } from './Shop/ShopSearch';
 export { default as ShopBlock } from './Shop/ShopBlock';
 export { default as ShopBlockLoading } from './Shop/ShopBlockLoading';
+// ShopPage
+export { default as ShopPageMain1 } from './Shop/ShopPage/ShopPageMain1';
+export { default as ShopPageMain2 } from './Shop/ShopPage/ShopPageMain2';
+export { default as ShopPageSectionSquares } from './Shop/ShopPage/ShopPageSectionSquares';
+export { default as ShopPageSliderText } from './Shop/ShopPage/ShopPageSliderText';
+export { default as ShopPageCompositionProduct } from './Shop/ShopPage/ShopPageCompositionProduct';
+export { default as ShopPageTeachers } from './Shop/ShopPage/ShopPageTeachers';
+export { default as ShopPageFeedbackPhotos } from './Shop/ShopPage/ShopPageFeedbackPhotos';
+export { default as ShopPageFeedbackVideos } from './Shop/ShopPage/ShopPageFeedbackVideos';
+export { default as ShopPageGoods } from './Shop/ShopPage/ShopPageGoods';
+
 
 // Timetable
 export { default as TimetableSection } from './Timetable/TimetableSection';

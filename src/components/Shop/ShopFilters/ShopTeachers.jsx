@@ -22,7 +22,7 @@ const ShopTeachers = React.memo(() => {
     return (
         <div className="shop-filters-block-wrapper">
             <div className="shop-filters-block">
-                <h3 className="shop-filters__title">Тренера</h3>
+                <h3 className="shop-filters__title">Преподаватели</h3>
 
                 {Object.keys(teachers).map((key) => (
                     <div

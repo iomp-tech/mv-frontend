@@ -1,5 +1,6 @@
 import React from "react";
 import NumberFormat from "react-number-format";
+import {Link} from "react-router-dom";
 
 const ShopBlock = React.memo(
     ({
@@ -21,7 +22,8 @@ const ShopBlock = React.memo(
         categories,
         types,
         auths,
-        idAwo,
+        page,
+        url,
         isLoadedLimit = true,
         size,
         DOMEN,
@@ -183,12 +185,22 @@ const ShopBlock = React.memo(
                             Подробнее
                         </a>
                     ) : (
-                        <button
-                            className={`btn-bold_color shop-block__btn ${size}`}
-                            onClick={setUpdateGoods}
-                        >
-                            Добавить в корзину
-                        </button>
+                        <div className="shop-block-btn">
+                            <button
+                                className={`btn-bold_color shop-block__btn ${size}`}
+                                onClick={setUpdateGoods}
+                            >
+                                Добавить в корзину
+                            </button>
+                            {page && url ? (
+                                <Link
+                                    className="shop-block__link"
+                                    to={`/shop/pages/${url}`}
+                                >
+                                    Подробнее
+                                </Link>
+                            ) : null}
+                        </div>
                     )}
                 </div>
             </div>

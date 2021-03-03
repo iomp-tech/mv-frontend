@@ -27,7 +27,9 @@ const Teacher = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
 
-        dispatch(fetchTeacherMain());
+        if (!Object.keys(itemsMain).length) {
+            dispatch(fetchTeacherMain());
+        }
 
         document.body.addEventListener("click", handTeacherModalBool);
     }, []);
@@ -36,10 +38,6 @@ const Teacher = () => {
         setTeacherModalBool(!TeacherModalBool);
         setActiveTeacherItems(index);
     };
-
-    const findTeacherActiveItem = itemsMain.find(
-        (item) => item.id === activeTeacherItems
-    );
 
     if (TeacherModalBool === true) {
         document.body.style.overflow = "hidden";
@@ -71,19 +69,21 @@ const Teacher = () => {
                             state={TeacherModalBool}
                             onClick={toggleTeacherModal}
                             modalRef={TeacherModalRef}
-                            {...findTeacherActiveItem}
+                            {...itemsMain[activeTeacherItems]}
                         />
 
                         <div className="teacher-block-wrapper">
                             {isLoaded
-                                ? itemsMain.map((obj, index) => (
+                                ? Object.keys(itemsMain).map((key) => (
                                       <TeacherBlock
-                                          key={`teacher-block-${obj.id}`}
+                                          key={`teacher-block-${itemsMain[key].id}`}
                                           size={size}
                                           onClick={() =>
-                                              toggleTeacherModal(obj.id)
+                                              toggleTeacherModal(
+                                                  itemsMain[key].id
+                                              )
                                           }
-                                          {...obj}
+                                          {...itemsMain[key]}
                                       />
                                   ))
                                 : Array(4)

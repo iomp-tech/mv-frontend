@@ -82,6 +82,12 @@
 			&-block-wrapper:nth-child(2n+1) &-block
 				border-left: 1px solid $gray
 
+		&-page
+			&-composition-product
+				&-block
+					&-wrapper
+						flex-direction: column
+
 @media screen and (max-width: 1150px)
 	// header
 	.header
@@ -111,6 +117,12 @@
 
 			&-price
 				margin-bottom: 25px
+
+		&-page
+			&-main2
+				&-form
+					&-block-wrapper
+						width: 75%
 
 	// cart
 	.cart
@@ -284,6 +296,26 @@
 			&__btn
 				width: 100%
 
+		&-page
+			&-slider-text
+				&-list
+					&__li
+						width: 100%
+						font-size: 21px
+
+			&-composition-product
+				&-modules
+					&-item
+						&__title
+							font-size: 36px
+
+				&-list
+					&-item
+						justify-content: space-between
+
+						&__description
+							max-width: 50%
+
 	// timetable-page
 	.timetable-page
 		&-wrapper
@@ -379,6 +411,18 @@
 
 		&-wrapper-top
 			display: none
+
+	// shop
+	.shop
+		&-page
+			&-main2
+				&-form-block-wrapper
+					width: 100%
+
+			&-composition-product
+				&-form
+					&-block-wrapper
+						width: 100%
 
 	// timetable
 	.timetable
@@ -492,6 +536,26 @@
 
 			&__btn
 				width: 100%
+
+@media screen and (max-width: 800px)
+	// shop
+	.shop
+		&-page
+			&-main1, &-main2
+				&__title
+					font-size: 42px
+
+			&-composition-product
+				&-list
+					&-item
+						flex-direction: column
+
+						&__title
+							margin-right: 0
+							margin-bottom: 25px
+
+						&__description
+							max-width: 100%
 
 @media screen and (max-width: 750px)
 	// cabinet
@@ -633,6 +697,39 @@
 		&__title
 			font-size: 48px
 
+@media screen and (max-width: 600px)
+	// shop
+	.shop
+		&-page
+			&-main1, &-main2
+				&__title
+					font-size: 36px
+
+				&__description
+					font-size: 21px
+
+			&-main2
+				&-date
+					flex-direction: column
+
+					&-right
+						margin-top: 15px
+
+			&-slider-text
+				&-tabs
+					&-item
+						&__title
+							font-size: 32px
+
+				&-list
+					&__li
+						font-size: 18px
+						padding: 0
+						padding-bottom: 50px
+
+						&::before
+							display: none
+
 @media screen and (max-width: 580px)
 	// magazine
 	.magazine
@@ -740,6 +837,36 @@
 		&-page
 			&__title
 				font-size: 32px
+
+@media screen and (max-width: 500px)
+	// interface
+	.checkbox
+		&+label
+			font-size: 13px
+
+	// shop
+	.shop
+		&-page
+			&-main1, &-main2
+				&__title
+					font-size: 28px
+
+			&-slider-text
+				&-tabs
+					&-item
+						&__title
+							font-size: 24px
+
+			&-composition-product
+				&-modules
+					&-item
+						&__title
+							font-size: 24px
+
+				&-list
+					&-item
+						&__title
+							font-size: 24px
 
 @media screen and (max-width: 480px)
 	//header

@@ -11,8 +11,7 @@ import TeacherBlockLoading from "./TeacherBlockLoading";
 const TeacherSection = () => {
     const dispatch = useDispatch();
 
-    const teacherItems = useSelector(({teacher}) => teacher.itemsMain);
-    const isLoaded = useSelector(({teacher}) => teacher.isLoaded);
+    const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
     const {size, rgb, bgColor} = useSelector(({visually}) => visually);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
@@ -20,14 +19,15 @@ const TeacherSection = () => {
 
     const TeacherModalRef = React.useRef();
 
+    React.useEffect(() => {
+        dispatch(fetchTeacherMain(4));
+        document.body.addEventListener("click", handTeacherModalBool);
+    }, []);
+
     const toggleTeacherModal = (index) => {
         setTeacherModalBool(!TeacherModalBool);
         setActiveTeacherItems(index);
     };
-
-    const findTeacherActiveItem = teacherItems.find(
-        (item) => item.id === activeTeacherItems
-    );
 
     if (TeacherModalBool === true) {
         document.body.style.overflow = "hidden";
@@ -41,14 +41,9 @@ const TeacherSection = () => {
         }
     };
 
-    React.useEffect(() => {
-        dispatch(fetchTeacherMain(4));
-        document.body.addEventListener("click", handTeacherModalBool);
-    }, []);
-
     return (
         <>
-            {teacherItems.length ? (
+            {Object.keys(itemsMain).length ? (
                 <section className="teacher" style={{marginBottom: "50px"}}>
                     <div className="container">
                         <div className="teacher-wrapper">
@@ -62,19 +57,21 @@ const TeacherSection = () => {
                                 state={TeacherModalBool}
                                 onClick={toggleTeacherModal}
                                 modalRef={TeacherModalRef}
-                                {...findTeacherActiveItem}
+                                {...itemsMain[activeTeacherItems]}
                             />
 
                             <div className="teacher-block-wrapper">
                                 {isLoaded
-                                    ? teacherItems.map((obj) => (
+                                    ? Object.keys(itemsMain).map((key) => (
                                           <TeacherBlock
-                                              key={`teacher-block-${obj.id}`}
+                                              key={`teacher-block-${itemsMain[key].id}`}
                                               size={size}
                                               onClick={() =>
-                                                  toggleTeacherModal(obj.id)
+                                                  toggleTeacherModal(
+                                                      itemsMain[key].id
+                                                  )
                                               }
-                                              {...obj}
+                                              {...itemsMain[key]}
                                           />
                                       ))
                                     : Array(4)

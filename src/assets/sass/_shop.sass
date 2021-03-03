@@ -248,12 +248,22 @@
 			&.X2
 				font-size: 48px
 
+		&-btn
+			display: flex
+			flex-direction: column
+			align-items: center
+
 		&__btn
 			&.X1-5
 				font-size: 22px
 
 			&.X2
 				font-size: 30px
+
+		&__link
+			font-size: 17px
+			color: $mainColor
+			margin-top: 15px
 
 	&-btn-wrapper
 		margin-top: 50px
@@ -272,3 +282,356 @@
 		display: flex
 		justify-content: center
 		margin-bottom: 50px
+
+// shop-page
+.shop-page
+	&-main1
+		margin: 75px 0
+
+		&-wrapper
+			position: relative
+
+		&__title
+			font-size: 54px
+			max-width: 1200px
+
+			& > span
+				color: $mainColor
+
+			&.X1-5
+				max-width: 100%
+				font-size: 108px
+
+			&.X2
+				max-width: 100%
+				font-size: 144px
+
+		&__description
+			font-size: 24px
+			margin-top: 25px
+			max-width: 800px
+
+			&.X1-5, &.X2
+				max-width: 100%
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
+		&__btn
+			margin-top: 50px
+
+			&.X1-5
+				font-size: 18px
+
+			&.X2
+				font-size: 24px
+
+	&-main2
+		margin: 75px 0
+
+		&-wrapper
+			position: relative
+
+		&__title
+			font-size: 54px
+			max-width: 1200px
+
+			& > span
+				color: $mainColor
+
+			&.X1-5
+				max-width: 100%
+				font-size: 108px
+
+			&.X2
+				max-width: 100%
+				font-size: 144px
+
+		&__description
+			font-size: 24px
+			margin-top: 25px
+			max-width: 800px
+
+			&.X1-5, &.X2
+				max-width: 100%
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
+		&__btn
+			margin-top: 50px
+
+			&.X1-5
+				font-size: 18px
+
+			&.X2
+				font-size: 24px
+
+		&__date
+			display: block
+			font-size: 24px
+
+			& > b
+				+bold
+
+			&.X1-5
+				font-size: 36px
+
+			&.X2
+				font-size: 48px
+
+			&-range
+				display: inline-block
+				margin-bottom: 15px
+				font-size: 24px
+
+				& > b
+					+bold
+
+		&-date
+			margin-top: 50px
+			display: flex
+
+			&-left
+				margin-right: 30px
+
+			&-right
+				display: flex
+				flex-direction: column
+
+		&-form
+			margin: 50px 0
+			&__title
+				font-size: 36px
+
+			&-middle
+				margin: 35px 0
+
+			&-block-wrapper
+				height: 100%
+				width: 50%
+				display: flex
+				justify-content: space-between
+
+			&-input-wrapper
+				width: 49%
+
+			&-input
+				position: relative
+				height: 100%
+				width: 100%
+
+				&__field
+					width: 100%
+					height: 100%
+
+			&__btn
+				width: 49%
+
+	// slider-text
+	&-slider-text
+		margin: 100px 0
+
+		&-tabs
+			&-item
+				&__title
+					white-space: nowrap
+					font-size: 36px
+					color: #DDDDFD
+					text-decoration: underline
+					+transition
+
+					&.active
+						color: $mainColor
+
+		&-list
+			border-top: 1px solid $gray
+			margin-top: 50px
+			padding-top: 50px
+
+			&-ul
+				display: flex
+				justify-content: space-between
+				flex-wrap: wrap
+
+				&.active
+					animation-name: shopPageTabs
+					animation-duration: .4s
+
+			&__li
+				padding: 0 50px
+				margin-bottom: 50px
+				width: 49%
+				position: relative
+				font-size: 24px
+				list-style: none
+				border-bottom: 1px solid $gray
+				padding-bottom: 50px
+				opacity: 1
+
+				&::before
+					content: ""
+					position: absolute
+					height: 2px
+					width: 20px
+					top: 15px
+					left: 0px
+					background-color: $mainColor
+
+	// composition-product
+	&-composition-product
+		margin: 100px 0
+
+		&-modules
+			&-description
+				margin: 50px 0
+				padding-bottom: 50px
+				border-bottom: 1px solid $gray
+
+				&.active
+					animation-name: shopPageTabs
+					animation-duration: .4s
+
+			&__description
+				font-size: 21px
+				max-width: 900px
+
+			&-item
+				&__title
+					white-space: nowrap
+					font-size: 58px
+					color: #DDDDFD
+					text-decoration: underline
+					+transition
+
+					&.active
+						color: $mainColor
+
+		&-list
+			&.active
+				animation-name: shopPageTabs
+				animation-duration: .4s
+
+			&-item
+				display: flex
+				padding-bottom: 50px
+				margin-bottom: 50px
+				border-bottom: 1px solid $gray
+
+				&__title
+					font-size: 36px
+					color: $mainColor
+					margin-right: 50px
+
+				&__description
+					font-size: 21px
+					max-width: 900px
+
+		&-block
+			&-left
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+				padding-right: 50px
+				width: 45%
+				border-right: 1px solid $gray
+
+				&-price
+					&-wrapper
+						display: flex
+						justify-content: space-between
+
+			&-right
+				width: 50%
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+
+			&-wrapper
+				display: flex
+				justify-content: space-between
+
+			&__title
+				font-size: 32px
+
+				&_color
+					font-size: 36px
+					margin-bottom: 25px
+					color: $mainColor
+
+			&__subtitle
+				font-size: 21px
+
+			&-price
+				display: flex
+				flex-direction: column
+				justify-content: space-between
+
+			&__subprice
+				font-size: 38px
+				color: $gray
+				text-decoration: line-through
+
+			&__price
+				font-size: 48px
+				color: $mainColor
+
+			&__btn
+				width: 100%
+				margin-top: 50px
+
+		&-form
+			&__title
+				font-size: 36px
+
+			&-middle
+				margin: 35px 0
+
+			&-block-wrapper
+				height: 100%
+				width: 75%
+				display: flex
+				justify-content: space-between
+
+			&-input-wrapper
+				width: 49%
+
+			&-input
+				position: relative
+				height: 100%
+				width: 100%
+
+				&__field
+					width: 100%
+					height: 100%
+
+			&__btn
+				width: 49%
+
+	// feedback-slider
+	&-feedback-slider
+		margin: 100px 0
+
+		&__title
+			margin-bottom: 50px
+
+		&-item
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+
+			width: 100%
+			height: 400px
+
+			background-size: contain
+			background-repeat: no-repeat
+			background-position: center center
+
+		&-arrow
+			margin-top: 50px
+			display: flex
+			justify-content: center

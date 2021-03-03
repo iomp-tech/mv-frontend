@@ -1,6 +1,7 @@
 const initialState = {
 	items: {},
 	itemsSection: {},
+	byUrlItem: {},
 	times: {},
 	types: {},
 	filters: {
@@ -60,6 +61,19 @@ const goods = (state = initialState, action) => {
 		return {
 			...state,
 			itemsSection: newItems,
+			isLoaded: true,
+		};
+	}
+	if (action.type === 'SET_GOODS_BY_URL') {
+		let newItems = {};
+
+		if (action.payload[0]) {
+			newItems = { ...action.payload[0] }
+		}
+
+		return {
+			...state,
+			byUrlItem: newItems,
 			isLoaded: true,
 		};
 	}

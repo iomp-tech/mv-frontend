@@ -30,6 +30,17 @@ export const fetchGoodsSection = () => (dispatch) => {
 	});
 };
 
+export const fetchByUrlGoods = (url = "") => (dispatch) => {
+	dispatch({
+		type: 'SET_LIMIT_LOADED_GOODS',
+		payload: false,
+	});
+
+	axios.get(`${API_DOMEN}/goods${url !== "" ? `?url=${url}` : ""}`).then(({ data }) => {
+		dispatch(setGoodsByUrl(data));
+	});
+};
+
 export const fetchGoodsTime = () => (dispatch) => {
 	axios.get(`${API_DOMEN}/goodsTimetype`).then(({ data }) => {
 		dispatch(setGoodsTime(data));
@@ -63,6 +74,11 @@ export const setLimitGoods = (items) => ({
 
 export const setGoodsSection = (items) => ({
 	type: 'SET_GOODS_SECTION',
+	payload: items,
+});
+
+export const setGoodsByUrl = (items) => ({
+	type: 'SET_GOODS_BY_URL',
 	payload: items,
 });
 

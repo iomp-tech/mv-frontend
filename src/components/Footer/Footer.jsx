@@ -159,7 +159,7 @@ const Footer = () => {
                                     <br />
                                     ИНН 7727431274
                                     <br />
-                                    КПП 772701001
+                                    КПП 772401001
                                 </div>
                                 <div className="footer-bottom-right">
                                     <p className={`footer__comp ${size}`}>

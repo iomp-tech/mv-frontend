@@ -16,6 +16,7 @@ const Magazine = React.lazy(() => import('./pages/Magazine'));
 const Institute = React.lazy(() => import('./pages/Institute'));
 const Cart = React.lazy(() => import('./pages/Cart'));
 const Shop = React.lazy(() => import('./pages/Shop'));
+const ShopPage = React.lazy(() => import('./pages/ShopPage'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Register = React.lazy(() => import('./pages/Register'));
 const Confirmed = React.lazy(() => import('./pages/Confirmed'));
@@ -48,14 +49,21 @@ function App() {
 				<Suspense fallback={<PreloaderPage />}>
 					<Switch>
 						<Route path="/" render={() => <Home />} exact />
-						<Route path='/shop/:filters?' render={(props) => <Shop {...props} />} />
+
+						<Route path='/shop/:filters?' render={(props) => <Shop {...props} />} exact />
+						<Route path='/shop/pages/:url' render={(props) => <ShopPage {...props} />} exact />
+
 						<Route path='/timetable' render={(props) => <Timetable {...props} />} exact />
 						<Route path='/timetable/:cat?' render={(props) => <Timetable {...props} />} exact />
 						<Route path='/timetable/pages/:id' render={(props) => <TimetableSubs {...props} />} exact />
+
 						<Route path='/teachers' render={() => <Teacher />} exact />
+
 						<Route path='/institute' render={() => <Institute />} exact />
+
 						<Route path='/post/:id' render={(props) => <Post {...props} />} exact />
 						<Route path='/magazine/:cat?' render={(props) => <Magazine {...props} />} />
+
 						<Route path='/cart' render={() => <Cart />} exact />
 
 						<Route path='/register' render={() => <Register />} exact />
