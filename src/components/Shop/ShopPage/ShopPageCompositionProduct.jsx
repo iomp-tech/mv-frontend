@@ -108,22 +108,30 @@ const ShopPageCompositionProduct = ({
     };
 
     return (
-        <section className="shop-page-composition-product">
+        <section
+            className="shop-page-composition-product"
+            id="shop-page-composition-product"
+        >
             <div className="container">
                 <div className="shop-page-composition-product-wrapper">
-                    <h2 className="title shop-page-composition-product__title">
+                    <h2
+                        className={`title ${size} shop-page-composition-product__title`}
+                    >
                         {title}
                     </h2>
                     <OwlCarousel options={options}>
                         {modules.map((module, index) => (
-                            <div className="shop-page-composition-product-modules-item">
+                            <div
+                                key={`shop-page-composition-product-modules-item-${index}`}
+                                className="shop-page-composition-product-modules-item"
+                            >
                                 <h3
                                     key={`composition-product-module-${index}`}
                                     className={`shop-page-composition-product-modules-item__title ${
                                         index === stateListModulesIndex
                                             ? "active"
                                             : ""
-                                    }`}
+                                    } ${size}`}
                                     onClick={() =>
                                         onClickSliderTextModulesItem(
                                             module.items,
@@ -140,9 +148,11 @@ const ShopPageCompositionProduct = ({
                     <div
                         className={`shop-page-composition-product-modules-description ${
                             stateAnimateModules ? "active" : ""
-                        }`}
+                        } ${size}`}
                     >
-                        <p className="shop-page-composition-product-modules__description">
+                        <p
+                            className={`shop-page-composition-product-modules__description ${size}`}
+                        >
                             {stateDescModules !== ""
                                 ? stateDescModules
                                 : modules[0].description}
@@ -151,18 +161,22 @@ const ShopPageCompositionProduct = ({
                     <div
                         className={`shop-page-composition-product-list ${
                             stateAnimateModules ? "active" : ""
-                        }`}
+                        } ${size}`}
                     >
                         {stateListModules.length
                             ? stateListModules.map((item, index) => (
                                   <div
                                       key={`composition-product-list-item-${index}`}
-                                      className="shop-page-composition-product-list-item"
+                                      className={`shop-page-composition-product-list-item ${size}`}
                                   >
-                                      <h4 className="shop-page-composition-product-list-item__title">
+                                      <h4
+                                          className={`shop-page-composition-product-list-item__title ${size}`}
+                                      >
                                           {item.title}
                                       </h4>
-                                      <p className="shop-page-composition-product-list-item__description">
+                                      <p
+                                          className={`shop-page-composition-product-list-item__description ${size}`}
+                                      >
                                           {item.description}
                                       </p>
                                   </div>
@@ -170,12 +184,16 @@ const ShopPageCompositionProduct = ({
                             : modules[0].items.map((item, index) => (
                                   <div
                                       key={`composition-product-list-item-${index}`}
-                                      className="shop-page-composition-product-list-item"
+                                      className={`shop-page-composition-product-list-item ${size}`}
                                   >
-                                      <h4 className="shop-page-composition-product-list-item__title">
+                                      <h4
+                                          className={`shop-page-composition-product-list-item__title ${size}`}
+                                      >
                                           {item.title}
                                       </h4>
-                                      <p className="shop-page-composition-product-list-item__description">
+                                      <p
+                                          className={`shop-page-composition-product-list-item__description ${size}`}
+                                      >
                                           {item.description}
                                       </p>
                                   </div>
@@ -193,7 +211,9 @@ const ShopPageCompositionProduct = ({
                                 Записаться
                             </h3>
                             <div className="shop-page-composition-product-form-middle">
-                                <div className="shop-page-composition-product-form-block-wrapper">
+                                <div
+                                    className={`shop-page-composition-product-form-block-wrapper ${size}`}
+                                >
                                     <div className="input shop-page-composition-product-form-input-wrapper">
                                         <input
                                             type="hidden"
@@ -294,11 +314,11 @@ const ShopPageCompositionProduct = ({
                                     onChange={checkBox}
                                 />
                                 <label
-                                    className={`${size} shop-page-composition-product__label ${
+                                    className={`shop-page-composition-product__label ${
                                         errorForm.confirmation
                                             ? "checkbox-label_error"
                                             : "checkbox-label"
-                                    }`}
+                                    } ${size}`}
                                     htmlFor="shop-page-composition-product__checkbox-1"
                                 >
                                     Я согласен с условиями обработки
@@ -307,17 +327,27 @@ const ShopPageCompositionProduct = ({
                             </div>
                         </form>
                     ) : (
-                        <div className="shop-page-composition-product-block-wrapper">
-                            <div className="shop-page-composition-product-block-left">
-                                <div className="shop-page-composition-product-block-left-price-wrapper">
-                                    <h4 className="shop-page-composition-product-block__title">
+                        <div
+                            className={`shop-page-composition-product-block-wrapper ${size}`}
+                        >
+                            <div
+                                className={`shop-page-composition-product-block-left ${size}`}
+                            >
+                                <div
+                                    className={`shop-page-composition-product-block-left-price-wrapper ${size}`}
+                                >
+                                    <h4
+                                        className={`shop-page-composition-product-block__title ${size}`}
+                                    >
                                         Стоимость:
                                     </h4>
                                     <div className="shop-page-composition-product-block-price">
                                         <div className="shop-page-composition-product-block-price-top">
                                             {byUrlItem.sale ? (
                                                 <>
-                                                    <p className="shop-page-composition-product-block__subprice">
+                                                    <p
+                                                        className={`shop-page-composition-product-block__subprice ${size}`}
+                                                    >
                                                         <NumberFormat
                                                             value={
                                                                 byUrlItem.priceOld
@@ -329,7 +359,9 @@ const ShopPageCompositionProduct = ({
                                                         />
                                                         ₽
                                                     </p>
-                                                    <h3 className="shop-page-composition-product-block__price">
+                                                    <h3
+                                                        className={`shop-page-composition-product-block__price ${size}`}
+                                                    >
                                                         <NumberFormat
                                                             value={
                                                                 byUrlItem.price
@@ -343,7 +375,9 @@ const ShopPageCompositionProduct = ({
                                                     </h3>
                                                 </>
                                             ) : (
-                                                <h3 className="shop-page-composition-product-block__price">
+                                                <h3
+                                                    className={`shop-page-composition-product-block__price ${size}`}
+                                                >
                                                     <NumberFormat
                                                         value={byUrlItem.price}
                                                         displayType={"text"}
@@ -362,7 +396,9 @@ const ShopPageCompositionProduct = ({
                                     Добавить в корзину
                                 </button>
                             </div>
-                            <div className="shop-page-composition-product-block-right">
+                            <div
+                                className={`shop-page-composition-product-block-right ${size}`}
+                            >
                                 <form
                                     action={CART_DOMEN}
                                     method="post"
@@ -370,10 +406,14 @@ const ShopPageCompositionProduct = ({
                                     acceptCharset="UTF-8"
                                 >
                                     <div className="shop-page-composition-product-block-right-top">
-                                        <h4 className="shop-page-composition-product-block__title_color">
+                                        <h4
+                                            className={`shop-page-composition-product-block__title_color ${size}`}
+                                        >
                                             {blockTitle}
                                         </h4>
-                                        <p className="shop-page-composition-product-block__subtitle">
+                                        <p
+                                            className={`shop-page-composition-product-block__subtitle ${size}`}
+                                        >
                                             {blockDescription}
                                         </p>
                                     </div>

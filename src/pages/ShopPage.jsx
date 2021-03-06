@@ -1,6 +1,6 @@
 import React from "react";
-import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
+import {Helmet} from "react-helmet";
 
 import {
     ShopPageMain1,
@@ -23,7 +23,7 @@ const ShopPage = (props) => {
     const dispatch = useDispatch();
 
     const {byUrlItem, isLoaded} = useSelector(({goods}) => goods);
-    const {size} = useSelector(({visually}) => visually);
+    const {size, type} = useSelector(({visually}) => visually);
     const url = props.match.params.url;
 
     React.useEffect(() => {
@@ -35,14 +35,14 @@ const ShopPage = (props) => {
     return (
         <>
             {isLoaded ? (
-                Object.keys(byUrlItem).length ? (
+                byUrlItem && Object.keys(byUrlItem).length ? (
                     <>
                         <Helmet>
                             <title>{byUrlItem.title} - IOMP</title>
                         </Helmet>
 
-                        {byUrlItem.page.map((block) => (
-                            <>
+                        {byUrlItem.page.map((block, index) => (
+                            <div key={`shop-page-block-${index}`}>
                                 {block.type === "main1" ? (
                                     <ShopPageMain1 size={size} {...block} />
                                 ) : null}
@@ -52,6 +52,7 @@ const ShopPage = (props) => {
                                 {block.type === "section-squares" ? (
                                     <ShopPageSectionSquares
                                         size={size}
+                                        type={type}
                                         {...block}
                                     />
                                 ) : null}
@@ -85,7 +86,7 @@ const ShopPage = (props) => {
                                 {block.type === "goods" ? (
                                     <ShopPageGoods size={size} {...block} />
                                 ) : null}
-                            </>
+                            </div>
                         ))}
                     </>
                 ) : (

@@ -2,7 +2,7 @@ import moment from "moment";
 
 const initialState = {
 	items: {},
-	itemOne: {},
+	byUrl: {},
 	timetableType: {},
 	filters: {
 		type: {},
@@ -24,7 +24,7 @@ const timetable = (state = initialState, action) => {
 		sortItmes.map(obj => (
 			newItems[`timetable-${obj.id}`] = obj
 		));
-		
+
 		return {
 			...state,
 			items: newItems,
@@ -49,11 +49,17 @@ const timetable = (state = initialState, action) => {
 			isLoadedLimit: true
 		};
 	}
-	if (action.type === 'SET_BY_ID_TIMETABLE') {
+	if (action.type === 'SET_BY_URL_TIMETABLE') {
+		let newItems = {};
+
+		if (action.payload[0]) {
+			newItems = { ...action.payload[0] }
+		}
+
 		return {
 			...state,
-			itemOne: action.payload,
-			isLoaded: true
+			byUrlItem: newItems,
+			isLoaded: true,
 		};
 	}
 	if (action.type === 'SET_TIMETABLE_TYPE') {

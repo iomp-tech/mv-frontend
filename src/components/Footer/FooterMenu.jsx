@@ -15,13 +15,13 @@ const FooterMenu = ({footerMenu, size}) => {
     }
 
     return (
-        <nav className="footer-nav">
+        <nav className={`footer-nav ${size}`}>
             <Link to="/shop" className={`footer-nav__btn ${size}`}>
                 Магазин курсов
             </Link>
             {footerMenuBlock &&
                 footerMenuBlock.map((objs, index) => (
-                    <div className="footer-nav-block" key={index}>
+                    <div className={`footer-nav-block ${size}`} key={index}>
                         {objs &&
                             objs.map((obj, index) => (
                                 <span key={`footer-menu-${index}`}>

@@ -12,6 +12,10 @@
 		justify-content: space-between
 		flex-wrap: wrap
 
+	&-top
+		&.X1-5,&.X2
+			flex-direction: column
+
 	&-middle
 		margin-top: 75px
 
@@ -51,8 +55,18 @@
 		align-items: flex-start
 		display: flex
 
+		&.X1-5, &.X2
+			margin-top: 50px
+
+		&.X2
+			flex-direction: column
+
 		&-block
 			margin-left: 50px
+
+			&.X2
+				margin-left: 0
+				margin-top: 50px
 
 		&__link
 			display: block
@@ -106,6 +120,9 @@
 			font-size: 36px
 
 	&-email-form
+		&.X1-5, &.X2
+			margin-top: 50px
+
 		&__title
 			font-size: 24px
 			margin-bottom: 50px

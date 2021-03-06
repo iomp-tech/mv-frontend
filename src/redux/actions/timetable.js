@@ -24,13 +24,14 @@ export const fetchLimitTimetable = (limit = null, cat = "", query = "") => (disp
 	});
 };
 
-export const fetchByIdTimetable = (id = null) => (dispatch) => {
+export const fetchByUrlTimetable = (url = "") => (dispatch) => {
 	dispatch({
 		type: 'SET_LOADED_TIMETABLE',
 		payload: false,
 	});
-	axios.get(`${API_DOMEN}/timetable${id !== null ? `/${id}` : ""}`).then(({ data }) => {
-		dispatch(setByIdTimetable(data));
+
+	axios.get(`${API_DOMEN}/timetable${url !== "" ? `?url=${url}` : ""}`).then(({ data }) => {
+		dispatch(setByUrlTimetable(data));
 	});
 };
 
@@ -50,8 +51,8 @@ export const setLimitTimetable = (items) => ({
 	payload: items,
 });
 
-export const setByIdTimetable = (items) => ({
-	type: 'SET_BY_ID_TIMETABLE',
+export const setByUrlTimetable = (items) => ({
+	type: 'SET_BY_URL_TIMETABLE',
 	payload: items,
 });
 

@@ -192,7 +192,7 @@ const ShopBlock = React.memo(
                             >
                                 Добавить в корзину
                             </button>
-                            {page && url ? (
+                            {page.length ? (
                                 <Link
                                     className="shop-block__link"
                                     to={`/shop/pages/${url}`}

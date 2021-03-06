@@ -10,7 +10,7 @@ const ServicesSection = () => {
     const dispatch = useDispatch();
     const servicesItems = useSelector(({services}) => services.items);
     const {isLoaded} = useSelector(({services}) => services);
-    const {size} = useSelector(({visually}) => visually);
+    const {size, type} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(fetchServices());
@@ -20,8 +20,18 @@ const ServicesSection = () => {
         <section className="services">
             <div className="container">
                 <div className="services-wrapper">
-                    <div className={`circle-bold ${size} services-circle1`}></div>
-                    <div className={`circle-bold ${size} services-circle2`}></div>
+                    {type === "blackWhite" ||
+                    type === "null" ||
+                    type === null ? (
+                        <>
+                            <div
+                                className={`circle-bold ${size} services-circle1`}
+                            ></div>
+                            <div
+                                className={`circle-bold ${size} services-circle2`}
+                            ></div>
+                        </>
+                    ) : null}
 
                     <h2 className={`title ${size} services__title`}>
                         Раскройте свои сильные стороны

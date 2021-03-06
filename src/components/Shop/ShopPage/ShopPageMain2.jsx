@@ -6,7 +6,6 @@ import "moment/locale/ru";
 const ShopPageMain2 = ({
     title,
     description,
-    btnText,
     range,
     minDate,
     maxDate,
@@ -72,12 +71,6 @@ const ShopPageMain2 = ({
                         {description}
                     </p>
 
-                    <a
-                        className={`btn-bold_color shop-page-main2__btn ${size}`}
-                    >
-                        {btnText}
-                    </a>
-
                     <div className="circle-wrapper main-circle-wrapper">
                         <div className="circle-regular main-circle1"></div>
                         <div
@@ -114,7 +107,7 @@ const ShopPageMain2 = ({
                             </div>
                         </div>
                     ) : (
-                        <div className="shop-page-main2-date">
+                        <div className={`shop-page-main2-date ${size}`}>
                             <div className="shop-page-main2-date-left">
                                 <span
                                     className={`shop-page-main2__date ${size}`}
@@ -143,7 +136,9 @@ const ShopPageMain2 = ({
                             Записаться
                         </h3>
                         <div className="shop-page-main2-form-middle">
-                            <div className="shop-page-main2-form-block-wrapper">
+                            <div
+                                className={`shop-page-main2-form-block-wrapper  ${size}`}
+                            >
                                 <div className="input shop-page-main2-form-input-wrapper">
                                     <input
                                         type="hidden"

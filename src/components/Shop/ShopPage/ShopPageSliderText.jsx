@@ -1,5 +1,7 @@
 import React from "react";
 
+import {Link, animateScroll as scroll} from "react-scroll";
+
 import OwlCarousel from "react-owl-carousel2";
 import "../../../assets/owl-carousel/owl.carousel.css";
 
@@ -34,19 +36,24 @@ const ShopPageSliderText = ({title, tabs, btnText, size}) => {
         <section className="shop-page-slider-text">
             <div className="container">
                 <div className="shop-page-slider-text-wrapper">
-                    <h2 className="title shop-page-slider-text__title">
+                    <h2
+                        className={`title ${size} shop-page-slider-text__title`}
+                    >
                         {title}
                     </h2>
                     <OwlCarousel options={options}>
                         {tabs.map((tab, index) => (
-                            <div className="shop-page-slider-text-tabs-item">
+                            <div
+                                key={`shop-page-slider-text-tabs-item-${index}`}
+                                className="shop-page-slider-text-tabs-item"
+                            >
                                 <h3
                                     key={`slider-text-tab-${index}`}
                                     className={`shop-page-slider-text-tabs-item__title ${
                                         index === stateListTabsIndex
                                             ? "active"
                                             : ""
-                                    }`}
+                                    } ${size}`}
                                     onClick={() =>
                                         onClickSliderTextTabsItem(
                                             tab.items,
@@ -59,17 +66,17 @@ const ShopPageSliderText = ({title, tabs, btnText, size}) => {
                             </div>
                         ))}
                     </OwlCarousel>
-                    <div className="shop-page-slider-text-list">
+                    <div className={`shop-page-slider-text-list ${size}`}>
                         {stateListTabs.length ? (
                             <ul
                                 className={`shop-page-slider-text-list-ul ${
                                     stateAnimateTabs ? "active" : ""
-                                }`}
+                                } ${size}`}
                             >
                                 {stateListTabs.map((li, index) => (
                                     <li
                                         key={`slider-text-li-${index}`}
-                                        className="shop-page-slider-text-list__li"
+                                        className={`shop-page-slider-text-list__li ${size}`}
                                     >
                                         <span>{li.text}</span>
                                     </li>
@@ -79,12 +86,12 @@ const ShopPageSliderText = ({title, tabs, btnText, size}) => {
                             <ul
                                 className={`shop-page-slider-text-list-ul ${
                                     stateAnimateTabs ? "active" : ""
-                                }`}
+                                } ${size}`}
                             >
                                 {tabs[0].items.map((li, index) => (
                                     <li
                                         key={`slider-text-li-${index}`}
-                                        className="shop-page-slider-text-list__li"
+                                        className={`shop-page-slider-text-list__li ${size}`}
                                     >
                                         <span>{li.text}</span>
                                     </li>
@@ -93,11 +100,19 @@ const ShopPageSliderText = ({title, tabs, btnText, size}) => {
                         )}
                     </div>
                     <div className="shop-page-slider-text-btn">
-                        <a
-                            className={`btn-bold_color shop-page-slider-text__btn ${size}`}
+                        <Link
+                            to="shop-page-composition-product"
+                            spy={true}
+                            smooth={true}
+                            offset={-100}
+                            duration={1000}
                         >
-                            {btnText}
-                        </a>
+                            <button
+                                className={`btn-bold_color shop-page-slider-text__btn ${size}`}
+                            >
+                                {btnText}
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

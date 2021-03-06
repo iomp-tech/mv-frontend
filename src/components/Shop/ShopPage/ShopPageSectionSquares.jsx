@@ -2,17 +2,23 @@ import React from "react";
 
 import {ServicesBlock} from "../../";
 
-const ShopPageSectionSquares = ({title, squares, size}) => {
+const ShopPageSectionSquares = ({title, squares, size, type}) => {
     return (
         <section className="services">
             <div className="container">
                 <div className="services-wrapper">
-                    <div
-                        className={`circle-bold ${size} services-circle1`}
-                    ></div>
-                    <div
-                        className={`circle-bold ${size} services-circle2`}
-                    ></div>
+                    {type === "blackWhite" ||
+                    type === "null" ||
+                    type === null ? (
+                        <>
+                            <div
+                                className={`circle-bold ${size} services-circle1`}
+                            ></div>
+                            <div
+                                className={`circle-bold ${size} services-circle2`}
+                            ></div>
+                        </>
+                    ) : null}
 
                     <h2 className={`title ${size} services__title`}>{title}</h2>
 

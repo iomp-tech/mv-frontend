@@ -88,6 +88,14 @@
 					&-wrapper
 						flex-direction: column
 
+					&-left, &-right
+						width: 100%
+
+					&-left
+						border: none
+						padding: 0
+						margin-bottom: 50px
+
 @media screen and (max-width: 1150px)
 	// header
 	.header
@@ -423,6 +431,21 @@
 				&-form
 					&-block-wrapper
 						width: 100%
+
+				&-block
+					&-left
+						&-price
+							&-wrapper
+								align-items: center
+								flex-wrap: wrap
+
+					&__price
+						padding: 15px 0
+						font-size: 32px
+
+					&__title
+						&_color
+							font-size: 28px
 
 	// timetable
 	.timetable

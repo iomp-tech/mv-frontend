@@ -2,6 +2,7 @@ const initialState = {
 	menu: [],
 	contact: [],
 	social: [],
+	legal: [],
 	isLoaded: false,
 };
 
@@ -24,6 +25,13 @@ const footer = (state = initialState, action) => {
 		return {
 			...state,
 			social: action.payload,
+			isLoaded: true
+		};
+	}
+	if (action.type === 'SET_FOOTER_LEGAL') {
+		return {
+			...state,
+			legal: action.payload,
 			isLoaded: true
 		};
 	}

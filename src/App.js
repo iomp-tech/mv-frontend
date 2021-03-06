@@ -55,7 +55,7 @@ function App() {
 
 						<Route path='/timetable' render={(props) => <Timetable {...props} />} exact />
 						<Route path='/timetable/:cat?' render={(props) => <Timetable {...props} />} exact />
-						<Route path='/timetable/pages/:id' render={(props) => <TimetableSubs {...props} />} exact />
+						<Route path='/timetable/pages/:url' render={(props) => <TimetableSubs {...props} />} exact />
 
 						<Route path='/teachers' render={() => <Teacher />} exact />
 

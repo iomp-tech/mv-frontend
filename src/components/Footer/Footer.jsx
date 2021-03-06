@@ -8,6 +8,7 @@ import {
     fetchFooterMenu,
     fetchFooterContact,
     fetchFooterSocial,
+    fetchFooterLegal,
 } from "../.././redux/actions/footer";
 
 import {fetchEmailForm} from "../../redux/actions/emailForm";
@@ -17,7 +18,9 @@ import {DOMEN} from "../../api";
 const Footer = () => {
     const dispatch = useDispatch();
 
-    const {menu, contact, social, isLoaded} = useSelector(({footer}) => footer);
+    const {menu, contact, social, legal, isLoaded} = useSelector(
+        ({footer}) => footer
+    );
     const {form} = useSelector(({emailForm}) => emailForm);
     const isLoadedForm = useSelector(({emailForm}) => emailForm.isLoaded);
     const {size} = useSelector(({visually}) => visually);
@@ -31,6 +34,9 @@ const Footer = () => {
         }
         if (!social.length) {
             dispatch(fetchFooterSocial());
+        }
+        if (!legal.length) {
+            dispatch(fetchFooterLegal());
         }
     }, []);
 
@@ -88,7 +94,7 @@ const Footer = () => {
                     <div className="container">
                         <div className="footer-wrapper">
                             <div className="footer-media">
-                                <div className="footer-top">
+                                <div className={`footer-top ${size}`}>
                                     <Link to="/" className="footer-logo__link">
                                         <img
                                             src={`${DOMEN}/public/storage/all/logo-white.svg`}
@@ -126,12 +132,19 @@ const Footer = () => {
                                             >
                                                 {contact.adres}
                                             </p>
-                                            <a
-                                                href={`tel:${contact.phone}`}
-                                                className={`footer__link ${size} footer-middle__link`}
-                                            >
-                                                {contact.phone}
-                                            </a>
+                                            {contact.phones &&
+                                                contact.phones.map(
+                                                    (phone, index) => (
+                                                        <a
+                                                            key={`footer-phone-${index}`}
+                                                            href={`tel:${phone.phone}`}
+                                                            className={`footer__link ${size} footer-middle__link`}
+                                                        >
+                                                            {phone.phone}
+                                                        </a>
+                                                    )
+                                                )}
+
                                             <a
                                                 href={`mailto:${contact.email}`}
                                                 className={`footer__link ${size} footer-middle__link`}
@@ -155,11 +168,11 @@ const Footer = () => {
 
                             <div className="footer-bottom">
                                 <div className={`footer-bottom-left ${size}`}>
-                                    ООО «ИСП» ОГРН 1197746615736
-                                    <br />
-                                    ИНН 7727431274
-                                    <br />
-                                    КПП 772401001
+                                    {legal.length && legal.map((item, index) => (
+                                        <span key={`footer-legal-${index}`}>
+                                            {item.string} <br />
+                                        </span>
+                                    ))}
                                 </div>
                                 <div className="footer-bottom-right">
                                     <p className={`footer__comp ${size}`}>

@@ -20,6 +20,12 @@ export const fetchFooterSocial = () => (dispatch) => {
 	});
 };
 
+export const fetchFooterLegal = () => (dispatch) => {
+	axios.get(`${API_DOMEN}/footer/legal`).then(({ data }) => {
+		dispatch(setFooterLegal(data));
+	});
+};
+
 export const setFooterMenu = (items) => ({
 	type: 'SET_FOOTER_MENU',
 	payload: items,
@@ -32,5 +38,10 @@ export const setFooterContact = (items) => ({
 
 export const setFooterSocial = (items) => ({
 	type: 'SET_FOOTER_SOCIAL',
+	payload: items,
+});
+
+export const setFooterLegal = (items) => ({
+	type: 'SET_FOOTER_LEGAL',
 	payload: items,
 });

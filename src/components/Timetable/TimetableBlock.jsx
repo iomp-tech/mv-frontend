@@ -5,14 +5,14 @@ import "moment/locale/ru";
 
 const TimetableBlock = React.memo(
     ({
-        id,
         category,
         title,
         range,
         minDate,
         maxDate,
         date,
-        type,
+		type,
+		url,
         ClassTimetablePage,
         categories,
         auth,
@@ -28,7 +28,7 @@ const TimetableBlock = React.memo(
                 style={{opacity: isLoadedLimit ? "" : "0.3"}}
             >
                 <Link
-                    to={`/timetable/pages/${id}`}
+                    to={`/timetable/pages/${url}`}
                     className={`timetable-block ${size}`}
                     style={{color: color}}
                 >
