@@ -35,6 +35,7 @@ const goods = (state = initialState, action) => {
 			items: newItems,
 			itemsLength: action.payload.headers["x-total-count"],
 			isLoaded: true,
+			isLoadedLimit: true,
 		};
 	}
 	if (action.type === 'SET_LIMIT_GOODS') {

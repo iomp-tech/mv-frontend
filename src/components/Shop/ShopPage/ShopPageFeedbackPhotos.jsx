@@ -6,9 +6,9 @@ import "../../../assets/owl-carousel/owl.carousel.css";
 
 const ShopPageFeedbackPhotos = ({title, photos, size}) => {
     const [open, setOpen] = React.useState(false);
-	const [photoActive, setPhotoActive] = React.useState("");
-	
-	const slider = React.useRef();
+    const [photoActive, setPhotoActive] = React.useState("");
+
+    const slider = React.useRef();
 
     const clickSlide = (photo) => {
         setPhotoActive(photo);
@@ -47,9 +47,11 @@ const ShopPageFeedbackPhotos = ({title, photos, size}) => {
         <section className="shop-page-feedback-slider shop-page-feedback-slider-photos">
             <div className="container">
                 <div className="shop-page-feedback-slider-wrapper">
-                    <h2 className="title shop-page-feedback-slider__title">
-                        {title}
-                    </h2>
+                    {title ? (
+                        <h2 className="title shop-page-feedback-slider__title">
+                            {title}
+                        </h2>
+                    ) : null}
 
                     <OwlCarousel ref={slider} options={options}>
                         {photos.map((photo, index) => (

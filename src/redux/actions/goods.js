@@ -8,6 +8,12 @@ export const fetchGoods = (limit = null, query = "") => (dispatch) => {
 		payload: false,
 	});
 
+	dispatch({
+		type: 'SET_LIMIT_LOADED_GOODS',
+		payload: false,
+	});
+
+
 	axios.get(`${API_DOMEN}/goods?visibility=true&${limit !== null ? `_limit=${limit}&` : ""}${query}`).then((response) => {
 		dispatch(setGoods(response));
 	});

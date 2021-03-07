@@ -34,9 +34,11 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
         <section className="shop-page-feedback-slider shop-page-feedback-slider-videos">
             <div className="container">
                 <div className="shop-page-feedback-slider-wrapper">
-                    <h2 className="title shop-page-feedback-slider__title">
-                        {title}
-                    </h2>
+                    {title ? (
+                        <h2 className="title shop-page-feedback-slider__title">
+                            {title}
+                        </h2>
+                    ) : null}
 
                     <OwlCarousel ref={slider} options={options}>
                         {videos.map((video, index) => (

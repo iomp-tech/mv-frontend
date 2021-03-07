@@ -7,8 +7,6 @@ import "../../../assets/owl-carousel/owl.carousel.css";
 
 import {addGoodsCart, statusGoodsPush} from "../../../redux/actions/cart";
 
-import {CART_DOMEN} from "../../../api";
-
 const ShopPageCompositionProduct = ({
     title,
     modules,
@@ -19,8 +17,8 @@ const ShopPageCompositionProduct = ({
     formVc,
     blockTitle,
     blockDescription,
-    blockBtnText,
-    block_id_awo,
+	blockBtnText,
+	good,
     size,
 }) => {
     const dispatch = useDispatch();
@@ -98,9 +96,9 @@ const ShopPageCompositionProduct = ({
         }, 400);
     };
 
-    const setUpdateGoods = () => {
+    const setUpdateGoods = (id) => {
         const obj = {
-            id: byUrlItem.id,
+            id: id,
         };
 
         dispatch(addGoodsCart(obj));
@@ -391,7 +389,7 @@ const ShopPageCompositionProduct = ({
                                 </div>
                                 <button
                                     className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
-                                    onClick={setUpdateGoods}
+                                    onClick={() => setUpdateGoods(byUrlItem.id)}
                                 >
                                     Добавить в корзину
                                 </button>
@@ -399,39 +397,27 @@ const ShopPageCompositionProduct = ({
                             <div
                                 className={`shop-page-composition-product-block-right ${size}`}
                             >
-                                <form
-                                    action={CART_DOMEN}
-                                    method="post"
-                                    encType="application/x-www-form-urlencoded"
-                                    acceptCharset="UTF-8"
-                                >
-                                    <div className="shop-page-composition-product-block-right-top">
-                                        <h4
-                                            className={`shop-page-composition-product-block__title_color ${size}`}
-                                        >
-                                            {blockTitle}
-                                        </h4>
-                                        <p
-                                            className={`shop-page-composition-product-block__subtitle ${size}`}
-                                        >
-                                            {blockDescription}
-                                        </p>
-                                    </div>
-                                    <div className="shop-page-composition-product-block-right-bottom">
-                                        <button
-                                            type="submit"
-                                            className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
-                                        >
-                                            {blockBtnText}
-                                        </button>
-                                    </div>
-
-                                    <input
-                                        type="hidden"
-                                        value="1"
-                                        name={`Goods[${block_id_awo}]`}
-                                    />
-                                </form>
+                                <div className="shop-page-composition-product-block-right-top">
+                                    <h4
+                                        className={`shop-page-composition-product-block__title_color ${size}`}
+                                    >
+                                        {blockTitle}
+                                    </h4>
+                                    <p
+                                        className={`shop-page-composition-product-block__subtitle ${size}`}
+                                    >
+                                        {blockDescription}
+                                    </p>
+                                </div>
+                                <div className="shop-page-composition-product-block-right-bottom">
+                                    <button
+                                        type="submit"
+                                        className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
+                                        onClick={() => setUpdateGoods(good)}
+                                    >
+                                        {blockBtnText}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     )}
