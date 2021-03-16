@@ -22,6 +22,7 @@ const Library = () => {
         ({user}) => user
     );
     const {size, color} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -30,6 +31,22 @@ const Library = () => {
             dispatch(fetchUserCourse());
         }
     }, []);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.libraryJs);
+
+            script.appendChild(scriptText);
+
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.libraryHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     return (
         <>

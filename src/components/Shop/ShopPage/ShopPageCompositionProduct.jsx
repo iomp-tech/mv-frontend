@@ -6,6 +6,7 @@ import OwlCarousel from "react-owl-carousel2";
 import "../../../assets/owl-carousel/owl.carousel.css";
 
 import {addGoodsCart, statusGoodsPush} from "../../../redux/actions/cart";
+import {fetchAllGoods} from "../../../redux/actions/goods";
 
 const ShopPageCompositionProduct = ({
     title,
@@ -15,22 +16,22 @@ const ShopPageCompositionProduct = ({
     form_id_awo,
     formId,
     formVc,
-    blockTitle,
-    blockDescription,
-	blockBtnText,
-	good,
     size,
 }) => {
     const dispatch = useDispatch();
 
-    const {byUrlItem} = useSelector(({goods}) => goods);
+    const {itemsAll} = useSelector(({goods}) => goods);
     const {push} = useSelector(({cart}) => cart);
 
     const [errorForm, setErrorForm] = React.useState({});
 
-    const [stateListModules, setStateListModules] = React.useState([]);
-    const [stateDescModules, setStateDescModules] = React.useState("");
-    const [stateListModulesIndex, setStateListModulesIndex] = React.useState(0);
+    React.useEffect(() => {
+        if (!Object.keys(itemsAll).length) {
+            dispatch(fetchAllGoods());
+        }
+    }, []);
+
+    const [stateModulesIndex, setStateModulesIndex] = React.useState(0);
     const [stateAnimateModules, setStateAnimateModules] = React.useState(false);
 
     const checkInput = (e) => {
@@ -85,10 +86,8 @@ const ShopPageCompositionProduct = ({
         },
     };
 
-    const onClickSliderTextModulesItem = (items, desc, index) => {
-        setStateListModules(items);
-        setStateDescModules(desc);
-        setStateListModulesIndex(index);
+    const onClickSliderTextModulesItem = (index) => {
+        setStateModulesIndex(index);
         setStateAnimateModules(true);
 
         setTimeout(() => {
@@ -126,16 +125,12 @@ const ShopPageCompositionProduct = ({
                                 <h3
                                     key={`composition-product-module-${index}`}
                                     className={`shop-page-composition-product-modules-item__title ${
-                                        index === stateListModulesIndex
+                                        index === stateModulesIndex
                                             ? "active"
                                             : ""
                                     } ${size}`}
                                     onClick={() =>
-                                        onClickSliderTextModulesItem(
-                                            module.items,
-                                            module.description,
-                                            index
-                                        )
+                                        onClickSliderTextModulesItem(index)
                                     }
                                 >
                                     {module.title}
@@ -151,9 +146,7 @@ const ShopPageCompositionProduct = ({
                         <p
                             className={`shop-page-composition-product-modules__description ${size}`}
                         >
-                            {stateDescModules !== ""
-                                ? stateDescModules
-                                : modules[0].description}
+                            {modules[stateModulesIndex].description}
                         </p>
                     </div>
                     <div
@@ -161,41 +154,23 @@ const ShopPageCompositionProduct = ({
                             stateAnimateModules ? "active" : ""
                         } ${size}`}
                     >
-                        {stateListModules.length
-                            ? stateListModules.map((item, index) => (
-                                  <div
-                                      key={`composition-product-list-item-${index}`}
-                                      className={`shop-page-composition-product-list-item ${size}`}
-                                  >
-                                      <h4
-                                          className={`shop-page-composition-product-list-item__title ${size}`}
-                                      >
-                                          {item.title}
-                                      </h4>
-                                      <p
-                                          className={`shop-page-composition-product-list-item__description ${size}`}
-                                      >
-                                          {item.description}
-                                      </p>
-                                  </div>
-                              ))
-                            : modules[0].items.map((item, index) => (
-                                  <div
-                                      key={`composition-product-list-item-${index}`}
-                                      className={`shop-page-composition-product-list-item ${size}`}
-                                  >
-                                      <h4
-                                          className={`shop-page-composition-product-list-item__title ${size}`}
-                                      >
-                                          {item.title}
-                                      </h4>
-                                      <p
-                                          className={`shop-page-composition-product-list-item__description ${size}`}
-                                      >
-                                          {item.description}
-                                      </p>
-                                  </div>
-                              ))}
+                        {modules[stateModulesIndex].items.map((item, index) => (
+                            <div
+                                key={`composition-product-list-item-${index}`}
+                                className={`shop-page-composition-product-list-item ${size}`}
+                            >
+                                <h4
+                                    className={`shop-page-composition-product-list-item__title ${size}`}
+                                >
+                                    {item.title}
+                                </h4>
+                                <p
+                                    className={`shop-page-composition-product-list-item__description ${size}`}
+                                >
+                                    {item.description}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                     {formBoolean ? (
                         <form
@@ -324,7 +299,7 @@ const ShopPageCompositionProduct = ({
                                 </label>
                             </div>
                         </form>
-                    ) : (
+                    ) : Object.keys(itemsAll).length ? (
                         <div
                             className={`shop-page-composition-product-block-wrapper ${size}`}
                         >
@@ -341,14 +316,21 @@ const ShopPageCompositionProduct = ({
                                     </h4>
                                     <div className="shop-page-composition-product-block-price">
                                         <div className="shop-page-composition-product-block-price-top">
-                                            {byUrlItem.sale ? (
+                                            {itemsAll[
+                                                modules[stateModulesIndex]
+                                                    .goodModule
+                                            ].sale ? (
                                                 <>
                                                     <p
                                                         className={`shop-page-composition-product-block__subprice ${size}`}
                                                     >
                                                         <NumberFormat
                                                             value={
-                                                                byUrlItem.priceOld
+                                                                itemsAll[
+                                                                    modules[
+                                                                        stateModulesIndex
+                                                                    ].goodModule
+                                                                ].priceOld
                                                             }
                                                             displayType={"text"}
                                                             thousandSeparator={
@@ -362,7 +344,11 @@ const ShopPageCompositionProduct = ({
                                                     >
                                                         <NumberFormat
                                                             value={
-                                                                byUrlItem.price
+                                                                itemsAll[
+                                                                    modules[
+                                                                        stateModulesIndex
+                                                                    ].goodModule
+                                                                ].price
                                                             }
                                                             displayType={"text"}
                                                             thousandSeparator={
@@ -377,7 +363,13 @@ const ShopPageCompositionProduct = ({
                                                     className={`shop-page-composition-product-block__price ${size}`}
                                                 >
                                                     <NumberFormat
-                                                        value={byUrlItem.price}
+                                                        value={
+                                                            itemsAll[
+                                                                modules[
+                                                                    stateModulesIndex
+                                                                ].goodModule
+                                                            ].price
+                                                        }
                                                         displayType={"text"}
                                                         thousandSeparator={" "}
                                                     />
@@ -389,38 +381,61 @@ const ShopPageCompositionProduct = ({
                                 </div>
                                 <button
                                     className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
-                                    onClick={() => setUpdateGoods(byUrlItem.id)}
+                                    onClick={() =>
+                                        setUpdateGoods(
+                                            itemsAll[
+                                                modules[stateModulesIndex]
+                                                    .goodModule
+                                            ].id
+                                        )
+                                    }
                                 >
                                     Добавить в корзину
                                 </button>
                             </div>
-                            <div
-                                className={`shop-page-composition-product-block-right ${size}`}
-                            >
-                                <div className="shop-page-composition-product-block-right-top">
-                                    <h4
-                                        className={`shop-page-composition-product-block__title_color ${size}`}
-                                    >
-                                        {blockTitle}
-                                    </h4>
-                                    <p
-                                        className={`shop-page-composition-product-block__subtitle ${size}`}
-                                    >
-                                        {blockDescription}
-                                    </p>
+                            {modules[stateModulesIndex].stockBoolean ? (
+                                <div
+                                    className={`shop-page-composition-product-block-right ${size}`}
+                                >
+                                    <div className="shop-page-composition-product-block-right-top">
+                                        <h4
+                                            className={`shop-page-composition-product-block__title_color ${size}`}
+                                        >
+                                            {
+                                                modules[stateModulesIndex]
+                                                    .titleStock
+                                            }
+                                        </h4>
+                                        <p
+                                            className={`shop-page-composition-product-block__subtitle ${size}`}
+                                        >
+                                            {
+                                                modules[stateModulesIndex]
+                                                    .descriptionStock
+                                            }
+                                        </p>
+                                    </div>
+                                    <div className="shop-page-composition-product-block-right-bottom">
+                                        <button
+                                            type="submit"
+                                            className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
+                                            onClick={() =>
+                                                setUpdateGoods(
+                                                    modules[stateModulesIndex]
+                                                        .goodModuleStock
+                                                )
+                                            }
+                                        >
+                                            {
+                                                modules[stateModulesIndex]
+                                                    .btnTextStock
+                                            }
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="shop-page-composition-product-block-right-bottom">
-                                    <button
-                                        type="submit"
-                                        className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
-                                        onClick={() => setUpdateGoods(good)}
-                                    >
-                                        {blockBtnText}
-                                    </button>
-                                </div>
-                            </div>
+                            ) : null}
                         </div>
-                    )}
+                    ) : null}
                 </div>
             </div>
         </section>

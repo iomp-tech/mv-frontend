@@ -18,6 +18,7 @@ const Teacher = () => {
 
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
     const {size, rgb, bgColor} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
     const [activeTeacherItems, setActiveTeacherItems] = React.useState();
@@ -33,6 +34,22 @@ const Teacher = () => {
 
         document.body.addEventListener("click", handTeacherModalBool);
     }, []);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.teachersJs);
+
+            script.appendChild(scriptText);
+            
+			document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.teachersHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     const toggleTeacherModal = (index) => {
         setTeacherModalBool(!TeacherModalBool);

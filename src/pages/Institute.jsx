@@ -12,6 +12,7 @@ const Institute = () => {
 
     const {items, isLoaded} = useSelector(({institute}) => institute);
     const {size} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     const [itemContent, setItemContent] = React.useState([]);
     const [open, setOpen] = React.useState(false);
@@ -23,6 +24,22 @@ const Institute = () => {
 
         dispatch(fetchInstitute());
     }, []);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.libraryJs);
+
+            script.appendChild(scriptText);
+
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.libraryHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     const toggleItemContent = (content) => {
         setItemContent(content);

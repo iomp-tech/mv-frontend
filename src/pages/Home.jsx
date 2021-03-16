@@ -22,6 +22,9 @@ const Home = () => {
     const dispatch = useDispatch();
 
     const categories = useSelector(({categories}) => categories.items);
+    const {integration} = useSelector(
+        ({integration_page}) => integration_page
+    );
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -29,7 +32,21 @@ const Home = () => {
         if (!Object.keys(categories).length) {
             dispatch(fetchCategories());
         }
-    }, []);
+
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.mainJs);
+
+            script.appendChild(scriptText);
+
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.mainHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     return (
         <>

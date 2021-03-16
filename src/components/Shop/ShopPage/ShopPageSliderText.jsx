@@ -5,10 +5,18 @@ import {Link, animateScroll as scroll} from "react-scroll";
 import OwlCarousel from "react-owl-carousel2";
 import "../../../assets/owl-carousel/owl.carousel.css";
 
-const ShopPageSliderText = ({title, tabs, btnText, size}) => {
+const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
     const [stateListTabs, setStateListTabs] = React.useState([]);
     const [stateListTabsIndex, setStateListTabsIndex] = React.useState(0);
     const [stateAnimateTabs, setStateAnimateTabs] = React.useState(false);
+	const [heightList, setHeightList] = React.useState(950);
+	
+    React.useEffect(() => {
+        setHeightList(
+            document.querySelector(".shop-page-slider-text-list").clientHeight +
+                50
+        );
+    }, [stateListTabsIndex]);
 
     const onClickSliderTextTabsItem = (items, index) => {
         setStateListTabs(items);
@@ -66,42 +74,41 @@ const ShopPageSliderText = ({title, tabs, btnText, size}) => {
                             </div>
                         ))}
                     </OwlCarousel>
-                    <div className={`shop-page-slider-text-list ${size}`}>
-                        {stateListTabs.length ? (
+                    <div
+                        className="shop-page-slider-text-list-wrapper"
+                        style={{height: heightList}}
+                    >
+                        <div
+                            className={`shop-page-slider-text-list ${
+                                stateAnimateTabs ? "active" : ""
+                            } ${size}`}
+                        >
                             <ul
-                                className={`shop-page-slider-text-list-ul ${
-                                    stateAnimateTabs ? "active" : ""
-                                } ${size}`}
+                                className={`shop-page-slider-text-list-ul ${size}`}
                             >
-                                {stateListTabs.map((li, index) => (
-                                    <li
-                                        key={`slider-text-li-${index}`}
-                                        className={`shop-page-slider-text-list__li ${size}`}
-                                    >
-                                        <span>{li.text}</span>
-                                    </li>
-                                ))}
+                                {stateListTabs.length
+                                    ? stateListTabs.map((li, index) => (
+                                          <li
+                                              key={`slider-text-li-${index}`}
+                                              className={`shop-page-slider-text-list__li ${size}`}
+                                          >
+                                              <span>{li.text}</span>
+                                          </li>
+                                      ))
+                                    : tabs[0].items.map((li, index) => (
+                                          <li
+                                              key={`slider-text-li-${index}`}
+                                              className={`shop-page-slider-text-list__li ${size}`}
+                                          >
+                                              <span>{li.text}</span>
+                                          </li>
+                                      ))}
                             </ul>
-                        ) : (
-                            <ul
-                                className={`shop-page-slider-text-list-ul ${
-                                    stateAnimateTabs ? "active" : ""
-                                } ${size}`}
-                            >
-                                {tabs[0].items.map((li, index) => (
-                                    <li
-                                        key={`slider-text-li-${index}`}
-                                        className={`shop-page-slider-text-list__li ${size}`}
-                                    >
-                                        <span>{li.text}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                        </div>
                     </div>
                     <div className="shop-page-slider-text-btn">
                         <Link
-                            to="shop-page-composition-product"
+                            to={to}
                             spy={true}
                             smooth={true}
                             offset={-100}

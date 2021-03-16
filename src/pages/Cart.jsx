@@ -28,6 +28,7 @@ const Cart = () => {
     const {items} = useSelector(({cart}) => cart);
     const {user, isLoaded, isLogin} = useSelector(({user}) => user);
     const {size, color, type} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     const categories = useSelector(({categories}) => categories.items);
     const {types} = useSelector(({goods}) => goods);
@@ -56,6 +57,22 @@ const Cart = () => {
             fetchCartGoods(`id=${Object.keys(cartItemsId).map((key) => key)}`)
         );
     }, [Object.keys(cartItemsId).length]);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.cartJs);
+
+			script.appendChild(scriptText);
+			
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.cartHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     const clickRemoveCartItem = React.useCallback(
         (id) => {

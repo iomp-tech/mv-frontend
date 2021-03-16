@@ -14,10 +14,27 @@ const Register = () => {
     const {message} = useSelector(({register}) => register);
     const {isLoaded, isLogin} = useSelector(({user}) => user);
     const {size} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.registerJs);
+
+            script.appendChild(scriptText);
+            
+			document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.registerHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     const onSubmit = (formData) => {
         dispatch(sendRegister(formData));

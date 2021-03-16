@@ -2,8 +2,8 @@ import moment from "moment";
 
 const initialState = {
 	items: {},
-	byUrl: {},
 	timetableType: {},
+	byUrlItem: {},
 	filters: {
 		type: {},
 		cat: "",

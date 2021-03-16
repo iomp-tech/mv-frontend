@@ -1,6 +1,7 @@
 const initialState = {
 	items: {},
 	itemsSection: {},
+	itemsAll: {},
 	byUrlItem: {},
 	times: {},
 	types: {},
@@ -36,6 +37,19 @@ const goods = (state = initialState, action) => {
 			itemsLength: action.payload.headers["x-total-count"],
 			isLoaded: true,
 			isLoadedLimit: true,
+		};
+	}
+	if (action.type === 'SET_ALL_GOODS') {
+		const newItems = {};
+
+		action.payload.data.map(obj => (
+			newItems[obj.id] = obj
+		));
+
+		return {
+			...state,
+			itemsAll: newItems,
+			isLoaded: true,
 		};
 	}
 	if (action.type === 'SET_LIMIT_GOODS') {

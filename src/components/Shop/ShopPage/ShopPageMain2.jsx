@@ -4,6 +4,7 @@ import moment from "moment";
 import "moment/locale/ru";
 
 const ShopPageMain2 = ({
+	subtitle,
     title,
     description,
     range,
@@ -58,9 +59,12 @@ const ShopPageMain2 = ({
     };
 
     return (
-        <section className="shop-page-main2">
+        <section className="shop-page-main2" id="shop-page-main2">
             <div className="container">
                 <div className="shop-page-main2-wrapper">
+                    <p className={`shop-page-main2__subtitle ${size}`}>
+                        {subtitle}
+                    </p>
                     <h1
                         className={`shop-page-main2__title ${size}`}
                         dangerouslySetInnerHTML={{

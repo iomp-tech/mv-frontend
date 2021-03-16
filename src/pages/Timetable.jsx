@@ -41,6 +41,7 @@ const Timetable = (props) => {
     } = useSelector(({timetable}) => timetable);
     const teachers = useSelector(({teacher}) => teacher.items);
     const {size, color} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     const cat = props.match.params.cat;
     const queryGet = props.location.search;
@@ -105,6 +106,22 @@ const Timetable = (props) => {
             dispatch(fetchLimitTimetable(limit, filters.cat, query));
         }
     }, [filters.cat, Object.keys(filters.type).length, limit]);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.timetableJs);
+
+            script.appendChild(scriptText);
+
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.timetableHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     const onClickPlusLimit = () => {
         dispatch(plusTimetableLimit(8));

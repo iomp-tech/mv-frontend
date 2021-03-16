@@ -19,6 +19,17 @@ export const fetchGoods = (limit = null, query = "") => (dispatch) => {
 	});
 };
 
+export const fetchAllGoods = () => (dispatch) => {
+	dispatch({
+		type: 'SET_LOADED_GOODS',
+		payload: false,
+	});
+
+	axios.get(`${API_DOMEN}/goods`).then((response) => {
+		dispatch(setAllGoods(response));
+	});
+}
+
 export const fetchLimitGoods = (limit = null, query = "") => (dispatch) => {
 	dispatch({
 		type: 'SET_LIMIT_LOADED_GOODS',
@@ -70,6 +81,11 @@ export const fetchGoodsMinMaxPrice = () => (dispatch) => {
 
 export const setGoods = (items) => ({
 	type: 'SET_GOODS',
+	payload: items,
+});
+
+export const setAllGoods = (items) => ({
+	type: 'SET_ALL_GOODS',
 	payload: items,
 });
 

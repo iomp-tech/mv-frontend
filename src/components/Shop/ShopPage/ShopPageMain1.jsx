@@ -2,11 +2,14 @@ import React from "react";
 
 import {Link, animateScroll as scroll} from "react-scroll";
 
-const ShopPageMain1 = ({type, title, description, btnText, size}) => {
+const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
     return (
-        <section className="shop-page-main1">
+        <section className="shop-page-main1" id="shop-page-main1">
             <div className="container">
                 <div className="shop-page-main1-wrapper">
+                    <p className={`shop-page-main1__subtitle ${size}`}>
+                        {subtitle}
+                    </p>
                     <h1
                         className={`shop-page-main1__title ${size}`}
                         dangerouslySetInnerHTML={{
@@ -18,7 +21,7 @@ const ShopPageMain1 = ({type, title, description, btnText, size}) => {
                     </p>
 
                     <Link
-                        to="shop-page-composition-product"
+                        to={to}
                         spy={true}
                         smooth={true}
                         offset={-100}

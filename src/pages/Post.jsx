@@ -47,11 +47,27 @@ const Post = (props) => {
         dispatch(fetchPostById(postName));
     }, [postName]);
 
-	React.useEffect(() => {
-		if (Object.keys(item).length) {
+    React.useEffect(() => {
+        if (Object.keys(item).length) {
             dispatch(fetchPostNextById(parseInt(item.id + 1)));
         }
-	}, [item]);
+    }, [item]);
+
+    React.useEffect(() => {
+        if (Object.keys(item).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(item.postPageJs);
+
+            script.appendChild(scriptText);
+
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                item.postPageHtml;
+        }
+    }, [item.postPageJs, item.postPageHtml]);
 
     return (
         <>

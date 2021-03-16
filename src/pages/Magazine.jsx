@@ -30,6 +30,7 @@ const Magazine = (props) => {
     const teachers = useSelector(({teacher}) => teacher.items);
     const categories = useSelector(({categories}) => categories.items);
     const {size} = useSelector(({visually}) => visually);
+    const {integration} = useSelector(({integration_page}) => integration_page);
 
     const cat = props.match.params.cat;
     const queryGet = props.location.search;
@@ -103,6 +104,22 @@ const Magazine = (props) => {
             dispatch(fetchLimitPosts(filters.cat, query));
         }
     }, [filters.cat, filters.type, Object.keys(filters.auth).length]);
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.magazineJs);
+
+            script.appendChild(scriptText);
+            
+			document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.magazineHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     return (
         <>

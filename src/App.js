@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Header, Footer, PreloaderPage } from './components';
 
 import { setVisually, setSizeVisually } from "./redux/actions/visually";
+import { fetchIntegrationPage } from "./redux/actions/integration_page";
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Post = React.lazy(() => import('./pages/Post'));
@@ -33,11 +34,32 @@ function App() {
 	const disaptch = useDispatch();
 
 	const { color, bgColor } = useSelector(({ visually }) => visually);
+	const { integration } = useSelector(({ integration_page }) => integration_page);
 
 	React.useEffect(() => {
 		disaptch(setVisually(localStorage.getItem("VISUALLY_TYPE")));
 		disaptch(setSizeVisually(localStorage.getItem("VISUALLY_SIZE")));
+
+		if (!Object.keys(integration).length) {
+			disaptch(fetchIntegrationPage());
+		}
 	}, []);
+
+	React.useEffect(() => {
+		if (Object.keys(integration).length) {
+			const script = document.createElement("script");
+
+			const scriptText = document.createTextNode(integration.allJs);
+
+			script.appendChild(scriptText);
+
+			document.querySelector("#all__vanila__js__page").innerHTML = "";
+			document.querySelector("#all__vanila__js__page").appendChild(script);
+
+			document.querySelector("#all__tags__js__page").innerHTML =
+				integration.allHtml;
+		}
+	}, [Object.keys(integration).length]);
 
 	return (
 		<>
@@ -85,6 +107,12 @@ function App() {
 					</Switch>
 				</Suspense>
 				<Footer />
+
+				<div id="vanila__js__page"></div>
+				<div id="tags__js__page"></div>
+
+				<div id="all__vanila__js__page"></div>
+				<div id="all__tags__js__page"></div>
 			</div>
 		</>
 	);

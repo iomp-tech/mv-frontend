@@ -291,6 +291,16 @@
 		&-wrapper
 			position: relative
 
+		&__subtitle
+			font-size: 18px
+			margin-bottom: 25px
+
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
+
 		&__title
 			font-size: 54px
 			max-width: 1200px
@@ -334,6 +344,16 @@
 
 		&-wrapper
 			position: relative
+
+		&__subtitle
+			font-size: 18px
+			margin-bottom: 25px
+
+			&.X1-5
+				font-size: 27px
+
+			&.X2
+				font-size: 36px
 
 		&__title
 			font-size: 54px
@@ -466,6 +486,7 @@
 					font-size: 42px
 					color: #DDDDFD
 					text-decoration: underline
+					cursor: pointer
 					+transition
 
 					&.active
@@ -478,18 +499,23 @@
 						font-size: 72px
 
 		&-list
+			width: 100%
 			border-top: 1px solid $gray
 			margin-top: 50px
 			padding-top: 50px
+			position: absolute
+
+			&-wrapper
+				position: relative
+
+			&.active
+				animation-name: shopPageTabs
+				animation-duration: .4s
 
 			&-ul
 				display: flex
 				justify-content: space-between
 				flex-wrap: wrap
-
-				&.active
-					animation-name: shopPageTabs
-					animation-duration: .4s
 
 			&__li
 				padding: 0 50px
@@ -537,9 +563,9 @@
 				padding-bottom: 50px
 				border-bottom: 1px solid $gray
 
-				&.active
-					animation-name: shopPageTabs
-					animation-duration: .4s
+				// &.active
+				// 	animation-name: shopPageTabs
+				// 	animation-duration: .4s
 
 			&__description
 				font-size: 26px
@@ -560,6 +586,7 @@
 					font-size: 58px
 					color: #DDDDFD
 					text-decoration: underline
+					cursor: pointer
 					+transition
 
 					&.X1-5
@@ -772,6 +799,8 @@
 			background-size: contain
 			background-repeat: no-repeat
 			background-position: center center
+
+			cursor: zoom-in
 
 		&-arrow
 			margin-top: 50px

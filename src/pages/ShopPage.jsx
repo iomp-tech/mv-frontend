@@ -26,11 +26,47 @@ const ShopPage = (props) => {
     const {size, type} = useSelector(({visually}) => visually);
     const url = props.match.params.url;
 
+    const [to, setTo] = React.useState("");
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
 
         dispatch(fetchByUrlGoods(url));
-    }, [url]);
+
+        if (Object.keys(byUrlItem).length) {
+            for (let i = 0; i < byUrlItem.page.length; i++) {
+                if (byUrlItem.page[i].type === "composition-product") {
+                    setTo("shop-page-composition-product");
+
+                    break;
+                } else if (byUrlItem.page[i].type === "main1") {
+                    setTo("shop-page-main1");
+
+                    break;
+                } else if (byUrlItem.page[i].type === "main2") {
+                    setTo("shop-page-main2");
+
+                    break;
+                }
+            }
+        }
+    }, [url, Object.keys(byUrlItem).length]);
+
+    React.useEffect(() => {
+        if (Object.keys(byUrlItem).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(byUrlItem.shopPageJs);
+
+            script.appendChild(scriptText);
+
+            document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                byUrlItem.shopPageHtml;
+        }
+    }, [byUrlItem.shopPageJs, byUrlItem.shopPageHtml]);
 
     return (
         <>
@@ -44,7 +80,11 @@ const ShopPage = (props) => {
                         {byUrlItem.page.map((block, index) => (
                             <div key={`shop-page-block-${index}`}>
                                 {block.type === "main1" ? (
-                                    <ShopPageMain1 size={size} {...block} />
+                                    <ShopPageMain1
+                                        size={size}
+                                        to={to}
+                                        {...block}
+                                    />
                                 ) : null}
                                 {block.type === "main2" ? (
                                     <ShopPageMain2 size={size} {...block} />
@@ -59,6 +99,7 @@ const ShopPage = (props) => {
                                 {block.type === "slider-text" ? (
                                     <ShopPageSliderText
                                         size={size}
+                                        to={to}
                                         {...block}
                                     />
                                 ) : null}

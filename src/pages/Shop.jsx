@@ -49,11 +49,29 @@ const Shop = (props) => {
         itemsLength,
     } = useSelector(({goods}) => goods);
     const teachers = useSelector(({teacher}) => teacher.items);
-
+    const {integration} = useSelector(
+        ({integration_page}) => integration_page
+    );
     const {push} = useSelector(({cart}) => cart);
     const {size} = useSelector(({visually}) => visually);
 
     const queryGet = props.location.search;
+
+    React.useEffect(() => {
+        if (Object.keys(integration).length) {
+            const script = document.createElement("script");
+
+            const scriptText = document.createTextNode(integration.shopJs);
+
+            script.appendChild(scriptText);
+
+			document.querySelector("#vanila__js__page").innerHTML = "";
+            document.querySelector("#vanila__js__page").appendChild(script);
+
+            document.querySelector("#tags__js__page").innerHTML =
+                integration.shopHtml;
+        }
+    }, [Object.keys(integration).length]);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);

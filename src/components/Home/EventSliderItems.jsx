@@ -6,7 +6,7 @@ import "moment/locale/ru";
 
 const EventSliderItems = React.memo(
     ({
-        id,
+		url,
         eventsType,
         auth,
         auths,
@@ -115,7 +115,7 @@ const EventSliderItems = React.memo(
 
                     <div className="event-item-btn-wrapper">
                         <Link
-                            to={`/timetable/pages/${id}`}
+                            to={`/timetable/pages/${url}`}
                             className={`btn-bold_color event-item__btn ${size}`}
                         >
                             Записаться
