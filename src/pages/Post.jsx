@@ -55,17 +55,33 @@ const Post = (props) => {
 
     React.useEffect(() => {
         if (Object.keys(item).length) {
-            const script = document.createElement("script");
+            // Top
+            const scriptTop = document.createElement("script");
+            const scriptTextTop = document.createTextNode(item.postPageTopJs);
+            scriptTop.appendChild(scriptTextTop);
 
-            const scriptText = document.createTextNode(item.postPageJs);
+            document.querySelector("#vanila__js__page__top").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
-            script.appendChild(scriptText);
+            document.querySelector("#tags__js__page__top").innerHTML =
+                item.postPageTopHtml;
 
-            document.querySelector("#vanila__js__page").innerHTML = "";
-            document.querySelector("#vanila__js__page").appendChild(script);
+            // Bottom
+            const scriptBottom = document.createElement("script");
+            const scriptTextBottom = document.createTextNode(
+                item.postPageBottomJs
+            );
+            scriptBottom.appendChild(scriptTextBottom);
 
-            document.querySelector("#tags__js__page").innerHTML =
-                item.postPageHtml;
+            document.querySelector("#vanila__js__page__bottom").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
+
+            document.querySelector("#tags__js__page__bottom").innerHTML =
+                item.postPageBottomHtml;
         }
     }, [item.postPageJs, item.postPageHtml]);
 

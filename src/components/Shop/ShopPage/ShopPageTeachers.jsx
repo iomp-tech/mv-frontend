@@ -48,7 +48,7 @@ const ShopPageTeachers = ({auth, size}) => {
     };
 
     return (
-        <section className="teacher">
+        <section className="teacher" style={{marginBottom: "50px"}}>
             <div className="container">
                 <div className="teacher-wrapper">
                     <h2 className={`title ${size} teacher__title`}>
@@ -61,6 +61,7 @@ const ShopPageTeachers = ({auth, size}) => {
                         state={TeacherModalBool}
                         onClick={toggleTeacherModal}
                         modalRef={TeacherModalRef}
+                        buttonVisible={false}
                         {...itemsMain[activeTeacherItems]}
                     />
 

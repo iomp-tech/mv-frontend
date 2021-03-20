@@ -27,17 +27,35 @@ const Institute = () => {
 
     React.useEffect(() => {
         if (Object.keys(integration).length) {
-            const script = document.createElement("script");
+            // Top
+            const scriptTop = document.createElement("script");
+            const scriptTextTop = document.createTextNode(
+                integration.instituteTopJs
+            );
+            scriptTop.appendChild(scriptTextTop);
 
-            const scriptText = document.createTextNode(integration.libraryJs);
+            document.querySelector("#vanila__js__page__top").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
-            script.appendChild(scriptText);
+            document.querySelector("#tags__js__page__top").innerHTML =
+                integration.instituteTopHtml;
 
-            document.querySelector("#vanila__js__page").innerHTML = "";
-            document.querySelector("#vanila__js__page").appendChild(script);
+            // Bottom
+            const scriptBottom = document.createElement("script");
+            const scriptTextBottom = document.createTextNode(
+                integration.instituteBottomJs
+            );
+            scriptBottom.appendChild(scriptTextBottom);
 
-            document.querySelector("#tags__js__page").innerHTML =
-                integration.libraryHtml;
+            document.querySelector("#vanila__js__page__bottom").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
+
+            document.querySelector("#tags__js__page__bottom").innerHTML =
+                integration.instituteBottomHtml;
         }
     }, [Object.keys(integration).length]);
 

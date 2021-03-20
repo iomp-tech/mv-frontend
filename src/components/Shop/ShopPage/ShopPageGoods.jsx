@@ -8,7 +8,6 @@ import {fetchTeacher} from "../../../redux/actions/teacher";
 
 import ShopBlock from "../ShopBlock";
 import ShopBlockLoading from "../ShopBlockLoading";
-import ShopSectionBtn from "../ShopSectionBtn";
 
 const ShopPageGoods = ({title, goods, size}) => {
     const dispatch = useDispatch();
@@ -51,7 +50,7 @@ const ShopPageGoods = ({title, goods, size}) => {
     return (
         <>
             {Object.keys(items).length ? (
-                <section className="shop">
+                <section className="shop" style={{marginBottom: "50px"}}>
                     <div className="container">
                         <div className="shop-wrapper">
                             <h2 className={`title ${size} shop__title`}>
@@ -97,8 +96,6 @@ const ShopPageGoods = ({title, goods, size}) => {
                                               </div>
                                           ))}
                             </div>
-
-                            <ShopSectionBtn size={size} />
                         </div>
                     </div>
                 </section>

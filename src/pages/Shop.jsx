@@ -49,9 +49,7 @@ const Shop = (props) => {
         itemsLength,
     } = useSelector(({goods}) => goods);
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {integration} = useSelector(
-        ({integration_page}) => integration_page
-    );
+    const {integration} = useSelector(({integration_page}) => integration_page);
     const {push} = useSelector(({cart}) => cart);
     const {size} = useSelector(({visually}) => visually);
 
@@ -59,17 +57,35 @@ const Shop = (props) => {
 
     React.useEffect(() => {
         if (Object.keys(integration).length) {
-            const script = document.createElement("script");
+            // Top
+            const scriptTop = document.createElement("script");
+            const scriptTextTop = document.createTextNode(
+                integration.shopTopJs
+            );
+            scriptTop.appendChild(scriptTextTop);
 
-            const scriptText = document.createTextNode(integration.shopJs);
+            document.querySelector("#vanila__js__page__top").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
-            script.appendChild(scriptText);
+            document.querySelector("#tags__js__page__top").innerHTML =
+                integration.shopTopHtml;
 
-			document.querySelector("#vanila__js__page").innerHTML = "";
-            document.querySelector("#vanila__js__page").appendChild(script);
+            // Bottom
+            const scriptBottom = document.createElement("script");
+            const scriptTextBottom = document.createTextNode(
+                integration.shopBottomJs
+            );
+            scriptBottom.appendChild(scriptTextBottom);
 
-            document.querySelector("#tags__js__page").innerHTML =
-                integration.shopHtml;
+            document.querySelector("#vanila__js__page__bottom").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
+
+            document.querySelector("#tags__js__page__bottom").innerHTML =
+                integration.shopBottomHtml;
         }
     }, [Object.keys(integration).length]);
 

@@ -292,14 +292,14 @@
 			position: relative
 
 		&__subtitle
-			font-size: 18px
+			font-size: 24px
 			margin-bottom: 25px
 
 			&.X1-5
-				font-size: 27px
+				font-size: 36px
 
 			&.X2
-				font-size: 36px
+				font-size: 48px
 
 		&__title
 			font-size: 54px
@@ -346,14 +346,14 @@
 			position: relative
 
 		&__subtitle
-			font-size: 18px
+			font-size: 24px
 			margin-bottom: 25px
 
 			&.X1-5
-				font-size: 27px
+				font-size: 36px
 
 			&.X2
-				font-size: 36px
+				font-size: 48px
 
 		&__title
 			font-size: 54px
@@ -498,9 +498,11 @@
 					&.X2
 						font-size: 72px
 
+		&-arrow
+			margin-top: 25px
+
 		&-list
 			width: 100%
-			border-top: 1px solid $gray
 			margin-top: 50px
 			padding-top: 50px
 			position: absolute
@@ -524,7 +526,6 @@
 				position: relative
 				font-size: 24px
 				list-style: none
-				border-bottom: 1px solid $gray
 				padding-bottom: 50px
 				opacity: 1
 
@@ -560,12 +561,7 @@
 		&-modules
 			&-description
 				margin: 50px 0
-				padding-bottom: 50px
-				border-bottom: 1px solid $gray
-
-				// &.active
-				// 	animation-name: shopPageTabs
-				// 	animation-duration: .4s
+				padding-bottom: 25px
 
 			&__description
 				font-size: 26px
@@ -598,16 +594,28 @@
 					&.active
 						color: $mainColor
 
+		&-arrow
+			margin-top: 25px
+
 		&-list
+			width: 100%
+			position: absolute
+
+			&-wrapper
+				position: relative
+
 			&.active
 				animation-name: shopPageTabs
 				animation-duration: .4s
 
 			&-item
+				align-items: center
 				display: flex
-				padding-bottom: 50px
-				margin-bottom: 50px
-				border-bottom: 1px solid $gray
+				padding-bottom: 25px
+				margin-bottom: 25px
+
+				&:last-child
+					margin-bottom: 50px
 
 				&.X1-5, &.X2
 					flex-direction: column
@@ -795,6 +803,7 @@
 
 			width: 100%
 			height: 400px
+			margin: 10px 0
 
 			background-size: contain
 			background-repeat: no-repeat

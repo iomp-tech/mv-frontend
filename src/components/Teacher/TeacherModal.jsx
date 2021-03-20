@@ -13,6 +13,7 @@ const TeacherModal = React.memo(
         avatar,
         bgColor,
         rgb,
+        buttonVisible = true,
     }) => {
         const toggleOverflow = () => {
             document.body.style.overflow = "visible";
@@ -69,13 +70,15 @@ const TeacherModal = React.memo(
                             dangerouslySetInnerHTML={{__html: description}}
                         ></div>
 
-                        <Link
-                            to={`/shop/?auth=${id}`}
-                            onClick={toggleOverflow}
-                            className="btn-bold_color teacher-modal__btn"
-                        >
-                            Курсы с этим преподавателем
-                        </Link>
+                        {buttonVisible && (
+                            <Link
+                                to={`/shop/?auth=${id}`}
+                                onClick={toggleOverflow}
+                                className="btn-bold_color teacher-modal__btn"
+                            >
+                                Курсы с этим преподавателем
+                            </Link>
+                        )}
                     </div>
                     <div className="teacher-modal-thumb">
                         <img

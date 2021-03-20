@@ -6,11 +6,25 @@ import "../../../assets/owl-carousel/owl.carousel.css";
 const ShopPageFeedbackVideos = ({title, videos, size}) => {
     const slider = React.useRef();
 
+    const stopVideos = () => {
+        const iframes = document.querySelectorAll(
+            ".shop-page-feedback-slider-item-iframe"
+        );
+
+        for (let i = 0; i < iframes.length; i++) {
+            iframes[i].setAttribute("src", videos[i].videoCode + "?autoplay=0");
+        }
+    };
+
     const prev = () => {
+        stopVideos();
+
         slider.current.prev();
     };
 
     const next = () => {
+        stopVideos();
+
         slider.current.next();
     };
 
@@ -19,15 +33,6 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
         loop: false,
         mouseDrag: false,
         margin: 25,
-        autoWidth: false,
-        responsive: {
-            1000: {
-                items: 3,
-            },
-            800: {
-                items: 2,
-            },
-        },
     };
 
     return (
@@ -51,6 +56,7 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
                                     height="400"
                                     src={video.videoCode}
                                     frameBorder="0"
+                                    className="shop-page-feedback-slider-item-iframe"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 ></iframe>

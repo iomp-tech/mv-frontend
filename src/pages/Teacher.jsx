@@ -37,17 +37,35 @@ const Teacher = () => {
 
     React.useEffect(() => {
         if (Object.keys(integration).length) {
-            const script = document.createElement("script");
+            // Top
+            const scriptTop = document.createElement("script");
+            const scriptTextTop = document.createTextNode(
+                integration.teachersTopJs
+            );
+            scriptTop.appendChild(scriptTextTop);
 
-            const scriptText = document.createTextNode(integration.teachersJs);
+            document.querySelector("#vanila__js__page__top").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
-            script.appendChild(scriptText);
-            
-			document.querySelector("#vanila__js__page").innerHTML = "";
-            document.querySelector("#vanila__js__page").appendChild(script);
+            document.querySelector("#tags__js__page__top").innerHTML =
+                integration.teachersTopHtml;
 
-            document.querySelector("#tags__js__page").innerHTML =
-                integration.teachersHtml;
+            // Bottom
+            const scriptBottom = document.createElement("script");
+            const scriptTextBottom = document.createTextNode(
+                integration.teachersBottomJs
+            );
+            scriptBottom.appendChild(scriptTextBottom);
+
+            document.querySelector("#vanila__js__page__bottom").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
+
+            document.querySelector("#tags__js__page__bottom").innerHTML =
+                integration.teachersBottomHtml;
         }
     }, [Object.keys(integration).length]);
 

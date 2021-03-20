@@ -34,19 +34,35 @@ const TimetableSubs = (props) => {
 
     React.useEffect(() => {
         if (Object.keys(byUrlItem).length) {
-            const script = document.createElement("script");
-
-            const scriptText = document.createTextNode(
-                byUrlItem.timetablePageJs
+            // Top
+            const scriptTop = document.createElement("script");
+            const scriptTextTop = document.createTextNode(
+                byUrlItem.timetablePageTopJs
             );
+            scriptTop.appendChild(scriptTextTop);
 
-            script.appendChild(scriptText);
+            document.querySelector("#vanila__js__page__top").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
-            document.querySelector("#vanila__js__page").innerHTML = "";
-            document.querySelector("#vanila__js__page").appendChild(script);
+            document.querySelector("#tags__js__page__top").innerHTML =
+                byUrlItem.timetablePageTopHtml;
 
-            document.querySelector("#tags__js__page").innerHTML =
-                byUrlItem.timetablePageHtml;
+            // Bottom
+            const scriptBottom = document.createElement("script");
+            const scriptTextBottom = document.createTextNode(
+                byUrlItem.timetablePageBottomJs
+            );
+            scriptBottom.appendChild(scriptTextBottom);
+
+            document.querySelector("#vanila__js__page__bottom").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
+
+            document.querySelector("#tags__js__page__bottom").innerHTML =
+                byUrlItem.timetablePageBottomHtml;
         }
     }, [byUrlItem.timetablePageJs, byUrlItem.timetablePageHtml]);
 

@@ -301,21 +301,40 @@
 			&__subprice
 				font-size: 21px
 
-			&__btn
+			&__btn, &-btn
 				width: 100%
 
 		&-page
 			&-slider-text
+				&-tabs
+					&-item
+						&__title
+							text-align: center
+							font-size: 42px
+
+				&-arrow
+					width: 100%
+					display: flex
+					justify-content: center
+
 				&-list
+					margin-top: 0
 					&__li
 						width: 100%
 						font-size: 21px
+						margin-bottom: 25px
 
 			&-composition-product
 				&-modules
 					&-item
 						&__title
-							font-size: 36px
+							text-align: center
+							font-size: 42px
+
+				&-arrow
+					width: 100%
+					display: flex
+					justify-content: center
 
 				&-list
 					&-item
@@ -420,17 +439,36 @@
 		&-wrapper-top
 			display: none
 
+	// main
+	.services
+		&-block
+			&:last-child
+				margin-bottom: 0
+
 	// shop
 	.shop
 		&-page
 			&-main2
 				&-form-block-wrapper
 					width: 100%
+					flex-direction: column
+
+				&-form-input-wrapper
+					margin-bottom: 15px
+
+				&-form-input-wrapper, &-form__btn
+					width: 100%
 
 			&-composition-product
-				&-form
-					&-block-wrapper
-						width: 100%
+				&-form-block-wrapper
+					width: 100%
+					flex-direction: column
+
+				&-form-input-wrapper
+					margin-bottom: 15px
+
+				&-form-input-wrapper, &-form__btn
+					width: 100%
 
 				&-block
 					&-left
@@ -572,6 +610,7 @@
 				&-list
 					&-item
 						flex-direction: column
+						align-items: flex-start
 
 						&__title
 							margin-right: 0

@@ -47,17 +47,27 @@ function App() {
 
 	React.useEffect(() => {
 		if (Object.keys(integration).length) {
-			const script = document.createElement("script");
+			// Top
+			const scriptTop = document.createElement("script");
+			const scriptTextTop = document.createTextNode(integration.allTopJs);
+			scriptTop.appendChild(scriptTextTop);
 
-			const scriptText = document.createTextNode(integration.allJs);
+			document.querySelector("#all__vanila__js__page__top").innerHTML = "";
+			document.querySelector("#all__vanila__js__page__top").appendChild(scriptTop);
 
-			script.appendChild(scriptText);
+			document.querySelector("#all__tags__js__page__top").innerHTML =
+				integration.allTopHtml;
 
-			document.querySelector("#all__vanila__js__page").innerHTML = "";
-			document.querySelector("#all__vanila__js__page").appendChild(script);
+			// Bottom
+			const scriptBottom = document.createElement("script");
+			const scriptTextBottom = document.createTextNode(integration.allBottomJs);
+			scriptBottom.appendChild(scriptTextBottom);
 
-			document.querySelector("#all__tags__js__page").innerHTML =
-				integration.allHtml;
+			document.querySelector("#all__vanila__js__page__bottom").innerHTML = "";
+			document.querySelector("#all__vanila__js__page__bottom").appendChild(scriptBottom);
+
+			document.querySelector("#all__tags__js__page__bottom").innerHTML =
+				integration.allBottomHtml;
 		}
 	}, [Object.keys(integration).length]);
 
@@ -67,6 +77,12 @@ function App() {
 				<style>{`body { color: ${color}; background-color: ${bgColor}; } .checkbox+label::before {border: 1px solid ${color};} .checkbox-label {color: ${color}} .input__field_small {color: ${color}} .input__field {color: ${color}} .header-user-menu__link:hover {background-color: ${bgColor};}`}</style>
 			</Helmet>
 			<div className="wrapper">
+				<div id="vanila__js__page__top"></div>
+				<div id="tags__js__page__top"></div>
+
+				<div id="all__vanila__js__page__top"></div>
+				<div id="all__tags__js__page__top"></div>
+
 				<Header />
 				<Suspense fallback={<PreloaderPage />}>
 					<Switch>
@@ -108,11 +124,11 @@ function App() {
 				</Suspense>
 				<Footer />
 
-				<div id="vanila__js__page"></div>
-				<div id="tags__js__page"></div>
+				<div id="vanila__js__page__bottom"></div>
+				<div id="tags__js__page__bottom"></div>
 
-				<div id="all__vanila__js__page"></div>
-				<div id="all__tags__js__page"></div>
+				<div id="all__vanila__js__page__bottom"></div>
+				<div id="all__tags__js__page__bottom"></div>
 			</div>
 		</>
 	);

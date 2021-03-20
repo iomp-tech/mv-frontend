@@ -22,7 +22,9 @@
 // mixin
 @mixin light {
 	font-family: 'San Francisco Pro Light';
+	font-weight: 300;
 }
 @mixin bold {
 	font-family: 'San Francisco Pro Bold';
+	font-weight: 700;
 }

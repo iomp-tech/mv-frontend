@@ -4,10 +4,14 @@ const ServicesBlock = ({title, description, index, type, size}) => {
     return (
         <div className={`services-block ${size} services-block_${type}`}>
             <span className={`services-block__number ${size}`}>{index}.</span>
-            <h3 className={`services-block__title ${size}`}>{title}</h3>
-            <p className={`services-block__description ${size}`}>
-                {description}
-            </p>
+            {title && (
+                <h3 className={`services-block__title ${size}`}>{title}</h3>
+            )}
+            {description && (
+                <p className={`services-block__description ${size}`}>
+                    {description}
+                </p>
+            )}
         </div>
     );
 };

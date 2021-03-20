@@ -34,17 +34,35 @@ const Home = () => {
         }
 
         if (Object.keys(integration).length) {
-            const script = document.createElement("script");
+            // Top
+            const scriptTop = document.createElement("script");
+            const scriptTextTop = document.createTextNode(
+                integration.mainTopJs
+            );
+            scriptTop.appendChild(scriptTextTop);
 
-            const scriptText = document.createTextNode(integration.mainJs);
+            document.querySelector("#vanila__js__page__top").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
-            script.appendChild(scriptText);
+            document.querySelector("#tags__js__page__top").innerHTML =
+                integration.mainTopHtml;
 
-            document.querySelector("#vanila__js__page").innerHTML = "";
-            document.querySelector("#vanila__js__page").appendChild(script);
+            // Bottom
+            const scriptBottom = document.createElement("script");
+            const scriptTextBottom = document.createTextNode(
+                integration.mainBottomJs
+            );
+            scriptBottom.appendChild(scriptTextBottom);
 
-            document.querySelector("#tags__js__page").innerHTML =
-                integration.mainHtml;
+            document.querySelector("#vanila__js__page__bottom").innerHTML = "";
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
+
+            document.querySelector("#tags__js__page__bottom").innerHTML =
+                integration.mainBottomHtml;
         }
     }, [Object.keys(integration).length]);
 
