@@ -33,6 +33,11 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
         loop: false,
         mouseDrag: false,
         margin: 25,
+        responsive: {
+            1000: {
+                items: 3,
+            },
+        },
     };
 
     return (
@@ -49,11 +54,11 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
                         {videos.map((video, index) => (
                             <div
                                 key={`shop-page-feedback-slider-item-${index}`}
-                                className="shop-page-feedback-slider-item"
+                                className="shop-page-feedback-slider-video-item"
                             >
                                 <iframe
                                     width="100%"
-                                    height="400"
+                                    height="100%"
                                     src={video.videoCode}
                                     frameBorder="0"
                                     className="shop-page-feedback-slider-item-iframe"

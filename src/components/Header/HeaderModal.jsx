@@ -137,6 +137,12 @@ const HeaderModal = React.memo(({isLogin}) => {
                                 >
                                     Мои курсы
                                 </NavLink>
+                                <a
+                                    href="https://a46598s1.autoweboffice.ru/personal/certificate"
+                                    class="header-modal__link"
+                                >
+                                    Сертификаты
+                                </a>
                                 <NavLink
                                     onClick={toggleVisibleHeaderModal}
                                     to="/cabinet"

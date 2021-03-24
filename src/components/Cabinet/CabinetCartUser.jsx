@@ -8,7 +8,7 @@ import {
     setMessageCabinetAvatar,
 } from "../../redux/actions/cabinet";
 
-import {API_DOMEN} from "../../api";
+import {DOMEN} from "../../api";
 
 const CabinetCartUser = React.memo(
     ({avatar, first_name, last_name, email, size}) => {
@@ -55,7 +55,7 @@ const CabinetCartUser = React.memo(
                                     backgroundImage: `url(${
                                         avatar !== "default"
                                             ? avatar
-                                            : `${API_DOMEN}/public/storage/all/default_avatar.svg`
+                                            : `${DOMEN}/public/storage/all/default_avatar.svg`
                                     })`,
                                 }}
                             ></div>

@@ -23,20 +23,23 @@ export { default as Cart } from './Cart';
 // Login / Register / All contact user
 export { default as Login } from './Login';
 export { default as Register } from './Register';
-export { default as Confirmed } from './Confirmed'; 
+export { default as Confirmed } from './Confirmed';
 export { default as Repeat } from './Repeat';
 export { default as RestoreEmail } from './RestoreEmail';
 export { default as RestorePass } from './RestorePass';
 export { default as RestoreSuccess } from './RestorePass';
 
 // Logout
-export { default as Logout } from './Logout'; 
+export { default as Logout } from './Logout';
 
 // Er404
-export { default as Er404 } from './Er404'; 
+export { default as Er404 } from './Er404';
 
 // Cabinet
 export { default as Cabinet } from './Cabinet';
 
 // Library
 export { default as Library } from './Library';
+
+// SessionRoom
+export { default as SessionRoom } from './SessionRoom';

@@ -8,8 +8,8 @@ const CabinetInputRender = ({
     statePassowrd,
     typeConst,
     func,
-	keyInput,
-	size
+    keyInput,
+    size,
 }) => {
     const funcSetStatePassword = () => {
         const statepass = {
@@ -24,12 +24,20 @@ const CabinetInputRender = ({
     return (
         <>
             <div style={{position: "relative"}}>
-                <input
-                    {...input}
-                    type={type}
-                    className={`cabinet-input__input ${size}`}
-                    required
-                />
+                {type === "date" ? (
+                    <input
+                        {...input}
+                        type={type}
+                        className={`cabinet-input__input ${size}`}
+                    />
+                ) : (
+                    <input
+                        {...input}
+                        type={type}
+                        className={`cabinet-input__input ${size}`}
+                        required
+                    />
+                )}
                 <span
                     className={`${
                         touched && error

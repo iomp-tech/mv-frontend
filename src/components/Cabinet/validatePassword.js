@@ -2,8 +2,6 @@ export const validatePassword = (values) => {
 	const errors = {}; 
 
 	const passwordMin = 5;
-	
-	const defaultMin = 2;
 	const defaultMax = 255;
 
 	if (!values.password1) {

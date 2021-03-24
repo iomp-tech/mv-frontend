@@ -84,7 +84,12 @@ const ShopPage = (props) => {
             document.querySelector("#tags__js__page__bottom").innerHTML =
                 byUrlItem.shopPageBottomHtml;
         }
-    }, [byUrlItem.shopPageJs, byUrlItem.shopPageHtml]);
+    }, [
+        byUrlItem.shopPageTopJs,
+        byUrlItem.shopPageTopHtml,
+        byUrlItem.shopPageBottomJs,
+        byUrlItem.shopPageBottomHtml,
+    ]);
 
     return (
         <>
