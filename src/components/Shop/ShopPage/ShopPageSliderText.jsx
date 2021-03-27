@@ -30,8 +30,12 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
 
     const options = {
         autoWidth: true,
-        margin: 150,
-        items: 3,
+        margin: 50,
+        responsive: {
+            1000: {
+                margin: 100,
+            },
+        },
     };
 
     return (

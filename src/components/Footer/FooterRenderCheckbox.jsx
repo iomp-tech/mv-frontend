@@ -1,10 +1,11 @@
 import React from "react";
 
-const FooterFormRenderCheckbox = ({
-    input,
-    type,
-    id,
+const FooterRenderCheckbox = ({
     size,
+    input,
+    label,
+	type,
+	id,
     meta: {touched, error},
 }) => {
     return (
@@ -21,12 +22,12 @@ const FooterFormRenderCheckbox = ({
                 className={`checkbox-label_white ${size} footer-email-form__label ${
                     touched && error ? "checkbox-label_white_error" : ""
                 }`}
-                htmlFor="footer-email-form__checkbox"
+                htmlFor={id}
             >
-                Я согласен с условиями обработки персональных данных
+                {label}
             </label>
         </>
     );
 };
 
-export default FooterFormRenderCheckbox;
+export default FooterRenderCheckbox;

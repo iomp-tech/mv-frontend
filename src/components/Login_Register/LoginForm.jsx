@@ -6,10 +6,11 @@ import validate from "./validate";
 
 import {BtnLoaded, RenderInput} from ".././";
 
-let LoginForm = React.memo(({handleSubmit, invalid, submitting, pristine, size}) => {
+let LoginForm = React.memo(({handleSubmit}) => {
     const {isLoaded} = useSelector(({login}) => login);
+    const {size} = useSelector(({visually}) => visually);
 
-	const [statePassowrd, setStatePassword] = React.useState({
+    const [statePassowrd, setStatePassword] = React.useState({
         password: false,
     });
 

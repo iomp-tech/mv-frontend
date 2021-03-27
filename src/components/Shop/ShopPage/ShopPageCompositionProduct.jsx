@@ -84,12 +84,11 @@ const ShopPageCompositionProduct = ({
     const options = {
         autoWidth: true,
         margin: 50,
-		items: 1,
-		responsive: {
-			1000: {
-				margin: 150
-			}
-		}
+        responsive: {
+            1000: {
+                margin: 100,
+            },
+        },
     };
 
     const onClickSliderTextModulesItem = (index) => {

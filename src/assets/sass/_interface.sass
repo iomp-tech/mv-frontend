@@ -160,6 +160,52 @@ input
 		&__label
 			cursor: pointer
 
+// select
+.select
+	position: relative
+
+	&__select
+		border-radius: 2px
+		width: 100%
+		border: 1px solid $gray
+		background-color: transparent
+		padding-top: 15px
+		padding-bottom: 15px
+		padding-left: 20px
+		font-size: 18px
+		appearance: none
+		+light
+		+transition
+
+		&__error
+			border: 1px solid $red
+			color: $red
+
+		&.X1-5
+			font-size: 27px
+
+		&.X2
+			font-size: 36px
+
+	&__option
+		color: $black
+
+	&:after
+		content: ""
+		position: absolute
+		right: 15px
+		top: 50%
+		transform: translateY(-50%)
+		z-index: 1
+		width: 13px
+		height: 13px
+		pointer-events: none
+		box-sizing: border-box
+		background-position: center center
+		background-size: contain
+		background-repeat: no-repeat
+		background-image: url("data:image/svg+xml,%3Csvg width='62' height='38' viewBox='0 0 62 38' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M31 38L0.68911 0.5L61.3109 0.5L31 38Z' fill='%23CCCCCC'/%3E%3C/svg%3E")
+
 // range
 .rc-slider
 	position: relative
@@ -354,6 +400,7 @@ input
 		fill: $white
 		stroke: $white
 		margin-right: 15px
+		+transition
 
 .btn-regular_color_icon
 	cursor: pointer
@@ -376,6 +423,7 @@ input
 		fill: $mainColor
 		stroke: $mainColor
 		margin-right: 15px
+		+transition
 
 .btn-clear-regular_color_icon
 	cursor: pointer
@@ -406,7 +454,7 @@ input
 	justify-content: center
 	align-items: center
 	border-radius: 2px
-	border: 1px solid $gray
+	border: 1px solid $lightGray
 	background-color: transparent
 	color: $gray
 	padding: 20px 40px
@@ -414,10 +462,19 @@ input
 	+light
 	+transition
 
+	&:hover
+		color: $mainColor
+		border: 1px solid $mainColor
+
+	&:hover > svg
+		fill: $mainColor
+		stroke: $mainColor
+
 	& > svg
 		fill: $gray
 		stroke: $gray
 		margin-right: 15px
+		+transition
 
 .btn-bold_gray_icon
 	cursor: pointer
@@ -478,7 +535,7 @@ input
 		margin-right: 15px
 
 	&:checked+label::before
-		background-image: url("http://api.iomp.ru/public/storage/all/galka-color.svg")
+		background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.353553' y1='3.56313' x2='4.43689' y2='7.64647' stroke='%233A38DC'/%3E%3Cline x1='3.72982' y1='7.64645' x2='10.7298' y2='0.646445' stroke='%233A38DC'/%3E%3C/svg%3E")
 		border: 1px solid $mainColor
 
 .checkbox_error
@@ -499,7 +556,7 @@ input
 		font-size: 16px
 
 	&:checked+label::before
-		background-image: url("http://api.iomp.ru/public/storage/all/galka-color.svg")
+		background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.353553' y1='3.56313' x2='4.43689' y2='7.64647' stroke='%233A38DC'/%3E%3Cline x1='3.72982' y1='7.64645' x2='10.7298' y2='0.646445' stroke='%233A38DC'/%3E%3C/svg%3E")
 		border: 1px solid $mainColor
 
 	&+label::before
@@ -557,7 +614,7 @@ input
 		margin-right: 15px
 
 	&:checked+label::before
-		background-image: url("http://api.iomp.ru/public/storage/all/galka-white.svg")
+		background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.353553' y1='3.56295' x2='4.43689' y2='7.64628' stroke='white'/%3E%3Cline x1='3.72945' y1='7.64645' x2='10.7295' y2='0.646445' stroke='white'/%3E%3C/svg%3E")
 
 	&_error
 		&+label::before

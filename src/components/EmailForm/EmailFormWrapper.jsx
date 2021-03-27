@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 
 import EmailForm from "./EmailForm";
@@ -16,57 +17,39 @@ const EmailFormWrapper = React.memo(() => {
         }
     }, []);
 
-    const [errorForm, setErrorForm] = React.useState({});
+    const onSubmit = (formData) => {
+        const newData = {
+            Contact: {
+                email: formData.email,
+                id_newsletter: form.id_awo,
+                id_advertising_channel_page: 0,
+            },
+            required_fields: {
+                email: 1,
+            },
+            formId: form.formId,
+            formVc: form.formVc,
+            _aid: "",
+            _vcaid: "",
+        };
 
-    const checkInput = (e) => {
-        const value = e.target.value;
-
-        const errors = {};
-
-        const defaultMin = 2;
-        const defaultMax = 255;
-
-        if (!value) {
-            errors.email = "Поле не может быть пустым";
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-            errors.email = "Неверный email";
-        } else if (value.length > defaultMax) {
-            errors.email = `Не более ${defaultMax} символов`;
-        } else if (value.length < defaultMin) {
-            errors.email = `Не менее ${defaultMin} символов`;
-        }
-
-        setErrorForm({
-            email: errors.email,
-            confirmation: errorForm.confirmation,
-        });
-    };
-
-    const checkBox = (e) => {
-        const value = e.target.checked;
-
-        const errors = {};
-
-        if (!value) {
-            errors.confirmation = "Поставьте галочку";
-        }
-
-        setErrorForm({
-            confirmation: errors.confirmation,
-            email: errorForm.email,
-        });
-    };
-
+        axios
+            .post(form.action, newData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then(() => {
+                window.location.href = form.action;
+            })
+            .catch(() => {
+                return false;
+            });
+	};
+	
     return (
         <>
-            <EmailForm
-                size={size}
-                isLoaded={isLoaded}
-                checkInput={checkInput}
-                checkBox={checkBox}
-                errorForm={errorForm}
-                {...form}
-            />
+            <EmailForm size={size} isLoaded={isLoaded} onSubmit={onSubmit} />
         </>
     );
 });

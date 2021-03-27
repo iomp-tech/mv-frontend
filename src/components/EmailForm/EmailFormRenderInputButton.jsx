@@ -1,23 +1,23 @@
 import React from "react";
 
-const FooterFormRenderInput = ({
-    input,
-    type,
-    placeholder,
+const EmailFormRenderInputButton = ({
     size,
+    input,
+    label,
+    type,
     meta: {touched, error},
 }) => {
     return (
         <>
-            <div className="footer-email-form-input">
-                <button type="submit" className="footer-email-form__btn">
+            <div style={{position: "relative"}}>
+                <button type="submit" className="email-form__btn">
                     <svg
                         width="26"
                         height="8"
                         viewBox="0 0 26 8"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        className="footer-email-form-input__svg"
+                        className="email-form-input__svg"
                     >
                         <path
                             fill={touched && error ? "#FD5754" : "#fff"}
@@ -28,21 +28,21 @@ const FooterFormRenderInput = ({
                 <input
                     {...input}
                     type={type}
-                    placeholder={placeholder}
-                    className={`footer-email-form-input__field ${size} ${
-                        touched && error
-                            ? "footer-email-form-input__field_error"
-                            : ""
+                    size={size}
+                    placeholder={label}
+                    className={`email-form-input__field ${size} ${
+                        touched && error ? "email-form-input__field_error" : ""
                     }`}
+                    required
                 />
             </div>
-            {touched && error && (
+            {touched && error ? (
                 <span className={`input__label__error_bottom ${size}`}>
                     {error}
                 </span>
-            )}
+            ) : null}
         </>
     );
 };
 
-export default FooterFormRenderInput;
+export default EmailFormRenderInputButton;

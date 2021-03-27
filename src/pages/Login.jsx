@@ -92,10 +92,7 @@ const Login = () => {
                                             </p>
                                         )}
 
-                                        <LoginForm
-                                            onSubmit={onSubmit}
-                                            size={size}
-                                        />
+                                        <LoginForm onSubmit={onSubmit} />
 
                                         <Link
                                             to="/restoreemail"

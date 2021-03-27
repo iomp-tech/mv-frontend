@@ -8,6 +8,8 @@ import {
     ShopBlockLoading,
     ShopSection,
     PreloaderPage,
+    NoConfirmed,
+    LibraryNull,
 } from ".././components/";
 
 import {fetchUserCourse} from ".././redux/actions/user";
@@ -105,14 +107,7 @@ const Library = () => {
                                                       />
                                                   ))
                                               ) : (
-                                                  <div className="library-null">
-                                                      <p
-                                                          className={`library-null__title ${size}`}
-                                                      >
-                                                          К сожелению у вас нет
-                                                          курсов
-                                                      </p>
-                                                  </div>
+                                                  <LibraryNull />
                                               ))
                                             : Array(3)
                                                   .fill(0)
@@ -149,32 +144,7 @@ const Library = () => {
                                 </div>
                             </section>
                         ) : (
-                            <section className="error">
-                                <div className="container">
-                                    <div className="error-wrapper">
-                                        <h2 className={`error__title ${size}`}>
-                                            <span>Подтвердите</span> ваш email
-                                        </h2>
-                                        <p
-                                            className={`error__subtitle ${size}`}
-                                        >
-                                            На ваш email было отправлено письмо
-                                            с ссылкой на подтверждение аккаунта.
-                                            Если письмо не пришло проверьте
-                                            папку "спам".{" "}
-                                            <Link to="/repeat">
-                                                Отправить еще раз
-                                            </Link>
-                                        </p>
-                                        <Link
-                                            to="/"
-                                            className={`btn-bold_color error__btn ${size}`}
-                                        >
-                                            На главную страницу
-                                        </Link>
-                                    </div>
-                                </div>
-                            </section>
+                            <NoConfirmed />
                         )}
                     </>
                 ) : (
