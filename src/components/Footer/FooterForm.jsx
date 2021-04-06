@@ -6,13 +6,7 @@ import FooterRenderInputButton from "./FooterRenderInputButton";
 import FooterRenderCheckbox from "./FooterRenderCheckbox";
 
 let FooterForm = React.memo(
-    ({size, handleSubmit, initialize}) => {
-        React.useEffect(() => {
-            initialize({
-                confirmation: true,
-            });
-        }, []);
-
+    ({size, handleSubmit}) => {
         return (
             <form
                 onSubmit={handleSubmit}
@@ -38,7 +32,6 @@ let FooterForm = React.memo(
                             type="checkbox"
                             name="confirmation"
                             id="footer-email-form__checkbox"
-                            label="Я согласен с условиями обработки персональных данных"
                             size={size}
                         />
                     </div>

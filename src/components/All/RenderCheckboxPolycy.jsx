@@ -1,8 +1,8 @@
 import React from "react";
 
-import {PRIVACY_POLICY} from "../../api";
+import { PRIVACY_POLICY } from "../../api";
 
-const EmailFormRenderCheckbox = ({
+const RenderCheckboxPolycy = ({
     size,
     input,
     type,
@@ -14,14 +14,14 @@ const EmailFormRenderCheckbox = ({
             <input
                 {...input}
                 type={type}
-                id={id}
-                className={`checkbox_white email-form__checkbox ${
-                    touched && error ? "checkbox_white_error" : ""
+                className={`${size} shop-page-main2__checkbox ${
+                    touched && error ? "checkbox_error" : "checkbox"
                 }`}
+                id={id}
             />
             <label
-                className={`checkbox-label_white ${size} email-form__label ${
-                    touched && error ? "checkbox-label_white_error" : ""
+                className={`${size} shop-page-main2__label ${
+                    touched && error ? "checkbox-label_error" : "checkbox-label"
                 }`}
                 htmlFor={id}
             >
@@ -29,10 +29,8 @@ const EmailFormRenderCheckbox = ({
                 <a
                     href={PRIVACY_POLICY}
                     target="_blank"
-                    className={`checkbox-label_white__link ${
-                        touched && error
-                            ? "checkbox-label_white__link_error"
-                            : ""
+                    className={`checkbox-label__link ${
+                        touched && error ? "checkbox-label__link_error" : ""
                     }`}
                 >
                     персональных данных
@@ -42,4 +40,4 @@ const EmailFormRenderCheckbox = ({
     );
 };
 
-export default EmailFormRenderCheckbox;
+export default RenderCheckboxPolycy;

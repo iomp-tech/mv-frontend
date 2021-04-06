@@ -5,13 +5,7 @@ import validate from "./validate";
 import EmailFormRenderInputButton from "./EmailFormRenderInputButton";
 import EmailFormRenderCheckbox from "./EmailFormRenderCheckbox";
 
-let EmailForm = React.memo(({size, handleSubmit, isLoaded, initialize}) => {
-    React.useEffect(() => {
-        initialize({
-            confirmation: true,
-        });
-    }, []);
-
+let EmailForm = React.memo(({size, handleSubmit, isLoaded}) => {
     return (
         <>
             {isLoaded ? (
@@ -43,7 +37,6 @@ let EmailForm = React.memo(({size, handleSubmit, isLoaded, initialize}) => {
                                         type="checkbox"
                                         name="confirmation"
                                         id="email-form__checkbox"
-                                        label="Я согласен с условиями обработки персональных данных"
                                         size={size}
                                     />
                                 </div>

@@ -6,24 +6,30 @@ import "../../../assets/owl-carousel/owl.carousel.css";
 const ShopPageFeedbackVideos = ({title, videos, size}) => {
     const slider = React.useRef();
 
-    const stopVideos = () => {
-        const iframes = document.querySelectorAll(
-            ".shop-page-feedback-slider-item-iframe"
-        );
+    const [stateVideos, setStateVideos] = React.useState([]);
 
-        for (let i = 0; i < iframes.length; i++) {
-            iframes[i].setAttribute("src", videos[i].videoCode + "?autoplay=0");
-        }
+    React.useEffect(() => {
+        videos.map(() => {
+            stateVideos.push(false);
+        });
+
+        setStateVideos([...stateVideos]);
+    }, []);
+
+    const onClickStateVideos = (index) => {
+        stateVideos[index] = !stateVideos[index];
+
+        setStateVideos([...stateVideos]);
     };
 
     const prev = () => {
-        stopVideos();
+        setStateVideos([]);
 
         slider.current.prev();
     };
 
     const next = () => {
-        stopVideos();
+        setStateVideos([]);
 
         slider.current.next();
     };
@@ -55,16 +61,26 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
                             <div
                                 key={`shop-page-feedback-slider-item-${index}`}
                                 className="shop-page-feedback-slider-video-item"
+                                onClick={() => onClickStateVideos(index)}
                             >
-                                <iframe
-                                    width="100%"
-                                    height="100%"
-                                    src={video.videoCode}
-                                    frameBorder="0"
-                                    className="shop-page-feedback-slider-item-iframe"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
+                                {stateVideos[index] ? (
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={video.videoCode}
+                                        frameBorder="0"
+                                        className="shop-page-feedback-slider-item-iframe"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
+                                ) : (
+                                    <div
+                                        className="shop-page-feedback-slider-video-item-bg"
+                                        style={{
+                                            backgroundImage: `url(${video.videoCodePhoto})`,
+                                        }}
+                                    ></div>
+                                )}
                             </div>
                         ))}
                     </OwlCarousel>

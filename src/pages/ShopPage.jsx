@@ -110,7 +110,10 @@ const ShopPage = (props) => {
                                     />
                                 ) : null}
                                 {block.type === "main2" ? (
-                                    <ShopPageMain2 size={size} {...block} />
+                                    <ShopPageMain2
+                                        size={size}
+                                        {...block}
+                                    />
                                 ) : null}
                                 {block.type === "section-squares" ? (
                                     <ShopPageSectionSquares

@@ -18,6 +18,8 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
         );
     }, [stateListTabsIndex]);
 
+    const sliderRef = React.useRef();
+
     const onClickSliderTextTabsItem = (items, index) => {
         setStateListTabs(items);
         setStateListTabsIndex(index);
@@ -26,9 +28,11 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
         setTimeout(() => {
             setStateAnimateTabs(false);
         }, 400);
+
+        nextSlide(index);
     };
 
-    const options = {
+	const options = {
         autoWidth: true,
         margin: 50,
         responsive: {
@@ -36,6 +40,10 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                 margin: 100,
             },
         },
+    };
+
+	const nextSlide = (index) => {
+        sliderRef.current.goTo(index);
     };
 
     return (
@@ -47,14 +55,13 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                     >
                         {title}
                     </h2>
-                    <OwlCarousel options={options}>
+                    <OwlCarousel ref={sliderRef} options={options}>
                         {tabs.map((tab, index) => (
                             <div
                                 key={`shop-page-slider-text-tabs-item-${index}`}
                                 className="shop-page-slider-text-tabs-item"
                             >
                                 <h3
-                                    key={`slider-text-tab-${index}`}
                                     className={`shop-page-slider-text-tabs-item__title ${
                                         index === stateListTabsIndex
                                             ? "active"

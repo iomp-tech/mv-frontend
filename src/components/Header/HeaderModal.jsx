@@ -145,6 +145,14 @@ const HeaderModal = React.memo(({isLogin}) => {
                                 </a>
                                 <NavLink
                                     onClick={toggleVisibleHeaderModal}
+                                    to="/session-room"
+                                    className="header-modal__link"
+                                    activeClassName="header-modal__link_active"
+                                >
+                                    Сессионная комната
+                                </NavLink>
+                                <NavLink
+                                    onClick={toggleVisibleHeaderModal}
                                     to="/cabinet"
                                     className="header-modal__link"
                                     activeClassName="header-modal__link_active"

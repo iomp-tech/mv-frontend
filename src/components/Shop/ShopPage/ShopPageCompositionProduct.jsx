@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import NumberFormat from "react-number-format";
 
@@ -7,6 +8,8 @@ import "../../../assets/owl-carousel/owl.carousel.css";
 
 import {addGoodsCart, statusGoodsPush} from "../../../redux/actions/cart";
 import {fetchAllGoods} from "../../../redux/actions/goods";
+
+import ShopPageFormCompositionProduct from "./ShopPageFormCompositionProduct";
 
 const ShopPageCompositionProduct = ({
     title,
@@ -22,8 +25,6 @@ const ShopPageCompositionProduct = ({
 
     const {itemsAll} = useSelector(({goods}) => goods);
     const {push} = useSelector(({cart}) => cart);
-
-    const [errorForm, setErrorForm] = React.useState({});
 
     React.useEffect(() => {
         if (!Object.keys(itemsAll).length) {
@@ -42,43 +43,17 @@ const ShopPageCompositionProduct = ({
         );
     }, [stateModulesIndex]);
 
-    const checkInput = (e) => {
-        const value = e.target.value;
+    const sliderRef = React.useRef();
 
-        const errors = {};
+    const onClickSliderTextModulesItem = (index) => {
+        setStateModulesIndex(index);
+        setStateAnimateModules(true);
 
-        const defaultMin = 2;
-        const defaultMax = 255;
+        setTimeout(() => {
+            setStateAnimateModules(false);
+        }, 400);
 
-        if (!value) {
-            errors.email = "Поле не может быть пустым";
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-            errors.email = "Неверный email";
-        } else if (value.length > defaultMax) {
-            errors.email = `Не более ${defaultMax} символов`;
-        } else if (value.length < defaultMin) {
-            errors.email = `Не менее ${defaultMin} символов`;
-        }
-
-        setErrorForm({
-            email: errors.email,
-            confirmation: errorForm.confirmation,
-        });
-    };
-
-    const checkBox = (e) => {
-        const value = e.target.checked;
-
-        const errors = {};
-
-        if (!value) {
-            errors.confirmation = "Поставьте галочку";
-        }
-
-        setErrorForm({
-            confirmation: errors.confirmation,
-            email: errorForm.email,
-        });
+        nextSlide(index);
     };
 
     const options = {
@@ -91,13 +66,8 @@ const ShopPageCompositionProduct = ({
         },
     };
 
-    const onClickSliderTextModulesItem = (index) => {
-        setStateModulesIndex(index);
-        setStateAnimateModules(true);
-
-        setTimeout(() => {
-            setStateAnimateModules(false);
-        }, 400);
+    const nextSlide = (index) => {
+        sliderRef.current.goTo(index);
     };
 
     const setUpdateGoods = (id) => {
@@ -107,6 +77,35 @@ const ShopPageCompositionProduct = ({
 
         dispatch(addGoodsCart(obj));
         dispatch(statusGoodsPush(!push));
+	};
+	
+    const onSubmitCompositionProduct = (formData) => {
+        const newData = {
+            Contact: {
+                email: formData.email,
+                id_newsletter: form_id_awo,
+                id_advertising_channel_page: 0,
+            },
+            required_fields: {
+                email: 1,
+            },
+            formId: formId,
+            formVc: formVc,
+            _aid: "",
+            _vcaid: "",
+        };
+        axios
+            .post(action, newData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then(() => {
+                window.location.href = action;
+            })
+            .catch(() => {
+                return false;
+            });
     };
 
     return (
@@ -121,14 +120,13 @@ const ShopPageCompositionProduct = ({
                     >
                         {title}
                     </h2>
-                    <OwlCarousel options={options}>
+                    <OwlCarousel ref={sliderRef} options={options}>
                         {modules.map((module, index) => (
                             <div
                                 key={`shop-page-composition-product-modules-item-${index}`}
                                 className="shop-page-composition-product-modules-item"
                             >
                                 <h3
-                                    key={`composition-product-module-${index}`}
                                     className={`shop-page-composition-product-modules-item__title ${
                                         index === stateModulesIndex
                                             ? "active"
@@ -182,133 +180,11 @@ const ShopPageCompositionProduct = ({
                             )}
                         </div>
                     </div>
-                    {formBoolean ? (
-                        <form
-                            className={`shop-page-composition-product-form ${size}`}
-                            action={action}
-                            method="POST"
-                        >
-                            <h3
-                                className={`shop-page-composition-product-form__title ${size}`}
-                            >
-                                Записаться
-                            </h3>
-                            <div className="shop-page-composition-product-form-middle">
-                                <div
-                                    className={`shop-page-composition-product-form-block-wrapper ${size}`}
-                                >
-                                    <div className="input shop-page-composition-product-form-input-wrapper">
-                                        <input
-                                            type="hidden"
-                                            value={form_id_awo}
-                                            id="form_newsletter_id_newsletter"
-                                            name="Contact[id_newsletter]"
-                                        />
-                                        <input
-                                            type="hidden"
-                                            value="1"
-                                            id="required_fields_email"
-                                            name="required_fields[email]"
-                                        />
-                                        <div className="shop-page-composition-product-form-input">
-                                            <input
-                                                type="text"
-                                                className={`input__field ${size} shop-page-composition-product-form-input__field ${
-                                                    errorForm.email
-                                                        ? "input__field__error"
-                                                        : ""
-                                                }`}
-                                                name="Contact[email]"
-                                                required
-                                                onBlur={checkInput}
-                                                onChange={checkInput}
-                                            />
-                                            <label
-                                                className={`input__label ${size} reglog-input__label ${
-                                                    errorForm.email
-                                                        ? "input__label__error"
-                                                        : ""
-                                                }`}
-                                            >
-                                                Email
-                                            </label>
-                                        </div>
-
-                                        {/* канал рекламы */}
-                                        <input
-                                            type="hidden"
-                                            value="0"
-                                            id="form_newsletter_id_advertising_channel_page"
-                                            name="Contact[id_advertising_channel_page]"
-                                        />
-                                        <input
-                                            type="hidden"
-                                            name="formId"
-                                            value={formId}
-                                        />
-                                        <input
-                                            type="hidden"
-                                            name="formVc"
-                                            value={formVc}
-                                        />
-                                        <input
-                                            type="hidden"
-                                            name="_aid"
-                                            value=""
-                                        />
-                                        <input
-                                            type="hidden"
-                                            name="_vcaid"
-                                            value=""
-                                        />
-                                    </div>
-                                    <button
-                                        className={`btn-bold_color shop-page-composition-product-form__btn ${size}`}
-                                        disabled={
-                                            errorForm.email ||
-                                            errorForm.confirmation
-                                                ? true
-                                                : false
-                                        }
-                                    >
-                                        Записаться
-                                    </button>
-                                </div>
-                                {errorForm.email ? (
-                                    <div>
-                                        <span
-                                            className={`input__label__error_bottom ${size}`}
-                                        >
-                                            {errorForm.email}
-                                        </span>
-                                    </div>
-                                ) : null}
-                            </div>
-                            <div className="checkbox-wrapper shop-page-composition-product-checkbox">
-                                <input
-                                    type="checkbox"
-                                    className={`${size} shop-page-composition-product__checkbox ${
-                                        errorForm.confirmation
-                                            ? "checkbox_error"
-                                            : "checkbox"
-                                    }`}
-                                    defaultChecked={true}
-                                    id="shop-page-composition-product__checkbox-1"
-                                    onChange={checkBox}
-                                />
-                                <label
-                                    className={`shop-page-composition-product__label ${
-                                        errorForm.confirmation
-                                            ? "checkbox-label_error"
-                                            : "checkbox-label"
-                                    } ${size}`}
-                                    htmlFor="shop-page-composition-product__checkbox-1"
-                                >
-                                    Я согласен с условиями обработки
-                                    персональных данных
-                                </label>
-                            </div>
-                        </form>
+                    {parseInt(formBoolean) ? (
+                        <ShopPageFormCompositionProduct
+                            onSubmit={onSubmitCompositionProduct}
+                            size={size}
+                        />
                     ) : Object.keys(itemsAll).length ? (
                         <div
                             className={`shop-page-composition-product-block-wrapper ${size}`}
@@ -403,7 +279,9 @@ const ShopPageCompositionProduct = ({
                                     Добавить в корзину
                                 </button>
                             </div>
-                            {modules[stateModulesIndex].stockBoolean ? (
+                            {parseInt(
+                                modules[stateModulesIndex].stockBoolean
+                            ) ? (
                                 <div
                                     className={`shop-page-composition-product-block-right ${size}`}
                                 >

@@ -42,7 +42,9 @@ const TimetableSubs = (props) => {
             scriptTop.appendChild(scriptTextTop);
 
             document.querySelector("#vanila__js__page__top").innerHTML = "";
-         	document.querySelector("#vanila__js__page__top").appendChild(scriptTop);
+            document
+                .querySelector("#vanila__js__page__top")
+                .appendChild(scriptTop);
 
             document.querySelector("#tags__js__page__top").innerHTML =
                 byUrlItem.timetablePageTopHtml;
@@ -55,7 +57,9 @@ const TimetableSubs = (props) => {
             scriptBottom.appendChild(scriptTextBottom);
 
             document.querySelector("#vanila__js__page__bottom").innerHTML = "";
-        	document.querySelector("#vanila__js__page__bottom").appendChild(scriptBottom);
+            document
+                .querySelector("#vanila__js__page__bottom")
+                .appendChild(scriptBottom);
 
             document.querySelector("#tags__js__page__bottom").innerHTML =
                 byUrlItem.timetablePageBottomHtml;
@@ -66,6 +70,8 @@ const TimetableSubs = (props) => {
         byUrlItem.timetablePageBottomJs,
         byUrlItem.timetablePageBottomHtml,
     ]);
+
+    const onSubmit = () => {};
 
     return (
         <>

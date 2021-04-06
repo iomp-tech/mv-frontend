@@ -2,6 +2,9 @@
 @mixin transition
 	transition: all .4s ease
 
+@mixin animateOpenPage
+	animation: openPage .4s
+
 *
 	margin: 0
 	padding: 0
@@ -12,9 +15,9 @@
 		background-color: #B4D5FE
 
 body
-	overflow-x: hidden
 	font-size: 15px
 	color: $black
+	overflow-y: scroll
 	+light
 
 h1,h2,h3,h4,h5,h6
@@ -47,8 +50,8 @@ input
 		width: 100%
 		border: 1px solid $gray
 		background-color: transparent
-		padding-top: 15px
-		padding-bottom: 15px
+		padding-top: 20px
+		padding-bottom: 20px
 		padding-left: 20px
 		font-size: 18px
 		+transition
@@ -574,6 +577,7 @@ input
 
 .checkbox-label
 	color: $black
+	+transition
 
 	&.X1-5
 		font-size: 22px
@@ -581,14 +585,22 @@ input
 	&.X2
 		font-size: 30px
 
-.checkbox-label_error
-	color: $lightRed
+	&_error
+		color: $lightRed
 
-	&.X1-5
-		font-size: 22px
+		&.X1-5
+			font-size: 22px
 
-	&.X2
-		font-size: 30px
+		&.X2
+			font-size: 30px
+
+	&__link
+		color: $mainColor
+		font-size: 16px
+		+transition
+
+		&_error
+			color: $lightRed
 
 .checkbox_white
 	position: absolute
@@ -630,7 +642,7 @@ input
 			margin-right: 15px
 			+transition
 
-checkbox_white_error
+.checkbox_white_error
 	&+label::before
 		content: ''
 		display: inline-block
@@ -656,6 +668,16 @@ checkbox_white_error
 
 	&_error
 		color: $lightRed
+
+	&__link
+		color: $white
+		border-bottom: 1px solid $white
+		font-size: 16px
+		+transition
+
+		&_error
+			color: $lightRed
+			border-bottom: 1px solid $lightRed
 
 // auth
 .auth
@@ -825,10 +847,18 @@ checkbox_white_error
 	to
 		right: 0
 
+@keyframes openPage
+	0%
+		opacity: 0
+
+	100%
+		opacity: 1
+
 // no-search
 .no-search
 	&-wrapper
-		margin-top: 100px
+		margin: 100px 0
+		+animateOpenPage
 
 	&-text
 		color: $mainColor

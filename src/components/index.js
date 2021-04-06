@@ -33,7 +33,6 @@ export { default as TimetableLoading } from './Timetable/TimetableLoading';
 export { default as TimetableFilters } from './Timetable/TimetableFilters';
 export { default as TimetableBlock } from './Timetable/TimetableBlock';
 export { default as TimetableBlockLoading } from './Timetable/TimetableBlockLoading';
-export { default as TimetableSubsForm } from './Timetable/TimetableSubsForm';
 
 // Teacher
 export { default as TeacherSection } from './Teacher/TeacherSection';
@@ -76,6 +75,7 @@ export { default as FileInput } from './All/FileInput';
 export { default as RenderInput } from './All/RenderInput';
 export { default as RenderSelect } from './All/RenderSelect';
 export { default as NoConfirmed } from './All/NoConfirmed';
+export { default as RenderCheckboxPolycy } from './All/RenderCheckboxPolycy';
 
 // Cart
 export { default as CartBlock } from './Cart/CartBlock';

@@ -14,7 +14,7 @@ import {
 
 import {fetchEmailForm} from "../../redux/actions/emailForm";
 
-import {DOMEN} from "../../api";
+import {DOMEN, PRIVACY_POLICY} from "../../api";
 
 const Footer = () => {
     const dispatch = useDispatch();
@@ -150,7 +150,6 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="footer-bottom">
                                 <div className={`footer-bottom-left ${size}`}>
                                     {legal.length &&
@@ -165,6 +164,15 @@ const Footer = () => {
                                         © IOMP {new Date().getFullYear()}
                                     </p>
                                 </div>
+                            </div>
+                            <div className="footer-bottom-bottom">
+                                <a
+                                    href={PRIVACY_POLICY}
+                                    className="footer-bottom-bottom__link"
+                                    target="_blank"
+                                >
+                                    Политика конфиденциальности
+                                </a>
                             </div>
                         </div>
                     </div>
