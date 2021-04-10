@@ -43,6 +43,10 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
             1000: {
                 items: 3,
             },
+
+            500: {
+                items: 2,
+            },
         },
     };
 
