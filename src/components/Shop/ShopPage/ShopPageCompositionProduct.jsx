@@ -3,8 +3,10 @@ import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import NumberFormat from "react-number-format";
 
-import OwlCarousel from "react-owl-carousel2";
-import "../../../assets/owl-carousel/owl.carousel.css";
+import Slider from "react-slick";
+
+import "../../../assets/slick/slick.css";
+import "../../../assets/slick/slick-theme.css";
 
 import {addGoodsCart, statusGoodsPush} from "../../../redux/actions/cart";
 import {fetchAllGoods} from "../../../redux/actions/goods";
@@ -56,18 +58,25 @@ const ShopPageCompositionProduct = ({
         nextSlide(index);
     };
 
-    const options = {
-        autoWidth: true,
-        margin: 50,
-        responsive: {
-            1000: {
-                margin: 100,
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 1000,
+        swipeToSlide: true,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    centerMode: true,
+                },
             },
-        },
+        ],
     };
 
     const nextSlide = (index) => {
-        sliderRef.current.goTo(index);
+        sliderRef.current.slickGoTo(index);
     };
 
     const setUpdateGoods = (id) => {
@@ -77,8 +86,8 @@ const ShopPageCompositionProduct = ({
 
         dispatch(addGoodsCart(obj));
         dispatch(statusGoodsPush(!push));
-	};
-	
+    };
+
     const onSubmitCompositionProduct = (formData) => {
         const newData = {
             Contact: {
@@ -120,7 +129,7 @@ const ShopPageCompositionProduct = ({
                     >
                         {title}
                     </h2>
-                    <OwlCarousel ref={sliderRef} options={options}>
+                    <Slider ref={sliderRef} {...settings}>
                         {modules.map((module, index) => (
                             <div
                                 key={`shop-page-composition-product-modules-item-${index}`}
@@ -140,7 +149,7 @@ const ShopPageCompositionProduct = ({
                                 </h3>
                             </div>
                         ))}
-                    </OwlCarousel>
+                    </Slider>
                     <div
                         className={`shop-page-composition-product-modules-description ${size}`}
                     >
@@ -159,25 +168,34 @@ const ShopPageCompositionProduct = ({
                                 stateAnimateModules ? "active" : ""
                             } ${size}`}
                         >
-                            {modules[stateModulesIndex].items.map(
-                                (item, index) => (
-                                    <div
-                                        key={`composition-product-list-item-${index}`}
-                                        className={`shop-page-composition-product-list-item ${size}`}
-                                    >
-                                        <h4
-                                            className={`shop-page-composition-product-list-item__title ${size}`}
+                            {modules[stateModulesIndex].items &&
+                                modules[stateModulesIndex].items.map(
+                                    (item, index) => (
+                                        <div
+                                            key={`composition-product-list-item-${index}`}
+                                            className={`shop-page-composition-product-list-item ${size}`}
                                         >
-                                            {item.title}
-                                        </h4>
-                                        <p
-                                            className={`shop-page-composition-product-list-item__description ${size}`}
-                                        >
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                )
-                            )}
+                                            <h4
+                                                className={`shop-page-composition-product-list-item__title ${size}`}
+                                            >
+                                                {item.title}
+                                            </h4>
+                                            <p
+                                                className={`shop-page-composition-product-list-item__description ${size}`}
+                                            >
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                    )
+                                )}
+                        </div>
+                        <div className="circle-wrapper shop-page-composition-product-circle-wrapper">
+                            <div
+                                className={`circle-bold ${size} shop-page-composition-product-circle1`}
+                            ></div>
+                            <div
+                                className={`circle-regular ${size} shop-page-composition-product-circle2`}
+                            ></div>
                         </div>
                     </div>
                     {parseInt(formBoolean) ? (
@@ -203,6 +221,10 @@ const ShopPageCompositionProduct = ({
                                     <div className="shop-page-composition-product-block-price">
                                         <div className="shop-page-composition-product-block-price-top">
                                             {itemsAll[
+                                                modules[stateModulesIndex]
+                                                    .goodModule
+                                            ] &&
+                                            itemsAll[
                                                 modules[stateModulesIndex]
                                                     .goodModule
                                             ].sale ? (
@@ -250,6 +272,11 @@ const ShopPageCompositionProduct = ({
                                                 >
                                                     <NumberFormat
                                                         value={
+                                                            itemsAll[
+                                                                modules[
+                                                                    stateModulesIndex
+                                                                ].goodModule
+                                                            ] &&
                                                             itemsAll[
                                                                 modules[
                                                                     stateModulesIndex

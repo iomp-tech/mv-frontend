@@ -26,11 +26,30 @@ const TimetableSubs = (props) => {
     const {size, type} = useSelector(({visually}) => visually);
     const url = props.match.params.url;
 
+    const [to, setTo] = React.useState("");
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
 
         dispatch(fetchByUrlTimetable(url));
-    }, [url]);
+
+        if (Object.keys(byUrlItem).length) {
+            for (let i = 0; i < byUrlItem.page.length; i++) {
+                if (byUrlItem.page[i].type === "composition-product") {
+                    setTo("shop-page-composition-product");
+
+                    break;
+                } else if (byUrlItem.page[i].type === "main2") {
+                    setTo("shop-page-main2");
+                    break;
+                } else if (byUrlItem.page[i].type === "main1") {
+                    setTo("shop-page-main1");
+
+                    break;
+                }
+            }
+        }
+    }, [url, Object.keys(byUrlItem).length]);
 
     React.useEffect(() => {
         if (Object.keys(byUrlItem).length) {
@@ -71,8 +90,6 @@ const TimetableSubs = (props) => {
         byUrlItem.timetablePageBottomHtml,
     ]);
 
-    const onSubmit = () => {};
-
     return (
         <>
             {isLoaded ? (
@@ -86,7 +103,11 @@ const TimetableSubs = (props) => {
                             byUrlItem.page.map((block, index) => (
                                 <div key={`shop-page-block-${index}`}>
                                     {block.type === "main1" ? (
-                                        <ShopPageMain1 size={size} {...block} />
+                                        <ShopPageMain1
+                                            size={size}
+                                            to={to}
+                                            {...block}
+                                        />
                                     ) : null}
                                     {block.type === "main2" ? (
                                         <ShopPageMain2
@@ -112,6 +133,7 @@ const TimetableSubs = (props) => {
                                     {block.type === "slider-text" ? (
                                         <ShopPageSliderText
                                             size={size}
+                                            to={to}
                                             {...block}
                                         />
                                     ) : null}

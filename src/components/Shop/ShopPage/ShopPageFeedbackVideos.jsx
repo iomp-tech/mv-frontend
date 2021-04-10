@@ -67,19 +67,29 @@ const ShopPageFeedbackVideos = ({title, videos, size}) => {
                                     <iframe
                                         width="100%"
                                         height="100%"
-                                        src={video.videoCode}
+                                        src={`https://www.youtube.com/embed/${video.videoCode}`}
                                         frameBorder="0"
                                         className="shop-page-feedback-slider-item-iframe"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen
                                     ></iframe>
-                                ) : (
+                                ) : video.videoCodePhoto ? (
                                     <div
                                         className="shop-page-feedback-slider-video-item-bg"
                                         style={{
                                             backgroundImage: `url(${video.videoCodePhoto})`,
                                         }}
                                     ></div>
+                                ) : (
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src={`https://www.youtube.com/embed/${video.videoCode}`}
+                                        frameBorder="0"
+                                        className="shop-page-feedback-slider-item-iframe"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                    ></iframe>
                                 )}
                             </div>
                         ))}

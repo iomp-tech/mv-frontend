@@ -4,7 +4,7 @@ import {Link, animateScroll as scroll} from "react-scroll";
 
 const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
     return (
-        <section className="shop-page-main1" id="shop-page-main1">
+        <section className={`shop-page-main1`} id="shop-page-main1">
             <div className="container">
                 <div className="shop-page-main1-wrapper">
                     <p className={`shop-page-main1__subtitle ${size}`}>

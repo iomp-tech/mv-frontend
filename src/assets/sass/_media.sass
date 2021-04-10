@@ -459,7 +459,19 @@
 				&-form-input-wrapper, &-form__btn
 					width: 100%
 
+			&-slider-text
+				&-tabs
+					&-item
+						padding: 0 25px
+
+				&-circle-wrapper
+					display: none
+
 			&-composition-product
+				&-modules
+					&-item
+						padding: 0 25px
+
 				&-form-block-wrapper
 					width: 100%
 					flex-direction: column
@@ -484,6 +496,9 @@
 					&__title
 						&_color
 							font-size: 28px
+
+				&-circle-wrapper
+					display: none
 
 	// timetable
 	.timetable
@@ -951,6 +966,16 @@
 	// interface
 	.checkbox
 		&+label
+			font-size: 13px
+
+		&+label > a
+			font-size: 13px
+
+	.checkbox_error
+		&+label
+			font-size: 13px
+
+		&+label > a
 			font-size: 13px
 
 	// shop

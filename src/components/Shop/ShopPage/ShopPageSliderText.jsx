@@ -2,11 +2,12 @@ import React from "react";
 
 import {Link, animateScroll as scroll} from "react-scroll";
 
-import OwlCarousel from "react-owl-carousel2";
-import "../../../assets/owl-carousel/owl.carousel.css";
+import Slider from "react-slick";
+
+import "../../../assets/slick/slick.css";
+import "../../../assets/slick/slick-theme.css";
 
 const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
-    const [stateListTabs, setStateListTabs] = React.useState([]);
     const [stateListTabsIndex, setStateListTabsIndex] = React.useState(0);
     const [stateAnimateTabs, setStateAnimateTabs] = React.useState(false);
     const [heightList, setHeightList] = React.useState(950);
@@ -20,8 +21,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
 
     const sliderRef = React.useRef();
 
-    const onClickSliderTextTabsItem = (items, index) => {
-        setStateListTabs(items);
+    const onClickSliderTextTabsItem = (index) => {
         setStateListTabsIndex(index);
         setStateAnimateTabs(true);
 
@@ -32,18 +32,25 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
         nextSlide(index);
     };
 
-	const options = {
-        autoWidth: true,
-        margin: 50,
-        responsive: {
-            1000: {
-                margin: 100,
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 1000,
+        swipeToSlide: true,
+        variableWidth: true,
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    centerMode: true,
+                },
             },
-        },
+        ],
     };
 
-	const nextSlide = (index) => {
-        sliderRef.current.goTo(index);
+    const nextSlide = (index) => {
+        sliderRef.current.slickGoTo(index);
     };
 
     return (
@@ -55,7 +62,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                     >
                         {title}
                     </h2>
-                    <OwlCarousel ref={sliderRef} options={options}>
+                    <Slider ref={sliderRef} {...settings}>
                         {tabs.map((tab, index) => (
                             <div
                                 key={`shop-page-slider-text-tabs-item-${index}`}
@@ -68,17 +75,14 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                                             : ""
                                     } ${size}`}
                                     onClick={() =>
-                                        onClickSliderTextTabsItem(
-                                            tab.items,
-                                            index
-                                        )
+                                        onClickSliderTextTabsItem(index)
                                     }
                                 >
                                     {tab.title}
                                 </h3>
                             </div>
                         ))}
-                    </OwlCarousel>
+                    </Slider>
                     <div
                         className="shop-page-slider-text-list-wrapper"
                         style={{height: heightList}}
@@ -91,24 +95,27 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                             <ul
                                 className={`shop-page-slider-text-list-ul ${size}`}
                             >
-                                {stateListTabs.length
-                                    ? stateListTabs.map((li, index) => (
-                                          <li
-                                              key={`slider-text-li-${index}`}
-                                              className={`shop-page-slider-text-list__li ${size}`}
-                                          >
-                                              <span>{li.text}</span>
-                                          </li>
-                                      ))
-                                    : tabs[0].items.map((li, index) => (
-                                          <li
-                                              key={`slider-text-li-${index}`}
-                                              className={`shop-page-slider-text-list__li ${size}`}
-                                          >
-                                              <span>{li.text}</span>
-                                          </li>
-                                      ))}
+                                {tabs[stateListTabsIndex].items &&
+                                    tabs[stateListTabsIndex].items.map(
+                                        (li, index) => (
+                                            <li
+                                                key={`slider-text-li-${index}`}
+                                                className={`shop-page-slider-text-list__li ${size}`}
+                                            >
+                                                <span>{li.text}</span>
+                                            </li>
+                                        )
+                                    )}
                             </ul>
+                        </div>
+
+                        <div className="circle-wrapper shop-page-slider-text-circle-wrapper">
+                            <div
+                                className={`circle-bold ${size} shop-page-slider-text-circle1`}
+                            ></div>
+                            <div
+                                className={`circle-regular ${size} shop-page-slider-text-circle2`}
+                            ></div>
                         </div>
                     </div>
                     <div className="shop-page-slider-text-btn">

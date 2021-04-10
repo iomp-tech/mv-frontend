@@ -29,7 +29,8 @@ const ShopPageFeedbackPhotos = ({title, photos, size}) => {
 
     const options = {
         items: 1,
-        loop: true,
+		loop: false,
+		center: true,
         mouseDrag: false,
         margin: 25,
         autoWidth: false,

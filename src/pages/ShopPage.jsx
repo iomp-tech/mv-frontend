@@ -39,12 +39,12 @@ const ShopPage = (props) => {
                     setTo("shop-page-composition-product");
 
                     break;
-                } else if (byUrlItem.page[i].type === "main1") {
-                    setTo("shop-page-main1");
-
-                    break;
                 } else if (byUrlItem.page[i].type === "main2") {
                     setTo("shop-page-main2");
+
+                    break;
+                } else if (byUrlItem.page[i].type === "main1") {
+                    setTo("shop-page-main1");
 
                     break;
                 }
@@ -110,10 +110,7 @@ const ShopPage = (props) => {
                                     />
                                 ) : null}
                                 {block.type === "main2" ? (
-                                    <ShopPageMain2
-                                        size={size}
-                                        {...block}
-                                    />
+                                    <ShopPageMain2 size={size} {...block} />
                                 ) : null}
                                 {block.type === "section-squares" ? (
                                     <ShopPageSectionSquares

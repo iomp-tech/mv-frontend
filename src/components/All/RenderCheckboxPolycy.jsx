@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PRIVACY_POLICY } from "../../api";
+import {PRIVACY_POLICY} from "../../api";
 
 const RenderCheckboxPolycy = ({
     size,
@@ -25,16 +25,18 @@ const RenderCheckboxPolycy = ({
                 }`}
                 htmlFor={id}
             >
-                Я согласен с условиями обработки&nbsp;
-                <a
-                    href={PRIVACY_POLICY}
-                    target="_blank"
-                    className={`checkbox-label__link ${
-                        touched && error ? "checkbox-label__link_error" : ""
-                    }`}
-                >
-                    персональных данных
-                </a>
+                <span>
+                    Я согласен с условиями обработки&nbsp;
+                    <a
+                        href={PRIVACY_POLICY}
+                        target="_blank"
+                        className={`checkbox-label__link ${
+                            touched && error ? "checkbox-label__link_error" : ""
+                        }`}
+                    >
+                        персональных данных
+                    </a>
+                </span>
             </label>
         </>
     );
