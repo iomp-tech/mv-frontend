@@ -1,4 +1,4 @@
-export const API_DOMEN = "http://cm61549.tmweb.ru/api/public/api";
+export const API_DOMEN = "https://api.iomp.ru/public/api";
 
 export const DOMEN = "https://api.iomp.ru";
 //http://127.0.0.1:8000/api
@@ -13,3 +13,6 @@ export const KEY_ROOM = "29aa22da-8e66-11eb-9d1e-92dc685e4205";
 
 // Privacy Policy
 export const PRIVACY_POLICY = "https://mastervision.su/politics-i.pdf";
+
+// Index Magazin Awo
+export const INDEX_MAGAZIN_AWO = "shop.iomp";
