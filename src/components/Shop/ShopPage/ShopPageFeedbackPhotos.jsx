@@ -1,5 +1,7 @@
 import React from "react";
 
+import Slider from "react-slick";
+
 import {Lightbox} from "react-modal-image";
 import OwlCarousel from "react-owl-carousel2";
 import "../../../assets/owl-carousel/owl.carousel.css";
@@ -20,28 +22,38 @@ const ShopPageFeedbackPhotos = ({title, photos, size}) => {
     };
 
     const prev = () => {
-        slider.current.prev();
+        slider.current.slickPrev();
     };
 
     const next = () => {
-        slider.current.next();
+        slider.current.slickNext();
     };
 
-    const options = {
-        items: 1,
-		loop: false,
-		center: true,
-        mouseDrag: false,
-        margin: 25,
-        autoWidth: false,
-        responsive: {
-            1000: {
-                items: 5,
-            },
-            600: {
-                items: 3,
-            },
-        },
+    // const options = {
+    //     items: 1,
+    // 	loop: true,
+    // 	center: true,
+    //     mouseDrag: false,
+    //     margin: 25,
+    //     autoWidth: false,
+    //     responsive: {
+    //         1000: {
+    //             items: 5,
+    //         },
+    //         600: {
+    //             items: 3,
+    //         },
+    //     },
+    // };
+
+    const settings = {
+        dots: false,
+        arrows: false,
+        infinite: true,
+        speed: 1000,
+        swipeToSlide: true,
+        variableWidth: true,
+        centerMode: true,
     };
 
     return (
@@ -54,18 +66,25 @@ const ShopPageFeedbackPhotos = ({title, photos, size}) => {
                         </h2>
                     ) : null}
 
-                    <OwlCarousel ref={slider} options={options}>
+                    <Slider ref={slider} {...settings}>
                         {photos.map((photo, index) => (
                             <div
                                 key={`shop-page-feedback-slider-item-${index}`}
-                                className="shop-page-feedback-slider-item"
-                                style={{
-                                    backgroundImage: `url(${photo.imageFeedback})`,
-                                }}
-                                onClick={() => clickSlide(photo.imageFeedback)}
-                            ></div>
+                                className="shop-page-feedback-slider-item-wrapper"
+                            >
+                                <div
+                                    key={`shop-page-feedback-slider-item-${index}`}
+                                    className="shop-page-feedback-slider-item"
+                                    style={{
+                                        backgroundImage: `url(${photo.imageFeedback})`,
+                                    }}
+                                    onClick={() =>
+                                        clickSlide(photo.imageFeedback)
+                                    }
+                                ></div>
+                            </div>
                         ))}
-                    </OwlCarousel>
+                    </Slider>
 
                     {open && (
                         <Lightbox

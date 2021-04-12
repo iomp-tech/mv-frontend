@@ -82,20 +82,6 @@
 			&-block-wrapper:nth-child(2n+1) &-block
 				border-left: 1px solid $gray
 
-		&-page
-			&-composition-product
-				&-block
-					&-wrapper
-						flex-direction: column
-
-					&-left, &-right
-						width: 100%
-
-					&-left
-						border: none
-						padding: 0
-						margin-bottom: 50px
-
 @media screen and (max-width: 1150px)
 	// header
 	.header
@@ -342,7 +328,19 @@
 
 						&__description
 							max-width: 50%
+				
+				&-block
+					&-wrapper
+						flex-direction: column
 
+					&-left, &-right
+						width: 100%
+
+					&-left
+						border: none
+						padding: 0
+						margin-bottom: 50px
+						
 	// timetable-page
 	.timetable-page
 		&-wrapper

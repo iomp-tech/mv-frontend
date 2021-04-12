@@ -35,7 +35,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
     const settings = {
         dots: false,
         arrows: false,
-        infinite: true,
+        infinite: false,
         speed: 1000,
         swipeToSlide: true,
         variableWidth: true,
