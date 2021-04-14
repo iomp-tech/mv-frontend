@@ -162,8 +162,8 @@ const Header = React.memo(() => {
                                                         backgroundColor: bgColor,
                                                     }}
                                                 >
-                                                    <Link
-                                                        to="/library"
+                                                    <a
+                                                        href={`https://${INDEX_MAGAZIN_AWO}.ru/personal/`}
                                                         className="header-user-menu__link"
                                                         style={{
                                                             color: color,
@@ -194,7 +194,7 @@ const Header = React.memo(() => {
                                                             />
                                                         </svg>
                                                         Мои курсы
-                                                    </Link>
+                                                    </a>
                                                     <Link
                                                         to="/session-room"
                                                         className="header-user-menu__link"

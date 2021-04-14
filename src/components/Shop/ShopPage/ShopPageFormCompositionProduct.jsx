@@ -12,9 +12,6 @@ let ShopPageFormCompositionProduct = ({size, handleSubmit}) => {
             className={`shop-page-composition-product-form ${size}`}
             onSubmit={handleSubmit}
         >
-            <h3 className={`shop-page-composition-product-form__title ${size}`}>
-                Записаться
-            </h3>
             <div className="shop-page-composition-product-form-middle">
                 <div
                     className={`shop-page-composition-product-form-block-wrapper ${size}`}

@@ -1,7 +1,7 @@
 import React from "react";
 import {Link, NavLink} from "react-router-dom";
 
-import {DOMEN} from "../../api";
+import {DOMEN, INDEX_MAGAZIN_AWO} from "../../api";
 
 const HeaderModal = React.memo(({isLogin}) => {
     const [visibleHeaderModal, setVisibleHeaderModal] = React.useState(false);
@@ -129,16 +129,16 @@ const HeaderModal = React.memo(({isLogin}) => {
                         </NavLink>
                         {isLogin ? (
                             <>
-                                <NavLink
+                                <a
                                     onClick={toggleVisibleHeaderModal}
-                                    to="/library"
+                                    href={`https://${INDEX_MAGAZIN_AWO}.ru/personal/`}
                                     className="header-modal__link"
                                     activeClassName="header-modal__link_active"
                                 >
                                     Мои курсы
-                                </NavLink>
+                                </a>
                                 <a
-                                    href="https://a46598s1.autoweboffice.ru/personal/certificate"
+                                    href={`https://${INDEX_MAGAZIN_AWO}.ru/personal/certificate`}
                                     className="header-modal__link"
                                 >
                                     Сертификаты

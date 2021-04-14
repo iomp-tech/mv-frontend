@@ -65,14 +65,6 @@ const ShopPageCompositionProduct = ({
         speed: 1000,
         swipeToSlide: true,
         variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 900,
-                settings: {
-                    centerMode: true,
-                },
-            },
-        ],
     };
 
     const nextSlide = (index) => {

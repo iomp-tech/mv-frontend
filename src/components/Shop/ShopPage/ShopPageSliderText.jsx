@@ -37,16 +37,12 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
         arrows: false,
         infinite: false,
         speed: 1000,
+
         swipeToSlide: true,
         variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 900,
-                settings: {
-                    centerMode: true,
-                },
-            },
-        ],
+
+        slidesToShow: 1,
+        slidesToScroll: 1,
     };
 
     const nextSlide = (index) => {

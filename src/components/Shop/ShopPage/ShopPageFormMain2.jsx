@@ -12,9 +12,6 @@ let ShopPageFormMain2 = ({size, handleSubmit}) => {
             className={`shop-page-main2-form ${size}`}
             onSubmit={handleSubmit}
         >
-            <h3 className={`shop-page-main2-form__title ${size}`}>
-                Записаться
-            </h3>
             <div className="shop-page-main2-form-middle">
                 <div className={`shop-page-main2-form-block-wrapper ${size}`}>
                     <div className="input shop-page-main2-form-input-wrapper">

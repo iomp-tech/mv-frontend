@@ -4,7 +4,7 @@ import {ServicesBlock} from "../../";
 
 const ShopPageSectionSquares = ({title, squares, size, type}) => {
     return (
-        <section className="services">
+        <section className="services shop-page-services">
             <div className="container">
                 <div className="services-wrapper">
                     {type === "blackWhite" ||
@@ -20,7 +20,7 @@ const ShopPageSectionSquares = ({title, squares, size, type}) => {
                         </>
                     ) : null}
 
-					<h2 className={`title ${size} services__title`}>{title}</h2>
+                    <h2 className={`title ${size} services__title`}>{title}</h2>
 
                     <div className="services-block-wrapper">
                         {squares.map((obj, index) => (

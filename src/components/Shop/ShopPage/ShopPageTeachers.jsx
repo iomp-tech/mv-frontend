@@ -9,7 +9,7 @@ import {
     TeacherBlockLoading,
 } from "../../../components/";
 
-const ShopPageTeachers = ({auth, size}) => {
+const ShopPageTeachers = ({auth, title, size}) => {
     const dispatch = useDispatch();
 
     const {rgb, bgColor} = useSelector(({visually}) => visually);
@@ -51,9 +51,7 @@ const ShopPageTeachers = ({auth, size}) => {
         <section className="teacher" style={{marginBottom: "50px"}}>
             <div className="container">
                 <div className="teacher-wrapper">
-                    <h2 className={`title ${size} teacher__title`}>
-                        Наши преподаватели
-                    </h2>
+                    <h2 className={`title ${size} teacher__title`}>{title}</h2>
 
                     <TeacherModal
                         rgb={rgb}

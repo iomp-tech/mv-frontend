@@ -478,6 +478,10 @@
 				&.X2
 					font-size: 32px
 
+	// services
+	&-services
+		margin-bottom: 50px
+
 	// slider-text
 	&-slider-text
 		margin: 100px 0
@@ -487,7 +491,8 @@
 				padding-right: 100px
 
 				&__title
-					white-space: nowrap
+					text-align: left
+					white-space: pre-wrap
 					font-size: 42px
 					color: #DDDDFD
 					text-decoration: underline
@@ -596,7 +601,7 @@
 				padding-right: 100px
 
 				&__title
-					white-space: nowrap
+					white-space: pre-wrap
 					font-size: 42px
 					color: #DDDDFD
 					text-decoration: underline
@@ -618,6 +623,10 @@
 		&-list
 			width: 100%
 			position: absolute
+			
+			padding-left: 25px
+
+			border-left: 3px solid $mainColor
 
 			&-wrapper
 				position: relative
@@ -633,7 +642,7 @@
 				margin-bottom: 25px
 
 				&:last-child
-					margin-bottom: 50px
+					margin-bottom: 0
 
 				&.X1-5, &.X2
 					flex-direction: column
