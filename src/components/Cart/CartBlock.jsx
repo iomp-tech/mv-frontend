@@ -19,8 +19,8 @@ const CartBlock = React.memo(
         color,
         categories,
         types,
-		teachers,
-		API_DOMEN
+        teachers,
+        API_DOMEN,
     }) => {
         return (
             <div className="cart-block">
