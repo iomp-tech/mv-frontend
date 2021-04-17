@@ -3,7 +3,6 @@ import React from "react";
 import {PRIVACY_POLICY} from "./../../api";
 
 const FooterRenderCheckbox = ({
-    size,
     input,
     type,
     id,
@@ -15,12 +14,12 @@ const FooterRenderCheckbox = ({
                 {...input}
                 type={type}
                 id={id}
-                className={`checkbox_white ${size} footer-email-form__checkbox ${
+                className={`checkbox_white footer-email-form__checkbox ${
                     touched && error ? "checkbox_white_error" : ""
                 }`}
             />
             <label
-                className={`checkbox-label_white ${size} footer-email-form__label ${
+                className={`checkbox-label_white footer-email-form__label ${
                     touched && error ? "checkbox-label_white_error" : ""
                 }`}
                 htmlFor={id}

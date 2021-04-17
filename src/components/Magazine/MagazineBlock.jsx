@@ -16,7 +16,6 @@ const MagazineBlock = React.memo(
         auth,
         postsType,
         color,
-        size,
     }) => {
         return (
             <>
@@ -25,8 +24,8 @@ const MagazineBlock = React.memo(
                     to={`/post/${id}`}
                     className={
                         num === 0
-                            ? `magazine-block_big  ${size}`
-                            : `magazine-block ${size}`
+                            ? `magazine-block_big `
+                            : `magazine-block`
                     }
                 >
                     <div
@@ -70,8 +69,8 @@ const MagazineBlock = React.memo(
                                     <span
                                         className={
                                             num === 0
-                                                ? `magazine-block_big__types_color ${size}`
-                                                : `magazine-block__types_color ${size}`
+                                                ? `magazine-block_big__types_color`
+                                                : `magazine-block__types_color`
                                         }
                                     >
                                         {categories && categories.title}
@@ -87,8 +86,8 @@ const MagazineBlock = React.memo(
                                     <span
                                         className={
                                             num === 0
-                                                ? `magazine-block_big__types_gray ${size}`
-                                                : `magazine-block__types_gray ${size}`
+                                                ? `magazine-block_big__types_gray`
+                                                : `magazine-block__types_gray`
                                         }
                                     >
                                         {postsType && postsType.title}
@@ -99,8 +98,8 @@ const MagazineBlock = React.memo(
                         <span
                             className={
                                 num === 0
-                                    ? `magazine-block_big__date ${size}`
-                                    : `magazine-block__date ${size}`
+                                    ? `magazine-block_big__date`
+                                    : `magazine-block__date`
                             }
                             style={{color: color}}
                         >
@@ -111,8 +110,8 @@ const MagazineBlock = React.memo(
                         <h4
                             className={
                                 num === 0
-                                    ? `magazine-block_big__title ${size}`
-                                    : `magazine-block__title ${size}`
+                                    ? `magazine-block_big__title`
+                                    : `magazine-block__title`
                             }
                         >
                             {title}
@@ -120,8 +119,8 @@ const MagazineBlock = React.memo(
                         <p
                             className={
                                 num === 0
-                                    ? `magazine-block_big__description ${size}`
-                                    : `magazine-block__description ${size}`
+                                    ? `magazine-block_big__description`
+                                    : `magazine-block__description`
                             }
                         >
                             {smallDescription}
@@ -154,15 +153,15 @@ const MagazineBlock = React.memo(
                                                     }}
                                                     className={`auth__img ${
                                                         num === 0
-                                                            ? `magazine-block_big-auth__img  ${size}`
-                                                            : `magazine-block-auth__img ${size}`
+                                                            ? `magazine-block_big-auth__img `
+                                                            : `magazine-block-auth__img`
                                                     }`}
                                                 ></div>
                                                 <span
                                                     className={`auth__name ${
                                                         num === 0
-                                                            ? `magazine-block_big-auth__name ${size}`
-                                                            : `magazine-block-auth__name ${size}`
+                                                            ? `magazine-block_big-auth__name`
+                                                            : `magazine-block-auth__name`
                                                     }`}
                                                 >
                                                     {auths[key].name}

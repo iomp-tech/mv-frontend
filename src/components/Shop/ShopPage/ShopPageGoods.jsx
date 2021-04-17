@@ -9,7 +9,7 @@ import {fetchTeacher} from "../../../redux/actions/teacher";
 import ShopBlock from "../ShopBlock";
 import ShopBlockLoading from "../ShopBlockLoading";
 
-const ShopPageGoods = ({title, goods, size}) => {
+const ShopPageGoods = ({title, goods}) => {
     const dispatch = useDispatch();
 
     const categories = useSelector(({categories}) => categories.items);
@@ -53,7 +53,7 @@ const ShopPageGoods = ({title, goods, size}) => {
                 <section className="shop" style={{marginBottom: "50px"}}>
                     <div className="container">
                         <div className="shop-wrapper">
-                            <h2 className={`title ${size} shop__title`}>
+                            <h2 className={`title shop__title`}>
                                 {title}
                             </h2>
 
@@ -74,7 +74,6 @@ const ShopPageGoods = ({title, goods, size}) => {
                                                           toggleSuccessAddCart
                                                       }
                                                       types={types}
-                                                      size={size}
                                                       categories={categories}
                                                       auths={teachers}
                                                       idAwo={

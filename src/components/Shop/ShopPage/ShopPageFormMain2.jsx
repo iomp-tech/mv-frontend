@@ -6,14 +6,14 @@ import validate from "./validate";
 
 import {RenderCheckboxPolycy, RenderInput} from "../../";
 
-let ShopPageFormMain2 = ({size, handleSubmit}) => {
+let ShopPageFormMain2 = ({handleSubmit}) => {
     return (
         <form
-            className={`shop-page-main2-form ${size}`}
+            className={`shop-page-main2-form`}
             onSubmit={handleSubmit}
         >
             <div className="shop-page-main2-form-middle">
-                <div className={`shop-page-main2-form-block-wrapper ${size}`}>
+                <div className={`shop-page-main2-form-block-wrapper`}>
                     <div className="input shop-page-main2-form-input-wrapper">
                         <div className="shop-page-main2-form-input">
                             <Field
@@ -21,12 +21,11 @@ let ShopPageFormMain2 = ({size, handleSubmit}) => {
                                 type="email"
                                 name="email"
                                 label="Email"
-                                size={size}
                             />
                         </div>
                     </div>
                     <button
-                        className={`btn-bold_color shop-page-main2-form__btn ${size}`}
+                        className={`btn-bold_color shop-page-main2-form__btn`}
                     >
                         Записаться
                     </button>
@@ -38,7 +37,6 @@ let ShopPageFormMain2 = ({size, handleSubmit}) => {
                     type="checkbox"
                     name="confirmation"
                     id="shop-page-main2__checkbox-1"
-                    size={size}
                 />
             </div>
         </form>

@@ -1,14 +1,14 @@
 import React from "react";
 
-const ServicesBlock = ({title, description, index, type, size}) => {
+const ServicesBlock = ({title, description, index, type}) => {
     return (
-        <div className={`services-block ${size} services-block_${type}`}>
-            <span className={`services-block__number ${size}`}>{index}.</span>
+        <div className={`services-block services-block_${type}`}>
+            <span className={`services-block__number`}>{index}.</span>
             {title && (
-                <h3 className={`services-block__title ${size}`}>{title}</h3>
+                <h3 className={`services-block__title`}>{title}</h3>
             )}
             {description && (
-                <p className={`services-block__description ${size}`}>
+                <p className={`services-block__description`}>
                     {description}
                 </p>
             )}

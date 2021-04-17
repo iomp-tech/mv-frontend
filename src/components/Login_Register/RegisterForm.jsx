@@ -7,7 +7,7 @@ import validate from "./validate";
 import {BtnLoaded, RenderInput} from ".././";
 
 let RegisterForm = React.memo(
-    ({handleSubmit, invalid, submitting, pristine, size}) => {
+    ({handleSubmit, invalid, submitting, pristine}) => {
         const {isLoaded} = useSelector(({register}) => register);
 
         const [statePassowrd, setStatePassword] = React.useState({
@@ -22,7 +22,6 @@ let RegisterForm = React.memo(
                         type="name"
                         name="name"
                         label="Имя"
-                        size={size}
                     />
                 </div>
                 <div className="input reglog-input">
@@ -31,7 +30,6 @@ let RegisterForm = React.memo(
                         type="text"
                         name="email"
                         label="Email"
-                        size={size}
                     />
                 </div>
                 <div className="input reglog-input">
@@ -44,13 +42,12 @@ let RegisterForm = React.memo(
                         type={statePassowrd.password ? "text" : "password"}
                         name="password"
                         label="Пароль"
-                        size={size}
                     />
                 </div>
 
                 <button
                     type="submit"
-                    className={`btn-bold_color ${size} reglog__btn ${
+                    className={`btn-bold_color reglog__btn ${
                         invalid ? "reglog__btn_disabled" : ""
                     }`}
                 >

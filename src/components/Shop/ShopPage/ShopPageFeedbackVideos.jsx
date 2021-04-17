@@ -3,7 +3,7 @@ import React from "react";
 import OwlCarousel from "react-owl-carousel2";
 import "../../../assets/owl-carousel/owl.carousel.css";
 
-const ShopPageFeedbackVideos = ({title, videos, size}) => {
+const ShopPageFeedbackVideos = ({title, videos}) => {
     const slider = React.useRef();
 
     const [stateVideos, setStateVideos] = React.useState([]);

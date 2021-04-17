@@ -13,7 +13,6 @@ const Register = () => {
 
     const {message} = useSelector(({register}) => register);
     const {isLoaded, isLogin} = useSelector(({user}) => user);
-    const {size} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     React.useEffect(() => {
@@ -61,7 +60,7 @@ const Register = () => {
     return (
         <>
             <Helmet>
-                <title>Регистрация - IOMP</title>
+                <title>Регистрация - MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <>
@@ -70,30 +69,29 @@ const Register = () => {
                             <div className="container">
                                 <div className="reglog-wrapper">
                                     <div
-                                        className={`circle-bold ${size} reglog-circle`}
+                                        className={`circle-bold reglog-circle`}
                                     ></div>
                                     <div className="reglog-form">
-                                        <h2 className={`reglog__title ${size}`}>
+                                        <h2 className={`reglog__title`}>
                                             Зарегистрироваться
                                         </h2>
 
                                         <Link
                                             to="/login"
-                                            className={`reglog__link ${size}`}
+                                            className={`reglog__link`}
                                         >
                                             Войти
                                         </Link>
 
                                         {message && (
                                             <p
-                                                className={`reglog-form__error ${size}`}
+                                                className={`reglog-form__error`}
                                             >
                                                 {message}
                                             </p>
                                         )}
                                         <RegisterForm
                                             onSubmit={onSubmit}
-                                            size={size}
                                         />
                                     </div>
                                 </div>

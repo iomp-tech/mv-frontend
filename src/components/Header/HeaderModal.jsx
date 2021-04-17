@@ -81,7 +81,7 @@ const HeaderModal = React.memo(({isLogin}) => {
                     >
                         <img
                             src={`${DOMEN}/public/storage/all/logo.svg`}
-                            alt="IOMP"
+                            alt="MasterVision"
                             className="header-modal-logo__img"
                         />
                     </Link>
@@ -110,14 +110,6 @@ const HeaderModal = React.memo(({isLogin}) => {
                             activeClassName="header-modal__link_active"
                         >
                             Преподаватели
-                        </NavLink>
-                        <NavLink
-                            onClick={toggleVisibleHeaderModal}
-                            to="/institute"
-                            className="header-modal__link"
-                            activeClassName="header-modal__link_active"
-                        >
-                            Сведения об образовательной организации
                         </NavLink>
                         <NavLink
                             onClick={toggleVisibleHeaderModal}

@@ -23,7 +23,6 @@ const Footer = () => {
         ({footer}) => footer
     );
     const {form} = useSelector(({emailForm}) => emailForm);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (!menu.length) {
@@ -83,16 +82,16 @@ const Footer = () => {
                     <div className="container">
                         <div className="footer-wrapper">
                             <div className="footer-media">
-                                <div className={`footer-top ${size}`}>
+                                <div className={`footer-top`}>
                                     <Link to="/" className="footer-logo__link">
                                         <img
                                             src={`${DOMEN}/public/storage/all/logo-white.svg`}
-                                            alt="IOMP"
+                                            alt="MasterVision"
                                             className="footer-logo__img"
                                         />
                                     </Link>
 
-                                    <FooterMenu footerMenu={menu} size={size} />
+                                    <FooterMenu footerMenu={menu} />
                                 </div>
                                 <div className="footer-middle">
                                     <div className="footer-middle-left">
@@ -116,9 +115,7 @@ const Footer = () => {
                                         </div>
 
                                         <div className={`footer-contact`}>
-                                            <p
-                                                className={`footer__adres ${size}`}
-                                            >
+                                            <p className={`footer__adres`}>
                                                 {contact.adres}
                                             </p>
                                             {contact.phones &&
@@ -127,7 +124,7 @@ const Footer = () => {
                                                         <a
                                                             key={`footer-phone-${index}`}
                                                             href={`tel:${phone.phone}`}
-                                                            className={`footer__link ${size} footer-middle__link`}
+                                                            className={`footer__link footer-middle__link`}
                                                         >
                                                             {phone.phone}
                                                         </a>
@@ -136,22 +133,19 @@ const Footer = () => {
 
                                             <a
                                                 href={`mailto:${contact.email}`}
-                                                className={`footer__link ${size} footer-middle__link`}
+                                                className={`footer__link footer-middle__link`}
                                             >
                                                 {contact.email}
                                             </a>
                                         </div>
                                     </div>
                                     <div className="footer-middle-right">
-                                        <FooterForm
-                                            size={size}
-                                            onSubmit={onSubmit}
-                                        />
+                                        <FooterForm onSubmit={onSubmit} />
                                     </div>
                                 </div>
                             </div>
                             <div className="footer-bottom">
-                                <div className={`footer-bottom-left ${size}`}>
+                                <div className={`footer-bottom-left`}>
                                     {legal.length &&
                                         legal.map((item, index) => (
                                             <span key={`footer-legal-${index}`}>
@@ -160,8 +154,9 @@ const Footer = () => {
                                         ))}
                                 </div>
                                 <div className="footer-bottom-right">
-                                    <p className={`footer__comp ${size}`}>
-                                        © IOMP {new Date().getFullYear()}
+                                    <p className={`footer__comp`}>
+                                        © MasterVision{" "}
+                                        {new Date().getFullYear()}
                                     </p>
                                 </div>
                             </div>

@@ -9,7 +9,6 @@ const ShopPrice = React.memo(() => {
     const dispatch = useDispatch();
 
     const {filters, minPrice, maxPrice} = useSelector(({goods}) => goods);
-    const {color} = useSelector(({visually}) => visually);
 
     const [stateRange, setStateRange] = React.useState({
         value: [minPrice, maxPrice],
@@ -158,7 +157,6 @@ const ShopPrice = React.memo(() => {
                             className="input__field_small shop-input__field_small"
                             onChange={(event) => setMaxInput(event)}
                             onKeyPress={(event) => setMaxInputKey(event)}
-                            style={{color: color}}
                             required
                         />
                         <label className="input__label_small shop-input__label">

@@ -25,7 +25,6 @@ let CabinetEditInfoForm = React.memo(
         invalid,
         submitting,
         pristine,
-        size,
     }) => {
         const selector = formValueSelector("cabinetEditInfoForm");
 
@@ -154,17 +153,16 @@ let CabinetEditInfoForm = React.memo(
 
         return (
             <form onSubmit={handleSubmit} className="cabinet-block">
-                <h3 className={`cabinet-block__title ${size}`}>
+                <h3 className={`cabinet-block__title`}>
                     Редактировать данные
                 </h3>
-                <div className={`cabinet-block-setting ${size}`}>
+                <div className={`cabinet-block-setting`}>
                     <div className="cabinet-input">
                         <Field
                             component={CabinetInputRender}
                             type="name"
                             name="middle_name"
                             label="Фамилия"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -173,7 +171,6 @@ let CabinetEditInfoForm = React.memo(
                             type="name"
                             name="first_name"
                             label="Имя"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -182,7 +179,6 @@ let CabinetEditInfoForm = React.memo(
                             type="name"
                             name="last_name"
                             label="Отчество"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -191,7 +187,6 @@ let CabinetEditInfoForm = React.memo(
                             type="date"
                             name="date_of_birth"
                             label="Дата рождения"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-radio">
@@ -200,7 +195,6 @@ let CabinetEditInfoForm = React.memo(
                             name="sex"
                             choise={["Не указано", "Мужской", "Женский"]}
                             label="Пол"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-select">
@@ -209,7 +203,6 @@ let CabinetEditInfoForm = React.memo(
                             name="timezone"
                             choise={timezoneList}
                             label="Часовой пояс"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -218,7 +211,6 @@ let CabinetEditInfoForm = React.memo(
                             type="phone"
                             name="phone"
                             label="+7 (999) 999 99-99"
-                            size={size}
                             {...phoneMask}
                         />
                     </div>
@@ -228,7 +220,6 @@ let CabinetEditInfoForm = React.memo(
                             type="skype"
                             name="skype"
                             label="Skype"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -237,7 +228,6 @@ let CabinetEditInfoForm = React.memo(
                             type="vk"
                             name="vk"
                             label="Вконтакте"
-                            size={size}
                         />
                     </div>
                     <div className="cabinet-input">
@@ -246,13 +236,12 @@ let CabinetEditInfoForm = React.memo(
                             type="facebook"
                             name="facebook"
                             label="Facebook"
-                            size={size}
                         />
                     </div>
                 </div>
                 <button
                     type="submit"
-                    className={`btn-bold_color cabinet-block__btn ${size} ${
+                    className={`btn-bold_color cabinet-block__btn ${
                         (firstNameValue !== first_name ||
                             middleNameValue !== middle_name ||
                             lastNameValue !== last_name ||

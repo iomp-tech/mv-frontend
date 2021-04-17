@@ -12,7 +12,6 @@ const Confirmed = (props) => {
     const hash = props.match.params.hash;
 
     const [stateHash, setStateHash] = React.useState(null);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -30,7 +29,7 @@ const Confirmed = (props) => {
     return (
         <>
             <Helmet>
-                <title>Подтверждение email - IOMP</title>
+                <title>Подтверждение email - MasterVision</title>
             </Helmet>
 
             {stateHash !== null ? (
@@ -38,15 +37,15 @@ const Confirmed = (props) => {
                     <div className="container">
                         <div className="error-wrapper">
                             {stateHash ? (
-                                <h2 className={`error__title ${size}`}>
+                                <h2 className={`error__title`}>
                                     Спасибо, ваш <span>email подтвержден</span>
                                 </h2>
                             ) : (
                                 <>
-                                    <h2 className={`error__title ${size}`}>
+                                    <h2 className={`error__title`}>
                                         Ссылка <span>устарела</span>
                                     </h2>
-                                    <p className={`error__subtitle ${size}`}>
+                                    <p className={`error__subtitle`}>
                                         Ваша ссылка на подтверждение аккаунта
                                         устарела. Если письмо не пришло
                                         проверьте папку "спам".{" "}
@@ -58,7 +57,7 @@ const Confirmed = (props) => {
                             )}
                             <Link
                                 to="/"
-                                className={`btn-bold_color error__btn ${size}`}
+                                className={`btn-bold_color error__btn`}
                             >
                                 На главную страницу
                             </Link>

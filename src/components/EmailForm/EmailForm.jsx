@@ -5,29 +5,28 @@ import validate from "./validate";
 import EmailFormRenderInputButton from "./EmailFormRenderInputButton";
 import EmailFormRenderCheckbox from "./EmailFormRenderCheckbox";
 
-let EmailForm = React.memo(({size, handleSubmit, isLoaded}) => {
+let EmailForm = React.memo(({handleSubmit, isLoaded}) => {
     return (
         <>
             {isLoaded ? (
                 <form onSubmit={handleSubmit} className="email-form">
                     <div className="container">
-                        <div className={`email-form-wrapper ${size}`}>
-                            <div className={`email-form-left ${size}`}>
-                                <h2 className={`email-form__title ${size}`}>
+                        <div className={`email-form-wrapper`}>
+                            <div className={`email-form-left`}>
+                                <h2 className={`email-form__title`}>
                                     Хотите получать лучшие статьи от Института?
                                 </h2>
-                                <p className={`email-form__subtitle ${size}`}>
+                                <p className={`email-form__subtitle`}>
                                     Подпишитесь на рассылку Института
                                 </p>
                             </div>
-                            <div className={`email-form-right ${size}`}>
+                            <div className={`email-form-right`}>
                                 <div className="email-form-input">
                                     <Field
                                         component={EmailFormRenderInputButton}
                                         type="email"
                                         name="email"
                                         label="Email"
-                                        size={size}
                                     />
                                 </div>
 
@@ -37,7 +36,6 @@ let EmailForm = React.memo(({size, handleSubmit, isLoaded}) => {
                                         type="checkbox"
                                         name="confirmation"
                                         id="email-form__checkbox"
-                                        size={size}
                                     />
                                 </div>
                             </div>

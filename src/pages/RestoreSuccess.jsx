@@ -17,7 +17,7 @@ const RestoreSuccess = () => {
     return (
         <>
             <Helmet>
-                <title>Забыли пароль? - IOMP</title>
+                <title>Забыли пароль? - MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <>

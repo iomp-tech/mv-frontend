@@ -40,6 +40,3 @@ export { default as Cabinet } from './Cabinet';
 
 // Library
 export { default as Library } from './Library';
-
-// SessionRoom
-export { default as SessionRoom } from './SessionRoom';

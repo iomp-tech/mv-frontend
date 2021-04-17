@@ -13,7 +13,6 @@ const EventSection = () => {
     const {timetableType} = useSelector(({timetable}) => timetable);
     const categories = useSelector(({categories}) => categories.items);
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (!Object.keys(teachers).length) {
@@ -29,7 +28,7 @@ const EventSection = () => {
                 <section className="event">
                     <div className="container">
                         <div className="event-wrapper">
-                            <h2 className={`title ${size} event__title`}>
+                            <h2 className={`title event__title`}>
                                 Ближайшие мероприятия
                             </h2>
 

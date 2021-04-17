@@ -12,7 +12,6 @@ const TeacherSection = () => {
     const dispatch = useDispatch();
 
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
-    const {size, rgb, bgColor} = useSelector(({visually}) => visually);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
     const [activeTeacherItems, setActiveTeacherItems] = React.useState();
@@ -47,13 +46,11 @@ const TeacherSection = () => {
                 <section className="teacher" style={{marginBottom: "50px"}}>
                     <div className="container">
                         <div className="teacher-wrapper">
-                            <h2 className={`title ${size} teacher__title`}>
+                            <h2 className={`title teacher__title`}>
                                 Наши преподаватели
                             </h2>
 
                             <TeacherModal
-                                rgb={rgb}
-                                bgColor={bgColor}
                                 state={TeacherModalBool}
                                 onClick={toggleTeacherModal}
                                 modalRef={TeacherModalRef}
@@ -65,7 +62,6 @@ const TeacherSection = () => {
                                     ? Object.keys(itemsMain).map((key) => (
                                           <TeacherBlock
                                               key={`teacher-block-${itemsMain[key].id}`}
-                                              size={size}
                                               onClick={() =>
                                                   toggleTeacherModal(
                                                       itemsMain[key].id
@@ -89,7 +85,7 @@ const TeacherSection = () => {
                             <div className="teacher-btn-wrapper">
                                 <Link
                                     to="/teachers"
-                                    className={`btn-bold_gray teacher__btn ${size}`}
+                                    className={`btn-bold_gray teacher__btn`}
                                 >
                                     Покащать еще
                                 </Link>

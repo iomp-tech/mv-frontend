@@ -11,7 +11,6 @@ const TimetableFilters = React.memo(({categories}) => {
     const dispatch = useDispatch();
 
     const {filters, timetableType} = useSelector(({timetable}) => timetable);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (Object.keys(categories).length) {
@@ -55,7 +54,7 @@ const TimetableFilters = React.memo(({categories}) => {
                 <div className="directions-span">
                     <span
                         id="directions__span"
-                        className={`directions__span ${size} directions__span_active`}
+                        className={`directions__span directions__span_active`}
                         onClick={() => toggleDirections(0, "")}
                     >
                         Все направления
@@ -64,7 +63,6 @@ const TimetableFilters = React.memo(({categories}) => {
                         <TimetableCategoriesItems
                             filters={filters}
                             keyId={categories[key].key}
-                            size={size}
                             toggleDirections={toggleDirections}
                             key={`${categories[key].key}_${categories[key].id}`}
                             {...categories[key]}
@@ -82,7 +80,7 @@ const TimetableFilters = React.memo(({categories}) => {
                     >
                         <input
                             type="checkbox"
-                            className={`checkbox ${size}`}
+                            className={`checkbox`}
                             onChange={() =>
                                 clickCheckbox(timetableType[key].key)
                             }
@@ -96,7 +94,7 @@ const TimetableFilters = React.memo(({categories}) => {
                         />
 
                         <label
-                            className={`checkbox-label ${size}`}
+                            className={`checkbox-label`}
                             htmlFor={`checkbox-timetable${timetableType[key].id}`}
                         >
                             {timetableType[key].title}

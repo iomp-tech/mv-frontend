@@ -11,7 +11,6 @@ const Categories = React.memo(() => {
 
     const goods = useSelector(({goods}) => goods.items);
     const {items, isLoaded} = useSelector(({categories}) => categories);
-    const {color, size} = useSelector(({visually}) => visually);
 
     const [activeThumb, setActiveThumb] = React.useState("");
 
@@ -49,20 +48,18 @@ const Categories = React.memo(() => {
         <section className="categories">
             <div className="container">
                 <div className="categories-wrapper">
-                    <h2 className={`title ${size} categories__title`}>
+                    <h2 className={`title categories__title`}>
                         Образовательные программы
                     </h2>
 
                     <div className="categories-content">
-                        <div className={`categories-item-wrapper ${size}`}>
+                        <div className={`categories-item-wrapper`}>
                             {isLoaded
                                 ? Object.keys(items).map((key) => (
                                       <CategoriesItem
                                           key={`${items[key].key}_${items[key].id}`}
                                           onMouseEnter={onSelectItem}
                                           keyId={items[key].key}
-                                          color={color}
-                                          size={size}
                                           checkDeclension={
                                               Object.keys(goods).length
                                                   ? checkDeclension(
@@ -96,14 +93,12 @@ const Categories = React.memo(() => {
                                           </div>
                                       ))}
                         </div>
-                        {size !== "X1" ? null : (
-                            <div
-                                className="categories-thumb"
-                                style={{
-                                    backgroundImage: `url(${activeThumb})`,
-                                }}
-                            ></div>
-                        )}
+                        <div
+                            className="categories-thumb"
+                            style={{
+                                backgroundImage: `url(${activeThumb})`,
+                            }}
+                        ></div>
                     </div>
                 </div>
             </div>

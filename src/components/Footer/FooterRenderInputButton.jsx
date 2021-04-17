@@ -1,7 +1,6 @@
 import React from "react";
 
 const FooterRenderInputButton = ({
-    size,
     input,
     label,
     type,
@@ -29,7 +28,7 @@ const FooterRenderInputButton = ({
                     {...input}
                     type={type}
                     placeholder={label}
-                    className={`footer-email-form-input__field ${size} ${
+                    className={`footer-email-form-input__field ${
                         touched && error
                             ? "footer-email-form-input__field_error"
                             : ""
@@ -39,7 +38,7 @@ const FooterRenderInputButton = ({
             </div>
             {touched && error && (
                 <div>
-                    <span className={`input__label__error_bottom ${size}`}>
+                    <span className={`input__label__error_bottom`}>
                         {error}
                     </span>
                 </div>

@@ -6,15 +6,15 @@ import validate from "./validate";
 
 import {RenderCheckboxPolycy, RenderInput} from "../../";
 
-let ShopPageFormCompositionProduct = ({size, handleSubmit}) => {
+let ShopPageFormCompositionProduct = ({handleSubmit}) => {
     return (
         <form
-            className={`shop-page-composition-product-form ${size}`}
+            className={`shop-page-composition-product-form`}
             onSubmit={handleSubmit}
         >
             <div className="shop-page-composition-product-form-middle">
                 <div
-                    className={`shop-page-composition-product-form-block-wrapper ${size}`}
+                    className={`shop-page-composition-product-form-block-wrapper`}
                 >
                     <div className="input shop-page-composition-product-form-input-wrapper">
                         <div className="shop-page-composition-product-form-input">
@@ -24,12 +24,11 @@ let ShopPageFormCompositionProduct = ({size, handleSubmit}) => {
                                 name="email"
                                 label="Email"
                                 className="shop-page-composition-product-form-input__field"
-                                size={size}
                             />
                         </div>
                     </div>
                     <button
-                        className={`btn-bold_color shop-page-composition-product-form__btn ${size}`}
+                        className={`btn-bold_color shop-page-composition-product-form__btn`}
                     >
                         Записаться
                     </button>
@@ -42,7 +41,6 @@ let ShopPageFormCompositionProduct = ({size, handleSubmit}) => {
                     type="checkbox"
                     name="confirmation"
                     id="shop-page-composition-product__checkbox-1"
-                    size={size}
                 />
             </div>
         </form>

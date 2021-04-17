@@ -6,7 +6,7 @@ import validate from "./validate";
 
 import {BtnLoaded, RenderInput} from ".././";
 
-let RepeatForm = React.memo(({handleSubmit, invalid, submitting, pristine, size}) => {
+let RepeatForm = React.memo(({handleSubmit, invalid, submitting, pristine}) => {
     const {isLoaded} = useSelector(({repeat}) => repeat);
 
     return (
@@ -17,13 +17,12 @@ let RepeatForm = React.memo(({handleSubmit, invalid, submitting, pristine, size}
                     type="text"
                     name="email"
                     label="Email"
-                    size={size}
                 />
             </div>
 
             <button
                 type="submit"
-                className={`btn-bold_color reglog__btn ${size}`}
+                className={`btn-bold_color reglog__btn`}
                 style={{pointerEvents: `${isLoaded ? "none" : "auto"}`}}
                 disabled={invalid || submitting || pristine}
             >

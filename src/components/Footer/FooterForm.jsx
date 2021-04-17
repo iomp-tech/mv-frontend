@@ -6,13 +6,13 @@ import FooterRenderInputButton from "./FooterRenderInputButton";
 import FooterRenderCheckbox from "./FooterRenderCheckbox";
 
 let FooterForm = React.memo(
-    ({size, handleSubmit}) => {
+    ({handleSubmit}) => {
         return (
             <form
                 onSubmit={handleSubmit}
-                className={`footer-email-form ${size}`}
+                className={`footer-email-form`}
             >
-                <h4 className={`footer-email-form__title ${size}`}>
+                <h4 className={`footer-email-form__title`}>
                     Подпишитесь на рассылку Института
                 </h4>
                 <>
@@ -22,7 +22,6 @@ let FooterForm = React.memo(
                             type="email"
                             name="email"
                             label="Email"
-                            size={size}
                         />
                     </div>
 
@@ -32,7 +31,6 @@ let FooterForm = React.memo(
                             type="checkbox"
                             name="confirmation"
                             id="footer-email-form__checkbox"
-                            size={size}
                         />
                     </div>
                 </>

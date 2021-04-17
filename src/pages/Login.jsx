@@ -14,7 +14,6 @@ const Login = () => {
 
     const {message} = useSelector(({login}) => login);
     const {isLogin, isLoaded} = useSelector(({user}) => user);
-    const {size} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     React.useEffect(() => {
@@ -62,7 +61,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Войти - IOMP</title>
+                <title>Войти - MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <>
@@ -71,22 +70,22 @@ const Login = () => {
                             <div className="container">
                                 <div className="reglog-wrapper">
                                     <div
-                                        className={`circle-bold ${size} reglog-circle`}
+                                        className={`circle-bold reglog-circle`}
                                     ></div>
                                     <div className="reglog-form">
-                                        <h2 className={`reglog__title ${size}`}>
+                                        <h2 className={`reglog__title`}>
                                             Войти
                                         </h2>
                                         <Link
                                             to="/register"
-                                            className={`reglog__link ${size}`}
+                                            className={`reglog__link`}
                                         >
                                             Зapeгиcтpиpoвaтьcя
                                         </Link>
 
                                         {message && (
                                             <p
-                                                className={`reglog-form__error ${size}`}
+                                                className={`reglog-form__error`}
                                             >
                                                 {message}
                                             </p>
@@ -96,7 +95,7 @@ const Login = () => {
 
                                         <Link
                                             to="/restoreemail"
-                                            className={`reglog__link_gray ${size}`}
+                                            className={`reglog__link_gray`}
                                         >
                                             Забыли пароль?
                                         </Link>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const CabinetSelectRender = ({input, label, choise, size}) => {
+const CabinetSelectRender = ({input, label, choise}) => {
     return (
         <div className="cabinet-select">
             <span className="cabinet-select__label">{label}</span>
@@ -15,7 +15,7 @@ const CabinetSelectRender = ({input, label, choise, size}) => {
                     </option>
                 ))}
             </select>
-            <span className={`cabinet-select__span ${size}`}></span>
+            <span className={`cabinet-select__span`}></span>
         </div>
     );
 };

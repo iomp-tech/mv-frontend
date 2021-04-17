@@ -8,7 +8,6 @@ import {BtnLoaded, RenderInput} from ".././";
 
 let LoginForm = React.memo(({handleSubmit}) => {
     const {isLoaded} = useSelector(({login}) => login);
-    const {size} = useSelector(({visually}) => visually);
 
     const [statePassowrd, setStatePassword] = React.useState({
         password: false,
@@ -22,7 +21,6 @@ let LoginForm = React.memo(({handleSubmit}) => {
                     type="text"
                     name="email"
                     label="Email"
-                    size={size}
                 />
             </div>
 
@@ -33,7 +31,6 @@ let LoginForm = React.memo(({handleSubmit}) => {
                     statePassowrd={statePassowrd}
                     typeConst="password"
                     keyInput="password"
-                    size={size}
                     type={statePassowrd.password ? "text" : "password"}
                     name="password"
                     label="Пароль"
@@ -42,7 +39,7 @@ let LoginForm = React.memo(({handleSubmit}) => {
 
             <button
                 type="submit"
-                className={`btn-bold_color reglog__btn ${size}`}
+                className={`btn-bold_color reglog__btn`}
             >
                 {isLoaded ? <BtnLoaded /> : "Войти"}
             </button>

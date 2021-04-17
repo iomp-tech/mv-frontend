@@ -21,7 +21,6 @@ const ShopPageCompositionProduct = ({
     form_id_awo,
     formId,
     formVc,
-    size,
 }) => {
     const dispatch = useDispatch();
 
@@ -117,7 +116,7 @@ const ShopPageCompositionProduct = ({
             <div className="container">
                 <div className="shop-page-composition-product-wrapper">
                     <h2
-                        className={`title ${size} shop-page-composition-product__title`}
+                        className={`title shop-page-composition-product__title`}
                     >
                         {title}
                     </h2>
@@ -132,7 +131,7 @@ const ShopPageCompositionProduct = ({
                                         index === stateModulesIndex
                                             ? "active"
                                             : ""
-                                    } ${size}`}
+                                    }`}
                                     onClick={() =>
                                         onClickSliderTextModulesItem(index)
                                     }
@@ -143,10 +142,10 @@ const ShopPageCompositionProduct = ({
                         ))}
                     </Slider>
                     <div
-                        className={`shop-page-composition-product-modules-description ${size}`}
+                        className={`shop-page-composition-product-modules-description`}
                     >
                         <p
-                            className={`shop-page-composition-product-modules__description ${size}`}
+                            className={`shop-page-composition-product-modules__description`}
                         >
                             {modules[stateModulesIndex].description}
                         </p>
@@ -158,22 +157,22 @@ const ShopPageCompositionProduct = ({
                         <div
                             className={`shop-page-composition-product-list ${
                                 stateAnimateModules ? "active" : ""
-                            } ${size}`}
+                            }`}
                         >
                             {modules[stateModulesIndex].items &&
                                 modules[stateModulesIndex].items.map(
                                     (item, index) => (
                                         <div
                                             key={`composition-product-list-item-${index}`}
-                                            className={`shop-page-composition-product-list-item ${size}`}
+                                            className={`shop-page-composition-product-list-item`}
                                         >
                                             <h4
-                                                className={`shop-page-composition-product-list-item__title ${size}`}
+                                                className={`shop-page-composition-product-list-item__title`}
                                             >
                                                 {item.title}
                                             </h4>
                                             <p
-                                                className={`shop-page-composition-product-list-item__description ${size}`}
+                                                className={`shop-page-composition-product-list-item__description`}
                                             >
                                                 {item.description}
                                             </p>
@@ -183,30 +182,29 @@ const ShopPageCompositionProduct = ({
                         </div>
                         <div className="circle-wrapper shop-page-composition-product-circle-wrapper">
                             <div
-                                className={`circle-bold ${size} shop-page-composition-product-circle1`}
+                                className={`circle-bold shop-page-composition-product-circle1`}
                             ></div>
                             <div
-                                className={`circle-regular ${size} shop-page-composition-product-circle2`}
+                                className={`circle-regular shop-page-composition-product-circle2`}
                             ></div>
                         </div>
                     </div>
                     {parseInt(formBoolean) ? (
                         <ShopPageFormCompositionProduct
                             onSubmit={onSubmitCompositionProduct}
-                            size={size}
                         />
                     ) : Object.keys(itemsAll).length ? (
                         <div
-                            className={`shop-page-composition-product-block-wrapper ${size}`}
+                            className={`shop-page-composition-product-block-wrapper`}
                         >
                             <div
-                                className={`shop-page-composition-product-block-left ${size}`}
+                                className={`shop-page-composition-product-block-left`}
                             >
                                 <div
-                                    className={`shop-page-composition-product-block-left-price-wrapper ${size}`}
+                                    className={`shop-page-composition-product-block-left-price-wrapper`}
                                 >
                                     <h4
-                                        className={`shop-page-composition-product-block__title ${size}`}
+                                        className={`shop-page-composition-product-block__title`}
                                     >
                                         Стоимость:
                                     </h4>
@@ -222,7 +220,7 @@ const ShopPageCompositionProduct = ({
                                             ].sale ? (
                                                 <>
                                                     <p
-                                                        className={`shop-page-composition-product-block__subprice ${size}`}
+                                                        className={`shop-page-composition-product-block__subprice`}
                                                     >
                                                         <NumberFormat
                                                             value={
@@ -240,7 +238,7 @@ const ShopPageCompositionProduct = ({
                                                         ₽
                                                     </p>
                                                     <h3
-                                                        className={`shop-page-composition-product-block__price ${size}`}
+                                                        className={`shop-page-composition-product-block__price`}
                                                     >
                                                         <NumberFormat
                                                             value={
@@ -260,7 +258,7 @@ const ShopPageCompositionProduct = ({
                                                 </>
                                             ) : (
                                                 <h3
-                                                    className={`shop-page-composition-product-block__price ${size}`}
+                                                    className={`shop-page-composition-product-block__price`}
                                                 >
                                                     <NumberFormat
                                                         value={
@@ -285,7 +283,7 @@ const ShopPageCompositionProduct = ({
                                     </div>
                                 </div>
                                 <button
-                                    className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
+                                    className={`btn-bold_color shop-page-composition-product-block__btn`}
                                     onClick={() =>
                                         setUpdateGoods(
                                             itemsAll[
@@ -302,11 +300,11 @@ const ShopPageCompositionProduct = ({
                                 modules[stateModulesIndex].stockBoolean
                             ) ? (
                                 <div
-                                    className={`shop-page-composition-product-block-right ${size}`}
+                                    className={`shop-page-composition-product-block-right`}
                                 >
                                     <div className="shop-page-composition-product-block-right-top">
                                         <h4
-                                            className={`shop-page-composition-product-block__title_color ${size}`}
+                                            className={`shop-page-composition-product-block__title_color`}
                                         >
                                             {
                                                 modules[stateModulesIndex]
@@ -314,7 +312,7 @@ const ShopPageCompositionProduct = ({
                                             }
                                         </h4>
                                         <p
-                                            className={`shop-page-composition-product-block__subtitle ${size}`}
+                                            className={`shop-page-composition-product-block__subtitle`}
                                         >
                                             {
                                                 modules[stateModulesIndex]
@@ -325,7 +323,7 @@ const ShopPageCompositionProduct = ({
                                     <div className="shop-page-composition-product-block-right-bottom">
                                         <button
                                             type="submit"
-                                            className={`btn-bold_color shop-page-composition-product-block__btn ${size}`}
+                                            className={`btn-bold_color shop-page-composition-product-block__btn`}
                                             onClick={() =>
                                                 setUpdateGoods(
                                                     modules[stateModulesIndex]

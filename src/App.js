@@ -4,8 +4,6 @@ import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Header, Footer, PreloaderPage } from './components';
-
-import { setVisually, setSizeVisually } from "./redux/actions/visually";
 import { fetchIntegrationPage } from "./redux/actions/integration_page";
 
 const Home = React.lazy(() => import('./pages/Home'));
@@ -14,7 +12,6 @@ const TimetableSubs = React.lazy(() => import('./pages/TimetableSubs'));
 const Timetable = React.lazy(() => import('./pages/Timetable'));
 const Teacher = React.lazy(() => import('./pages/Teacher'));
 const Magazine = React.lazy(() => import('./pages/Magazine'));
-const Institute = React.lazy(() => import('./pages/Institute'));
 const Cart = React.lazy(() => import('./pages/Cart'));
 const Shop = React.lazy(() => import('./pages/Shop'));
 const ShopPage = React.lazy(() => import('./pages/ShopPage'));
@@ -29,18 +26,13 @@ const Er404 = React.lazy(() => import('./pages/Er404'));
 const Cabinet = React.lazy(() => import('./pages/Cabinet'));
 const Library = React.lazy(() => import('./pages/Library'));
 const Logout = React.lazy(() => import('./pages/Logout'));
-const SessionRoom = React.lazy(() => import('./pages/SessionRoom'));
 
 function App() {
 	const disaptch = useDispatch();
 
-	const { color, bgColor } = useSelector(({ visually }) => visually);
 	const { integration } = useSelector(({ integration_page }) => integration_page);
 
 	React.useEffect(() => {
-		disaptch(setVisually(localStorage.getItem("VISUALLY_TYPE")));
-		disaptch(setSizeVisually(localStorage.getItem("VISUALLY_SIZE")));
-
 		if (!Object.keys(integration).length) {
 			disaptch(fetchIntegrationPage());
 		}
@@ -74,9 +66,6 @@ function App() {
 
 	return (
 		<>
-			<Helmet>
-				<style>{`body { color: ${color}; background-color: ${bgColor}; } .checkbox+label::before {border: 1px solid ${color};} .checkbox-label {color: ${color}} .input__field_small {color: ${color}} .input__field {color: ${color}} .header-user-menu__link:hover {background-color: ${bgColor};}`}</style>
-			</Helmet>
 			<div className="wrapper">
 				<div id="vanila__js__page__top"></div>
 				<div id="tags__js__page__top"></div>
@@ -98,8 +87,6 @@ function App() {
 
 						<Route path='/teachers' render={() => <Teacher />} exact />
 
-						<Route path='/institute' render={() => <Institute />} exact />
-
 						<Route path='/post/:id' render={(props) => <Post {...props} />} exact />
 						<Route path='/magazine/:cat?' render={(props) => <Magazine {...props} />} />
 
@@ -117,7 +104,6 @@ function App() {
 
 						<Route path='/cabinet' render={() => <Cabinet />} />
 						<Route path='/library' render={() => <Library />} />
-						<Route path='/session-room' render={() => <SessionRoom />} />
 
 						<Route path='/logout' render={() => <Logout />} />
 

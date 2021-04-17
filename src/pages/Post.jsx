@@ -22,7 +22,6 @@ const Post = (props) => {
     const categories = useSelector(({categories}) => categories.items);
     const {postsType, isLoaded} = useSelector(({posts}) => posts);
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {size} = useSelector(({visually}) => visually);
 
     const item = useSelector(({posts}) => posts.oneItem);
     const nextItem = useSelector(({posts}) => posts.nextOneItem);
@@ -88,19 +87,18 @@ const Post = (props) => {
     return (
         <>
             <Helmet>
-                <title>IOMP</title>
+                <title>MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <>
                     {Object.keys(item).length ? (
                         <>
                             <Helmet>
-                                <title>{item.title} - IOMP</title>
+                                <title>{item.title} - MasterVision</title>
                             </Helmet>
                             <section className="post">
                                 <div className="container">
                                     <PostItem
-                                        size={size}
                                         auths={teachers}
                                         categories={categories[item.category]}
                                         postsType={postsType[item.type]}
@@ -122,12 +120,12 @@ const Post = (props) => {
                                             <div className="next-post-media">
                                                 <div className="next-post-text">
                                                     <p
-                                                        className={`next-post__subtitle ${size}`}
+                                                        className={`next-post__subtitle`}
                                                     >
                                                         К следующей статье
                                                     </p>
                                                     <h4
-                                                        className={`next-post__title ${size}`}
+                                                        className={`next-post__title`}
                                                     >
                                                         {nextItem.title}
                                                     </h4>

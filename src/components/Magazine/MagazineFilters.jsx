@@ -8,7 +8,6 @@ const MagazineFilters = React.memo(() => {
 
     const {postsType, filters} = useSelector(({posts}) => posts);
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {size, color} = useSelector(({visually}) => visually);
 
     const clickType = (type) => {
         filters.type = type;
@@ -33,15 +32,10 @@ const MagazineFilters = React.memo(() => {
                     <button
                         className={
                             filters.type === ""
-                                ? `magazine-filters__btn ${size} magazine-filters__btn_active`
-                                : `magazine-filters__btn ${size}`
+                                ? `magazine-filters__btn magazine-filters__btn_active`
+                                : `magazine-filters__btn`
                         }
                         onClick={() => clickType("")}
-                        style={{
-                            color: color === "#fff" ? color : "",
-                            border:
-                                color === "#fff" ? `1px solid ${color}` : "",
-                        }}
                     >
                         Все направления
                     </button>
@@ -49,18 +43,11 @@ const MagazineFilters = React.memo(() => {
                         <button
                             className={
                                 filters.type === postsType[key].key
-                                    ? `magazine-filters__btn ${size} magazine-filters__btn_active`
-                                    : `magazine-filters__btn ${size}`
+                                    ? `magazine-filters__btn magazine-filters__btn_active`
+                                    : `magazine-filters__btn`
                             }
                             key={`${postsType[key].title}_${postsType[key].id}`}
                             onClick={() => clickType(postsType[key].key)}
-                            style={{
-                                color: color === "#fff" ? color : "",
-                                border:
-                                    color === "#fff"
-                                        ? `1px solid ${color}`
-                                        : "",
-                            }}
                         >
                             {postsType[key].title}
                         </button>
@@ -69,7 +56,7 @@ const MagazineFilters = React.memo(() => {
             </div>
 
             <div className="magazine-filters-block">
-                <h3 className={`magazine-filters__title ${size}`}>Авторы</h3>
+                <h3 className={`magazine-filters__title`}>Авторы</h3>
                 {Object.keys(teachers).map((key, index) => (
                     <div
                         className="checkbox-wrapper magazine-filters-checkbox"
@@ -89,7 +76,7 @@ const MagazineFilters = React.memo(() => {
                         />
                         <label
                             htmlFor={`checkbox-magazine${teachers[key].id}`}
-                            className={`checkbox-label ${size}`}
+                            className={`checkbox-label`}
                         >
                             {teachers[key].name}
                         </label>

@@ -12,7 +12,6 @@ const RestoreEmail = () => {
 
     const {message} = useSelector(({restore}) => restore);
     const {isLoaded, isLogin} = useSelector(({user}) => user);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -25,7 +24,7 @@ const RestoreEmail = () => {
     return (
         <>
             <Helmet>
-                <title>Забыли пароль? - IOMP</title>
+                <title>Забыли пароль? - MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <>
@@ -34,16 +33,16 @@ const RestoreEmail = () => {
                             <div className="container">
                                 <div className="reglog-wrapper">
                                     <div
-                                        className={`circle-bold ${size} reglog-circle`}
+                                        className={`circle-bold reglog-circle`}
                                     ></div>
                                     <div className="reglog-form">
-                                        <h2 className={`reglog__title ${size}`}>
+                                        <h2 className={`reglog__title`}>
                                             Забыли пароль?
                                         </h2>
 
                                         {message && (
                                             <p
-                                                className={`reglog-form__error ${size}`}
+                                                className={`reglog-form__error`}
                                             >
                                                 {message}
                                             </p>
@@ -51,7 +50,6 @@ const RestoreEmail = () => {
 
                                         <RestoreEmailForm
                                             onSubmit={onSubmit}
-                                            size={size}
                                         />
                                     </div>
                                 </div>

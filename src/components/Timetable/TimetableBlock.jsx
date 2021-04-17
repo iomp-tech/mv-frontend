@@ -20,16 +20,15 @@ const TimetableBlock = React.memo(
         timetableType,
         isLoadedLimit = true,
         color,
-        size,
     }) => {
         return (
             <div
-                className={`${ClassTimetablePage} timetable-block-container ${size}`}
+                className={`${ClassTimetablePage} timetable-block-container`}
                 style={{opacity: isLoadedLimit ? "" : "0.3"}}
             >
                 <Link
                     to={`/timetable/pages/${url}`}
-                    className={`timetable-block ${size}`}
+                    className={`timetable-block`}
                     style={{color: color}}
                 >
                     <div className="timetable-block-top">
@@ -37,7 +36,7 @@ const TimetableBlock = React.memo(
                             {Object.keys(categories).length ? (
                                 categories[category] ? (
                                     <span
-                                        className={`timetable-block__type_color ${size}`}
+                                        className={`timetable-block__type_color`}
                                     >
                                         {categories[category].title.length > 10
                                             ? `${categories[
@@ -50,7 +49,7 @@ const TimetableBlock = React.memo(
                             {Object.keys(timetableType).length ? (
                                 timetableType[type] ? (
                                     <span
-                                        className={`timetable-block__type_gray ${size}`}
+                                        className={`timetable-block__type_gray`}
                                     >
                                         {timetableType[type].title.length > 10
                                             ? `${timetableType[
@@ -61,7 +60,7 @@ const TimetableBlock = React.memo(
                                 ) : null
                             ) : null}
                         </div>
-                        <h3 className={`timetable-block__title ${size}`}>
+                        <h3 className={`timetable-block__title`}>
                             {title}
                         </h3>
                         {range ? (
@@ -79,7 +78,7 @@ const TimetableBlock = React.memo(
                                         />
                                     </svg>
                                     <span
-                                        className={`timetable-block__date ${size}`}
+                                        className={`timetable-block__date`}
                                     >
                                         <b>с:</b>{" "}
                                         {moment(minDate, "YYYY-MM-DD, HH:mm")
@@ -100,7 +99,7 @@ const TimetableBlock = React.memo(
                                         />
                                     </svg>
                                     <span
-                                        className={`timetable-block__date ${size}`}
+                                        className={`timetable-block__date`}
                                     >
                                         <b>до:</b>{" "}
                                         {moment(maxDate, "YYYY-MM-DD, HH:mm")
@@ -123,7 +122,7 @@ const TimetableBlock = React.memo(
                                     />
                                 </svg>
                                 <span
-                                    className={`timetable-block__date ${size}`}
+                                    className={`timetable-block__date`}
                                 >
                                     {moment(date, "YYYY-MM-DD, HH:mm")
                                         .locale("ru")
@@ -145,10 +144,10 @@ const TimetableBlock = React.memo(
                                                   style={{
                                                       backgroundImage: `url(${auths[key].avatar})`,
                                                   }}
-                                                  className={`auth__img ${size} timetable-block-auth__img`}
+                                                  className={`auth__img timetable-block-auth__img`}
                                               ></div>
                                               <span
-                                                  className={`auth__name ${size} timetable-block-auth__name`}
+                                                  className={`auth__name timetable-block-auth__name`}
                                               >
                                                   {auths[key].name}
                                               </span>
@@ -160,7 +159,7 @@ const TimetableBlock = React.memo(
 
                         <div className="timetable-block-btn">
                             <span
-                                className={`btn-bold_color timetable-block__btn ${size}`}
+                                className={`btn-bold_color timetable-block__btn`}
                             >
                                 Записаться
                             </span>

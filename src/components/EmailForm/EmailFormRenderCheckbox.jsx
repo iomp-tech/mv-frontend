@@ -3,7 +3,6 @@ import React from "react";
 import {PRIVACY_POLICY} from "../../api";
 
 const EmailFormRenderCheckbox = ({
-    size,
     input,
     type,
     id,
@@ -20,7 +19,7 @@ const EmailFormRenderCheckbox = ({
                 }`}
             />
             <label
-                className={`checkbox-label_white ${size} email-form__label ${
+                className={`checkbox-label_white email-form__label ${
                     touched && error ? "checkbox-label_white_error" : ""
                 }`}
                 htmlFor={id}

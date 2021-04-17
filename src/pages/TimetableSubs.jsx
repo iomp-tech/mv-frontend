@@ -23,7 +23,6 @@ const TimetableSubs = (props) => {
     const dispatch = useDispatch();
 
     const {byUrlItem, isLoaded} = useSelector(({timetable}) => timetable);
-    const {size, type} = useSelector(({visually}) => visually);
     const url = props.match.params.url;
 
     const [to, setTo] = React.useState("");
@@ -96,7 +95,7 @@ const TimetableSubs = (props) => {
                 byUrlItem && Object.keys(byUrlItem).length ? (
                     <>
                         <Helmet>
-                            <title>{byUrlItem.title} - IOMP</title>
+                            <title>{byUrlItem.title} - MasterVision</title>
                         </Helmet>
 
                         {byUrlItem.page.length ? (
@@ -104,14 +103,12 @@ const TimetableSubs = (props) => {
                                 <div key={`shop-page-block-${index}`}>
                                     {block.type === "main1" ? (
                                         <ShopPageMain1
-                                            size={size}
                                             to={to}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "main2" ? (
                                         <ShopPageMain2
-                                            size={size}
                                             {...block}
                                             form_id_awo={byUrlItem.id_awo}
                                             action={byUrlItem.action}
@@ -125,21 +122,17 @@ const TimetableSubs = (props) => {
                                     ) : null}
                                     {block.type === "section-squares" ? (
                                         <ShopPageSectionSquares
-                                            size={size}
-                                            type={type}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "slider-text" ? (
                                         <ShopPageSliderText
-                                            size={size}
                                             to={to}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "composition-product" ? (
                                         <ShopPageCompositionProduct
-                                            size={size}
                                             {...block}
                                             form_id_awo={byUrlItem.id_awo}
                                             action={byUrlItem.action}
@@ -149,29 +142,26 @@ const TimetableSubs = (props) => {
                                     ) : null}
                                     {block.type === "teachers" ? (
                                         <ShopPageTeachers
-                                            size={size}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "feedback-photos" ? (
                                         <ShopPageFeedbackPhotos
-                                            size={size}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "feedback-videos" ? (
                                         <ShopPageFeedbackVideos
-                                            size={size}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "goods" ? (
-                                        <ShopPageGoods size={size} {...block} />
+                                        <ShopPageGoods {...block} />
                                     ) : null}
                                 </div>
                             ))
                         ) : (
-                            <ShopPageMain2 size={size} {...byUrlItem} />
+                            <ShopPageMain2 {...byUrlItem} />
                         )}
                     </>
                 ) : (

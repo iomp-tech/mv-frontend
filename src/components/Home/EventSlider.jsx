@@ -9,8 +9,6 @@ import EventSliderItems from "./EventSliderItems";
 import EventSliderLoading from "./EventSliderLoading";
 
 const EventSlider = ({items, auths, categories, eventsType, isLoaded}) => {
-    const {color, size} = useSelector(({visually}) => visually);
-
     const slider = React.useRef();
 
     const options = {
@@ -47,8 +45,6 @@ const EventSlider = ({items, auths, categories, eventsType, isLoaded}) => {
                             <EventSliderItems
                                 key={obj.id}
                                 {...obj}
-                                color={color}
-                                size={size}
                                 eventsType={eventsType[obj.type]}
                                 auths={auths}
                                 categories={categories[obj.category]}

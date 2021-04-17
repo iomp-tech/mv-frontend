@@ -7,7 +7,7 @@ import validate from "./validate";
 import {BtnLoaded, RenderInput} from ".././";
 
 let RestorePassForm = React.memo(
-    ({handleSubmit, invalid, submitting, pristine, size}) => {
+    ({handleSubmit, invalid, submitting, pristine}) => {
         const {isLoaded} = useSelector(({restore}) => restore);
 
         const [statePassowrd, setStatePassword] = React.useState({
@@ -27,7 +27,6 @@ let RestorePassForm = React.memo(
                         type={
                             statePassowrd.password1State ? "text" : "password"
                         }
-                        size={size}
                         name="password_one"
                         label="Новый пароль"
                     />
@@ -43,7 +42,6 @@ let RestorePassForm = React.memo(
                         type={
                             statePassowrd.password2State ? "text" : "password"
                         }
-                        size={size}
                         name="password_two"
                         label="Повторите новый пароль"
                     />
@@ -51,7 +49,7 @@ let RestorePassForm = React.memo(
 
                 <button
                     type="submit"
-                    className={`btn-bold_color reglog__btn ${size}`}
+                    className={`btn-bold_color reglog__btn`}
                     style={{pointerEvents: `${isLoaded ? "none" : "auto"}`}}
                     disabled={invalid || submitting || pristine}
                 >

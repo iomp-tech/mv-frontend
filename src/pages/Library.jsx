@@ -23,7 +23,6 @@ const Library = () => {
     const {course, isLoadedCourse, isLogin, user} = useSelector(
         ({user}) => user
     );
-    const {size, color} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     React.useEffect(() => {
@@ -71,7 +70,7 @@ const Library = () => {
     return (
         <>
             <Helmet>
-                <title>Мои курсы - IOMP</title>
+                <title>Мои курсы - MasterVision</title>
             </Helmet>
 
             {isLoadedCourse ? (
@@ -83,12 +82,12 @@ const Library = () => {
                                     <div className="library-wrapper">
                                         <div className="library-block-top">
                                             <h2
-                                                className={`title ${size} library__title`}
+                                                className={`title library__title`}
                                             >
                                                 Мои курсы
                                             </h2>
                                             <span
-                                                className={`library__subtitle ${size}`}
+                                                className={`library__subtitle`}
                                             >
                                                 {course ? course.length : 0}
                                             </span>
@@ -100,8 +99,6 @@ const Library = () => {
                                                   course.map((arr) => (
                                                       <LibraryBlock
                                                           key={`id-training-${arr.id_training}`}
-                                                          size={size}
-                                                          color={color}
                                                           DOMEN={DOMEN}
                                                           {...arr}
                                                       />

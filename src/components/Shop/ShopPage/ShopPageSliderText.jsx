@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import "../../../assets/slick/slick.css";
 import "../../../assets/slick/slick-theme.css";
 
-const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
+const ShopPageSliderText = ({to, title, tabs, btnText}) => {
     const [stateListTabsIndex, setStateListTabsIndex] = React.useState(0);
     const [stateAnimateTabs, setStateAnimateTabs] = React.useState(false);
     const [heightList, setHeightList] = React.useState(950);
@@ -54,7 +54,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
             <div className="container">
                 <div className="shop-page-slider-text-wrapper">
                     <h2
-                        className={`title ${size} shop-page-slider-text__title`}
+                        className={`title shop-page-slider-text__title`}
                     >
                         {title}
                     </h2>
@@ -69,7 +69,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                                         index === stateListTabsIndex
                                             ? "active"
                                             : ""
-                                    } ${size}`}
+                                    }`}
                                     onClick={() =>
                                         onClickSliderTextTabsItem(index)
                                     }
@@ -86,17 +86,17 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                         <div
                             className={`shop-page-slider-text-list ${
                                 stateAnimateTabs ? "active" : ""
-                            } ${size}`}
+                            }`}
                         >
                             <ul
-                                className={`shop-page-slider-text-list-ul ${size}`}
+                                className={`shop-page-slider-text-list-ul`}
                             >
                                 {tabs[stateListTabsIndex].items &&
                                     tabs[stateListTabsIndex].items.map(
                                         (li, index) => (
                                             <li
                                                 key={`slider-text-li-${index}`}
-                                                className={`shop-page-slider-text-list__li ${size}`}
+                                                className={`shop-page-slider-text-list__li`}
                                             >
                                                 <span>{li.text}</span>
                                             </li>
@@ -107,10 +107,10 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
 
                         <div className="circle-wrapper shop-page-slider-text-circle-wrapper">
                             <div
-                                className={`circle-bold ${size} shop-page-slider-text-circle1`}
+                                className={`circle-bold shop-page-slider-text-circle1`}
                             ></div>
                             <div
-                                className={`circle-regular ${size} shop-page-slider-text-circle2`}
+                                className={`circle-regular shop-page-slider-text-circle2`}
                             ></div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, size}) => {
                             duration={1000}
                         >
                             <button
-                                className={`btn-bold_color shop-page-slider-text__btn ${size}`}
+                                className={`btn-bold_color shop-page-slider-text__btn`}
                             >
                                 {btnText}
                             </button>

@@ -1,7 +1,6 @@
 import React from "react";
 
 const EmailFormRenderInputButton = ({
-    size,
     input,
     label,
     type,
@@ -28,16 +27,15 @@ const EmailFormRenderInputButton = ({
                 <input
                     {...input}
                     type={type}
-                    size={size}
                     placeholder={label}
-                    className={`email-form-input__field ${size} ${
+                    className={`email-form-input__field ${
                         touched && error ? "email-form-input__field_error" : ""
                     }`}
                     required
                 />
             </div>
             {touched && error ? (
-                <span className={`input__label__error_bottom ${size}`}>
+                <span className={`input__label__error_bottom`}>
                     {error}
                 </span>
             ) : null}

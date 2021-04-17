@@ -21,7 +21,6 @@ const Cabinet = () => {
     const history = useHistory();
 
     const {isLogin, isLoaded, user} = useSelector(({user}) => user);
-    const {size} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     React.useEffect(() => {
@@ -73,7 +72,7 @@ const Cabinet = () => {
     return (
         <>
             <Helmet>
-                <title>Личный кабинет - IOMP</title>
+                <title>Личный кабинет - MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <>
@@ -84,24 +83,19 @@ const Cabinet = () => {
                                     <div className="container">
                                         <div className="cabinet-wrapper">
                                             <h2
-                                                className={`title ${size} cabinet__title`}
+                                                className={`title cabinet__title`}
                                             >
                                                 Личный кабинет
                                             </h2>
 
-                                            <CabinetCartUser
-                                                size={size}
-                                                {...user}
-                                            />
+                                            <CabinetCartUser {...user} />
 
                                             <CabinetEditInfoForm
-                                                size={size}
                                                 onSubmit={onSubmitEditInfo}
                                                 {...user}
                                             />
 
                                             <CabinetEditPasswordForm
-                                                size={size}
                                                 onSubmit={onSubmitEditPassword}
                                             />
                                         </div>

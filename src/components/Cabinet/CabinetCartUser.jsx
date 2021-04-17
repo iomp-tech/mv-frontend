@@ -11,7 +11,7 @@ import {
 import {DOMEN} from "../../api";
 
 const CabinetCartUser = React.memo(
-    ({avatar, first_name, last_name, email, size}) => {
+    ({avatar, first_name, last_name, email}) => {
         const dispatch = useDispatch();
 
         const {messageAvatar} = useSelector(({cabinet}) => cabinet);
@@ -85,10 +85,10 @@ const CabinetCartUser = React.memo(
                         </label>
                     </div>
                     <div className="cabinet-block-info-text">
-                        <h3 className={`cabinet-block-info__title ${size}`}>
+                        <h3 className={`cabinet-block-info__title`}>
                             Здравствуйте, {`${first_name} ${last_name}`}!
                         </h3>
-                        <p className={`cabinet-block-info__subtitle ${size}`}>
+                        <p className={`cabinet-block-info__subtitle`}>
                             <span>Email:</span> {email}
                         </p>
                     </div>

@@ -11,8 +11,6 @@ const TeacherModal = React.memo(
         type,
         description,
         avatar,
-        bgColor,
-        rgb,
         buttonVisible = true,
     }) => {
         const toggleOverflow = () => {
@@ -34,10 +32,6 @@ const TeacherModal = React.memo(
                             ? "teacher-modal-content teacher-modal-content_active"
                             : "teacher-modal-content"
                     }
-                    style={{
-                        backgroundColor: bgColor,
-                        boxShadow: `0 0 25px rgba(${rgb}, 0.1)`,
-                    }}
                 >
                     <span className="teacher-modal-close" onClick={onClick}>
                         <svg

@@ -12,7 +12,6 @@ const Repeat = () => {
 
     const {message} = useSelector(({repeat}) => repeat);
     const {isLoaded, isLogin} = useSelector(({user}) => user);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -25,7 +24,7 @@ const Repeat = () => {
     return (
         <>
             <Helmet>
-                <title>Отправить письмо еще раз - IOMP</title>
+                <title>Отправить письмо еще раз - MasterVision</title>
             </Helmet>
 
             {isLoaded ? (
@@ -36,13 +35,13 @@ const Repeat = () => {
                                 <div className="reglog-wrapper">
                                     <div className="circle-bold reglog-circle"></div>
                                     <div className="reglog-form">
-                                        <h2 className={`reglog__title ${size}`}>
+                                        <h2 className={`reglog__title`}>
                                             Отправить письмо еще раз
                                         </h2>
 
                                         {message && (
                                             <p
-                                                className={`reglog-form__error ${size}`}
+                                                className={`reglog-form__error`}
                                             >
                                                 {message}
                                             </p>
@@ -50,7 +49,6 @@ const Repeat = () => {
 
                                         <RepeatForm
                                             onSubmit={onSubmit}
-                                            size={size}
                                         />
                                     </div>
                                 </div>

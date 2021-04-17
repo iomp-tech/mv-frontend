@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const FooterMenu = ({footerMenu, size}) => {
+const FooterMenu = ({footerMenu}) => {
     let footerMenuLn;
     let footerMenuBlock;
 
@@ -15,27 +15,27 @@ const FooterMenu = ({footerMenu, size}) => {
     }
 
     return (
-        <nav className={`footer-nav ${size}`}>
-            <Link to="/shop" className={`footer-nav__btn ${size}`}>
+        <nav className={`footer-nav`}>
+            <Link to="/shop" className={`footer-nav__btn`}>
                 Магазин курсов
             </Link>
             {footerMenuBlock &&
                 footerMenuBlock.map((objs, index) => (
-                    <div className={`footer-nav-block ${size}`} key={index}>
+                    <div className={`footer-nav-block`} key={index}>
                         {objs &&
                             objs.map((obj, index) => (
                                 <span key={`footer-menu-${index}`}>
                                     {obj.local ? (
                                         <Link
                                             to={`/${obj.href}`}
-                                            className={`footer-nav__link ${size}`}
+                                            className={`footer-nav__link`}
                                         >
                                             {obj.title}
                                         </Link>
                                     ) : (
                                         <a
                                             href={obj.href}
-                                            className={`footer-nav__link ${size}`}
+                                            className={`footer-nav__link`}
                                             target="_blank"
                                         >
                                             {obj.title}

@@ -1,4 +1,4 @@
-### Онлайн-институт психологии - Institute of Modern Psychology
+### Онлайн-институт - MasterVision
 
 ## Стек технологий
 
@@ -12,12 +12,12 @@
 ## Установка
 Клонируйте репозиторий.
 ```
-git clone https://github.com/iomp-tech/iomp-frontend.git
+git clone https://github.com/iomp-tech/mv-frontend.git
 ```
 
 Переход в рабочий каталог.
 ```
-cd iomp-frontend
+cd mv-frontend
 ```
 
 Установка зависимостей, запуск сборки.

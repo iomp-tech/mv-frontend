@@ -90,13 +90,3 @@ export { default as CabinetError } from "./Cabinet/CabinetError";
 // Library
 export { default as LibraryBlock } from "./Library/LibraryBlock";
 export { default as LibraryNull } from "./Library/LibraryNull";
-
-// Institute
-export { default as InstituteItem } from "./Institute/InstituteItem";
-
-// SessionRoom
-export { default as SessionRoomForm } from "./SessionRoom/SessionRoomForm";
-export { default as SessionRoomNull } from "./SessionRoom/SessionRoomNull";
-export { default as SessionRoomFormList } from "./SessionRoom/SessionRoomFormList";
-export { default as SessionRoomLinkBlock } from "./SessionRoom/SessionRoomLinkBlock";
-export { default as SessionRoomErrorBlock } from "./SessionRoom/SessionRoomErrorBlock";

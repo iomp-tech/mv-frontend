@@ -27,7 +27,6 @@ const Cart = () => {
     const cartItemsId = useSelector(({cart}) => cart.cart);
     const {items} = useSelector(({cart}) => cart);
     const {user, isLoaded, isLogin} = useSelector(({user}) => user);
-    const {size, color, type} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const categories = useSelector(({categories}) => categories.items);
@@ -102,7 +101,7 @@ const Cart = () => {
     return (
         <>
             <Helmet>
-                <title>Корзина - IOMP</title>
+                <title>Корзина - MasterVision</title>
             </Helmet>
             {isLoaded ? (
                 <section className="cart">
@@ -111,14 +110,10 @@ const Cart = () => {
                             {Object.keys(cartItemsId).length ? (
                                 <>
                                     <div className="cart-block-top">
-                                        <h2
-                                            className={`title ${size} cart__title`}
-                                        >
+                                        <h2 className={`title cart__title`}>
                                             Корзина
                                         </h2>
-                                        <span
-                                            className={`cart__number ${size}`}
-                                        >
+                                        <span className={`cart__number`}>
                                             {Object.keys(cartItemsId).length}
                                         </span>
                                     </div>
@@ -126,11 +121,9 @@ const Cart = () => {
                                     <div className="cart-block-wrapper">
                                         {Object.keys(items).map((key) => (
                                             <CartBlock
-                                                size={size}
                                                 teachers={teachers}
                                                 categories={categories}
                                                 types={types}
-                                                color={color}
                                                 RemoveCartItem={
                                                     clickRemoveCartItem
                                                 }
@@ -151,7 +144,7 @@ const Cart = () => {
                                                 >
                                                     <div className="cart-block-bottom">
                                                         <h3
-                                                            className={`cart__total ${size}`}
+                                                            className={`cart__total`}
                                                         >
                                                             <span>Итого:</span>{" "}
                                                             {Object.keys(
@@ -212,7 +205,7 @@ const Cart = () => {
 
                                                         <button
                                                             type="submit"
-                                                            className={`btn-bold_color cart__btn ${size}`}
+                                                            className={`btn-bold_color cart__btn`}
                                                         >
                                                             Оформить заказ
                                                         </button>
@@ -224,9 +217,7 @@ const Cart = () => {
                                         </>
                                     ) : (
                                         <div className="cart-block-bottom">
-                                            <h3
-                                                className={`cart__total ${size}`}
-                                            >
+                                            <h3 className={`cart__total`}>
                                                 <span>Итого:</span>{" "}
                                                 {Object.keys(items).map(
                                                     (key) => {
@@ -246,7 +237,7 @@ const Cart = () => {
 
                                             <Link
                                                 to="/login"
-                                                className={`btn-bold_color cart__btn ${size}`}
+                                                className={`btn-bold_color cart__btn`}
                                             >
                                                 Войдите в аккаунт или создайте
                                                 его
@@ -257,23 +248,17 @@ const Cart = () => {
                             ) : (
                                 <>
                                     <div className="cart-null">
-                                        {type === "blackWhite" ||
-                                        type === "null" ||
-                                        type === null ? (
-                                            <div
-                                                className={`circle-bold cart-null-bg ${size}`}
-                                            ></div>
-                                        ) : null}
+                                        <div
+                                            className={`circle-bold cart-null-bg`}
+                                        ></div>
 
-                                        <h2
-                                            className={`cart-null__title ${size}`}
-                                        >
+                                        <h2 className={`cart-null__title`}>
                                             Ваша корзина пуста
                                         </h2>
 
                                         <Link
                                             to="/shop"
-                                            className={`btn-bold_color cart-null__btn ${size}`}
+                                            className={`btn-bold_color cart-null__btn`}
                                         >
                                             Перейти в магазин курсов
                                         </Link>

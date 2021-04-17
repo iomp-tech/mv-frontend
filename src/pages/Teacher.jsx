@@ -17,7 +17,6 @@ const Teacher = () => {
     const dispatch = useDispatch();
 
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
-    const {size, rgb, bgColor} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
@@ -89,18 +88,16 @@ const Teacher = () => {
     return (
         <>
             <Helmet>
-                <title>Преподаватели - IOMP</title>
+                <title>Преподаватели - MasterVision</title>
             </Helmet>
             <section className="teacher">
                 <div className="container">
                     <div className="teacher-wrapper">
-                        <h2 className={`title ${size} teacher__title`}>
+                        <h2 className={`title teacher__title`}>
                             Наши преподаватели
                         </h2>
 
                         <TeacherModal
-                            rgb={rgb}
-                            bgColor={bgColor}
                             state={TeacherModalBool}
                             onClick={toggleTeacherModal}
                             modalRef={TeacherModalRef}
@@ -112,7 +109,6 @@ const Teacher = () => {
                                 ? Object.keys(itemsMain).map((key) => (
                                       <TeacherBlock
                                           key={`teacher-block-${itemsMain[key].id}`}
-                                          size={size}
                                           onClick={() =>
                                               toggleTeacherModal(
                                                   itemsMain[key].id

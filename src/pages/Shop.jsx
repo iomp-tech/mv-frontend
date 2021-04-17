@@ -51,7 +51,6 @@ const Shop = (props) => {
     const teachers = useSelector(({teacher}) => teacher.items);
     const {integration} = useSelector(({integration_page}) => integration_page);
     const {push} = useSelector(({cart}) => cart);
-    const {size} = useSelector(({visually}) => visually);
 
     const queryGet = props.location.search;
 
@@ -240,12 +239,12 @@ const Shop = (props) => {
     return (
         <>
             <Helmet>
-                <title>Магазин курсов - IOMP</title>
+                <title>Магазин курсов - MasterVision</title>
             </Helmet>
             <section className="shop">
                 <div className="container">
                     <div className="shop-wrapper">
-                        <h2 className={`title ${size} shop__title`}>
+                        <h2 className={`title shop__title`}>
                             Магазин курсов
                         </h2>
                         <div className="shop-block-top">
@@ -334,7 +333,6 @@ const Shop = (props) => {
                                             types={types}
                                             categories={categories}
                                             auths={teachers}
-                                            size={size}
                                             onClickAddGoods={setAddGoods}
                                             onClickPush={toggleSuccessAddCart}
                                             idAwo={items[key].id_awo}

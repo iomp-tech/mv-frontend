@@ -14,7 +14,6 @@ const MagazineType = React.memo(() => {
     );
     const categories = useSelector(({categories}) => categories.items);
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {size, color} = useSelector(({visually}) => visually);
 
     const onClickPlusLimit = () => {
         dispatch(plusPostsLimit(5));
@@ -32,7 +31,7 @@ const MagazineType = React.memo(() => {
                             <div className="magazine-catalog-top">
                                 <div className="magazine-catalog-top-left">
                                     <h4
-                                        className={`magazine-catalog__title ${size}`}
+                                        className={`magazine-catalog__title`}
                                     >
                                         {Object.keys(postsType).length
                                             ? postsType[filters.type].title
@@ -41,7 +40,7 @@ const MagazineType = React.memo(() => {
                                 </div>
                                 <div className="magazine-catalog-top-right">
                                     <p
-                                        className={`magazine-catalog__number ${size}`}
+                                        className={`magazine-catalog__number`}
                                     >
                                         Всего:{" "}
                                         <span>{Object.keys(items).length}</span>
@@ -56,8 +55,6 @@ const MagazineType = React.memo(() => {
                                             key={items[key].id}
                                             num={num}
                                             auths={teachers}
-                                            size={size}
-                                            color={color}
                                             postsType={
                                                 postsType[items[key].type]
                                             }
@@ -72,7 +69,7 @@ const MagazineType = React.memo(() => {
                                 <div className="magazine-catalog-bottom">
                                     <button
                                         onClick={onClickPlusLimit}
-                                        className={`btn-bold_gray_icon rotate magazine-catalog__btn ${size}`}
+                                        className={`btn-bold_gray_icon rotate magazine-catalog__btn`}
                                     >
                                         <svg
                                             width="15"

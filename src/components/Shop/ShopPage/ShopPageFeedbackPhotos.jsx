@@ -6,7 +6,7 @@ import {Lightbox} from "react-modal-image";
 import OwlCarousel from "react-owl-carousel2";
 import "../../../assets/owl-carousel/owl.carousel.css";
 
-const ShopPageFeedbackPhotos = ({title, photos, size}) => {
+const ShopPageFeedbackPhotos = ({title, photos}) => {
     const [open, setOpen] = React.useState(false);
     const [photoActive, setPhotoActive] = React.useState("");
 

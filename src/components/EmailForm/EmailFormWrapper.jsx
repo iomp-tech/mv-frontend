@@ -9,7 +9,6 @@ import {fetchEmailForm} from "../../redux/actions/emailForm";
 const EmailFormWrapper = React.memo(() => {
     const dispatch = useDispatch();
     const {form, isLoaded} = useSelector(({emailForm}) => emailForm);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (!Object.keys(form).length) {
@@ -49,7 +48,7 @@ const EmailFormWrapper = React.memo(() => {
 	
     return (
         <>
-            <EmailForm size={size} isLoaded={isLoaded} onSubmit={onSubmit} />
+            <EmailForm isLoaded={isLoaded} onSubmit={onSubmit} />
         </>
     );
 });

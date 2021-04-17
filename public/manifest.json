@@ -1,6 +1,6 @@
 {
-	"short_name": "IOMP",
-	"name": "Онлайн-университет психологии.",
+	"short_name": "mv-frontend",
+	"name": "mv-frontend",
 	"icons": [
 		{
 			"src": "favicon.svg",

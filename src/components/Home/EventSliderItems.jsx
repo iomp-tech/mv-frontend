@@ -6,7 +6,7 @@ import "moment/locale/ru";
 
 const EventSliderItems = React.memo(
     ({
-		url,
+        url,
         eventsType,
         auth,
         auths,
@@ -16,7 +16,6 @@ const EventSliderItems = React.memo(
         date,
         categories,
         color,
-        size,
         range,
         minDate,
         maxDate,
@@ -28,42 +27,34 @@ const EventSliderItems = React.memo(
                     color: color,
                 }}
             >
-                <div className={`event-item-text ${size}`}>
+                <div className={`event-item-text`}>
                     {categories && (
-                        <span className={`event-item__type_color ${size}`}>
+                        <span className={`event-item__type_color`}>
                             {categories.title}
                         </span>
                     )}
                     {eventsType && (
-                        <span className={`event-item__type_gray ${size}`}>
+                        <span className={`event-item__type_gray`}>
                             {eventsType.title}
                         </span>
                     )}
-                    <h3 className={`event-item__title ${size}`}>{title}</h3>
-                    <p className={`event-item__description ${size}`}>
-                        {description}
-                    </p>
+                    <h3 className={`event-item__title`}>{title}</h3>
+                    <p className={`event-item__description`}>{description}</p>
                     {range ? (
                         <div className="event-item-date">
                             <div className="event-item-date-left">
-                                <span
-                                    className={`event-item__date-range ${size}`}
-                                >
+                                <span className={`event-item__date-range`}>
                                     <b>Дата старта:</b>
                                 </span>
                             </div>
                             <div className="event-item-date-right">
-                                <span
-                                    className={`event-item__date-range ${size}`}
-                                >
+                                <span className={`event-item__date-range`}>
                                     <b>с:</b>{" "}
                                     {moment(minDate, "YYYY-MM-DD, HH:mm")
                                         .locale("ru")
                                         .format("DD MMMM, HH:mm")}
                                 </span>
-                                <span
-                                    className={`event-item__date-range ${size}`}
-                                >
+                                <span className={`event-item__date-range`}>
                                     <b>до:</b>{" "}
                                     {moment(maxDate, "YYYY-MM-DD, HH:mm")
                                         .locale("ru")
@@ -74,12 +65,12 @@ const EventSliderItems = React.memo(
                     ) : (
                         <div className="event-item-date">
                             <div className="event-item-date-left">
-                                <span className={`event-item__date ${size}`}>
+                                <span className={`event-item__date`}>
                                     <b>Дата старта:</b>
                                 </span>
                             </div>
                             <div className="event-item-date-right">
-                                <span className={`event-item__date ${size}`}>
+                                <span className={`event-item__date`}>
                                     {moment(date, "YYYY-MM-DD, HH:mm")
                                         .locale("ru")
                                         .format("DD MMMM, HH:mm")}
@@ -101,10 +92,10 @@ const EventSliderItems = React.memo(
                                                 style={{
                                                     backgroundImage: `url(${auths[key].avatar})`,
                                                 }}
-                                                className={`auth__img ${size} event-item-auth__img`}
+                                                className={`auth__img event-item-auth__img`}
                                             ></div>
                                             <span
-                                                className={`auth__name ${size} event-item-auth__name`}
+                                                className={`auth__name event-item-auth__name`}
                                             >
                                                 {auths[key].name}
                                             </span>
@@ -116,23 +107,21 @@ const EventSliderItems = React.memo(
                     <div className="event-item-btn-wrapper">
                         <Link
                             to={`/timetable/pages/${url}`}
-                            className={`btn-bold_color event-item__btn ${size}`}
+                            className={`btn-bold_color event-item__btn`}
                         >
                             Записаться
                         </Link>
                     </div>
                 </div>
-                {size !== "X1" ? null : (
-                    <div className="event-item-thumb">
-                        <div
-                            className="event-item-img"
-                            style={{
-                                backgroundImage: `url(${thumb})`,
-                            }}
-                        ></div>
-                        <div className="circle-bold event-item-circle1"></div>
-                    </div>
-                )}
+                <div className="event-item-thumb">
+                    <div
+                        className="event-item-img"
+                        style={{
+                            backgroundImage: `url(${thumb})`,
+                        }}
+                    ></div>
+                    <div className="circle-bold event-item-circle1"></div>
+                </div>
             </div>
         );
     }

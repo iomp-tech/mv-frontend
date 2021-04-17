@@ -3,7 +3,6 @@ import React from "react";
 import {PRIVACY_POLICY} from "../../api";
 
 const RenderCheckboxPolycy = ({
-    size,
     input,
     type,
     id,
@@ -14,13 +13,13 @@ const RenderCheckboxPolycy = ({
             <input
                 {...input}
                 type={type}
-                className={`${size} shop-page-main2__checkbox ${
+                className={`shop-page-main2__checkbox ${
                     touched && error ? "checkbox_error" : "checkbox"
                 }`}
                 id={id}
             />
             <label
-                className={`${size} shop-page-main2__label ${
+                className={`shop-page-main2__label ${
                     touched && error ? "checkbox-label_error" : "checkbox-label"
                 }`}
                 htmlFor={id}

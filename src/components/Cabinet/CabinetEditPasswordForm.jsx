@@ -9,7 +9,7 @@ import {CabinetInputRender, CabinetError} from ".././";
 import {setMessageCabinetPassword} from "../.././redux/actions/cabinet";
 
 let CabinetEditPasswordForm = React.memo(
-    ({handleSubmit, invalid, submitting, pristine, size}) => {
+    ({handleSubmit, invalid, submitting, pristine}) => {
         const dispatch = useDispatch();
         const selector = formValueSelector("сabinetEditPasswordForm");
 
@@ -49,10 +49,10 @@ let CabinetEditPasswordForm = React.memo(
                     <></>
                 )}
                 <form onSubmit={handleSubmit} className="cabinet-block">
-                    <h3 className={`cabinet-block__title ${size}`}>
+                    <h3 className={`cabinet-block__title`}>
                         Изменение пароля
                     </h3>
-                    <div className={`cabinet-block-setting ${size}`}>
+                    <div className={`cabinet-block-setting`}>
                         <div className="cabinet-input">
                             <Field
                                 component={CabinetInputRender}
@@ -67,7 +67,6 @@ let CabinetEditPasswordForm = React.memo(
                                 }
                                 name="password1"
                                 label="Текущий пароль"
-                                size={size}
                             />
                         </div>
                         <div className="cabinet-input cabinet-cabinet-block-setting-input">
@@ -84,7 +83,6 @@ let CabinetEditPasswordForm = React.memo(
                                 }
                                 name="password2"
                                 label="Новый пароль"
-                                size={size}
                             />
                         </div>
                         <div className="cabinet-input cabinet-cabinet-block-setting-input">
@@ -101,14 +99,13 @@ let CabinetEditPasswordForm = React.memo(
                                 }
                                 name="password2_repeat"
                                 label="Повторите новый пароль"
-                                size={size}
                             />
                         </div>
                     </div>
 
                     <button
                         type="submit"
-                        className={`btn-bold_color ${size} cabinet-block__btn ${
+                        className={`btn-bold_color cabinet-block__btn ${
                             password2 === password2_repeat &&
                             password2 !== undefined &&
                             password2_repeat !== undefined &&

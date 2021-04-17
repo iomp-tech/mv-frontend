@@ -4,8 +4,6 @@ import {Helmet} from "react-helmet";
 import {useSelector} from "react-redux";
 
 const Er404 = () => {
-	const { size } = useSelector(({ visually }) => visually);
-	
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -13,18 +11,18 @@ const Er404 = () => {
     return (
         <>
             <Helmet>
-                <title>404 - IOMP</title>
+                <title>404 - MasterVision</title>
             </Helmet>
             <section className="error">
                 <div className="container">
                     <div className="error-wrapper">
-                        <h2 className={`error__title ${size}`}>
+                        <h2 className={`error__title`}>
                             Страница <span>не найдена,</span> либо еще
                             <span> не создана.</span>
                         </h2>
                         <Link
                             to="/"
-                            className={`btn-bold_color error__btn ${size}`}
+                            className={`btn-bold_color error__btn`}
                         >
                             На главную страницу
                         </Link>

@@ -9,10 +9,9 @@ import {
     TeacherBlockLoading,
 } from "../../../components/";
 
-const ShopPageTeachers = ({auth, title, size}) => {
-    const dispatch = useDispatch();
-
-    const {rgb, bgColor} = useSelector(({visually}) => visually);
+const ShopPageTeachers = ({auth, title}) => {
+	const dispatch = useDispatch();
+	
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
 
     React.useEffect(() => {
@@ -51,11 +50,9 @@ const ShopPageTeachers = ({auth, title, size}) => {
         <section className="teacher" style={{marginBottom: "50px"}}>
             <div className="container">
                 <div className="teacher-wrapper">
-                    <h2 className={`title ${size} teacher__title`}>{title}</h2>
+                    <h2 className={`title teacher__title`}>{title}</h2>
 
                     <TeacherModal
-                        rgb={rgb}
-                        bgColor={bgColor}
                         state={TeacherModalBool}
                         onClick={toggleTeacherModal}
                         modalRef={TeacherModalRef}
@@ -70,7 +67,6 @@ const ShopPageTeachers = ({auth, title, size}) => {
                                       itemsMain[obj] && (
                                           <TeacherBlock
                                               key={`teacher-block-${itemsMain[obj].id}`}
-                                              size={size}
                                               onClick={() =>
                                                   toggleTeacherModal(
                                                       itemsMain[obj].id

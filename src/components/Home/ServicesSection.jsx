@@ -10,7 +10,6 @@ const ServicesSection = () => {
     const dispatch = useDispatch();
     const servicesItems = useSelector(({services}) => services.items);
     const {isLoaded} = useSelector(({services}) => services);
-    const {size, type} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(fetchServices());
@@ -20,20 +19,10 @@ const ServicesSection = () => {
         <section className="services">
             <div className="container">
                 <div className="services-wrapper">
-                    {type === "blackWhite" ||
-                    type === "null" ||
-                    type === null ? (
-                        <>
-                            <div
-                                className={`circle-bold ${size} services-circle1`}
-                            ></div>
-                            <div
-                                className={`circle-bold ${size} services-circle2`}
-                            ></div>
-                        </>
-                    ) : null}
+                    <div className={`circle-bold services-circle1`}></div>
+                    <div className={`circle-bold services-circle2`}></div>
 
-                    <h2 className={`title ${size} services__title`}>
+                    <h2 className={`title services__title`}>
                         Раскройте свои сильные стороны
                     </h2>
 
@@ -42,7 +31,6 @@ const ServicesSection = () => {
                             ? servicesItems.map((obj, index) => (
                                   <ServicesBlock
                                       key={`${obj.title}_${index}`}
-                                      size={size}
                                       index={++index}
                                       {...obj}
                                   />

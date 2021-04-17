@@ -23,7 +23,6 @@ const ShopPage = (props) => {
     const dispatch = useDispatch();
 
     const {byUrlItem, isLoaded} = useSelector(({goods}) => goods);
-    const {size, type} = useSelector(({visually}) => visually);
     const url = props.match.params.url;
 
     const [to, setTo] = React.useState("");
@@ -97,58 +96,51 @@ const ShopPage = (props) => {
                 byUrlItem && Object.keys(byUrlItem).length ? (
                     <>
                         <Helmet>
-                            <title>{byUrlItem.title} - IOMP</title>
+                            <title>{byUrlItem.title} - MasterVision</title>
                         </Helmet>
 
                         {byUrlItem.page.map((block, index) => (
                             <div key={`shop-page-block-${index}`}>
                                 {block.type === "main1" ? (
                                     <ShopPageMain1
-                                        size={size}
                                         to={to}
                                         {...block}
                                     />
                                 ) : null}
                                 {block.type === "main2" ? (
-                                    <ShopPageMain2 size={size} {...block} />
+                                    <ShopPageMain2 {...block} />
                                 ) : null}
                                 {block.type === "section-squares" ? (
                                     <ShopPageSectionSquares
-                                        size={size}
-                                        type={type}
                                         {...block}
                                     />
                                 ) : null}
                                 {block.type === "slider-text" ? (
                                     <ShopPageSliderText
-                                        size={size}
                                         to={to}
                                         {...block}
                                     />
                                 ) : null}
                                 {block.type === "composition-product" ? (
                                     <ShopPageCompositionProduct
-                                        size={size}
                                         {...block}
                                     />
                                 ) : null}
                                 {block.type === "teachers" ? (
-                                    <ShopPageTeachers size={size} {...block} />
+                                    <ShopPageTeachers {...block} />
                                 ) : null}
                                 {block.type === "feedback-photos" ? (
                                     <ShopPageFeedbackPhotos
-                                        size={size}
                                         {...block}
                                     />
                                 ) : null}
                                 {block.type === "feedback-videos" ? (
                                     <ShopPageFeedbackVideos
-                                        size={size}
                                         {...block}
                                     />
                                 ) : null}
                                 {block.type === "goods" ? (
-                                    <ShopPageGoods size={size} {...block} />
+                                    <ShopPageGoods {...block} />
                                 ) : null}
                             </div>
                         ))}

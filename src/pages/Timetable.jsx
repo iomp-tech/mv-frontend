@@ -40,7 +40,6 @@ const Timetable = (props) => {
         itemsLength,
     } = useSelector(({timetable}) => timetable);
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {size, color} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const cat = props.match.params.cat;
@@ -148,12 +147,12 @@ const Timetable = (props) => {
     return (
         <>
             <Helmet>
-                <title>Расписание - IOMP</title>
+                <title>Расписание - MasterVision</title>
             </Helmet>
             <section className="timetable">
                 <div className="container">
                     <div className="timetable-wrapper">
-                        <h2 className={`title ${size} timetable__title`}>
+                        <h2 className={`title timetable__title`}>
                             Расписание
                         </h2>
 
@@ -167,8 +166,6 @@ const Timetable = (props) => {
                                             categories={categories}
                                             timetableType={timetableType}
                                             auths={teachers}
-                                            size={size}
-                                            color={color}
                                             isLoadedLimit={isLoadedLimit}
                                             ClassTimetablePage="timetable-block-container-page"
                                             {...items[key]}

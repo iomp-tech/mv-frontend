@@ -7,7 +7,7 @@ import validate from "./validate";
 import {BtnLoaded, RenderInput} from ".././";
 
 let RestoreEmailForm = React.memo(
-    ({handleSubmit, invalid, submitting, pristine, size}) => {
+    ({handleSubmit, invalid, submitting, pristine}) => {
         const {isLoaded} = useSelector(({restore}) => restore);
 
         return (
@@ -18,13 +18,12 @@ let RestoreEmailForm = React.memo(
                         type="text"
                         name="email"
                         label="Email"
-                        size={size}
                     />
                 </div>
 
                 <button
                     type="submit"
-                    className={`btn-bold_color reglog__btn ${size}`}
+                    className={`btn-bold_color reglog__btn`}
                     style={{pointerEvents: `${isLoaded ? "none" : "auto"}`}}
                     disabled={invalid || submitting || pristine}
                 >

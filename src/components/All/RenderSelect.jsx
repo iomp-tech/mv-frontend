@@ -5,7 +5,6 @@ const RenderSelect = ({
     label,
     choise,
     meta: {touched, error},
-    size,
     color,
 }) => {
     return (
@@ -15,7 +14,7 @@ const RenderSelect = ({
                 {...input}
                 className={`select__select ${
                     touched && error ? "select__select__error" : ""
-                } ${size}`}
+                }`}
                 style={{color: color}}
             >
                 {choise.map((item, index) => (
@@ -28,7 +27,7 @@ const RenderSelect = ({
                     </option>
                 ))}
             </select>
-            <span className={`select__span ${size}`}></span>
+            <span className={`select__span`}></span>
         </div>
     );
 };

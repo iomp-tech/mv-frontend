@@ -19,7 +19,6 @@ const TimetableSection = () => {
         ({timetable}) => timetable
     );
     const teachers = useSelector(({teacher}) => teacher.items);
-    const {color, size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         if (!Object.keys(teachers).length) {
@@ -37,18 +36,16 @@ const TimetableSection = () => {
                 <section className="timetable">
                     <div className="container">
                         <div className="timetable-wrapper">
-                            <h2 className={`title ${size} timetable__title`}>
+                            <h2 className={`title timetable__title`}>
                                 Ближайшие программы
                             </h2>
                             <div className="timetable-block-wrapper">
                                 {isLoaded
                                     ? Object.keys(items).map((key) => (
                                           <TimetableBlock
-                                              size={size}
                                               categories={categories}
                                               auths={teachers}
                                               timetableType={timetableType}
-                                              color={color}
                                               {...items[key]}
                                               key={`timetable-block-${items[key].id}`}
                                           />
@@ -68,7 +65,7 @@ const TimetableSection = () => {
                             <div className="timetable-btn-wrapper">
                                 <Link
                                     to="/timetable"
-                                    className={`btn-bold_gray timetable__btn ${size}`}
+                                    className={`btn-bold_gray timetable__btn`}
                                 >
                                     Показать еще
                                 </Link>

@@ -10,7 +10,6 @@ const RenderInput = React.memo(
         typeConst,
         func,
         keyInput,
-        size,
     }) => {
         const funcSetStatePassword = () => {
             const statepass = {
@@ -28,13 +27,13 @@ const RenderInput = React.memo(
                     <input
                         {...input}
                         type={type}
-                        className={`input__field ${size} reglog-input__field ${
+                        className={`input__field reglog-input__field ${
                             touched && error ? "input__field__error" : ""
                         }`}
                         required
                     />
                     <label
-                        className={`input__label ${size} reglog-input__label ${
+                        className={`input__label reglog-input__label ${
                             touched && error ? "input__label__error" : ""
                         }`}
                     >
@@ -91,7 +90,7 @@ const RenderInput = React.memo(
                 </div>
                 {touched && error && (
                     <div>
-                        <span className={`input__label__error_bottom ${size}`}>
+                        <span className={`input__label__error_bottom`}>
                             {error}
                         </span>
                     </div>

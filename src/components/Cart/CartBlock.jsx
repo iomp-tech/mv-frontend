@@ -15,7 +15,6 @@ const CartBlock = React.memo(
         href,
         id,
         RemoveCartItem,
-        size,
         color,
         categories,
         types,
@@ -25,7 +24,7 @@ const CartBlock = React.memo(
         return (
             <div className="cart-block">
                 <a href={href} className="cart-block-left">
-                    <div className={`cart-block-thumb ${size}`}>
+                    <div className={`cart-block-thumb`}>
                         <div
                             className="cart-block__img"
                             style={{
@@ -48,11 +47,11 @@ const CartBlock = React.memo(
                             <></>
                         )}
                     </div>
-                    <div className={`cart-block-text ${size}`}>
+                    <div className={`cart-block-text`}>
                         <div className="cart-block-type-wrapper">
                             {category && (
                                 <span
-                                    className={`cart-block__type_color ${size}`}
+                                    className={`cart-block__type_color`}
                                 >
                                     {categories[category] &&
                                         categories[category].title}
@@ -60,7 +59,7 @@ const CartBlock = React.memo(
                             )}
                             {type && (
                                 <span
-                                    className={`cart-block__type_gray ${size}`}
+                                    className={`cart-block__type_gray`}
                                 >
                                     {types[type] && types[type].title}
                                 </span>
@@ -71,7 +70,7 @@ const CartBlock = React.memo(
                                         teachers[key] && (
                                             <span
                                                 key={`teacher-${teachers[key].id}`}
-                                                className={`cart-block__type_gray ${size}`}
+                                                className={`cart-block__type_gray`}
                                             >
                                                 {teachers[key].name}
                                             </span>
@@ -79,13 +78,13 @@ const CartBlock = React.memo(
                                 )}
                         </div>
                         <h3
-                            className={`cart-block__title ${size}`}
+                            className={`cart-block__title`}
                             style={{color: color}}
                         >
                             {title}
                         </h3>
                         <span
-                            className={`cart-block__time ${size}`}
+                            className={`cart-block__time`}
                             style={{color: color}}
                         >
                             {time}
@@ -98,7 +97,7 @@ const CartBlock = React.memo(
                         {sale ? (
                             <>
                                 <span
-                                    className={`shop-block__subprice ${size}`}
+                                    className={`shop-block__subprice`}
                                 >
                                     {
                                         <NumberFormat
@@ -109,7 +108,7 @@ const CartBlock = React.memo(
                                     }
                                     ₽
                                 </span>
-                                <h3 className={`shop-block__price ${size}`}>
+                                <h3 className={`shop-block__price`}>
                                     {
                                         <NumberFormat
                                             value={price}
@@ -123,12 +122,12 @@ const CartBlock = React.memo(
                         ) : (
                             <>
                                 <span
-                                    className={`shop-block__subprice ${size}`}
+                                    className={`shop-block__subprice`}
                                     style={{textDecoration: "none"}}
                                 >
                                     Цена:
                                 </span>
-                                <h3 className={`shop-block__price ${size}`}>
+                                <h3 className={`shop-block__price`}>
                                     {
                                         <NumberFormat
                                             value={price}
