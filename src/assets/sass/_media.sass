@@ -113,10 +113,9 @@
 				margin-bottom: 25px
 
 		&-page
-			&-main2
-				&-form
-					&-block-wrapper
-						width: 75%
+			&-form
+				&-block-wrapper
+					width: 100%
 
 			&-composition-product
 				&-block
@@ -222,6 +221,19 @@
 				& > span
 					display: none
 
+	// institute
+	.institute
+		&-content
+			flex-direction: column
+
+		&-text
+			margin-bottom: 50px
+			width: 100%
+
+		&-doc
+			width: 100%
+			height: 800px
+
 @media screen and (max-width: 1000px)
 	// shop
 	.shop
@@ -305,7 +317,7 @@
 						font-size: 21px
 						margin-bottom: 25px
 						padding-right: 0
-				
+
 				&-circle2
 					display: none
 
@@ -430,16 +442,15 @@
 	// shop
 	.shop
 		&-page
-			&-main2
-				&-form-block-wrapper
-					width: 100%
-					flex-direction: column
+			&-form-block-wrapper
+				width: 100%
+				flex-direction: column
 
-				&-form-input-wrapper
-					margin-bottom: 15px
+			&-form-input-wrapper
+				margin-bottom: 15px
 
-				&-form-input-wrapper, &-form__btn
-					width: 100%
+			&-form-input-wrapper, &-form__btn
+				width: 100%
 
 			&-slider-text
 				&-tabs
@@ -450,16 +461,6 @@
 				&-modules
 					&-item
 						padding-right: 15px
-
-				&-form-block-wrapper
-					width: 100%
-					flex-direction: column
-
-				&-form-input-wrapper
-					margin-bottom: 15px
-
-				&-form-input-wrapper, &-form__btn
-					width: 100%
 
 				&-block
 					&-left
@@ -660,6 +661,11 @@
 			&:first-child
 				border-top: none
 
+		&-page
+			&-composition-product
+				&__btn
+					width: 100%
+
 	// cart
 	.cart
 		&-block-bottom
@@ -773,6 +779,9 @@
 
 				&__description
 					font-size: 21px
+
+				&__btn
+					width: 100%
 
 			&-main2
 				&-date

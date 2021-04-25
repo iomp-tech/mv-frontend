@@ -7,8 +7,18 @@ const ShopPageSectionSquares = ({title, squares, type}) => {
         <section className="services shop-page-services">
             <div className="container">
                 <div className="services-wrapper">
-                    <div className={`circle-bold services-circle1`}></div>
-                    <div className={`circle-bold services-circle2`}></div>
+                    {type === "blackWhite" ||
+                    type === "null" ||
+                    type === null ? (
+                        <>
+                            <div
+                                className={`circle-bold services-circle1`}
+                            ></div>
+                            <div
+                                className={`circle-bold services-circle2`}
+                            ></div>
+                        </>
+                    ) : null}
 
                     <h2 className={`title services__title`}>{title}</h2>
 

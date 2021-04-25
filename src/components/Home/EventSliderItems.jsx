@@ -15,7 +15,6 @@ const EventSliderItems = React.memo(
         thumb,
         date,
         categories,
-        color,
         range,
         minDate,
         maxDate,
@@ -23,9 +22,6 @@ const EventSliderItems = React.memo(
         return (
             <div
                 className="event-item"
-                style={{
-                    color: color,
-                }}
             >
                 <div className={`event-item-text`}>
                     {categories && (

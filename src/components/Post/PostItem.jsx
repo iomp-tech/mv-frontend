@@ -19,23 +19,19 @@ const PostItem = React.memo(
                 <div className="post-cover">
                     <div className={`post-cover-text`}>
                         <div className="post-cover-block-top">
-                            <div className="post-cover-types">
-                                <span
-                                    className={`post-cover__type_color`}
-                                >
-                                    {categories && categories.title}
-                                </span>
-                                <span
-                                    className={`post-cover__type_gray`}
-                                >
-                                    {postsType && postsType.title}
-                                </span>
-                            </div>
                             <span className={`post-cover__date`}>
                                 {moment(date, "YYYY-MM-DD, HH:mm")
                                     .locale("ru")
                                     .format("DD MMMM, HH:mm")}
                             </span>
+                            <div className="post-cover-types">
+                                <span className={`post-cover__type_color`}>
+                                    {categories && categories.title}
+                                </span>
+                                <span className={`post-cover__type_gray`}>
+                                    {postsType && postsType.title}
+                                </span>
+                            </div>
                         </div>
                         <h2 className={`post-cover__title`}>{title}</h2>
                         <p className={`post-cover__description`}>
@@ -78,9 +74,7 @@ const PostItem = React.memo(
                             className="post-block"
                             key={`${obj.title}_${index}`}
                         >
-                            <h3 className={`post-block__title`}>
-                                {obj.title}
-                            </h3>
+                            <h3 className={`post-block__title`}>{obj.title}</h3>
                             <div
                                 className={`post-block__description`}
                                 dangerouslySetInnerHTML={{__html: obj.body}}

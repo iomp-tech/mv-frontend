@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {fetchCategories} from "../../../redux/actions/categories";
-import {fetchGoods, fetchGoodsType} from "../../../redux/actions/goods";
+import {fetchAllGoods, fetchGoodsType} from "../../../redux/actions/goods";
 import {addGoodsCart, statusGoodsPush} from "../../../redux/actions/cart";
 import {fetchTeacher} from "../../../redux/actions/teacher";
 
@@ -13,7 +13,7 @@ const ShopPageGoods = ({title, goods}) => {
     const dispatch = useDispatch();
 
     const categories = useSelector(({categories}) => categories.items);
-    const {isLoaded, types, items} = useSelector(({goods}) => goods);
+    const {isLoaded, types, itemsAll} = useSelector(({goods}) => goods);
     const teachers = useSelector(({teacher}) => teacher.items);
 
     const {push} = useSelector(({cart}) => cart);
@@ -31,8 +31,8 @@ const ShopPageGoods = ({title, goods}) => {
             dispatch(fetchGoodsType());
         }
 
-        if (!Object.keys(items).length) {
-            dispatch(fetchGoods());
+        if (!Object.keys(itemsAll).length) {
+            dispatch(fetchAllGoods());
         }
     }, []);
 
@@ -49,7 +49,7 @@ const ShopPageGoods = ({title, goods}) => {
 
     return (
         <>
-            {Object.keys(items).length ? (
+            {Object.keys(itemsAll).length ? (
                 <section className="shop" style={{marginBottom: "50px"}}>
                     <div className="container">
                         <div className="shop-wrapper">
@@ -61,12 +61,9 @@ const ShopPageGoods = ({title, goods}) => {
                                 {isLoaded
                                     ? goods.map(
                                           (key) =>
-                                              items[`good-${key}`] && (
+                                              itemsAll[key] && (
                                                   <ShopBlock
-                                                      key={`shop-page-block-${
-                                                          items[`good-${key}`]
-                                                              .id
-                                                      }`}
+                                                      key={`shop-page-block-${itemsAll[key].id}`}
                                                       onClickAddGoods={
                                                           setAddGoods
                                                       }
@@ -77,10 +74,9 @@ const ShopPageGoods = ({title, goods}) => {
                                                       categories={categories}
                                                       auths={teachers}
                                                       idAwo={
-                                                          items[`good-${key}`]
-                                                              .id_awo
+                                                          itemsAll[key].id_awo
                                                       }
-                                                      {...items[`good-${key}`]}
+                                                      {...itemsAll[key]}
                                                   />
                                               )
                                       )

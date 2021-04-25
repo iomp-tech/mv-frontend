@@ -87,7 +87,7 @@ const TeacherSection = () => {
                                     to="/teachers"
                                     className={`btn-bold_gray teacher__btn`}
                                 >
-                                    Покащать еще
+                                    Показать еще
                                 </Link>
                             </div>
                         </div>

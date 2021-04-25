@@ -102,10 +102,7 @@ const TimetableSubs = (props) => {
                             byUrlItem.page.map((block, index) => (
                                 <div key={`shop-page-block-${index}`}>
                                     {block.type === "main1" ? (
-                                        <ShopPageMain1
-                                            to={to}
-                                            {...block}
-                                        />
+                                        <ShopPageMain1 to={to} {...block} />
                                     ) : null}
                                     {block.type === "main2" ? (
                                         <ShopPageMain2
@@ -118,12 +115,12 @@ const TimetableSubs = (props) => {
                                             minDate={byUrlItem.minDate}
                                             maxDate={byUrlItem.maxDate}
                                             date={byUrlItem.date}
+                                            vkUrl={byUrlItem.vkUrl}
+                                            telegramUrl={byUrlItem.telegramUrl}
                                         />
                                     ) : null}
                                     {block.type === "section-squares" ? (
-                                        <ShopPageSectionSquares
-                                            {...block}
-                                        />
+                                        <ShopPageSectionSquares {...block} />
                                     ) : null}
                                     {block.type === "slider-text" ? (
                                         <ShopPageSliderText
@@ -138,22 +135,18 @@ const TimetableSubs = (props) => {
                                             action={byUrlItem.action}
                                             formId={byUrlItem.formId}
                                             formVc={byUrlItem.formVc}
+                                            vkUrl={byUrlItem.vkUrl}
+                                            telegramUrl={byUrlItem.telegramUrl}
                                         />
                                     ) : null}
                                     {block.type === "teachers" ? (
-                                        <ShopPageTeachers
-                                            {...block}
-                                        />
+                                        <ShopPageTeachers {...block} />
                                     ) : null}
                                     {block.type === "feedback-photos" ? (
-                                        <ShopPageFeedbackPhotos
-                                            {...block}
-                                        />
+                                        <ShopPageFeedbackPhotos {...block} />
                                     ) : null}
                                     {block.type === "feedback-videos" ? (
-                                        <ShopPageFeedbackVideos
-                                            {...block}
-                                        />
+                                        <ShopPageFeedbackVideos {...block} />
                                     ) : null}
                                     {block.type === "goods" ? (
                                         <ShopPageGoods {...block} />
