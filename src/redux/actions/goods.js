@@ -19,6 +19,7 @@ export const fetchGoods = (limit = null, query = "") => (dispatch) => {
 	});
 };
 
+
 export const fetchAllGoods = () => (dispatch) => {
 	dispatch({
 		type: 'SET_LOADED_GOODS',
@@ -50,6 +51,11 @@ export const fetchGoodsSection = () => (dispatch) => {
 export const fetchByUrlGoods = (url = "") => (dispatch) => {
 	dispatch({
 		type: 'SET_LIMIT_LOADED_GOODS',
+		payload: false,
+	});
+
+	dispatch({
+		type: 'SET_LOADED_GOODS',
 		payload: false,
 	});
 

@@ -1,6 +1,6 @@
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import NumberFormat from "react-number-format";
 
@@ -21,12 +21,11 @@ import {fetchTeacher} from ".././redux/actions/teacher";
 import {CART_DOMEN, API_DOMEN} from ".././api";
 
 const Cart = () => {
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const cartItemsId = useSelector(({cart}) => cart.cart);
-    const {items} = useSelector(({cart}) => cart);
-    const {user, isLoaded, isLogin} = useSelector(({user}) => user);
+    const {items, isLoaded} = useSelector(({cart}) => cart);
+    const {size, color, type} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const categories = useSelector(({categories}) => categories.items);
@@ -101,7 +100,7 @@ const Cart = () => {
     return (
         <>
             <Helmet>
-                <title>Корзина - MasterVision</title>
+                <title>Корзина - IOMP</title>
             </Helmet>
             {isLoaded ? (
                 <section className="cart">
@@ -110,10 +109,14 @@ const Cart = () => {
                             {Object.keys(cartItemsId).length ? (
                                 <>
                                     <div className="cart-block-top">
-                                        <h2 className={`title cart__title`}>
+                                        <h2
+                                            className={`title ${size} cart__title`}
+                                        >
                                             Корзина
                                         </h2>
-                                        <span className={`cart__number`}>
+                                        <span
+                                            className={`cart__number ${size}`}
+                                        >
                                             {Object.keys(cartItemsId).length}
                                         </span>
                                     </div>
@@ -121,9 +124,11 @@ const Cart = () => {
                                     <div className="cart-block-wrapper">
                                         {Object.keys(items).map((key) => (
                                             <CartBlock
+                                                size={size}
                                                 teachers={teachers}
                                                 categories={categories}
                                                 types={types}
+                                                color={color}
                                                 RemoveCartItem={
                                                     clickRemoveCartItem
                                                 }
@@ -133,91 +138,16 @@ const Cart = () => {
                                             />
                                         ))}
                                     </div>
-                                    {isLogin ? (
-                                        <>
-                                            {parseInt(user.confirmed) ? (
-                                                <form
-                                                    action={CART_DOMEN}
-                                                    method="post"
-                                                    encType="application/x-www-form-urlencoded"
-                                                    acceptCharset="UTF-8"
-                                                >
-                                                    <div className="cart-block-bottom">
-                                                        <h3
-                                                            className={`cart__total`}
-                                                        >
-                                                            <span>Итого:</span>{" "}
-                                                            {Object.keys(
-                                                                items
-                                                            ).map((key) => {
-                                                                totalPrice +=
-                                                                    items[key]
-                                                                        .price;
-                                                            })}
-                                                            {
-                                                                <NumberFormat
-                                                                    value={
-                                                                        totalPrice
-                                                                    }
-                                                                    displayType={
-                                                                        "text"
-                                                                    }
-                                                                    thousandSeparator={
-                                                                        " "
-                                                                    }
-                                                                />
-                                                            }
-                                                            ₽
-                                                        </h3>
-
-                                                        {Object.keys(items)
-                                                            .length
-                                                            ? Object.keys(
-                                                                  items
-                                                              ).map((key) => (
-                                                                  <input
-                                                                      type="hidden"
-                                                                      value="1"
-                                                                      name={`Goods[${items[key].id_awo}]`}
-                                                                      key={`${items[key].id_awo}_${items[key].title}`}
-                                                                  />
-                                                              ))
-                                                            : null}
-
-                                                        <input
-                                                            name="CartAccount[name]"
-                                                            type="hidden"
-                                                            value={
-                                                                isLoaded
-                                                                    ? user.name
-                                                                    : ""
-                                                            }
-                                                        />
-                                                        <input
-                                                            name="CartAccount[email]"
-                                                            type="hidden"
-                                                            value={
-                                                                isLoaded
-                                                                    ? user.email
-                                                                    : ""
-                                                            }
-                                                        />
-
-                                                        <button
-                                                            type="submit"
-                                                            className={`btn-bold_color cart__btn`}
-                                                        >
-                                                            Оформить заказ
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            ) : (
-                                                history.push("/cabinet")
-                                            )}
-                                        </>
-                                    ) : (
+                                    <form
+                                        action={CART_DOMEN}
+                                        method="post"
+                                        encType="application/x-www-form-urlencoded"
+                                        acceptCharset="UTF-8"
+                                    >
                                         <div className="cart-block-bottom">
-                                            <h3 className={`cart__total`}>
+                                            <h3
+                                                className={`cart__total ${size}`}
+                                            >
                                                 <span>Итого:</span>{" "}
                                                 {Object.keys(items).map(
                                                     (key) => {
@@ -235,30 +165,59 @@ const Cart = () => {
                                                 ₽
                                             </h3>
 
-                                            <Link
-                                                to="/login"
-                                                className={`btn-bold_color cart__btn`}
+                                            {Object.keys(items).length
+                                                ? Object.keys(
+                                                      items
+                                                  ).map((key) => (
+                                                      <input
+                                                          type="hidden"
+                                                          value="1"
+                                                          name={`Goods[${items[key].id_awo}]`}
+                                                          key={`${items[key].id_awo}_${items[key].title}`}
+                                                      />
+                                                  ))
+                                                : null}
+
+                                            <input
+                                                name="CartAccount[name]"
+                                                type="hidden"
+                                                value=""
+                                            />
+                                            <input
+                                                name="CartAccount[email]"
+                                                type="hidden"
+                                                value=""
+                                            />
+
+                                            <button
+                                                type="submit"
+                                                className={`btn-bold_color cart__btn ${size}`}
                                             >
-                                                Войдите в аккаунт или создайте
-                                                его
-                                            </Link>
+                                                Оформить заказ
+                                            </button>
                                         </div>
-                                    )}
+                                    </form>
                                 </>
                             ) : (
                                 <>
                                     <div className="cart-null">
-                                        <div
-                                            className={`circle-bold cart-null-bg`}
-                                        ></div>
+                                        {type === "blackWhite" ||
+                                        type === "null" ||
+                                        type === null ? (
+                                            <div
+                                                className={`circle-bold cart-null-bg ${size}`}
+                                            ></div>
+                                        ) : null}
 
-                                        <h2 className={`cart-null__title`}>
+                                        <h2
+                                            className={`cart-null__title ${size}`}
+                                        >
                                             Ваша корзина пуста
                                         </h2>
 
                                         <Link
                                             to="/shop"
-                                            className={`btn-bold_color cart-null__btn`}
+                                            className={`btn-bold_color cart-null__btn ${size}`}
                                         >
                                             Перейти в магазин курсов
                                         </Link>
@@ -271,6 +230,7 @@ const Cart = () => {
             ) : (
                 <PreloaderPage />
             )}
+
             <ShopSection />
             <MagazineSection />
             <EmailFormWrapper />
