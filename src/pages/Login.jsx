@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {LoginForm, PreloaderPage} from ".././components/";
 import {sendLogin} from ".././redux/actions/login";
 
-import Er404 from "./Er404";
+import {INDEX_MAGAZIN_AWO} from "../api";
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -18,7 +18,11 @@ const Login = () => {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
-    }, []);
+	}, []);
+	
+    const redirect = () => {
+        window.location.href = `https://${INDEX_MAGAZIN_AWO}.ru/personal/`;
+    };
 
     React.useEffect(() => {
         if (Object.keys(integration).length) {
@@ -84,9 +88,7 @@ const Login = () => {
                                         </Link>
 
                                         {message && (
-                                            <p
-                                                className={`reglog-form__error`}
-                                            >
+                                            <p className={`reglog-form__error`}>
                                                 {message}
                                             </p>
                                         )}
@@ -104,7 +106,7 @@ const Login = () => {
                             </div>
                         </section>
                     ) : (
-                        <Er404 />
+                        redirect()
                     )}
                 </>
             ) : (
