@@ -2,7 +2,7 @@ import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
-import {fetchTeacherMain} from ".././redux/actions/teacher";
+import {fetchTeacher} from ".././redux/actions/teacher";
 
 import {
     TeacherBlock,
@@ -16,7 +16,8 @@ import {
 const Teacher = () => {
     const dispatch = useDispatch();
 
-    const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
+    const {items, isLoaded} = useSelector(({teacher}) => teacher);
+    const {size, rgb, bgColor} = useSelector(({visually}) => visually);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const [TeacherModalBool, setTeacherModalBool] = React.useState(false);
@@ -27,8 +28,8 @@ const Teacher = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
 
-        if (!Object.keys(itemsMain).length) {
-            dispatch(fetchTeacherMain());
+        if (!Object.keys(items).length) {
+            dispatch(fetchTeacher());
         }
 
         document.body.addEventListener("click", handTeacherModalBool);
@@ -88,33 +89,34 @@ const Teacher = () => {
     return (
         <>
             <Helmet>
-                <title>Преподаватели - MasterVision</title>
+                <title>Преподаватели - IOMP</title>
             </Helmet>
             <section className="teacher">
                 <div className="container">
                     <div className="teacher-wrapper">
-                        <h2 className={`title teacher__title`}>
+                        <h2 className={`title ${size} teacher__title`}>
                             Наши преподаватели
                         </h2>
 
                         <TeacherModal
+                            rgb={rgb}
+                            bgColor={bgColor}
                             state={TeacherModalBool}
                             onClick={toggleTeacherModal}
                             modalRef={TeacherModalRef}
-                            {...itemsMain[activeTeacherItems]}
+                            {...items[activeTeacherItems]}
                         />
 
                         <div className="teacher-block-wrapper">
                             {isLoaded
-                                ? Object.keys(itemsMain).map((key) => (
+                                ? Object.keys(items).map((key) => (
                                       <TeacherBlock
-                                          key={`teacher-block-${itemsMain[key].id}`}
+                                          key={`teacher-block-${items[key].id}`}
+                                          size={size}
                                           onClick={() =>
-                                              toggleTeacherModal(
-                                                  itemsMain[key].id
-                                              )
+                                              toggleTeacherModal(items[key].id)
                                           }
-                                          {...itemsMain[key]}
+                                          {...items[key]}
                                       />
                                   ))
                                 : Array(4)
