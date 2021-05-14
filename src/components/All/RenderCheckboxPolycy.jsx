@@ -1,13 +1,8 @@
 import React from "react";
 
-import {PRIVACY_POLICY} from "../../api";
+import {Link} from "react-router-dom";
 
-const RenderCheckboxPolycy = ({
-    input,
-    type,
-    id,
-    meta: {touched, error},
-}) => {
+const RenderCheckboxPolycy = ({input, type, id, meta: {touched, error}}) => {
     return (
         <>
             <input
@@ -26,15 +21,15 @@ const RenderCheckboxPolycy = ({
             >
                 <span>
                     Я согласен с условиями обработки&nbsp;
-                    <a
-                        href={PRIVACY_POLICY}
+                    <Link
+                        to="/privacy"
                         target="_blank"
                         className={`checkbox-label__link ${
                             touched && error ? "checkbox-label__link_error" : ""
                         }`}
                     >
                         персональных данных
-                    </a>
+                    </Link>
                 </span>
             </label>
         </>

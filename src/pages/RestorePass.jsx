@@ -14,7 +14,6 @@ const RestorePass = (props) => {
 
     const {message, check, isLoadedCheck} = useSelector(({restore}) => restore);
     const {isLoaded, isLogin} = useSelector(({user}) => user);
-    const {size} = useSelector(({visually}) => visually);
 
     React.useEffect(() => {
         dispatch(checkRestorePass({hash: hash}));
@@ -48,19 +47,19 @@ const RestorePass = (props) => {
                                     {check ? (
                                         <div className="reglog-wrapper">
                                             <div
-                                                className={`circle-bold ${size} reglog-circle`}
+                                                className={`circle-bold reglog-circle`}
                                             ></div>
 
                                             <div className="reglog-form">
                                                 <h2
-                                                    className={`reglog__title ${size}`}
+                                                    className={`reglog__title`}
                                                 >
                                                     Введите новый пароль
                                                 </h2>
 
                                                 {message && (
                                                     <p
-                                                        className={`reglog-form__error ${size}`}
+                                                        className={`reglog-form__error`}
                                                     >
                                                         {message}
                                                     </p>
@@ -68,19 +67,18 @@ const RestorePass = (props) => {
 
                                                 <RestorePassForm
                                                     onSubmit={onSubmit}
-                                                    size={size}
                                                 />
                                             </div>
                                         </div>
                                     ) : (
                                         <>
                                             <h2
-                                                className={`error__title ${size}`}
+                                                className={`error__title`}
                                             >
                                                 Ссылка <span>устарела</span>
                                             </h2>
                                             <p
-                                                className={`error__subtitle ${size}`}
+                                                className={`error__subtitle`}
                                             >
                                                 Ваша ссылка на подтверждение
                                                 аккаунта устарела. Если письмо
@@ -92,7 +90,7 @@ const RestorePass = (props) => {
                                             </p>
                                             <Link
                                                 to="/"
-                                                className={`btn-bold_color error__btn ${size}`}
+                                                className={`btn-bold_color error__btn`}
                                             >
                                                 На главную страницу
                                             </Link>

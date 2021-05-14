@@ -1,6 +1,6 @@
 import React from "react";
 
-import {PRIVACY_POLICY} from "./../../api";
+import {Link} from "react-router-dom";
 
 const FooterRenderCheckbox = ({
     input,
@@ -25,9 +25,8 @@ const FooterRenderCheckbox = ({
                 htmlFor={id}
             >
                 Я согласен с условиями обработки&nbsp;
-                <a
-                    href={PRIVACY_POLICY}
-                    target="_blank"
+                <Link
+                    to="/privacy"
                     className={`checkbox-label_white__link ${
                         touched && error
                             ? "checkbox-label_white__link_error"
@@ -35,7 +34,7 @@ const FooterRenderCheckbox = ({
                     }`}
                 >
                     персональных данных
-                </a>
+                </Link>
             </label>
         </>
     );
