@@ -161,18 +161,35 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="footer-bottom-bottom">
-                                <Link
-                                    to="/privacy"
-                                    className="footer-bottom-bottom__link"
-                                >
-                                    Политика конфиденциальности
-                                </Link>
-                                <Link
-                                    to="/public-offer"
-                                    className="footer-bottom-bottom__link"
-                                >
-                                    Публичная оферта
-                                </Link>
+                                <div className="footer-bottom-bottom-link">
+                                    <Link
+                                        to="/privacy"
+                                        className={`footer-bottom-bottom__link`}
+                                    >
+                                        Политика конфиденциальности
+                                    </Link>
+                                    <Link
+                                        to="/public-offer"
+                                        className={`footer-bottom-bottom__link`}
+                                    >
+                                        Публичная оферта
+                                    </Link>
+                                </div>
+
+                                {/* Hi, we are Nagibin's studio */}
+                                <div className="nagibinstudio">
+                                    <a href="https://nagibinstudio.ru">
+                                        <img
+                                            src="https://api.nagibinstudio.ru:5000/all/nagibin-develompent.svg"
+                                            alt=""
+                                            className="nagibinstudio__img"
+                                            style={{
+                                                width: "300px",
+                                                userSelect: "none",
+                                            }}
+                                        />
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
