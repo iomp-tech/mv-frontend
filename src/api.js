@@ -1,8 +1,8 @@
 // API_DOMEN
-export const API_DOMEN = "http://cs89390.tmweb.ru/api/public/api/";
+export const API_DOMEN = "http://ct59095.tmweb.ru/api/public/api";
 
 // DOMEN
-export const DOMEN = "http://cs89390.tmweb.ru/api";
+export const DOMEN = "http://ct59095.tmweb.ru/api";
 
 // CART_DOMEN
 export const CART_DOMEN = "https://aleksandrkudryashov1.ru/?r=ordering/cart/s1&lg=ru";

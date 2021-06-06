@@ -95,8 +95,8 @@ const Shop = (props) => {
             arrayFormat: "comma",
         });
 
-        if (parseQuery.search !== undefined) {
-            filters.search = parseQuery.search;
+        if (parseQuery.q !== undefined) {
+            filters.search = parseQuery.q;
         }
 
         if (parseQuery.type !== undefined) {
