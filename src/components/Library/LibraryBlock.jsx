@@ -1,7 +1,7 @@
 import React from "react";
 
-const LibraryBlock = ({training, image, color, DOMEN}) => {
-    const url = "https://shop.iomp.ru/personal/auth/login?lg=ru";
+const LibraryBlock = ({training, image, color, DOMEN, awo_shop_domain, awo_shop_subdomain}) => {
+    const url = `https://${awo_shop_domain}/personal/auth/login?lg=ru`;
 
     return (
         <a href={url} target="_blank" className="library-block">
@@ -11,7 +11,7 @@ const LibraryBlock = ({training, image, color, DOMEN}) => {
                     style={{
                         backgroundImage: `url(${
                             image !== ""
-                                ? `https://shop.iomp.ru/userdata/iomp/training/${image}`
+                                ? `https://${awo_shop_domain}/userdata/${awo_shop_subdomain}/training/${image}`
                                 : `${DOMEN}/public/storage/all/default_avatar.svg`
                         })`,
                     }}

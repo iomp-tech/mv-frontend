@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet";
 
 import {useDispatch, useSelector} from "react-redux";
@@ -7,11 +7,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {LoginForm, PreloaderPage} from ".././components/";
 import {sendLogin} from ".././redux/actions/login";
 
-import {INDEX_MAGAZIN_AWO} from "../api";
-
 const Login = () => {
-    const dispatch = useDispatch();
-
+	const history = useHistory();
+	const dispatch = useDispatch();
+	
     const {message} = useSelector(({login}) => login);
     const {isLogin, isLoaded} = useSelector(({user}) => user);
     const {integration} = useSelector(({integration_page}) => integration_page);
@@ -19,10 +18,6 @@ const Login = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
 	}, []);
-	
-    const redirect = () => {
-        window.location.href = `https://${INDEX_MAGAZIN_AWO}.ru/personal/`;
-    };
 
     React.useEffect(() => {
         if (Object.keys(integration).length) {
@@ -106,7 +101,7 @@ const Login = () => {
                             </div>
                         </section>
                     ) : (
-                        redirect()
+                        history.push("/library")
                     )}
                 </>
             ) : (

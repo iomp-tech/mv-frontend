@@ -18,13 +18,13 @@ import {fetchCategories} from ".././redux/actions/categories";
 import {fetchGoodsType} from ".././redux/actions/goods";
 import {fetchTeacher} from ".././redux/actions/teacher";
 
-import {CART_DOMEN, API_DOMEN} from ".././api";
+import {API_DOMEN} from ".././api";
 
 const Cart = () => {
     const dispatch = useDispatch();
 
     const cartItemsId = useSelector(({cart}) => cart.cart);
-    const {items, isLoaded} = useSelector(({cart}) => cart);
+    const {items, isLoaded, awo_shop_storage} = useSelector(({cart}) => cart);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const categories = useSelector(({categories}) => categories.items);
@@ -108,14 +108,10 @@ const Cart = () => {
                             {Object.keys(cartItemsId).length ? (
                                 <>
                                     <div className="cart-block-top">
-                                        <h2
-                                            className={`title cart__title`}
-                                        >
+                                        <h2 className={`title cart__title`}>
                                             Корзина
                                         </h2>
-                                        <span
-                                            className={`cart__number`}
-                                        >
+                                        <span className={`cart__number`}>
                                             {Object.keys(cartItemsId).length}
                                         </span>
                                     </div>
@@ -123,6 +119,7 @@ const Cart = () => {
                                     <div className="cart-block-wrapper">
                                         {Object.keys(items).map((key) => (
                                             <CartBlock
+                                                types={types}
                                                 teachers={teachers}
                                                 categories={categories}
                                                 RemoveCartItem={
@@ -135,15 +132,13 @@ const Cart = () => {
                                         ))}
                                     </div>
                                     <form
-                                        action={CART_DOMEN}
+                                        action={`https://${awo_shop_storage}/?r=ordering/cart/s1&lg=ru`}
                                         method="post"
                                         encType="application/x-www-form-urlencoded"
                                         acceptCharset="UTF-8"
                                     >
                                         <div className="cart-block-bottom">
-                                            <h3
-                                                className={`cart__total`}
-                                            >
+                                            <h3 className={`cart__total`}>
                                                 <span>Итого:</span>{" "}
                                                 {Object.keys(items).map(
                                                     (key) => {
@@ -162,16 +157,16 @@ const Cart = () => {
                                             </h3>
 
                                             {Object.keys(items).length
-                                                ? Object.keys(
-                                                      items
-                                                  ).map((key) => (
-                                                      <input
-                                                          type="hidden"
-                                                          value="1"
-                                                          name={`Goods[${items[key].id_awo}]`}
-                                                          key={`${items[key].id_awo}_${items[key].title}`}
-                                                      />
-                                                  ))
+                                                ? Object.keys(items).map(
+                                                      (key) => (
+                                                          <input
+                                                              type="hidden"
+                                                              value="1"
+                                                              name={`Goods[${items[key].id_awo}]`}
+                                                              key={`${items[key].id_awo}_${items[key].title}`}
+                                                          />
+                                                      )
+                                                  )
                                                 : null}
 
                                             <input
@@ -197,9 +192,8 @@ const Cart = () => {
                             ) : (
                                 <>
                                     <div className="cart-null">
-                                        <h2
-                                            className={`cart-null__title`}
-                                        >
+                                        <div className="circle-bold cart-null-bg"></div>
+                                        <h2 className={`cart-null__title`}>
                                             Ваша корзина пуста
                                         </h2>
 

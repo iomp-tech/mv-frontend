@@ -18,7 +18,7 @@ const ShopSection = React.memo(({style}) => {
     const teachers = useSelector(({teacher}) => teacher.items);
     const items = useSelector(({goods}) => goods.itemsSection);
 
-    const {push} = useSelector(({cart}) => cart);
+    const {push, awo_shop_storage} = useSelector(({cart}) => cart);
 
     React.useEffect(() => {
         if (!Object.keys(teachers).length) {
@@ -70,6 +70,9 @@ const ShopSection = React.memo(({style}) => {
                                               categories={categories}
                                               auths={teachers}
                                               idAwo={items[key].id_awo}
+                                              awo_shop_storage={
+                                                  awo_shop_storage
+                                              }
                                               {...items[key]}
                                           />
                                       ))

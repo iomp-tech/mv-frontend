@@ -18,7 +18,8 @@ const CartBlock = React.memo(
         color,
         categories,
         types,
-        teachers,
+		teachers,
+		awo_shop_title,
         API_DOMEN,
     }) => {
         return (
@@ -50,17 +51,13 @@ const CartBlock = React.memo(
                     <div className={`cart-block-text`}>
                         <div className="cart-block-type-wrapper">
                             {category && (
-                                <span
-                                    className={`cart-block__type_color`}
-                                >
+                                <span className={`cart-block__type_color`}>
                                     {categories[category] &&
                                         categories[category].title}
                                 </span>
                             )}
                             {type && (
-                                <span
-                                    className={`cart-block__type_gray`}
-                                >
+                                <span className={`cart-block__type_gray`}>
                                     {types[type] && types[type].title}
                                 </span>
                             )}
@@ -89,6 +86,9 @@ const CartBlock = React.memo(
                         >
                             {time}
                         </span>
+                        <span className="cart-block__awo">
+                            {awo_shop_title}
+                        </span>
                     </div>
                 </a>
 
@@ -96,9 +96,7 @@ const CartBlock = React.memo(
                     <div className="cart-block-price">
                         {sale ? (
                             <>
-                                <span
-                                    className={`shop-block__subprice`}
-                                >
+                                <span className={`shop-block__subprice`}>
                                     {
                                         <NumberFormat
                                             value={priceOld}

@@ -22,7 +22,9 @@ const ShopBlock = React.memo(
         categories,
         types,
         auths,
-        page,
+        awo_shop_title,
+        awo_shop,
+        awo_shop_storage,
         url,
         isLoadedLimit = true,
         DOMEN,
@@ -38,6 +40,7 @@ const ShopBlock = React.memo(
         const setUpdateGoods = () => {
             const obj = {
                 id,
+                awo_shop,
             };
 
             onClickAddGoods(obj);
@@ -71,7 +74,7 @@ const ShopBlock = React.memo(
                             <span className="shop-block__sale">-{sale}%</span>
                         ) : null}
                     </div>
-                    <div className={`shop-block-text`}>
+                    <div className="shop-block-text">
                         <div className="shop-block-type-wrapper">
                             {Object.keys(categories).length
                                 ? categories[category] && (
@@ -85,9 +88,7 @@ const ShopBlock = React.memo(
 
                             {Object.keys(types).length ? (
                                 types[type] ? (
-                                    <span
-                                        className={`shop-block__type_gray`}
-                                    >
+                                    <span className={`shop-block__type_gray`}>
                                         {types[type].title}
                                     </span>
                                 ) : null
@@ -106,10 +107,18 @@ const ShopBlock = React.memo(
                                   )
                                 : null}
                         </div>
-                        <h3 className={`shop-block__title`}>{title}</h3>
-                        <span className={`shop-block__time`}>
-                            {time}
-                        </span>
+                        <h3 className="shop-block__title">{title}</h3>
+                        <span className="shop-block__time">{time}</span>
+
+                        {awo_shop_storage !== awo_shop && awo_shop_storage ? (
+                            <span className="shop-block__awo">
+                                {awo_shop_title}
+                            </span>
+                        ) : (
+                            <span className="shop-block__awo_color">
+                                {awo_shop_title}
+                            </span>
+                        )}
                     </div>
                 </div>
 
@@ -141,9 +150,7 @@ const ShopBlock = React.memo(
                                             />
                                             ₽
                                         </span>
-                                        <h3
-                                            className={`shop-block__price`}
-                                        >
+                                        <h3 className={`shop-block__price`}>
                                             <NumberFormat
                                                 value={price}
                                                 displayType={"text"}
@@ -160,9 +167,7 @@ const ShopBlock = React.memo(
                                         >
                                             Цена:
                                         </span>
-                                        <h3
-                                            className={`shop-block__price`}
-                                        >
+                                        <h3 className={`shop-block__price`}>
                                             <NumberFormat
                                                 value={price}
                                                 displayType={"text"}
@@ -185,13 +190,34 @@ const ShopBlock = React.memo(
                         </a>
                     ) : (
                         <div className="shop-block-btn">
-                            <button
-                                className={`btn-bold_color shop-block__btn`}
-                                onClick={setUpdateGoods}
-                            >
-                                Добавить в корзину
-                            </button>
-                            {page ? (
+                            {awo_shop_storage !== awo_shop &&
+                            awo_shop_storage ? (
+                                <>
+                                    <div className="shop-block-btn-annotation">
+                                        <span className="shop-block-btn-annotation__title">
+                                            ?
+                                        </span>
+                                        <p className="shop-block-btn-annotation__text">
+                                            Вы не можете добавить этот курс,
+                                            потому что курсы, которые находятся у
+                                            вас в корзине из другого магазина
+                                        </p>
+                                    </div>
+                                    <button
+                                        className={`btn-bold_color btn-bold_color_disabled shop-block__btn`}
+                                    >
+                                        Добавить в корзину
+                                    </button>
+                                </>
+                            ) : (
+                                <button
+                                    className={`btn-bold_color shop-block__btn`}
+                                    onClick={setUpdateGoods}
+                                >
+                                    Добавить в корзину
+                                </button>
+                            )}
+                            {url ? (
                                 <Link
                                     className="shop-block__link"
                                     to={`/shop/pages/${url}`}

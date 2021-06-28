@@ -1,14 +1,13 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 
 import {RegisterForm, PreloaderPage} from ".././components/";
 import {sendRegister} from ".././redux/actions/register";
 
-import {INDEX_MAGAZIN_AWO} from "../api";
-
 const Register = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
 
     const {message} = useSelector(({register}) => register);
@@ -18,10 +17,6 @@ const Register = () => {
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    const redirect = () => {
-        window.location.href = `https://${INDEX_MAGAZIN_AWO}.ru/personal/`;
-    };
 
     React.useEffect(() => {
         if (Object.keys(integration).length) {
@@ -98,7 +93,7 @@ const Register = () => {
                             </div>
                         </section>
                     ) : (
-                        redirect()
+                        history.push("/library")
                     )}
                 </>
             ) : (

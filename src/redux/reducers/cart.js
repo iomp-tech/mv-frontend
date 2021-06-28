@@ -1,5 +1,6 @@
 const initialState = {
 	cart: !JSON.parse(localStorage.getItem("cart")) ? {} : JSON.parse(localStorage.getItem("cart")),
+	awo_shop_storage: localStorage.getItem("awo_shop_storage"),
 	push: false,
 	items: {},
 	isLoaded: false,
@@ -35,9 +36,19 @@ const cart = (state = initialState, action) => {
 
 		localStorage.setItem("cart", JSON.stringify(newItem));
 
+		if (!state.cart.length) {
+			localStorage.setItem("awo_shop_storage", action.payload.awo_shop);
+
+			return {
+				...state,
+				cart: newItem,
+				awo_shop_storage: action.payload.awo_shop
+			};
+		}
+
 		return {
 			...state,
-			cart: newItem,
+			cart: newItem
 		};
 	}
 
@@ -49,6 +60,16 @@ const cart = (state = initialState, action) => {
 		delete newItem[action.payload];
 
 		localStorage.setItem("cart", JSON.stringify(newItem));
+
+		if (!Object.keys(newItem).length) {
+			localStorage.removeItem("awo_shop_storage");
+
+			return {
+				...state,
+				cart: newItem,
+				awo_shop_storage: undefined
+			};
+		}
 
 		return {
 			...state,

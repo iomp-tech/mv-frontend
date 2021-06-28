@@ -50,7 +50,7 @@ const Shop = (props) => {
     } = useSelector(({goods}) => goods);
     const teachers = useSelector(({teacher}) => teacher.items);
     const {integration} = useSelector(({integration_page}) => integration_page);
-    const {push} = useSelector(({cart}) => cart);
+    const {push, awo_shop_storage} = useSelector(({cart}) => cart);
 
     const queryGet = props.location.search;
 
@@ -244,9 +244,7 @@ const Shop = (props) => {
             <section className="shop">
                 <div className="container">
                     <div className="shop-wrapper">
-                        <h2 className={`title shop__title`}>
-                            Магазин курсов
-                        </h2>
+                        <h2 className={`title shop__title`}>Магазин курсов</h2>
                         <div className="shop-block-top">
                             <ShopSearch />
 
@@ -337,6 +335,7 @@ const Shop = (props) => {
                                             onClickPush={toggleSuccessAddCart}
                                             idAwo={items[key].id_awo}
                                             isLoadedLimit={isLoadedLimit}
+                                            awo_shop_storage={awo_shop_storage}
                                             DOMEN={DOMEN}
                                             {...items[key]}
                                         />

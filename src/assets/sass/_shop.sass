@@ -195,6 +195,16 @@
 		&__time
 			font-size: 18px
 
+		&__awo
+			font-size: 18px
+			margin-left: 15px
+			color: #A9A9A9
+
+			&_color
+				font-size: 18px
+				margin-left: 15px
+				color: $mainColor
+
 		&__subprice
 			font-size: 24px
 			color: $gray
@@ -205,9 +215,57 @@
 			margin-top: 5px
 
 		&-btn
+			position: relative
 			display: flex
 			flex-direction: column
 			align-items: center
+
+			&-annotation
+				width: 500px
+				display: flex
+				flex-direction: column
+				align-items: flex-end
+
+				position: absolute
+				right: -15px
+				top: -15px
+				z-index: 2
+				+transition
+
+				&__title
+					display: flex
+
+					justify-content: center
+					align-items: center
+
+					font-size: 21px
+					color: $mainColor
+					background-color: $white
+
+					width: 40px
+					height: 40px
+
+					border-radius: 50%
+					cursor: pointer
+					box-shadow: 0 0 50px rgba(0, 0, 0, 0.1)
+
+				&__text
+					font-size: 17px
+					margin-top: 20px
+
+					background-color: $white
+
+					padding: 20px
+
+					border-radius: 5px
+					cursor: pointer
+					box-shadow: 0 0 50px rgba(0, 0, 0, 0.1)
+					opacity: 0
+					+transition
+
+				&:hover &__text
+					opacity: 1
+					margin-top: 15px
 
 		&__link
 			font-size: 17px
@@ -384,7 +442,7 @@
 			right: 100px
 			width: 450px
 			height: 450px
-			
+
 	// composition-product
 	&-composition-product
 		margin: 100px 0
