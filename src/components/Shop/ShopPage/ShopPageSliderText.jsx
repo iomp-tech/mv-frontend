@@ -10,6 +10,7 @@ import "../../../assets/slick/slick-theme.css";
 const ShopPageSliderText = ({to, title, tabs, btnText}) => {
     const [stateListTabsIndex, setStateListTabsIndex] = React.useState(0);
     const [stateAnimateTabs, setStateAnimateTabs] = React.useState(false);
+    const [disabledArrow, setDisabledArrow] = React.useState(false);
     const [heightList, setHeightList] = React.useState(950);
 
     React.useEffect(() => {
@@ -53,26 +54,35 @@ const ShopPageSliderText = ({to, title, tabs, btnText}) => {
         if (stateListTabsIndex) {
             setStateListTabsIndex(parseFloat(stateListTabsIndex - 1));
             setStateAnimateTabs(true);
+            setDisabledArrow(true);
+
+            sliderRef.current.slickPrev();
 
             setTimeout(() => {
                 setStateAnimateTabs(false);
             }, 400);
 
-            sliderRef.current.slickPrev();
+            setTimeout(() => {
+                setDisabledArrow(false);
+            }, 1000);
         }
     };
 
-	const next = () => {
+    const next = () => {
         if (stateListTabsIndex !== parseFloat(tabs.length - 1)) {
             setStateListTabsIndex(parseFloat(stateListTabsIndex + 1));
-
             setStateAnimateTabs(true);
+            setDisabledArrow(true);
+
+            sliderRef.current.slickNext();
 
             setTimeout(() => {
                 setStateAnimateTabs(false);
             }, 400);
 
-            sliderRef.current.slickNext();
+            setTimeout(() => {
+                setDisabledArrow(false);
+            }, 1000);
         }
     };
 
@@ -80,9 +90,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText}) => {
         <section className="shop-page-slider-text">
             <div className="container">
                 <div className="shop-page-slider-text-wrapper">
-                    <h2
-                        className={`title shop-page-slider-text__title`}
-                    >
+                    <h2 className={`title shop-page-slider-text__title`}>
                         {title}
                     </h2>
                     <Slider ref={sliderRef} {...settings}>
@@ -107,7 +115,13 @@ const ShopPageSliderText = ({to, title, tabs, btnText}) => {
                         ))}
                     </Slider>
                     <div className="shop-page-slider-text-arrow">
-                        <div className="arrow">
+                        <div
+                            className="arrow"
+                            style={{
+                                pointerEvents: disabledArrow ? "none" : "auto",
+                                opacity: disabledArrow ? 0.3 : 1,
+                            }}
+                        >
                             <div className="arrow-prev" onClick={prev}>
                                 <svg
                                     width="50"
@@ -141,9 +155,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText}) => {
                                 stateAnimateTabs ? "active" : ""
                             }`}
                         >
-                            <ul
-                                className={`shop-page-slider-text-list-ul`}
-                            >
+                            <ul className={`shop-page-slider-text-list-ul`}>
                                 {tabs[stateListTabsIndex] &&
                                     tabs[stateListTabsIndex].items &&
                                     tabs[stateListTabsIndex].items.map(
