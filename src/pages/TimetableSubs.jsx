@@ -125,12 +125,14 @@ const TimetableSubs = (props) => {
                                     {block.type === "slider-text" ? (
                                         <ShopPageSliderText
                                             to={to}
+                                            blockIndex={index}
                                             {...block}
                                         />
                                     ) : null}
                                     {block.type === "composition-product" ? (
                                         <ShopPageCompositionProduct
                                             {...block}
+                                            blockIndex={index}
                                             form_id_awo={byUrlItem.id_awo}
                                             action={byUrlItem.action}
                                             formId={byUrlItem.formId}

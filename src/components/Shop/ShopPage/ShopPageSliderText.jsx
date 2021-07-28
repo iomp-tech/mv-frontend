@@ -7,16 +7,30 @@ import Slider from "react-slick";
 import "../../../assets/slick/slick.css";
 import "../../../assets/slick/slick-theme.css";
 
-const ShopPageSliderText = ({to, title, tabs, btnText}) => {
+const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
     const [stateListTabsIndex, setStateListTabsIndex] = React.useState(0);
     const [stateAnimateTabs, setStateAnimateTabs] = React.useState(false);
     const [disabledArrow, setDisabledArrow] = React.useState(false);
-    const [heightList, setHeightList] = React.useState(950);
+    const [heightList, setHeightList] = React.useState(0);
 
     React.useEffect(() => {
         setHeightList(
-            document.querySelector(".shop-page-slider-text-list").clientHeight +
-                50
+            document.querySelector(
+                `#shop-page-slider-text-list-block-${blockIndex}`
+            ).clientHeight + 50
+        );
+        console.log(
+            document.querySelector(
+                `#shop-page-slider-text-list-block-${blockIndex}`
+            )
+        );
+    }, []);
+
+    React.useEffect(() => {
+        setHeightList(
+            document.querySelector(
+                `#shop-page-slider-text-list-block-${blockIndex}`
+            ).clientHeight + 50
         );
     }, [stateListTabsIndex]);
 
@@ -154,6 +168,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText}) => {
                             className={`shop-page-slider-text-list ${
                                 stateAnimateTabs ? "active" : ""
                             }`}
+                            id={`shop-page-slider-text-list-block-${blockIndex}`}
                         >
                             <ul className={`shop-page-slider-text-list-ul`}>
                                 {tabs[stateListTabsIndex] &&
