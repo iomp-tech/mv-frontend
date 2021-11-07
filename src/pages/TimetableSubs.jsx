@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 
 import {
     ShopPageMain1,
+    ShopPageMain1Image,
     ShopPageMain2,
     ShopPageSectionSquares,
     ShopPageSliderText,
@@ -104,6 +105,12 @@ const TimetableSubs = (props) => {
                                     {block.type === "main1" ? (
                                         <ShopPageMain1 to={to} {...block} />
                                     ) : null}
+                                    {block.type === "main1-image" ? (
+                                        <ShopPageMain1Image
+                                            to={to}
+                                            {...block}
+                                        />
+									) : null}
                                     {block.type === "main2" ? (
                                         <ShopPageMain2
                                             {...block}

@@ -191,10 +191,10 @@
 			right: 0
 			bottom: -205px
 			background-color: #fff
-			box-shadow: 0 0 50px rgba(0, 0, 0, 0.1)
 			width: 240px
 			border-radius: 5px
 			+transition
+			+boxShadow
 
 			&__link
 				display: flex
@@ -282,52 +282,3 @@
 			&_active
 				text-decoration: underline
 				color: $mainColor
-
-.visually
-	&-modal
-		padding: 25px
-		background-color: #fff
-		width: 100%
-		position: absolute
-		border-radius: 5px
-		box-shadow: 0 0 50px rgba(0, 0, 0, 0.1)
-		transition: all .2s ease
-
-	&__title
-		font-size: 28px
-		padding-bottom: 25px
-
-	&-block
-		padding-bottom: 25px
-		margin-bottom: 25px
-		border-bottom: 1px solid $gray
-		&:last-child
-			margin-bottom: 0
-			padding-bottom: 0
-			border: none
-
-		&__button
-			cursor: pointer
-			line-height: 1.5em
-			user-select: none
-			text-align: center
-			display: inline-block
-			border-radius: 100px
-			background-color: transparent
-			font-size: 15px
-			padding: 15px 35px
-			border: none
-			margin-left: 5px
-
-			&.black-white
-				background-color: $white
-				border: 1px solid $black
-				color: $black
-
-			&.white-black
-				background-color: $black
-				color: $white
-
-			&.dark-blue-aqua
-				background-color: #00C2FF
-				color: #06054F

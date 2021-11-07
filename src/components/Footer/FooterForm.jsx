@@ -8,12 +8,9 @@ import FooterRenderCheckbox from "./FooterRenderCheckbox";
 let FooterForm = React.memo(
     ({handleSubmit}) => {
         return (
-            <form
-                onSubmit={handleSubmit}
-                className={`footer-email-form`}
-            >
+            <form onSubmit={handleSubmit} className={`footer-email-form`}>
                 <h4 className={`footer-email-form__title`}>
-                    Подпишитесь на рассылку Института
+                    Подпишитесь на рассылку MasterVision
                 </h4>
                 <>
                     <div className="footer-email-form-input">

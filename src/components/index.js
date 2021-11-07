@@ -17,6 +17,7 @@ export { default as ShopBlock } from './Shop/ShopBlock';
 export { default as ShopBlockLoading } from './Shop/ShopBlockLoading';
 // ShopPage
 export { default as ShopPageMain1 } from './Shop/ShopPage/ShopPageMain1';
+export { default as ShopPageMain1Image } from './Shop/ShopPage/ShopPageMain1Image';
 export { default as ShopPageMain2 } from './Shop/ShopPage/ShopPageMain2';
 export { default as ShopPageSectionSquares } from './Shop/ShopPage/ShopPageSectionSquares';
 export { default as ShopPageSliderText } from './Shop/ShopPage/ShopPageSliderText';
@@ -59,7 +60,6 @@ export { default as EmailFormWrapper } from './EmailForm/EmailFormWrapper';
 
 // Login / Register / All user contact
 export { default as LoginForm } from './Login_Register/LoginForm';
-export { default as RegisterForm } from './Login_Register/RegisterForm';
 export { default as RepeatForm } from './Login_Register/RepeatForm';
 export { default as RestoreEmailForm } from './Login_Register/RestoreEmailForm';
 export { default as RestorePassForm } from './Login_Register/RestorePassForm';
@@ -90,3 +90,11 @@ export { default as CabinetError } from "./Cabinet/CabinetError";
 // Library
 export { default as LibraryBlock } from "./Library/LibraryBlock";
 export { default as LibraryNull } from "./Library/LibraryNull";
+
+// Feedback
+export { default as FeedbackBlock } from "./Feedback/FeedbackBlock";
+export { default as FeedbackModal } from "./Feedback/FeedbackModal";
+// FeedbackFilters
+export { default as FeedbackFilters } from "./Feedback/FeedbackFilters/FeedbackFilters";
+export { default as FeedbackFiltersGoods } from "./Feedback/FeedbackFilters/FeedbackFiltersGoods";
+export { default as FeedbackFiltersTeachers } from "./Feedback/FeedbackFilters/FeedbackFiltersTeachers";

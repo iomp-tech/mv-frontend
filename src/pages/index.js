@@ -22,7 +22,6 @@ export { default as Cart } from './Cart';
 
 // Login / Register / All contact user
 export { default as Login } from './Login';
-export { default as Register } from './Register';
 export { default as Confirmed } from './Confirmed';
 export { default as Repeat } from './Repeat';
 export { default as RestoreEmail } from './RestoreEmail';
@@ -40,3 +39,6 @@ export { default as Cabinet } from './Cabinet';
 
 // Library
 export { default as Library } from './Library';
+
+// Feedback
+export { default as Feedback } from './Feedback';

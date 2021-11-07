@@ -11,7 +11,6 @@ import events from './events';
 import posts from './posts';
 import cart from './cart';
 import footer from './footer';
-import register from './register';
 import login from './login';
 import repeat from './repeat';
 import user from './user';
@@ -20,6 +19,7 @@ import restore from './restore';
 import main from './main';
 import emailForm from './emailForm';
 import integration_page from './integration_page';
+import feedback from './feedback';
 
 const rootReducer = combineReducers({
 	categories,
@@ -32,7 +32,6 @@ const rootReducer = combineReducers({
 	posts,
 	cart,
 	footer,
-	register,
 	login,
 	repeat,
 	user,
@@ -41,6 +40,7 @@ const rootReducer = combineReducers({
 	cabinet,
 	emailForm,
 	integration_page,
+	feedback,
 	form: formReducer,
 });
 

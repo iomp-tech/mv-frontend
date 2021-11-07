@@ -8,6 +8,7 @@ import {fetchUser} from "../.././redux/actions/user";
 
 import HeaderCart from "./HeaderCart";
 import HeaderModal from "./HeaderModal";
+import HeaderTop from "./HeaderTop";
 
 import {DOMEN} from "../.././api";
 
@@ -61,7 +62,9 @@ const Header = React.memo(() => {
                 </div>
             </ScrollToTop>
             <header className="header">
-                <div className="container">
+				<div className="container">
+					<HeaderTop />
+
                     <div className="header-wrapper">
                         <Link to="/">
                             <img

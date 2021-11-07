@@ -119,6 +119,15 @@ const HeaderModal = React.memo(({isLogin}) => {
                         >
                             Журнал
                         </NavLink>
+
+                        <NavLink
+                            onClick={toggleVisibleHeaderModal}
+                            to="/feedback"
+                            className="header-modal__link"
+                            activeClassName="header-modal__link_active"
+                        >
+                            Отзывы
+                        </NavLink>
                         {isLogin ? (
                             <>
                                 <NavLink
@@ -128,14 +137,6 @@ const HeaderModal = React.memo(({isLogin}) => {
                                     activeClassName="header-modal__link_active"
                                 >
                                     Мои курсы
-                                </NavLink>
-                                <NavLink
-                                    onClick={toggleVisibleHeaderModal}
-                                    to="/session-room"
-                                    className="header-modal__link"
-                                    activeClassName="header-modal__link_active"
-                                >
-                                    Сессионная комната
                                 </NavLink>
                                 <NavLink
                                     onClick={toggleVisibleHeaderModal}
@@ -163,14 +164,6 @@ const HeaderModal = React.memo(({isLogin}) => {
                                     activeClassName="header-modal__link_active"
                                 >
                                     Войти
-                                </NavLink>
-                                <NavLink
-                                    onClick={toggleVisibleHeaderModal}
-                                    to="/register"
-                                    className="header-modal__link"
-                                    activeClassName="header-modal__link_active"
-                                >
-                                    Зарегистрироваться
                                 </NavLink>
                             </>
                         )}

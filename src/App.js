@@ -16,7 +16,6 @@ const Cart = React.lazy(() => import('./pages/Cart'));
 const Shop = React.lazy(() => import('./pages/Shop'));
 const ShopPage = React.lazy(() => import('./pages/ShopPage'));
 const Login = React.lazy(() => import('./pages/Login'));
-const Register = React.lazy(() => import('./pages/Register'));
 const Confirmed = React.lazy(() => import('./pages/Confirmed'));
 const Repeat = React.lazy(() => import('./pages/Repeat'));
 const RestoreEmail = React.lazy(() => import('./pages/RestoreEmail'));
@@ -28,6 +27,7 @@ const Library = React.lazy(() => import('./pages/Library'));
 const Logout = React.lazy(() => import('./pages/Logout'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
 const PublicOffer = React.lazy(() => import('./pages/PublicOffer'));
+const Feedback = React.lazy(() => import('./pages/Feedback'));
 
 function App() {
 	const disaptch = useDispatch();
@@ -94,7 +94,8 @@ function App() {
 
 						<Route path='/cart' render={() => <Cart />} exact />
 
-						<Route path='/register' render={() => <Register />} exact />
+						<Route path="/feedback" render={(props) => <Feedback {...props} />} exact />
+
 						<Route path='/login' render={() => <Login />} exact />
 
 						<Route path='/confirmed/:hash' render={(props) => <Confirmed {...props} />} />

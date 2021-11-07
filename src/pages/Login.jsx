@@ -75,12 +75,6 @@ const Login = () => {
                                         <h2 className={`reglog__title`}>
                                             Войти
                                         </h2>
-                                        <Link
-                                            to="/register"
-                                            className={`reglog__link`}
-                                        >
-                                            Зapeгиcтpиpoвaтьcя
-                                        </Link>
 
                                         {message && (
                                             <p className={`reglog-form__error`}>

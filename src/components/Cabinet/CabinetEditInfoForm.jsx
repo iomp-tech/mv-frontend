@@ -154,10 +154,10 @@ let CabinetEditInfoForm = React.memo(
 
         return (
             <form onSubmit={handleSubmit} className="cabinet-block">
-                <h3 className={`cabinet-block__title ${size}`}>
+                <h3 className={`cabinet-block__title`}>
                     Редактировать данные
                 </h3>
-                <div className={`cabinet-block-setting ${size}`}>
+                <div className={`cabinet-block-setting`}>
                     <div className="cabinet-input">
                         <Field
                             component={CabinetInputRender}
@@ -260,7 +260,7 @@ let CabinetEditInfoForm = React.memo(
                             facebookValue !== facebook */}
                 <button
                     type="submit"
-                    className={`btn-bold_color cabinet-block__btn ${size} ${
+                    className={`btn-bold_color cabinet-block__btn ${
                         (firstNameValue !== first_name ||
                             middleNameValue !== middle_name ||
                             lastNameValue !== last_name) &&
