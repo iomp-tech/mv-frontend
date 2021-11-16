@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import FooterForm from "./FooterForm";
@@ -23,6 +22,7 @@ const Footer = () => {
         ({footer}) => footer
     );
     const {form} = useSelector(({emailForm}) => emailForm);
+    const isLoadedForm = useSelector(({emailForm}) => emailForm.isLoaded);
 
     React.useEffect(() => {
         if (!menu.length) {
@@ -45,39 +45,9 @@ const Footer = () => {
         }
     }, []);
 
-    const onSubmit = (formData) => {
-        const newData = {
-            Contact: {
-                email: formData.email,
-                id_newsletter: form.id_awo,
-                id_advertising_channel_page: 0,
-            },
-            required_fields: {
-                email: 1,
-            },
-            formId: form.formId,
-            formVc: form.formVc,
-            _aid: "",
-            _vcaid: "",
-        };
-
-        axios
-            .post(form.action, newData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
-            .then(() => {
-                window.location.href = form.action;
-            })
-            .catch(() => {
-                return false;
-            });
-    };
-
     return (
         <>
-            {isLoaded ? (
+            {isLoaded && isLoadedForm ? (
                 <footer className="footer">
                     <div className="container">
                         <div className="footer-wrapper">
@@ -140,7 +110,7 @@ const Footer = () => {
                                         </div>
                                     </div>
                                     <div className="footer-middle-right">
-                                        <FooterForm onSubmit={onSubmit} />
+                                        <FooterForm {...form} />
                                     </div>
                                 </div>
                             </div>

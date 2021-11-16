@@ -2,7 +2,7 @@ import React from "react";
 
 const RenderInput = React.memo(
     ({
-        input,
+		input,
         label,
         type,
         meta: {touched, error},

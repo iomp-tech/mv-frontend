@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 
 import moment from "moment";
 import "moment/locale/ru";
@@ -22,35 +21,6 @@ const ShopPageMain2 = ({
     vkUrl,
     telegramUrl,
 }) => {
-    const onSubmit = (formData) => {
-        const newData = {
-            Contact: {
-                email: formData.email,
-                id_newsletter: id_awo,
-                id_advertising_channel_page: 0,
-            },
-            required_fields: {
-                email: 1,
-            },
-            formId: formId,
-            formVc: formVc,
-            _aid: "",
-            _vcaid: "",
-        };
-        axios
-            .post(action, newData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
-            .then(() => {
-                window.location.href = action;
-            })
-            .catch(() => {
-                return false;
-            });
-    };
-
     const [stateModalShopPage, setStateModalShopPage] = React.useState(false);
 
     React.useEffect(() => {
@@ -73,7 +43,7 @@ const ShopPageMain2 = ({
         if (e.target === ShopPageModalRef.current) {
             setStateModalShopPage(false);
         }
-    };
+	};
 
     return (
         <>
@@ -95,9 +65,7 @@ const ShopPageMain2 = ({
 
                         <div className="circle-wrapper main-circle-wrapper">
                             <div className="circle-regular main-circle1"></div>
-                            <div
-                                className={`circle-bold main-circle2`}
-                            ></div>
+                            <div className={`circle-bold main-circle2`}></div>
                         </div>
 
                         {range ? (
@@ -131,16 +99,12 @@ const ShopPageMain2 = ({
                         ) : (
                             <div className={`shop-page-main2-date`}>
                                 <div className="shop-page-main2-date-left">
-                                    <span
-                                        className={`shop-page-main2__date`}
-                                    >
+                                    <span className={`shop-page-main2__date`}>
                                         <b>Дата старта:</b>
                                     </span>
                                 </div>
                                 <div className="shop-page-main2-date-right">
-                                    <span
-                                        className={`shop-page-main2__date`}
-                                    >
+                                    <span className={`shop-page-main2__date`}>
                                         {moment(date, "YYYY-MM-DD, HH:mm")
                                             .locale("ru")
                                             .format("DD MMMM, HH:mm")}
@@ -157,7 +121,12 @@ const ShopPageMain2 = ({
                                 Записаться
                             </button>
                         ) : (
-                            <ShopPageForm onSubmit={onSubmit} />
+                            <ShopPageForm
+                                id_awo={id_awo}
+                                action={action}
+                                formId={formId}
+                                formVc={formVc}
+                            />
                         )}
                     </div>
                 </div>
@@ -171,7 +140,10 @@ const ShopPageMain2 = ({
                     emailUrl={action}
                     vkUrl={vkUrl}
                     telegramUrl={telegramUrl}
-                    onSubmit={onSubmit}
+                    id_awo={id_awo}
+                    action={action}
+                    formId={formId}
+                    formVc={formVc}
                 />
             ) : null}
         </>

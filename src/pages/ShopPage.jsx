@@ -6,6 +6,7 @@ import {
     ShopPageMain1,
     ShopPageMain1Image,
     ShopPageMain2,
+    ShopPageMain2Image,
     ShopPageSectionSquares,
     ShopPageSliderText,
     ShopPageCompositionProduct,
@@ -43,8 +44,16 @@ const ShopPage = (props) => {
                     setTo("shop-page-main2");
 
                     break;
+                } else if (byUrlItem.page[i].type === "main2-image") {
+                    setTo("shop-page-main2-image");
+
+                    break;
                 } else if (byUrlItem.page[i].type === "main1") {
                     setTo("shop-page-main1");
+
+                    break;
+                } else if (byUrlItem.page[i].type === "main1-image") {
+                    setTo("shop-page-main1-image");
 
                     break;
                 }
@@ -106,13 +115,19 @@ const ShopPage = (props) => {
                                     <ShopPageMain1 to={to} {...block} />
                                 ) : null}
                                 {block.type === "main1-image" ? (
-                                    <ShopPageMain1Image
-                                        to={to}
-                                        {...block}
-                                    />
-								) : null}
+                                    <ShopPageMain1Image to={to} {...block} />
+                                ) : null}
                                 {block.type === "main2" ? (
-                                    <ShopPageMain2 {...block} />
+                                    <ShopPageMain2
+                                        {...block}
+                                        id_awo={block.main2_id_awo}
+                                    />
+                                ) : null}
+                                {block.type === "main2-image" ? (
+                                    <ShopPageMain2Image
+                                        {...block}
+                                        id_awo={block.main2_id_awo}
+                                    />
                                 ) : null}
                                 {block.type === "section-squares" ? (
                                     <ShopPageSectionSquares {...block} />
@@ -128,6 +143,7 @@ const ShopPage = (props) => {
                                     <ShopPageCompositionProduct
                                         blockIndex={index}
                                         {...block}
+                                        id_awo={block.form_id_awo}
                                     />
                                 ) : null}
                                 {block.type === "teachers" ? (

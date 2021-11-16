@@ -19,6 +19,7 @@ export { default as ShopBlockLoading } from './Shop/ShopBlockLoading';
 export { default as ShopPageMain1 } from './Shop/ShopPage/ShopPageMain1';
 export { default as ShopPageMain1Image } from './Shop/ShopPage/ShopPageMain1Image';
 export { default as ShopPageMain2 } from './Shop/ShopPage/ShopPageMain2';
+export { default as ShopPageMain2Image } from './Shop/ShopPage/ShopPageMain2Image';
 export { default as ShopPageSectionSquares } from './Shop/ShopPage/ShopPageSectionSquares';
 export { default as ShopPageSliderText } from './Shop/ShopPage/ShopPageSliderText';
 export { default as ShopPageCompositionProduct } from './Shop/ShopPage/ShopPageCompositionProduct';
@@ -26,7 +27,6 @@ export { default as ShopPageTeachers } from './Shop/ShopPage/ShopPageTeachers';
 export { default as ShopPageFeedbackPhotos } from './Shop/ShopPage/ShopPageFeedbackPhotos';
 export { default as ShopPageFeedbackVideos } from './Shop/ShopPage/ShopPageFeedbackVideos';
 export { default as ShopPageGoods } from './Shop/ShopPage/ShopPageGoods';
-
 
 // Timetable
 export { default as TimetableSection } from './Timetable/TimetableSection';
@@ -57,6 +57,8 @@ export { default as PostItem } from './Post/PostItem';
 
 // EmailForm
 export { default as EmailFormWrapper } from './EmailForm/EmailFormWrapper';
+export { default as EmailFormRenderCheckbox } from './EmailForm/EmailFormRenderCheckbox';
+export { default as EmailFormRenderInputButton } from './EmailForm/EmailFormRenderInputButton';
 
 // Login / Register / All user contact
 export { default as LoginForm } from './Login_Register/LoginForm';
@@ -66,6 +68,8 @@ export { default as RestorePassForm } from './Login_Register/RestorePassForm';
 
 // Footer
 export { default as Footer } from './Footer/Footer';
+export { default as FooterRenderCheckbox } from './Footer/FooterRenderCheckbox';
+export { default as FooterRenderInputButton } from './Footer/FooterRenderInputButton';
 
 // All
 export { default as NoSearch } from './All/NoSearch';
