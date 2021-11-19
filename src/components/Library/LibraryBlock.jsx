@@ -1,10 +1,19 @@
 import React from "react";
 
-const LibraryBlock = ({training, image, color, DOMEN, awo_shop_domain, awo_shop_subdomain}) => {
-    const url = `https://${awo_shop_domain}/personal/auth/login?lg=ru`;
-
+const LibraryBlock = ({
+    training,
+    image,
+    color,
+    DOMEN,
+    awo_shop_domain,
+    awo_shop_subdomain,
+}) => {
     return (
-        <a href={url} target="_blank" className="library-block">
+        <a
+            href={localStorage.getItem("link-personal-auth")}
+            target="_blank"
+            className="library-block"
+        >
             <div className="library-block-left">
                 <div
                     className={`library-block-thumb`}
