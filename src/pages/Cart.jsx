@@ -12,7 +12,11 @@ import {
     PreloaderPage,
 } from ".././components/";
 
-import {removeCartItem, fetchCartGoods} from "../redux/actions/cart";
+import {
+    removeCartItem,
+    fetchCartGoods,
+    statusGoodsPush,
+} from "../redux/actions/cart";
 
 import {fetchCategories} from ".././redux/actions/categories";
 import {fetchGoodsType} from ".././redux/actions/goods";
@@ -24,7 +28,9 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const cartItemsId = useSelector(({cart}) => cart.cart);
-    const {items, isLoaded, awo_shop_storage} = useSelector(({cart}) => cart);
+    const {push, items, isLoaded, awo_shop_storage} = useSelector(
+        ({cart}) => cart
+    );
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const categories = useSelector(({categories}) => categories.items);
@@ -35,6 +41,10 @@ const Cart = () => {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
+
+        if (push) {
+            dispatch(statusGoodsPush(false));
+        }
 
         if (!Object.keys(teachers).length) {
             dispatch(fetchTeacher());
