@@ -141,9 +141,8 @@ const Cart = () => {
                                     </div>
                                     <form
                                         action={`https://${
-                                            cartItemsId[
-                                                Object.keys(cartItemsId)[0]
-                                            ].awo_shop
+                                            items[Object.keys(items)[0]]
+                                                .awo_shop
                                         }/?r=ordering/cart/s1&lg=ru`}
                                         method="post"
                                         encType="application/x-www-form-urlencoded"
