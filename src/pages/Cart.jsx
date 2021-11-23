@@ -28,9 +28,7 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const cartItemsId = useSelector(({cart}) => cart.cart);
-    const {push, items, isLoaded, awo_shop_storage} = useSelector(
-        ({cart}) => cart
-    );
+    const {push, items, isLoaded} = useSelector(({cart}) => cart);
     const {integration} = useSelector(({integration_page}) => integration_page);
 
     const categories = useSelector(({categories}) => categories.items);
@@ -104,7 +102,7 @@ const Cart = () => {
             dispatch(removeCartItem(id));
         },
         [dispatch]
-    );
+	);
 
     return (
         <>
@@ -142,7 +140,11 @@ const Cart = () => {
                                         ))}
                                     </div>
                                     <form
-                                        action={`https://${awo_shop_storage}/?r=ordering/cart/s1&lg=ru`}
+                                        action={`https://${
+                                            cartItemsId[
+                                                Object.keys(cartItemsId)[0]
+                                            ].awo_shop
+                                        }/?r=ordering/cart/s1&lg=ru`}
                                         method="post"
                                         encType="application/x-www-form-urlencoded"
                                         acceptCharset="UTF-8"
