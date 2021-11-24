@@ -6,14 +6,11 @@ const LibraryBlock = ({
     color,
     DOMEN,
     awo_shop_domain,
-    awo_shop_subdomain,
+	awo_shop_subdomain,
+	link_personal_auth
 }) => {
     return (
-        <a
-            href={localStorage.getItem("link-personal-auth")}
-            target="_blank"
-            className="library-block"
-        >
+        <a href={link_personal_auth} target="_blank" className="library-block">
             <div className="library-block-left">
                 <div
                     className={`library-block-thumb`}
