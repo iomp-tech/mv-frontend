@@ -15,7 +15,6 @@ import {
 import {
     removeCartItem,
     fetchCartGoods,
-    statusGoodsPush,
 } from "../redux/actions/cart";
 
 import {fetchCategories} from ".././redux/actions/categories";
@@ -39,10 +38,6 @@ const Cart = () => {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
-
-        if (push) {
-            dispatch(statusGoodsPush(false));
-        }
 
         if (!Object.keys(teachers).length) {
             dispatch(fetchTeacher());
