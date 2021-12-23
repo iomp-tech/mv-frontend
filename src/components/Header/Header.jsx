@@ -140,7 +140,7 @@ const Header = React.memo(() => {
                                     className={`header__link`}
                                     activeClassName={`header__link_active`}
                                 >
-                                    Преподаватели
+                                    Спикеры
                                 </NavLink>
                                 <NavLink
                                     to="/magazine"

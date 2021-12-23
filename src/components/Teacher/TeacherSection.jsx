@@ -47,7 +47,7 @@ const TeacherSection = () => {
                     <div className="container">
                         <div className="teacher-wrapper">
                             <h2 className={`title teacher__title`}>
-                                Наши преподаватели
+                                Наши Спикеры
                             </h2>
 
                             <TeacherModal

@@ -70,7 +70,7 @@ const TeacherModal = React.memo(
                                 onClick={toggleOverflow}
                                 className="btn-bold_color teacher-modal__btn"
                             >
-                                Курсы с этим преподавателем
+                                Курсы с этим Спикером
                             </Link>
                         )}
                     </div>

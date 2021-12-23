@@ -122,7 +122,7 @@ const HeaderModal = React.memo(({isLogin}) => {
                                     className="header-modal__link"
                                     activeClassName="header-modal__link_active"
                                 >
-                                    Преподаватели
+                                    Спикеры
                                 </NavLink>
                                 <NavLink
                                     onClick={toggleVisibleHeaderModal}

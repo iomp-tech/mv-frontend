@@ -22,7 +22,7 @@ const FeedbackFiltersTeachers = React.memo(() => {
     return (
         <div className="feedback-filters-block-wrapper">
             <div className="feedback-filters-block">
-                <h3 className="feedback-filters__title">Преподаватели</h3>
+                <h3 className="feedback-filters__title">Спикер</h3>
 
                 {Object.keys(teachers).map((key) => (
                     <div
