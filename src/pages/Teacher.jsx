@@ -88,7 +88,7 @@ const Teacher = () => {
     return (
         <>
             <Helmet>
-                <title>Спикеры - IOMP</title>
+                <title>Спикеры - MasterVision</title>
             </Helmet>
             <section className="teacher">
                 <div className="container">
