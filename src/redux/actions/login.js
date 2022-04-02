@@ -22,11 +22,10 @@ export const sendLogin = (formData) => (dispatch) => {
 		})
 		.catch(({ response }) => {
 			if (response.data) {
-				dispatch(setMessageLogin(response.data.message));
+				dispatch(setMessageLogin("Неверный email или пароль"));
 			} else {
 				dispatch(setMessageLogin(""));
 			}
-
 
 			dispatch({
 				type: 'SET_LOADED_LOGIN',
