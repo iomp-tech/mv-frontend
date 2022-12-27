@@ -20,6 +20,8 @@ import main from './main';
 import emailForm from './emailForm';
 import integration_page from './integration_page';
 import feedback from './feedback';
+import policy from './policy';
+import offerta from './offerta';
 
 const rootReducer = combineReducers({
 	categories,
@@ -41,6 +43,8 @@ const rootReducer = combineReducers({
 	emailForm,
 	integration_page,
 	feedback,
+	policy,
+	offerta,
 	form: formReducer,
 });
 

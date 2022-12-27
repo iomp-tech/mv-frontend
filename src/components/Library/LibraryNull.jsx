@@ -6,7 +6,7 @@ const LibraryNull = () => {
     return (
         <div className="library-null">
             <p className={`library-null__title`}>
-                К сожелению у вас нет курсов
+                К сожалению у вас нет курсов
             </p>
         </div>
     );
