@@ -21,8 +21,8 @@ const PublicOffer = () => {
         <>
             <Helmet>
                 <title>Публичная оферта - MasterVision</title>
-			</Helmet>
-			
+            </Helmet>
+
             <div className="privacy">
                 <div className="container">
                     <div className="privacy-wrapper">
@@ -44,9 +44,10 @@ const PublicOffer = () => {
                                         </h3>
                                         <p
                                             className={`privacy-text-block__description`}
-                                        >
-                                            {item.description}
-                                        </p>
+                                            dangerouslySetInnerHTML={{
+                                                __html: item.description,
+                                            }}
+                                        ></p>
                                     </div>
                                 ))}
                         </div>

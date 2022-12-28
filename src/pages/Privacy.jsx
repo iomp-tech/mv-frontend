@@ -45,9 +45,10 @@ const Privacy = () => {
                                         </h3>
                                         <p
                                             className={`privacy-text-block__description`}
-                                        >
-                                            {item.description}
-                                        </p>
+                                            dangerouslySetInnerHTML={{
+                                                __html: item.description,
+                                            }}
+                                        ></p>
                                     </div>
                                 ))}
                         </div>
