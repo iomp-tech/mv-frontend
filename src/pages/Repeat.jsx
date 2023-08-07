@@ -24,7 +24,7 @@ const Repeat = () => {
     return (
         <>
             <Helmet>
-                <title>Отправить письмо еще раз - MasterVision</title>
+                <title>Отправить письмо еще раз - MASTER Vision</title>
             </Helmet>
 
             {isLoaded ? (

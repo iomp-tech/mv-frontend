@@ -56,7 +56,7 @@ const Footer = () => {
                                     <Link to="/" className="footer-logo__link">
                                         <img
                                             src={`${DOMEN}/public/storage/all/logo-white.svg`}
-                                            alt="MasterVision"
+                                            alt="MASTER Vision"
                                             className="footer-logo__img"
                                         />
                                     </Link>
@@ -125,7 +125,7 @@ const Footer = () => {
                                 </div>
                                 <div className="footer-bottom-right">
                                     <p className={`footer__comp`}>
-                                        © MasterVision{" "}
+                                        © MASTER Vision{" "}
                                         {new Date().getFullYear()}
                                     </p>
                                 </div>

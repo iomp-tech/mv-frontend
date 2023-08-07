@@ -70,7 +70,7 @@ const Library = () => {
     return (
         <>
             <Helmet>
-                <title>Мои курсы - MasterVision</title>
+                <title>Мои курсы - MASTER Vision</title>
             </Helmet>
 
             {isLoadedCourse ? (

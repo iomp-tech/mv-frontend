@@ -69,7 +69,7 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Главная - MasterVision</title>
+                <title>Главная - MASTER Vision</title>
             </Helmet>
 
             <MainSection />

@@ -39,7 +39,8 @@ let FooterForm = React.memo(
                 method="POST"
             >
                 <h4 className={`footer-email-form__title`}>
-                    Подпишитесь на рассылку MasterVision
+                    Подпишитесь на рассылку{" "}
+                    <p className="D3Euronism">MASTER Vision</p>
                 </h4>
                 <>
                     <div className="footer-email-form-input">

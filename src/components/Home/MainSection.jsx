@@ -20,10 +20,12 @@ const MainSection = () => {
             <div className="container">
                 {isLoaded ? (
                     <div className="main-wrapper">
-                        <h1
-                            className={`main__title`}
-                            dangerouslySetInnerHTML={{__html: content.title}}
-                        ></h1>
+                        <h1 className={`main__title`}>
+                            Академия саморазвития{" "}
+                            <span>
+                                <p className="D3Euronism">MASTER Vision</p>
+                            </span>
+                        </h1>
                         <p className={`main__description`}>
                             {content.description}
                         </p>
@@ -37,9 +39,7 @@ const MainSection = () => {
 
                         <div className="circle-wrapper main-circle-wrapper">
                             <div className="circle-regular main-circle1"></div>
-                            <div
-                                className={`circle-bold main-circle2`}
-                            ></div>
+                            <div className={`circle-bold main-circle2`}></div>
                         </div>
                     </div>
                 ) : (

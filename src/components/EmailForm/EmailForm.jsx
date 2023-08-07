@@ -46,10 +46,12 @@ let EmailForm = React.memo(
                     <div className={`email-form-wrapper`}>
                         <div className={`email-form-left`}>
                             <h2 className={`email-form__title`}>
-                                Хотите получать лучшие статьи от MasterVision?
+                                Хотите получать лучшие статьи от{" "}
+                                <p className="D3Euronism">MASTER Vision</p> ?
                             </h2>
                             <p className={`email-form__subtitle`}>
-                                Подпишитесь на рассылку MasterVision
+                                Подпишитесь на рассылку{" "}
+                                <p className="D3Euronism">MASTER Vision</p>
                             </p>
                         </div>
                         <div className={`email-form-right`}>

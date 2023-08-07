@@ -1,7 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {Field, reduxForm, formValueSelector} from "redux-form";
-import {createTextMask} from "redux-form-input-masks";
 
 import {validateInfo as validate} from "./validateInfo";
 
@@ -147,10 +146,6 @@ let CabinetEditInfoForm = React.memo(
             "UTC+12 - Камчатский край",
             "UTC+12 - Чукотский автономный округ",
         ];
-
-        const phoneMask = createTextMask({
-            pattern: "+7 (999) 999 99-99",
-        });
 
         return (
             <form onSubmit={handleSubmit} className="cabinet-block">

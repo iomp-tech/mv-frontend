@@ -59,7 +59,7 @@ const Register = () => {
     return (
         <>
             <Helmet>
-                <title>Регистрация - MasterVision</title>
+                <title>Регистрация - MASTER Vision</title>
             </Helmet>
             {isLoaded ? (
                 <>

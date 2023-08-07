@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import "../../../assets/slick/slick.css";
 import "../../../assets/slick/slick-theme.css";
 
-const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
+const ShopPageSliderText = ({to, title, tabs, btnText, size, blockIndex}) => {
     const [stateListTabsIndex, setStateListTabsIndex] = React.useState(0);
     const [stateAnimateTabs, setStateAnimateTabs] = React.useState(false);
     const [disabledArrow, setDisabledArrow] = React.useState(false);
@@ -104,7 +104,9 @@ const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
         <section className="shop-page-slider-text">
             <div className="container">
                 <div className="shop-page-slider-text-wrapper">
-                    <h2 className={`title shop-page-slider-text__title`}>
+                    <h2
+                        className={`title ${size} shop-page-slider-text__title`}
+                    >
                         {title}
                     </h2>
                     {tabs ? (
@@ -119,7 +121,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
                                             index === stateListTabsIndex
                                                 ? "active"
                                                 : ""
-                                        }`}
+                                        } ${size}`}
                                         onClick={() =>
                                             onClickSliderTextTabsItem(index)
                                         }
@@ -169,10 +171,12 @@ const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
                         <div
                             className={`shop-page-slider-text-list ${
                                 stateAnimateTabs ? "active" : ""
-                            }`}
+                            } ${size}`}
                             id={`shop-page-slider-text-list-block-${blockIndex}`}
                         >
-                            <ul className={`shop-page-slider-text-list-ul`}>
+                            <ul
+                                className={`shop-page-slider-text-list-ul ${size}`}
+                            >
                                 {tabs
                                     ? tabs[stateListTabsIndex] &&
                                       tabs[stateListTabsIndex].items &&
@@ -180,7 +184,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
                                           (li, index) => (
                                               <li
                                                   key={`slider-text-li-${index}`}
-                                                  className={`shop-page-slider-text-list__li`}
+                                                  className={`shop-page-slider-text-list__li ${size}`}
                                               >
                                                   <span>{li.text}</span>
                                               </li>
@@ -192,13 +196,45 @@ const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
 
                         <div className="circle-wrapper shop-page-slider-text-circle-wrapper">
                             <div
-                                className={`circle-bold shop-page-slider-text-circle1`}
+                                className={`circle-bold ${size} shop-page-slider-text-circle1`}
                             ></div>
                             <div
-                                className={`circle-regular shop-page-slider-text-circle2`}
+                                className={`circle-regular ${size} shop-page-slider-text-circle2`}
                             ></div>
                         </div>
                     </div>
+
+                    {/* <form
+                        action={CART_DOMEN}
+                        method="post"
+                        encType="application/x-www-form-urlencoded"
+                        acceptCharset="UTF-8"
+                        className="shop-page-slider-text-btn"
+                    >
+                        <input
+                            type="hidden"
+                            value="1"
+                            name={`Goods[${id_awo}]`}
+                        />
+
+                        <input
+                            name="CartAccount[name]"
+                            type="hidden"
+                            value=""
+                        />
+                        <input
+                            name="CartAccount[email]"
+                            type="hidden"
+                            value=""
+                        />
+
+                        <button
+                            type="submit"
+                            className={`btn-bold_color shop-page-slider-text__btn ${size}`}
+                        >
+                            {btnText}
+                        </button>
+                    </form> */}
                     <div className="shop-page-slider-text-btn">
                         <Link
                             to={to}
@@ -208,7 +244,7 @@ const ShopPageSliderText = ({to, title, tabs, btnText, blockIndex}) => {
                             duration={1000}
                         >
                             <button
-                                className={`btn-bold_color shop-page-slider-text__btn`}
+                                className={`btn-bold_color shop-page-slider-text__btn ${size}`}
                             >
                                 {btnText}
                             </button>

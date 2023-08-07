@@ -102,7 +102,7 @@ const Cart = () => {
     return (
         <>
             <Helmet>
-                <title>Корзина - MasterVision</title>
+                <title>Корзина - MASTER Vision</title>
             </Helmet>
             {isLoaded ? (
                 <section className="cart">

@@ -7,7 +7,7 @@ import {fetchOfferta} from "../redux/actions/offerta";
 const PublicOffer = () => {
     const dispatch = useDispatch();
 
-    const {items, isLoaded} = useSelector(({policy}) => policy);
+    const {items, isLoaded} = useSelector(({offerta}) => offerta);
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,7 +20,7 @@ const PublicOffer = () => {
     return (
         <>
             <Helmet>
-                <title>Публичная оферта - MasterVision</title>
+                <title>Публичная оферта - MASTER Vision</title>
             </Helmet>
 
             <div className="privacy">

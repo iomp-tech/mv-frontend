@@ -23,7 +23,13 @@ const Categories = React.memo(() => {
             setActiveThumb(items[key].thumb);
         },
         [items, setActiveThumb]
-    );
+	);
+	
+    React.useEffect(() => {
+        if (isLoaded) {
+            setActiveThumb(items[Object.keys(items)[0]].thumb);
+        }
+    }, [isLoaded]);
 
     //склонение ["курс", "курса", "курсов"]
     const checkDeclension = (num, title) => {

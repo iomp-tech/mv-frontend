@@ -60,7 +60,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Войти - MasterVision</title>
+                <title>Войти - MASTER Vision</title>
             </Helmet>
             {isLoaded ? (
                 <>

@@ -22,7 +22,7 @@ const Privacy = () => {
             <Helmet>
                 <title>
                     Политика в отношении обработки персональных данных -
-                    MasterVision
+                    MASTER Vision
                 </title>
             </Helmet>
             <div className="privacy">

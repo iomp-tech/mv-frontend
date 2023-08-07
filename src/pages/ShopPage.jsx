@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
 import {
+    ShopPageFixedForm,
     ShopPageMain1,
     ShopPageMain1Image,
     ShopPageMain2,
@@ -15,6 +16,11 @@ import {
     PreloaderPage,
     ShopPageFeedbackVideos,
     ShopPageGoods,
+    ShopPageFaq,
+    ShopPageComparison,
+    ShopPageContent,
+    ShopPageVideo,
+    ShopPageDemo,
 } from "../components/";
 
 import {Er404} from "./";
@@ -27,7 +33,7 @@ const ShopPage = (props) => {
     const {byUrlItem, isLoaded} = useSelector(({goods}) => goods);
     const url = props.match.params.url;
 
-    const [to, setTo] = React.useState("");
+    const [to, setTo] = React.useState("fixed-form");
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -37,20 +43,24 @@ const ShopPage = (props) => {
         if (Object.keys(byUrlItem).length) {
             for (let i = 0; i < byUrlItem.page.length; i++) {
                 if (byUrlItem.page[i].type === "composition-product") {
-					setTo("shop-page-composition-product");
-					
-                    break;
-				}
-				
-                if (byUrlItem.page[i].type === "main1-image") {
-                    setTo("shop-page-main1-image");
+                    setTo("shop-page-composition-product");
                 }
-                if (byUrlItem.page[i].type === "main2") {
-                    setTo("shop-page-main2");
-                }
-                if (byUrlItem.page[i].type === "main2-image") {
-                    setTo("shop-page-main2-image");
-                }
+
+                // if (byUrlItem.page[i].type === "goods") {
+                //     setTo("goods");
+                // }
+                // if (byUrlItem.page[i].type === "main1") {
+                //     setTo("shop-page-main1");
+                // }
+                // if (byUrlItem.page[i].type === "main1-image") {
+                //     setTo("shop-page-main1-image");
+                // }
+                // if (byUrlItem.page[i].type === "main2") {
+                //     setTo("shop-page-main2");
+                // }
+                // if (byUrlItem.page[i].type === "main2-image") {
+                //     setTo("shop-page-main2-image");
+                // }
             }
         }
     }, [url, Object.keys(byUrlItem).length]);
@@ -100,7 +110,7 @@ const ShopPage = (props) => {
                 byUrlItem && Object.keys(byUrlItem).length ? (
                     <>
                         <Helmet>
-                            <title>{byUrlItem.title} - MasterVision</title>
+                            <title>{byUrlItem.title} - IOMP</title>
                         </Helmet>
 
                         {byUrlItem.page.map((block, index) => (
@@ -108,24 +118,29 @@ const ShopPage = (props) => {
                                 {block.type === "main1" ? (
                                     <ShopPageMain1 to={to} {...block} />
                                 ) : null}
+
                                 {block.type === "main1-image" ? (
                                     <ShopPageMain1Image to={to} {...block} />
                                 ) : null}
+
                                 {block.type === "main2" ? (
                                     <ShopPageMain2
                                         {...block}
                                         id_awo={block.main2_id_awo}
                                     />
                                 ) : null}
+
                                 {block.type === "main2-image" ? (
                                     <ShopPageMain2Image
                                         {...block}
                                         id_awo={block.main2_id_awo}
                                     />
                                 ) : null}
+
                                 {block.type === "section-squares" ? (
                                     <ShopPageSectionSquares {...block} />
                                 ) : null}
+
                                 {block.type === "slider-text" ? (
                                     <ShopPageSliderText
                                         to={to}
@@ -133,24 +148,55 @@ const ShopPage = (props) => {
                                         {...block}
                                     />
                                 ) : null}
+
                                 {block.type === "composition-product" ? (
                                     <ShopPageCompositionProduct
                                         blockIndex={index}
                                         {...block}
-                                        id_awo={block.form_id_awo}
                                     />
                                 ) : null}
+
                                 {block.type === "teachers" ? (
                                     <ShopPageTeachers {...block} />
                                 ) : null}
+
                                 {block.type === "feedback-photos" ? (
                                     <ShopPageFeedbackPhotos {...block} />
                                 ) : null}
+
                                 {block.type === "feedback-videos" ? (
                                     <ShopPageFeedbackVideos {...block} />
                                 ) : null}
+
                                 {block.type === "goods" ? (
                                     <ShopPageGoods {...block} />
+                                ) : null}
+
+                                {block.type === "faq" ? (
+                                    <ShopPageFaq {...block} />
+                                ) : null}
+
+                                {block.type === "сomparison" ? (
+                                    <ShopPageComparison {...block} />
+                                ) : null}
+
+                                {block.type === "content" ? (
+                                    <ShopPageContent {...block} />
+                                ) : null}
+
+                                {block.type === "video" ? (
+                                    <ShopPageVideo {...block} />
+                                ) : null}
+
+                                {block.type === "demo" ? (
+                                    <ShopPageDemo {...block} />
+                                ) : null}
+
+                                {block.type === "fixed-form" ? (
+                                    <ShopPageFixedForm
+                                        id_awo={byUrlItem.id_awo}
+                                        {...block}
+                                    />
                                 ) : null}
                             </div>
                         ))}

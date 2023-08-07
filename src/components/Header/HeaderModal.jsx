@@ -94,7 +94,7 @@ const HeaderModal = React.memo(({isLogin}) => {
                             >
                                 <img
                                     src={`${DOMEN}/public/storage/all/logo.svg`}
-                                    alt="MasterVision"
+                                    alt="MASTER Vision"
                                     className="header-modal-logo__img"
                                 />
                             </Link>

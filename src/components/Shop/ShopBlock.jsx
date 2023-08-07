@@ -1,6 +1,7 @@
 import React from "react";
 import NumberFormat from "react-number-format";
-import {Link} from "react-router-dom";
+
+import {CART_DOMEN} from "../../api";
 
 const ShopBlock = React.memo(
     ({
@@ -15,6 +16,7 @@ const ShopBlock = React.memo(
         price,
         expensiveText,
         id,
+        id_awo,
         href,
         auth,
         onClickAddGoods,
@@ -53,7 +55,7 @@ const ShopBlock = React.memo(
                 style={{opacity: isLoadedLimit ? "" : "0.3"}}
             >
                 <div className={`shop-block-left`}>
-                    <div className={`shop-block-thumb`}>
+                    <a href={href} className={`shop-block-thumb`}>
                         <div
                             className="shop-block__img"
                             style={{
@@ -73,16 +75,17 @@ const ShopBlock = React.memo(
                         {sale ? (
                             <span className="shop-block__sale">-{sale}%</span>
                         ) : null}
-                    </div>
+                    </a>
                     <div className="shop-block-text">
                         <div className="shop-block-type-wrapper">
                             {Object.keys(categories).length
                                 ? categories[category] && (
-                                      <span
+                                      <a
+                                          href={`/shop/?category=${category}`}
                                           className={`shop-block__type_color`}
                                       >
                                           {categories[category].title}
-                                      </span>
+                                      </a>
                                   )
                                 : null}
 
@@ -97,25 +100,29 @@ const ShopBlock = React.memo(
                             {Object.keys(auths).length
                                 ? auth.map((key) =>
                                       auths[key] ? (
-                                          <span
+                                          <a
+                                              href={`/shop/?auth=${key}`}
                                               className={`shop-block__type_gray`}
                                               key={`${auths[key].name}_${key}`}
                                           >
                                               {auths[key].name}
-                                          </span>
+                                          </a>
                                       ) : null
                                   )
                                 : null}
                         </div>
-                        <h3 className="shop-block__title">{title}</h3>
-                        <span className="shop-block__time">{time}</span>
+
+                        <a href={href}>
+                            <h3 className="shop-block__title">{title}</h3>
+                        </a>
+                        {/* <span className="shop-block__time">{time}</span> */}
 
                         {awo_shop_storage !== awo_shop && awo_shop_storage ? (
-                            <span className="shop-block__awo">
+                            <span className="shop-block__awo D3Euronism">
                                 {awo_shop_title}
                             </span>
                         ) : (
-                            <span className="shop-block__awo_color">
+                            <span className="shop-block__awo_color D3Euronism">
                                 {awo_shop_title}
                             </span>
                         )}
@@ -123,7 +130,7 @@ const ShopBlock = React.memo(
                 </div>
 
                 <div className={`shop-block-right`}>
-                    <div className={`shop-block-price`}>
+                    <a href={href} className={`shop-block-price`}>
                         {expensive ? (
                             <>
                                 <span
@@ -179,8 +186,16 @@ const ShopBlock = React.memo(
                                 )}
                             </>
                         )}
-                    </div>
-                    {expensive ? (
+                    </a>
+
+                    <a
+                        href={href}
+                        target="_blank"
+                        className={`btn-bold_color shop-block__btn`}
+                    >
+                        Подробнее
+                    </a>
+                    {/* {expensive ? (
                         <a
                             href={href}
                             target="_blank"
@@ -226,7 +241,7 @@ const ShopBlock = React.memo(
                                 </Link>
                             ) : null}
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         );

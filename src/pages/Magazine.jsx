@@ -141,7 +141,7 @@ const Magazine = (props) => {
     return (
         <>
             <Helmet>
-                <title>Журнал - MasterVision</title>
+                <title>Журнал - MASTER Vision</title>
             </Helmet>
             <section className="magazine">
                 <div className="container">

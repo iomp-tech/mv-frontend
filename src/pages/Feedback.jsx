@@ -112,7 +112,7 @@ const Feedback = () => {
     return (
         <>
             <Helmet>
-                <title>Отзывы - MasterVision</title>
+                <title>Отзывы - MASTER Vision</title>
             </Helmet>
 
             <section className="feedback">

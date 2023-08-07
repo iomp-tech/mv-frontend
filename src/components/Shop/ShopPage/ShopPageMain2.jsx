@@ -4,7 +4,7 @@ import moment from "moment";
 import "moment/locale/ru";
 
 import ShopPageModal from "./ShopPageModal";
-import ShopPageForm from "./ShopPageForm";
+import ShopPageAwoForm from "./ShopPageAwoForm";
 
 const ShopPageMain2 = ({
     subtitle,
@@ -14,6 +14,7 @@ const ShopPageMain2 = ({
     minDate,
     maxDate,
     date,
+    size,
     id_awo,
     action,
     formId,
@@ -43,43 +44,45 @@ const ShopPageMain2 = ({
         if (e.target === ShopPageModalRef.current) {
             setStateModalShopPage(false);
         }
-	};
+    };
 
     return (
         <>
             <section className="shop-page-main2" id="shop-page-main2">
                 <div className="container">
                     <div className="shop-page-main2-wrapper">
-                        <p className={`shop-page-main2__subtitle`}>
+                        <p className={`shop-page-main2__subtitle ${size}`}>
                             {subtitle}
                         </p>
                         <h1
-                            className={`shop-page-main2__title`}
+                            className={`shop-page-main2__title ${size}`}
                             dangerouslySetInnerHTML={{
                                 __html: title,
                             }}
                         ></h1>
-                        <p className={`shop-page-main2__description`}>
+                        <p className={`shop-page-main2__description ${size}`}>
                             {description}
                         </p>
 
                         <div className="circle-wrapper main-circle-wrapper">
                             <div className="circle-regular main-circle1"></div>
-                            <div className={`circle-bold main-circle2`}></div>
+                            <div
+                                className={`circle-bold ${size} main-circle2`}
+                            ></div>
                         </div>
 
                         {range ? (
                             <div className="shop-page-main2-date">
                                 <div className="shop-page-main2-date-left">
                                     <span
-                                        className={`shop-page-main2__date-range`}
+                                        className={`shop-page-main2__date-range ${size}`}
                                     >
                                         <b>Дата старта:</b>
                                     </span>
                                 </div>
                                 <div className="shop-page-main2-date-right">
                                     <span
-                                        className={`shop-page-main2__date-range`}
+                                        className={`shop-page-main2__date-range ${size}`}
                                     >
                                         <b>с:</b>{" "}
                                         {moment(minDate, "YYYY-MM-DD, HH:mm")
@@ -87,7 +90,7 @@ const ShopPageMain2 = ({
                                             .format("DD MMMM, HH:mm")}
                                     </span>
                                     <span
-                                        className={`shop-page-main2__date-range`}
+                                        className={`shop-page-main2__date-range ${size}`}
                                     >
                                         <b>до:</b>{" "}
                                         {moment(maxDate, "YYYY-MM-DD, HH:mm")
@@ -97,14 +100,18 @@ const ShopPageMain2 = ({
                                 </div>
                             </div>
                         ) : (
-                            <div className={`shop-page-main2-date`}>
+                            <div className={`shop-page-main2-date ${size}`}>
                                 <div className="shop-page-main2-date-left">
-                                    <span className={`shop-page-main2__date`}>
+                                    <span
+                                        className={`shop-page-main2__date ${size}`}
+                                    >
                                         <b>Дата старта:</b>
                                     </span>
                                 </div>
                                 <div className="shop-page-main2-date-right">
-                                    <span className={`shop-page-main2__date`}>
+                                    <span
+                                        className={`shop-page-main2__date ${size}`}
+                                    >
                                         {moment(date, "YYYY-MM-DD, HH:mm")
                                             .locale("ru")
                                             .format("DD MMMM, HH:mm")}
@@ -116,12 +123,12 @@ const ShopPageMain2 = ({
                         {vkUrl || telegramUrl ? (
                             <button
                                 onClick={toggleModal}
-                                className={`btn-bold_color shop-page-main2__btn`}
+                                className={`btn-bold_color shop-page-main2__btn ${size}`}
                             >
                                 Записаться
                             </button>
                         ) : (
-                            <ShopPageForm
+                            <ShopPageAwoForm
                                 id_awo={id_awo}
                                 action={action}
                                 formId={formId}

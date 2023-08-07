@@ -50,12 +50,14 @@ const ShopPageGoods = ({title, goods}) => {
     return (
         <>
             {Object.keys(itemsAll).length ? (
-                <section className="shop" style={{marginBottom: "50px"}}>
+                <section
+                    className="shop"
+                    id="goods"
+                    style={{marginBottom: "50px"}}
+                >
                     <div className="container">
                         <div className="shop-wrapper">
-                            <h2 className={`title shop__title`}>
-                                {title}
-                            </h2>
+                            <h2 className={`title shop__title`}>{title}</h2>
 
                             <div className="shop-block-wrapper">
                                 {isLoaded

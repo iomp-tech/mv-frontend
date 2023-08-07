@@ -15,6 +15,10 @@ import {
     PreloaderPage,
     ShopPageFeedbackVideos,
     ShopPageGoods,
+    ShopPageFaq,
+    ShopPageComparison,
+    ShopPageContent,
+    ShopPageVideo,
 } from "../components/";
 
 import {Er404} from "./";
@@ -25,6 +29,7 @@ const TimetableSubs = (props) => {
     const dispatch = useDispatch();
 
     const {byUrlItem, isLoaded} = useSelector(({timetable}) => timetable);
+    const {size, type} = useSelector(({visually}) => visually);
     const url = props.match.params.url;
 
     const [to, setTo] = React.useState("");
@@ -41,6 +46,7 @@ const TimetableSubs = (props) => {
 
                     break;
                 }
+
                 if (byUrlItem.page[i].type === "main1") {
                     setTo("shop-page-main1");
                 }
@@ -102,24 +108,32 @@ const TimetableSubs = (props) => {
                 byUrlItem && Object.keys(byUrlItem).length ? (
                     <>
                         <Helmet>
-                            <title>{byUrlItem.title} - MasterVision</title>
+                            <title>{byUrlItem.title} - IOMP</title>
                         </Helmet>
 
                         {byUrlItem.page.length ? (
                             byUrlItem.page.map((block, index) => (
                                 <div key={`shop-page-block-${index}`}>
                                     {block.type === "main1" ? (
-                                        <ShopPageMain1 to={to} {...block} />
-                                    ) : null}
-                                    {block.type === "main1-image" ? (
-                                        <ShopPageMain1Image
+                                        <ShopPageMain1
+                                            size={size}
                                             to={to}
                                             {...block}
                                         />
                                     ) : null}
+
+                                    {block.type === "main1-image" ? (
+                                        <ShopPageMain1Image
+                                            size={size}
+                                            to={to}
+                                            {...block}
+                                        />
+                                    ) : null}
+
                                     {block.type === "main2" ? (
                                         <ShopPageMain2
                                             {...block}
+                                            size={size}
                                             id_awo={byUrlItem.id_awo}
                                             action={byUrlItem.action}
                                             formId={byUrlItem.formId}
@@ -132,9 +146,11 @@ const TimetableSubs = (props) => {
                                             telegramUrl={byUrlItem.telegramUrl}
                                         />
                                     ) : null}
+
                                     {block.type === "main2-image" ? (
                                         <ShopPageMain2Image
                                             {...block}
+                                            size={size}
                                             id_awo={byUrlItem.id_awo}
                                             action={byUrlItem.action}
                                             formId={byUrlItem.formId}
@@ -147,11 +163,17 @@ const TimetableSubs = (props) => {
                                             telegramUrl={byUrlItem.telegramUrl}
                                         />
                                     ) : null}
+
                                     {block.type === "section-squares" ? (
-                                        <ShopPageSectionSquares {...block} />
+                                        <ShopPageSectionSquares
+                                            size={size}
+                                            type={type}
+                                            {...block}
+                                        />
                                     ) : null}
                                     {block.type === "slider-text" ? (
                                         <ShopPageSliderText
+                                            size={size}
                                             to={to}
                                             blockIndex={index}
                                             {...block}
@@ -159,32 +181,55 @@ const TimetableSubs = (props) => {
                                     ) : null}
                                     {block.type === "composition-product" ? (
                                         <ShopPageCompositionProduct
+                                            size={size}
                                             {...block}
-                                            blockIndex={index}
-                                            id_awo={byUrlItem.id_awo}
                                             action={byUrlItem.action}
-                                            formId={byUrlItem.formId}
-                                            formVc={byUrlItem.formVc}
                                             vkUrl={byUrlItem.vkUrl}
+                                            blockIndex={index}
                                             telegramUrl={byUrlItem.telegramUrl}
                                         />
                                     ) : null}
                                     {block.type === "teachers" ? (
-                                        <ShopPageTeachers {...block} />
+                                        <ShopPageTeachers
+                                            size={size}
+                                            {...block}
+                                        />
                                     ) : null}
                                     {block.type === "feedback-photos" ? (
-                                        <ShopPageFeedbackPhotos {...block} />
+                                        <ShopPageFeedbackPhotos
+                                            size={size}
+                                            {...block}
+                                        />
                                     ) : null}
                                     {block.type === "feedback-videos" ? (
-                                        <ShopPageFeedbackVideos {...block} />
+                                        <ShopPageFeedbackVideos
+                                            size={size}
+                                            {...block}
+                                        />
                                     ) : null}
                                     {block.type === "goods" ? (
-                                        <ShopPageGoods {...block} />
+                                        <ShopPageGoods size={size} {...block} />
+                                    ) : null}
+
+                                    {block.type === "faq" ? (
+                                        <ShopPageFaq {...block} />
+                                    ) : null}
+
+                                    {block.type === "сomparison" ? (
+                                        <ShopPageComparison {...block} />
+                                    ) : null}
+
+                                    {block.type === "content" ? (
+                                        <ShopPageContent {...block} />
+                                    ) : null}
+
+                                    {block.type === "video" ? (
+                                        <ShopPageVideo {...block} />
                                     ) : null}
                                 </div>
                             ))
                         ) : (
-                            <ShopPageMain2 {...byUrlItem} />
+                            <ShopPageMain2 size={size} {...byUrlItem} />
                         )}
                     </>
                 ) : (

@@ -147,7 +147,7 @@ const Timetable = (props) => {
     return (
         <>
             <Helmet>
-                <title>Расписание - MasterVision</title>
+                <title>Расписание - MASTER Vision</title>
             </Helmet>
             <section className="timetable">
                 <div className="container">

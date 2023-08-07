@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Helmet } from "react-helmet";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Header, Footer, PreloaderPage } from './components';
@@ -92,7 +92,7 @@ function App() {
 						<Route path='/post/:id' render={(props) => <Post {...props} />} exact />
 						<Route path='/magazine/:cat?' render={(props) => <Magazine {...props} />} />
 
-						<Route path='/cart' render={() => <Cart />} exact />
+						{/* <Route path='/cart' render={() => <Cart />} exact /> */}
 
 						<Route path="/feedback" render={(props) => <Feedback {...props} />} exact />
 

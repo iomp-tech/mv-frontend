@@ -29,7 +29,7 @@ const Confirmed = (props) => {
     return (
         <>
             <Helmet>
-                <title>Подтверждение email - MasterVision</title>
+                <title>Подтверждение email - MASTER Vision</title>
             </Helmet>
 
             {stateHash !== null ? (
