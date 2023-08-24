@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+
+import {Link, animateScroll as scroll} from "react-scroll";
 
 const ShopPageMain1Image = ({
     to,
@@ -16,21 +17,19 @@ const ShopPageMain1Image = ({
                 <div className="shop-page-main1-image-wrapper">
                     <div className="shop-page-main1-image-text">
                         <p
-                            className={`shop-page-main1-image-text__subtitle ${size}`}
-                        >
+                            className={`shop-page-main1-image-text__subtitle ${size}`}>
                             {subtitle}
                         </p>
                         <h1
                             className={`shop-page-main1-image-text__title ${size}`}
                             dangerouslySetInnerHTML={{
                                 __html: title,
-                            }}
-                        ></h1>
+                            }}></h1>
                         <p
                             className={`shop-page-main1-image-text__description ${size}`}
-                        >
-                            {description}
-                        </p>
+                            dangerouslySetInnerHTML={{
+                                __html: description,
+                            }}></p>
                         {/* 
                         <div className="shop-page-main1-image-form">
                             {isSend ? (
@@ -38,6 +37,7 @@ const ShopPageMain1Image = ({
                                     <h3 className="shop-page-form-thank__title">
                                         Спасибо за заявку!
                                     </h3>
+
                                     <p className="shop-page-form-thank__description">
                                         С вами скоро свяжется наш менеджер
                                     </p>
@@ -62,6 +62,7 @@ const ShopPageMain1Image = ({
                                 value="1"
                                 name={`Goods[${id_awo}]`}
                             />
+
                             <input
                                 name="CartAccount[name]"
                                 type="hidden"
@@ -72,6 +73,7 @@ const ShopPageMain1Image = ({
                                 type="hidden"
                                 value=""
                             />
+
                             <button
                                 type="submit"
                                 className={`btn-bold_color shop-page-main1-image-text__btn ${size}`}
@@ -84,19 +86,16 @@ const ShopPageMain1Image = ({
                             spy={true}
                             smooth={true}
                             offset={-200}
-                            duration={1000}
-                        >
+                            duration={1000}>
                             <button
-                                className={`btn-bold_color shop-page-main1-image-text__btn ${size}`}
-                            >
+                                className={`btn-bold_color shop-page-main1-image-text__btn ${size}`}>
                                 {btnText}
                             </button>
                         </Link>
                         <div className="circle-wrapper main-circle-wrapper">
                             <div className="circle-regular main-circle1"></div>
                             <div
-                                className={`circle-bold ${size} main-circle2`}
-                            ></div>
+                                className={`circle-bold ${size} main-circle2`}></div>
                         </div>
                     </div>
                     <div className="shop-page-main1-image-cover">
@@ -111,4 +110,5 @@ const ShopPageMain1Image = ({
         </section>
     );
 };
+
 export default ShopPageMain1Image;

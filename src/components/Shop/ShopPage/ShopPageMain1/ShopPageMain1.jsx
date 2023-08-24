@@ -15,12 +15,13 @@ const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
                         className={`shop-page-main1__title ${size}`}
                         dangerouslySetInnerHTML={{
                             __html: title,
-                        }}
-                    ></h1>
+                        }}></h1>
 
-                    <p className={`shop-page-main1__description ${size}`}>
-                        {description}
-                    </p>
+                    <p
+                        className={`shop-page-main1__description ${size}`}
+                        dangerouslySetInnerHTML={{
+                            __html: description,
+                        }}></p>
                     {/* 
                     <div className="shop-page-main1-form">
                         {isSend ? (
@@ -28,6 +29,7 @@ const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
                                 <h3 className="shop-page-form-thank__title">
                                     Спасибо за заявку!
                                 </h3>
+
                                 <p className="shop-page-form-thank__description">
                                     С вами скоро свяжется наш менеджер
                                 </p>
@@ -51,6 +53,7 @@ const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
                             value="1"
                             name={`Goods[${id_awo}]`}
                         />
+
                         <input
                             name="CartAccount[name]"
                             type="hidden"
@@ -61,6 +64,7 @@ const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
                             type="hidden"
                             value=""
                         />
+
                         <button
                             type="submit"
                             className={`btn-bold_color shop-page-main1__btn ${size}`}
@@ -73,19 +77,16 @@ const ShopPageMain1 = ({to, subtitle, title, description, btnText, size}) => {
                         spy={true}
                         smooth={true}
                         offset={-200}
-                        duration={1000}
-                    >
+                        duration={1000}>
                         <button
-                            className={`btn-bold_color shop-page-main1__btn ${size}`}
-                        >
+                            className={`btn-bold_color shop-page-main1__btn ${size}`}>
                             {btnText}
                         </button>
                     </Link>
                     <div className="circle-wrapper main-circle-wrapper">
                         <div className="circle-regular main-circle1"></div>
                         <div
-                            className={`circle-bold ${size} main-circle2`}
-                        ></div>
+                            className={`circle-bold ${size} main-circle2`}></div>
                     </div>
                 </div>
             </div>
