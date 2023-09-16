@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 
 import {
-    ShopPageFixedForm,
     ShopPageMain1,
     ShopPageMain1Image,
     ShopPageMain2,
@@ -22,6 +21,8 @@ import {
     ShopPageVideo,
     ShopPageDemo,
     ShopPageProgramm,
+    ShopPageFixedForm,
+    ShopPageTextForm,
 } from "../components/";
 
 import {Er404} from "./";
@@ -203,6 +204,20 @@ const ShopPage = (props) => {
                                         {...block}
                                     />
                                 ) : null}
+
+								{block.type === "fixed-form" ? (
+									<ShopPageFixedForm
+										id_awo={byUrlItem.id_awo}
+										{...block}
+									/>
+								) : null}
+
+								{block.type === "text-form" ? (
+									<ShopPageTextForm
+										id_awo={byUrlItem.id_awo}
+										{...block}
+									/>
+								) : null}
                             </div>
                         ))}
                     </>

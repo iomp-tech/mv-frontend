@@ -7,7 +7,11 @@ const ShopPageProgramm = ({title, description, items}) => {
         <section className={`shop-page-programm`} id="shop-page-programm">
             <div className="container">
                 <div className="shop-page-programm-wrapper">
-                    <h2 className="shop-page-programm__title">{title}</h2>
+                    <h2
+                        className="shop-page-programm__title"
+                        dangerouslySetInnerHTML={{
+                            __html: title,
+                        }}></h2>
 
                     <p
                         className="shop-page-programm__description"
@@ -16,12 +20,13 @@ const ShopPageProgramm = ({title, description, items}) => {
                         }}></p>
 
                     <div className="shop-page-programm-items-wrapper">
-                        {items.map((item, index) => (
-                            <ShopPageProgrammItem
-                                {...item}
-                                key={`shop-page-programm-item-${index}`}
-                            />
-                        ))}
+                        {items &&
+                            items.map((item, index) => (
+                                <ShopPageProgrammItem
+                                    {...item}
+                                    key={`shop-page-programm-item-${index}`}
+                                />
+                            ))}
                     </div>
                 </div>
             </div>

@@ -491,22 +491,39 @@
 				&-tabs
 					&-item
 						padding-right: 25px
+						
 			&-composition-product
 				&-modules
+					&-description
+						margin: 15px 0
+
+					&__description
+						font-size: 18px
+
+					&-items-wrapper
+						flex-direction: column
+						align-items: flex-start
+
 					&-item
-						padding-right: 15px
+						padding: 0
+						margin-bottom: 25px
+
+						&:last-child
+							margin-bottom: 0
+
 				&-block
-					&-left
-						&-price
-							&-wrapper
-								align-items: center
-								flex-wrap: wrap
-					&__price
-						padding: 15px 0
-						font-size: 32px
-					&__title
-						&_color
-							font-size: 28px
+					flex-direction: column
+
+					&-text
+						&__title
+							font-size: 24px
+
+						&__description
+							font-size: 18px
+
+					&-form
+						width: 100%
+						margin-top: 25px
 
 			&-comparison
 				&-blocks

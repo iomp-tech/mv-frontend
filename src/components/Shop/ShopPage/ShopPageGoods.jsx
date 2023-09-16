@@ -53,11 +53,14 @@ const ShopPageGoods = ({title, goods}) => {
                 <section
                     className="shop"
                     id="goods"
-                    style={{marginBottom: "50px"}}
-                >
+                    style={{marginBottom: "50px"}}>
                     <div className="container">
                         <div className="shop-wrapper">
-                            <h2 className={`title shop__title`}>{title}</h2>
+                            <h2
+                                className={`title  shop__title`}
+                                dangerouslySetInnerHTML={{
+                                    __html: title,
+                                }}></h2>
 
                             <div className="shop-block-wrapper">
                                 {isLoaded
@@ -87,8 +90,7 @@ const ShopPageGoods = ({title, goods}) => {
                                           .map((_, index) => (
                                               <div
                                                   className="shop-block"
-                                                  key={index}
-                                              >
+                                                  key={index}>
                                                   <ShopBlockLoading />
                                               </div>
                                           ))}

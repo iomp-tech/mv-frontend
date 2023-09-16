@@ -9,9 +9,9 @@ import {
     TeacherBlockLoading,
 } from "../../../components/";
 
-const ShopPageTeachers = ({auth, title}) => {
-	const dispatch = useDispatch();
-	
+const ShopPageTeachers = ({auth, title, size}) => {
+    const dispatch = useDispatch();
+
     const {itemsMain, isLoaded} = useSelector(({teacher}) => teacher);
 
     React.useEffect(() => {
@@ -50,7 +50,11 @@ const ShopPageTeachers = ({auth, title}) => {
         <section className="teacher" style={{marginBottom: "50px"}}>
             <div className="container">
                 <div className="teacher-wrapper">
-                    <h2 className={`title teacher__title`}>{title}</h2>
+                    <h2
+                        className={`title ${size} teacher__title`}
+                        dangerouslySetInnerHTML={{
+                            __html: title,
+                        }}></h2>
 
                     <TeacherModal
                         state={TeacherModalBool}
@@ -67,12 +71,18 @@ const ShopPageTeachers = ({auth, title}) => {
                                       itemsMain[obj] && (
                                           <TeacherBlock
                                               key={`teacher-block-${itemsMain[obj].id}`}
+                                              size={size}
                                               onClick={() =>
                                                   toggleTeacherModal(
                                                       itemsMain[obj].id
                                                   )
                                               }
                                               {...itemsMain[obj]}
+                                              big={
+                                                  auth.length === 1
+                                                      ? true
+                                                      : false
+                                              }
                                           />
                                       )
                               )
@@ -81,8 +91,7 @@ const ShopPageTeachers = ({auth, title}) => {
                                   .map((_, index) => (
                                       <div
                                           className="teacher-block"
-                                          key={index}
-                                      >
+                                          key={index}>
                                           <TeacherBlockLoading />
                                       </div>
                                   ))}
